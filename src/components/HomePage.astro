@@ -1,6 +1,4 @@
 ---
-import { Image } from "astro:assets";
-import icon from "../assets/brand/kokage-app-icon.png";
 import type { SiteCopy } from "../i18n";
 import SiteLayout from "../layouts/SiteLayout.astro";
 
@@ -51,8 +49,8 @@ const { copy } = Astro.props;
               aria-hidden="true"
             />
             <div class="brand-stage__icon">
-              <Image
-                src={icon}
+              <img
+                src="/brand/kokage-app-icon.png"
                 alt={copy.hero.imageAlt}
                 width={320}
                 height={320}

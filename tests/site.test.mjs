@@ -73,6 +73,11 @@ function assertPage(
 
   assert.match(html, /<ol class="turn-flow" role="list">/);
   assert.match(html, /<ul class="feature-list" role="list">/);
+  assert.match(
+    html,
+    /<div class="brand-stage__icon"><img src="\/brand\/kokage-app-icon\.png"/,
+  );
+  assert.doesNotMatch(html, /\/_image\//);
   assert.ok(html.indexOf('id="features"') < html.indexOf('id="how"'));
 
   for (const id of ["how", "features", "privacy", "status"]) {
@@ -197,7 +202,6 @@ test("published branding stays byte-identical to Kokage source assets", async ()
   const expected = new Map([
     ["public/brand/kokage-app-icon.svg", "27c812d40608e79746f142924cdf98fc5a7d9c8c311d93e2f605293c64b0c1dc"],
     ["public/brand/kokage-app-icon.png", "3aa093afc19c43be5154b55c13cd3ab4394942629f07d34bce3eb72db9103189"],
-    ["src/assets/brand/kokage-app-icon.png", "3aa093afc19c43be5154b55c13cd3ab4394942629f07d34bce3eb72db9103189"],
     ["public/brand/kokage-leaves.svg", "e2fd58ce0a1992b73ad1eec538575b3a63306c7e685938b61bc95cd2e76473bc"],
     ["public/brand/kokage-large-leaf.svg", "a2d0d496959771c6701060c560838f76b854f2f52e4875d0ff55ced1ff940240"],
     ["public/brand/kokage-large-leaf-with-petiole.svg", "766f7d1f5644d849123818990026444fce3db45bb02bdf5657096dbe1f5d68e5"],
