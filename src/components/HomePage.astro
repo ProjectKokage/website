@@ -1,0 +1,225 @@
+---
+import { Image } from "astro:assets";
+import icon from "../assets/brand/kokage-app-icon.png";
+import type { SiteCopy } from "../i18n";
+import SiteLayout from "../layouts/SiteLayout.astro";
+
+interface Props {
+  copy: SiteCopy;
+}
+
+const { copy } = Astro.props;
+---
+
+<SiteLayout copy={copy}>
+  <main id="main">
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero__grid page-shell">
+        <div class="hero__copy">
+          <p class="eyebrow reveal reveal--one">{copy.hero.eyebrow}</p>
+          <h1 id="hero-title" class="hero__title reveal reveal--two">
+            <span>{copy.hero.titleLead}</span>
+            {
+              copy.hero.titleAccentLines.map((line) => (
+                <span class="hero__title-accent">{line}</span>
+              ))
+            }
+          </h1>
+          <p class="hero__lede reveal reveal--three">{copy.hero.lede}</p>
+          <div class="hero__actions reveal reveal--four">
+            <a class="button button--primary" href="#features">
+              {copy.hero.primaryAction}
+              <span aria-hidden="true">↓</span>
+            </a>
+            <a class="button button--secondary" href="#status">
+              {copy.hero.secondaryAction}
+            </a>
+          </div>
+          <p class="hero__notice reveal reveal--four">
+            {copy.hero.notice}
+          </p>
+        </div>
+
+        <div class="hero-visual reveal reveal--three">
+          <div class="brand-stage">
+            <img
+              class="brand-stage__leaves"
+              src="/brand/kokage-leaves.svg"
+              alt=""
+              width="370"
+              height="263"
+              aria-hidden="true"
+            />
+            <div class="brand-stage__icon">
+              <Image
+                src={icon}
+                alt={copy.hero.imageAlt}
+                width={320}
+                height={320}
+                loading="eager"
+                fetchpriority="high"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section
+      id="features"
+      class="section section--features"
+      aria-labelledby="features-title"
+    >
+      <div class="page-shell editorial-grid">
+        <div class="editorial-intro">
+          <p class="eyebrow">{copy.features.eyebrow}</p>
+          <h2 id="features-title">{copy.features.title}</h2>
+          <p>{copy.features.lede}</p>
+          <img
+            class="editorial-leaf"
+            src="/brand/kokage-large-leaf.svg"
+            alt=""
+            width="239"
+            height="263"
+            loading="lazy"
+            aria-hidden="true"
+          />
+        </div>
+
+        <ul class="feature-list" role="list">
+          {
+            copy.features.items.map((item, index) => (
+              <li>
+                <span class="feature-number" aria-hidden="true">
+                  {String(index + 1).padStart(2, "0")}
+                </span>
+                <div>
+                  <h3>{item.title}</h3>
+                  <p>{item.body}</p>
+                </div>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+    </section>
+
+    <section id="how" class="section section--flow" aria-labelledby="flow-title">
+      <div class="page-shell">
+        <div class="section-heading section-heading--split">
+          <div>
+            <p class="eyebrow">{copy.flow.eyebrow}</p>
+            <h2 id="flow-title">{copy.flow.title}</h2>
+          </div>
+          <p>{copy.flow.lede}</p>
+        </div>
+
+        <ol class="turn-flow" role="list">
+          {
+            copy.flow.stages.map((stage, index) => (
+              <li>
+                <span class="stage-index" aria-hidden="true">
+                  {String(index + 1).padStart(2, "0")}
+                </span>
+                <p class="stage-label">{stage.label}</p>
+                <h3>{stage.title}</h3>
+                <p>{stage.detail}</p>
+              </li>
+            ))
+          }
+        </ol>
+
+        <p class="flow-note">
+          <span aria-hidden="true">↳</span>
+          {copy.flow.footnote}
+        </p>
+      </div>
+    </section>
+
+    <section
+      id="privacy"
+      class="section section--privacy"
+      aria-labelledby="privacy-title"
+    >
+      <div class="privacy-leaf privacy-leaf--one" aria-hidden="true"></div>
+      <div class="privacy-leaf privacy-leaf--two" aria-hidden="true"></div>
+      <div class="page-shell privacy-shell">
+        <div class="section-heading section-heading--split section-heading--dark">
+          <div>
+            <p class="eyebrow">{copy.privacy.eyebrow}</p>
+            <h2 id="privacy-title">{copy.privacy.title}</h2>
+          </div>
+          <p>{copy.privacy.lede}</p>
+        </div>
+
+        <div class="privacy-grid">
+          {
+            copy.privacy.items.map((item, index) => (
+              <article>
+                <span class="privacy-index" aria-hidden="true">
+                  {String(index + 1).padStart(2, "0")}
+                </span>
+                <h3>{item.title}</h3>
+                <p>{item.body}</p>
+              </article>
+            ))
+          }
+        </div>
+
+        <aside class="network-note" aria-labelledby="network-note-title">
+          <p id="network-note-title">{copy.privacy.networkLabel}</p>
+          <p>{copy.privacy.networkBody}</p>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section section--stack" aria-labelledby="stack-title">
+      <div class="page-shell stack-grid">
+        <div class="stack-intro">
+          <p class="eyebrow">{copy.stack.eyebrow}</p>
+          <h2 id="stack-title">{copy.stack.title}</h2>
+          <p>{copy.stack.lede}</p>
+        </div>
+
+        <dl class="stack-list">
+          {
+            copy.stack.items.map((item) => (
+              <div>
+                <dt>{item.title}</dt>
+                <dd>{item.body}</dd>
+              </div>
+            ))
+          }
+        </dl>
+      </div>
+    </section>
+
+    <section id="status" class="section section--status" aria-labelledby="status-title">
+      <div class="page-shell">
+        <div class="section-heading section-heading--split">
+          <div>
+            <p class="eyebrow">{copy.status.eyebrow}</p>
+            <h2 id="status-title">{copy.status.title}</h2>
+          </div>
+          <p>{copy.status.lede}</p>
+        </div>
+
+        <div class="platform-grid">
+          {
+            copy.status.platforms.map((platform) => (
+              <article>
+                <div class="platform-heading">
+                  <h3>{platform.name}</h3>
+                  <p>{platform.state}</p>
+                </div>
+                <p>{platform.detail}</p>
+              </article>
+            ))
+          }
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+</SiteLayout>

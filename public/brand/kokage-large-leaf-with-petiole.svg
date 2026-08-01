@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  width="288"
+  height="314"
+  viewBox="567 251 288 314"
+  role="img"
+  aria-labelledby="title description"
+>
+  <title id="title">Kokage large-leaf mark with petiole</title>
+  <desc id="description">
+    The large highlighted mint leaf from the Kokage app icon with a tapered
+    petiole, on a transparent background.
+  </desc>
+
+  <defs>
+    <linearGradient
+      id="mint"
+      x1="430"
+      y1="945"
+      x2="835"
+      y2="272"
+      gradientUnits="userSpaceOnUse"
+    >
+      <stop offset="0" stop-color="#a8d2c2"/>
+      <stop offset=".5" stop-color="#aad3c3"/>
+      <stop offset="1" stop-color="#aad3c4"/>
+    </linearGradient>
+  </defs>
+
+  <path id="leaf-with-petiole" fill="url(#mint)" d="
+    M 835 271
+    C 831.2 375.9 783.1 436.4 698 460
+    C 681 465 668 471 658 479
+    C 646 489 632 505 619 520
+    C 610 530 603 537 598 541
+    C 595 544.2 591 545 588.5 542.7
+    C 586 540.4 587 536.8 590.2 533.8
+    C 599 525.5 608 515 616 504
+    C 625 492 634.85 476.5 635.274 460.253
+    C 638.418 336.294 709.328 274.404 835 271
+    Z
+  "/>
+
+  <path id="leaf-highlight" fill="#fdf2e1" d="
+    M 782 329
+    C 739.5 362.2 698.5 396.9 664 438
+    C 684.2 390.5 729.3 350.7 782 329
+    Z
+  "/>
+</svg>

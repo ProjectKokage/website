@@ -1,0 +1,144 @@
+---
+import { getRelativeLocaleUrl } from "astro:i18n";
+import type { SiteCopy } from "../i18n";
+import "../styles/global.css";
+
+interface Props {
+  copy: SiteCopy;
+}
+
+const { copy } = Astro.props;
+const englishUrl = getRelativeLocaleUrl("en");
+const japaneseUrl = getRelativeLocaleUrl("ja");
+const canonicalPath = copy.locale === "en" ? englishUrl : japaneseUrl;
+const canonicalUrl = new URL(canonicalPath, Astro.site);
+const englishAbsoluteUrl = new URL(englishUrl, Astro.site);
+const japaneseAbsoluteUrl = new URL(japaneseUrl, Astro.site);
+const imageUrl = new URL("/brand/kokage-app-icon.png", Astro.site);
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  name: "Kokage",
+  url: canonicalUrl.href,
+  description: copy.meta.description,
+  inLanguage: copy.htmlLang,
+};
+---
+
+<!doctype html>
+<html lang={copy.htmlLang}>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="generator" content={Astro.generator} />
+    <meta name="theme-color" content="#0d1411" />
+    <meta name="color-scheme" content="dark light" />
+    <meta name="robots" content="index, follow" />
+
+    <title>{copy.meta.title}</title>
+    <meta name="description" content={copy.meta.description} />
+    <link rel="canonical" href={canonicalUrl} />
+    <link rel="alternate" hreflang="en" href={englishAbsoluteUrl} />
+    <link rel="alternate" hreflang="ja" href={japaneseAbsoluteUrl} />
+    <link rel="alternate" hreflang="x-default" href={englishAbsoluteUrl} />
+    <link rel="sitemap" href="/sitemap-index.xml" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Kokage" />
+    <meta property="og:title" content={copy.meta.title} />
+    <meta property="og:description" content={copy.meta.description} />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:locale" content={copy.ogLocale} />
+    <meta property="og:locale:alternate" content={copy.alternateOgLocale} />
+    <meta property="og:image" content={imageUrl} />
+    <meta property="og:image:width" content="1024" />
+    <meta property="og:image:height" content="1024" />
+    <meta property="og:image:alt" content={copy.hero.imageAlt} />
+
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content={copy.meta.title} />
+    <meta name="twitter:description" content={copy.meta.description} />
+    <meta name="twitter:image" content={imageUrl} />
+    <meta name="twitter:image:alt" content={copy.hero.imageAlt} />
+
+    <link rel="icon" type="image/svg+xml" href="/brand/kokage-app-icon.svg" />
+    <link rel="icon" type="image/png" href="/favicon.png" />
+    <link rel="apple-touch-icon" href="/brand/kokage-app-icon-192.png" />
+
+    <script is:inline type="application/ld+json" set:html={JSON.stringify(schema)} />
+  </head>
+  <body id="top">
+    <a class="skip-link" href="#main">{copy.skipLink}</a>
+
+    <header class="site-header">
+      <div class="header-shell">
+        <a
+          class="brand"
+          href={canonicalPath}
+          aria-label={`${copy.brandLabel} ${copy.navigation.homeLabel}`}
+        >
+          <img
+            class="brand__mark"
+            src="/brand/kokage-app-icon.svg"
+            alt=""
+            width="40"
+            height="40"
+          />
+          <span class="brand__name">{copy.brandLabel}</span>
+        </a>
+
+        <nav class="site-nav" aria-label={copy.navigation.label}>
+          {
+            copy.navigation.items.map((item) => (
+              <a href={item.href}>{item.label}</a>
+            ))
+          }
+        </nav>
+
+        <nav class="language-switch" aria-label={copy.navigation.languageLabel}>
+          <a
+            href={englishUrl}
+            hreflang="en"
+            lang="en"
+            aria-current={copy.locale === "en" ? "page" : undefined}
+          >
+            EN
+          </a>
+          <span aria-hidden="true">/</span>
+          <a
+            href={japaneseUrl}
+            hreflang="ja"
+            lang="ja"
+            aria-current={copy.locale === "ja" ? "page" : undefined}
+          >
+            日本語
+          </a>
+        </nav>
+      </div>
+    </header>
+
+    <slot />
+
+    <footer class="site-footer">
+      <div class="footer-shell">
+        <a
+          class="brand brand--footer"
+          href={canonicalPath}
+          aria-label={`${copy.brandLabel} ${copy.navigation.homeLabel}`}
+        >
+          <img
+            class="brand__mark"
+            src="/brand/kokage-app-icon.svg"
+            alt=""
+            width="40"
+            height="40"
+            loading="lazy"
+          />
+          <span class="brand__name">{copy.brandLabel}</span>
+        </a>
+        <p>{copy.footer.descriptor}</p>
+        <a class="footer-status" href="#status">{copy.footer.statusLink}</a>
+      </div>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,209 @@
+import assert from "node:assert/strict";
+import { createHash } from "node:crypto";
+import { readFile } from "node:fs/promises";
+import test from "node:test";
+import { fileURLToPath } from "node:url";
+import {
+  DEVELOPMENT_SITE_ORIGIN,
+  resolveSiteOrigin,
+  TEST_SITE_ORIGIN,
+} from "../scripts/site-origin.mjs";
+
+const root = fileURLToPath(new URL("../", import.meta.url));
+const siteOrigin = new URL(
+  process.env.KOKAGE_SITE_URL ?? TEST_SITE_ORIGIN,
+).origin;
+
+async function read(relativePath) {
+  return readFile(new URL(relativePath, `file://${root}/`), "utf8");
+}
+
+async function digest(relativePath) {
+  const bytes = await readFile(new URL(relativePath, `file://${root}/`));
+  return createHash("sha256").update(bytes).digest("hex");
+}
+
+function escapeRegExp(value) {
+  return value.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+}
+
+function assertPage(
+  html,
+  {
+    lang,
+    canonical,
+    alternate,
+    xDefault,
+    title,
+    description,
+    ogLocale,
+    alternateOgLocale,
+  },
+) {
+  assert.match(html, new RegExp(`<html lang="${lang}">`));
+  assert.match(html, /<main id="main">/);
+  assert.equal((html.match(/<h1[ >]/g) ?? []).length, 1);
+  assert.match(html, new RegExp(`<link rel="canonical" href="${canonical}"`));
+  assert.match(html, new RegExp(`hreflang="${alternate.lang}" href="${alternate.href}"`));
+  assert.match(html, new RegExp(`hreflang="x-default" href="${xDefault}"`));
+  assert.match(html, new RegExp(`<title>${escapeRegExp(title)}</title>`));
+  assert.match(
+    html,
+    new RegExp(
+      `<meta name="description" content="${escapeRegExp(description)}">`,
+    ),
+  );
+  assert.match(html, new RegExp(`property="og:locale" content="${ogLocale}"`));
+  assert.match(
+    html,
+    new RegExp(
+      `property="og:locale:alternate" content="${alternateOgLocale}"`,
+    ),
+  );
+  assert.match(html, new RegExp(`"inLanguage":"${lang}"`));
+  assert.doesNotMatch(html, /href="#"/);
+  assert.doesNotMatch(html, /Lorem ipsum|example\.com|TODO|placeholder/i);
+
+  const primaryNavigation = html.match(
+    /<nav class="site-nav"[\s\S]*?<\/nav>/,
+  )?.[0];
+  assert.ok(primaryNavigation);
+  assert.equal((primaryNavigation.match(/<a /g) ?? []).length, 3);
+  assert.doesNotMatch(primaryNavigation, /href="#status"/);
+
+  assert.match(html, /<ol class="turn-flow" role="list">/);
+  assert.match(html, /<ul class="feature-list" role="list">/);
+  assert.ok(html.indexOf('id="features"') < html.indexOf('id="how"'));
+
+  for (const id of ["how", "features", "privacy", "status"]) {
+    assert.match(html, new RegExp(`href="#${id}"`));
+    assert.match(html, new RegExp(`id="${id}"`));
+  }
+}
+
+test("English and Japanese pages emit localized metadata and complete navigation", async () => {
+  const [english, japanese] = await Promise.all([
+    read("dist/index.html"),
+    read("dist/ja/index.html"),
+  ]);
+
+  assertPage(english, {
+    lang: "en",
+    canonical: `${siteOrigin}/`,
+    alternate: { lang: "ja", href: `${siteOrigin}/ja/` },
+    xDefault: `${siteOrigin}/`,
+    title: "Kokage | Local-first character chat",
+    description:
+      "Kokage is an experimental Flutter app that combines an on-device language model with a VRM character you choose.",
+    ogLocale: "en_US",
+    alternateOgLocale: "ja_JP",
+  });
+  assertPage(japanese, {
+    lang: "ja",
+    canonical: `${siteOrigin}/ja/`,
+    alternate: { lang: "en", href: `${siteOrigin}/` },
+    xDefault: `${siteOrigin}/`,
+    title: "Kokage（こかげ） | 端末で動くキャラクターチャット",
+    description:
+      "こかげ（Kokage）は、端末内の言語モデルと自分で選んだVRMキャラクターで会話できる、開発中のFlutterアプリです。",
+    ogLocale: "ja_JP",
+    alternateOgLocale: "en_US",
+  });
+
+  assert.match(english, /Talk with a character/);
+  assert.match(english, /Kokage is an experimental prototype/);
+  assert.equal(
+    (english.match(/<span class="brand__name">Kokage<\/span>/g) ?? []).length,
+    2,
+  );
+  assert.match(
+    japanese.replaceAll(/<[^>]+>/g, ""),
+    /自分で選んだキャラクターと端末の中で話す/,
+  );
+  assert.match(japanese, /こかげは現在開発中のプロトタイプ/);
+  assert.equal(
+    (japanese.match(/<span class="brand__name">こかげ<\/span>/g) ?? []).length,
+    2,
+  );
+  assert.doesNotMatch(
+    `${english}\n${japanese}`,
+    /No public distribution|一般配布|配布承認|TestFlight|Google Play|欧州連合/,
+  );
+  assert.doesNotMatch(
+    `${english}\n${japanese}`,
+    /current dependency graph|ONNX Runtime|API 36|署名済み配布/,
+  );
+  assert.doesNotMatch(
+    japanese,
+    /ConversationCoordinator|単調増加|プロジェクター|再生済みサンプル|開発者ゲート|マイクのPCM/,
+  );
+  assert.match(japanese, /Silero VAD/);
+  assert.match(japanese, /SenseVoice/);
+  assert.match(japanese, /sherpa_onnx/);
+
+  for (const html of [english, japanese]) {
+    assert.match(html, /<aside class="network-note" aria-labelledby="network-note-title">/);
+  }
+});
+
+test("site origins distinguish development, test, and production builds", () => {
+  assert.equal(
+    resolveSiteOrigin({ command: "development" }),
+    DEVELOPMENT_SITE_ORIGIN,
+  );
+  assert.equal(
+    resolveSiteOrigin({
+      command: "build",
+      value: TEST_SITE_ORIGIN,
+      allowTestOrigin: true,
+    }),
+    TEST_SITE_ORIGIN,
+  );
+  assert.equal(
+    resolveSiteOrigin({ command: "build", value: "https://astro.build" }),
+    "https://astro.build",
+  );
+
+  for (const value of [
+    undefined,
+    "http://localhost:4321",
+    "https://localhost",
+    TEST_SITE_ORIGIN,
+    "https://www.example.com",
+    "https://kokage.local",
+    "https://internal",
+    "https://user:password@astro.build",
+    "https://astro.build/path",
+    "https://astro.build?preview=true",
+    "https://astro.build#preview",
+  ]) {
+    assert.throws(() => resolveSiteOrigin({ command: "build", value }));
+  }
+});
+
+test("sitemap and robots output point to the configured production origin", async () => {
+  const [sitemap, robots] = await Promise.all([
+    read("dist/sitemap-0.xml"),
+    read("dist/robots.txt"),
+  ]);
+
+  assert.match(sitemap, new RegExp(`${siteOrigin}/ja/`));
+  assert.match(sitemap, /hreflang="en"/);
+  assert.match(sitemap, /hreflang="ja"/);
+  assert.match(robots, new RegExp(`${siteOrigin}/sitemap-index\.xml`));
+});
+
+test("published branding stays byte-identical to Kokage source assets", async () => {
+  const expected = new Map([
+    ["public/brand/kokage-app-icon.svg", "27c812d40608e79746f142924cdf98fc5a7d9c8c311d93e2f605293c64b0c1dc"],
+    ["public/brand/kokage-app-icon.png", "3aa093afc19c43be5154b55c13cd3ab4394942629f07d34bce3eb72db9103189"],
+    ["src/assets/brand/kokage-app-icon.png", "3aa093afc19c43be5154b55c13cd3ab4394942629f07d34bce3eb72db9103189"],
+    ["public/brand/kokage-leaves.svg", "e2fd58ce0a1992b73ad1eec538575b3a63306c7e685938b61bc95cd2e76473bc"],
+    ["public/brand/kokage-large-leaf.svg", "a2d0d496959771c6701060c560838f76b854f2f52e4875d0ff55ced1ff940240"],
+    ["public/brand/kokage-large-leaf-with-petiole.svg", "766f7d1f5644d849123818990026444fce3db45bb02bdf5657096dbe1f5d68e5"],
+  ]);
+
+  for (const [path, expectedDigest] of expected) {
+    assert.equal(await digest(path), expectedDigest, path);
+  }
+});
