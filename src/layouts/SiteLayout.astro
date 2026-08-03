@@ -26,7 +26,13 @@ const schema = {
 ---
 
 <!doctype html>
-<html lang={copy.htmlLang}>
+<html
+  lang={copy.htmlLang}
+  data-site-locale={copy.locale}
+  data-english-url={englishUrl}
+  data-japanese-url={japaneseUrl}
+  data-language-auto-detect={copy.locale === "en" ? "true" : "false"}
+>
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -66,6 +72,11 @@ const schema = {
     <link rel="apple-touch-icon" href="/brand/kokage-app-icon-192.png" />
 
     <script is:inline type="application/ld+json" set:html={JSON.stringify(schema)} />
+    <script>
+      import { initializeLanguagePreference } from "../scripts/language-preference.mjs";
+
+      initializeLanguagePreference();
+    </script>
   </head>
   <body id="top">
     <a class="skip-link" href="#main">{copy.skipLink}</a>
@@ -100,6 +111,7 @@ const schema = {
             href={englishUrl}
             hreflang="en"
             lang="en"
+            data-language-option="en"
             aria-current={copy.locale === "en" ? "page" : undefined}
           >
             EN
@@ -109,6 +121,7 @@ const schema = {
             href={japaneseUrl}
             hreflang="ja"
             lang="ja"
+            data-language-option="ja"
             aria-current={copy.locale === "ja" ? "page" : undefined}
           >
             日本語

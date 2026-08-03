@@ -30,6 +30,8 @@ function escapeRegExp(value) {
 function assertPage(
   html,
   {
+    locale,
+    autoDetect,
     lang,
     canonical,
     alternate,
@@ -40,7 +42,14 @@ function assertPage(
     alternateOgLocale,
   },
 ) {
-  assert.match(html, new RegExp(`<html lang="${lang}">`));
+  assert.match(html, new RegExp(`<html lang="${lang}"`));
+  assert.match(html, new RegExp(`data-site-locale="${locale}"`));
+  assert.match(
+    html,
+    new RegExp(`data-language-auto-detect="${String(autoDetect)}"`),
+  );
+  assert.match(html, /data-english-url="\/"/);
+  assert.match(html, /data-japanese-url="\/ja\/"/);
   assert.match(html, /<main id="main">/);
   assert.equal((html.match(/<h1[ >]/g) ?? []).length, 1);
   assert.match(html, new RegExp(`<link rel="canonical" href="${canonical}"`));
@@ -71,6 +80,16 @@ function assertPage(
   assert.equal((primaryNavigation.match(/<a /g) ?? []).length, 3);
   assert.doesNotMatch(primaryNavigation, /href="#status"/);
 
+  const languageSwitch = html.match(
+    /<nav class="language-switch"[\s\S]*?<\/nav>/,
+  )?.[0];
+  assert.ok(languageSwitch);
+  assert.match(languageSwitch, /href="\/"[^>]*data-language-option="en"/);
+  assert.match(
+    languageSwitch,
+    /href="\/ja\/"[^>]*data-language-option="ja"/,
+  );
+
   assert.match(html, /<ol class="turn-flow" role="list">/);
   assert.match(html, /<ul class="feature-list" role="list">/);
   assert.match(
@@ -93,6 +112,8 @@ test("English and Japanese pages emit localized metadata and complete navigation
   ]);
 
   assertPage(english, {
+    locale: "en",
+    autoDetect: true,
     lang: "en",
     canonical: `${siteOrigin}/`,
     alternate: { lang: "ja", href: `${siteOrigin}/ja/` },
@@ -104,6 +125,8 @@ test("English and Japanese pages emit localized metadata and complete navigation
     alternateOgLocale: "ja_JP",
   });
   assertPage(japanese, {
+    locale: "ja",
+    autoDetect: false,
     lang: "ja",
     canonical: `${siteOrigin}/ja/`,
     alternate: { lang: "en", href: `${siteOrigin}/` },
