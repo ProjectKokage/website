@@ -94,6 +94,17 @@
     background: var(--mint-500);
   }
 
+  .visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
+    border: 0;
+  }
+
   :focus-visible {
     outline: 3px solid var(--cream-100);
     outline-offset: 4px;
@@ -730,6 +741,30 @@
     line-height: 1.7;
   }
 
+  .privacy-policy-link {
+    display: inline-flex;
+    gap: 14px;
+    align-items: center;
+    margin-top: 32px;
+    padding-block: 10px;
+    color: var(--ink);
+    border-bottom: 1px solid var(--moss-700);
+    font-size: 0.9rem;
+    font-weight: 700;
+    transition:
+      color 180ms ease,
+      border-color 180ms ease;
+  }
+
+  .privacy-policy-link:hover {
+    color: var(--moss-700);
+    border-color: var(--ink);
+  }
+
+  .privacy-policy-link:focus-visible {
+    outline-color: var(--moss-700);
+  }
+
   .section--stack {
     background: var(--forest-950);
   }
@@ -817,6 +852,290 @@
     line-height: 1.7;
   }
 
+  .policy-page {
+    background:
+      radial-gradient(circle at 90% 5%, rgb(45 77 66 / 34%), transparent 26%),
+      var(--forest-950);
+  }
+
+  .policy-hero {
+    position: relative;
+    overflow: clip;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .policy-hero::before {
+    position: absolute;
+    top: -130px;
+    right: -90px;
+    width: 480px;
+    height: 520px;
+    background: url("/brand/kokage-large-leaf-with-petiole.svg") center /
+      contain no-repeat;
+    content: "";
+    opacity: 0.06;
+    pointer-events: none;
+    transform: rotate(14deg);
+  }
+
+  .policy-hero__inner {
+    position: relative;
+    padding-block: 110px 88px;
+  }
+
+  .policy-hero h1 {
+    max-width: 900px;
+    margin-top: 24px;
+    font-size: clamp(3.8rem, 7.5vw, 7.2rem);
+    line-height: 0.96;
+    letter-spacing: -0.06em;
+  }
+
+  :lang(ja) .policy-hero h1 {
+    max-width: 970px;
+    font-size: clamp(3rem, 6vw, 5.8rem);
+    line-height: 1.14;
+    letter-spacing: -0.05em;
+  }
+
+  .policy-hero__lede {
+    max-width: 760px;
+    margin-top: 30px;
+    color: var(--muted);
+    font-size: clamp(1.05rem, 1.5vw, 1.22rem);
+    line-height: 1.8;
+  }
+
+  .policy-updated {
+    display: flex;
+    gap: 12px;
+    align-items: baseline;
+    margin-top: 24px;
+    color: var(--mint-400);
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+  }
+
+  :lang(ja) .policy-updated {
+    letter-spacing: 0.04em;
+    text-transform: none;
+  }
+
+  .policy-updated span::after {
+    content: "·";
+    margin-left: 12px;
+    color: var(--muted);
+  }
+
+  .policy-highlights {
+    margin-top: 68px;
+  }
+
+  .policy-highlights ul {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    border-top: 1px solid var(--line);
+    border-left: 1px solid var(--line);
+  }
+
+  .policy-highlights li {
+    min-height: 150px;
+    padding: 22px;
+    border-right: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+  }
+
+  .policy-highlights li > span {
+    color: var(--mint-500);
+    font-family: ui-monospace, "SFMono-Regular", Consolas, monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0.08em;
+  }
+
+  .policy-highlights li > p {
+    margin-top: 34px;
+    color: var(--mint-300);
+    font-size: 0.9rem;
+    line-height: 1.6;
+  }
+
+  .policy-layout {
+    display: grid;
+    grid-template-columns: minmax(210px, 0.32fr) minmax(0, 1fr);
+    gap: clamp(48px, 7vw, 100px);
+    align-items: start;
+    padding-block: 100px 128px;
+  }
+
+  .policy-contents {
+    position: sticky;
+    top: calc(var(--header-height) + 34px);
+  }
+
+  .policy-contents > p {
+    color: var(--mint-500);
+    font-size: 0.7rem;
+    font-weight: 800;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+  }
+
+  :lang(ja) .policy-contents > p {
+    letter-spacing: 0.1em;
+  }
+
+  .policy-contents ol {
+    margin-top: 22px;
+    border-top: 1px solid var(--line);
+  }
+
+  .policy-contents a {
+    display: grid;
+    grid-template-columns: 30px 1fr;
+    gap: 8px;
+    padding-block: 13px;
+    color: var(--muted);
+    border-bottom: 1px solid var(--line);
+    font-size: 0.82rem;
+    line-height: 1.45;
+    transition:
+      color 180ms ease,
+      padding-left 180ms var(--ease-out);
+  }
+
+  .policy-contents a span {
+    color: var(--mint-500);
+    font-family: ui-monospace, "SFMono-Regular", Consolas, monospace;
+    font-size: 0.68rem;
+  }
+
+  .policy-contents a:hover {
+    padding-left: 4px;
+    color: var(--text);
+  }
+
+  .policy-document {
+    max-width: 860px;
+    padding: clamp(36px, 6vw, 72px);
+    color: var(--ink);
+    background: var(--cream-100);
+    border-radius: var(--radius-lg);
+    box-shadow: 0 28px 90px rgb(0 0 0 / 18%);
+  }
+
+  .policy-document > section {
+    padding-block: 64px;
+    scroll-margin-top: calc(var(--header-height) + 24px);
+    border-top: 1px solid var(--line-dark);
+  }
+
+  .policy-document > section:first-child {
+    padding-top: 0;
+    border-top: 0;
+  }
+
+  .policy-section-heading {
+    display: grid;
+    grid-template-columns: 42px 1fr;
+    gap: 14px;
+    align-items: start;
+    margin-bottom: 28px;
+  }
+
+  .policy-section-heading > span {
+    padding-top: 7px;
+    color: var(--moss-700);
+    font-family: ui-monospace, "SFMono-Regular", Consolas, monospace;
+    font-size: 0.72rem;
+    font-weight: 700;
+  }
+
+  .policy-section-heading h2 {
+    font-size: clamp(1.85rem, 3.6vw, 3rem);
+    line-height: 1.15;
+    letter-spacing: -0.04em;
+  }
+
+  :lang(ja) .policy-section-heading h2 {
+    line-height: 1.35;
+    letter-spacing: -0.03em;
+  }
+
+  .policy-document section > p {
+    margin-left: 56px;
+    color: rgb(18 32 25 / 78%);
+    font-size: 1rem;
+    line-height: 1.85;
+  }
+
+  .policy-document section > p + p {
+    margin-top: 16px;
+  }
+
+  .policy-item-list {
+    margin-top: 34px;
+    margin-left: 56px;
+    border-top: 1px solid var(--line-dark);
+  }
+
+  .policy-item-list li {
+    padding-block: 26px 30px;
+    border-bottom: 1px solid var(--line-dark);
+  }
+
+  .policy-item-list h3 {
+    font-size: 1.08rem;
+    line-height: 1.4;
+    letter-spacing: -0.02em;
+  }
+
+  .policy-item-list p {
+    margin-top: 10px;
+    color: rgb(18 32 25 / 72%);
+    font-size: 0.94rem;
+    line-height: 1.78;
+  }
+
+  .policy-item-list a {
+    display: inline-flex;
+    gap: 8px;
+    align-items: center;
+    margin-top: 14px;
+    padding-block: 4px;
+    color: var(--moss-700);
+    border-bottom: 1px solid rgb(45 77 66 / 42%);
+    font-size: 0.82rem;
+    font-weight: 700;
+  }
+
+  .policy-item-list a:hover {
+    color: var(--ink);
+    border-color: var(--ink);
+  }
+
+  .policy-document a:focus-visible {
+    outline-color: var(--moss-700);
+  }
+
+  .policy-back-link {
+    display: inline-flex;
+    gap: 12px;
+    align-items: center;
+    margin-top: 18px;
+    padding-block: 8px;
+    color: var(--moss-700);
+    border-bottom: 1px solid rgb(45 77 66 / 42%);
+    font-size: 0.9rem;
+    font-weight: 700;
+  }
+
+  .policy-back-link:hover {
+    color: var(--ink);
+    border-color: var(--ink);
+  }
+
   .site-footer {
     padding-block: 34px;
     border-top: 1px solid var(--line);
@@ -836,12 +1155,19 @@
   }
 
   .footer-shell > p,
-  .footer-status {
+  .footer-nav {
     color: var(--muted);
     font-size: 0.78rem;
   }
 
-  .footer-status {
+  .footer-nav {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    justify-content: flex-end;
+  }
+
+  .footer-nav a {
     padding-block: 8px;
     border-bottom: 1px solid var(--line);
     transition:
@@ -849,7 +1175,8 @@
       border-color 180ms ease;
   }
 
-  .footer-status:hover {
+  .footer-nav a:hover,
+  .footer-nav a[aria-current="page"] {
     color: var(--text);
     border-color: var(--mint-500);
   }
@@ -882,7 +1209,6 @@
       transform: translateY(0);
     }
   }
-
 }
 
 @layer utilities {
@@ -906,6 +1232,10 @@
     }
 
     .turn-flow {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .policy-highlights ul {
       grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 
@@ -1021,6 +1351,26 @@
       column-gap: 36px;
     }
 
+    .policy-layout {
+      grid-template-columns: 1fr;
+      gap: 52px;
+    }
+
+    .policy-contents {
+      position: static;
+    }
+
+    .policy-contents ol {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      border-left: 1px solid var(--line);
+    }
+
+    .policy-contents a {
+      height: 100%;
+      padding-inline: 14px;
+      border-right: 1px solid var(--line);
+    }
   }
 
   @media (max-width: 620px) {
@@ -1127,6 +1477,64 @@
       padding: 28px;
     }
 
+    .policy-hero__inner {
+      padding-block: 74px 64px;
+    }
+
+    .policy-hero h1 {
+      font-size: clamp(3rem, 14vw, 4.3rem);
+      line-height: 1;
+    }
+
+    :lang(ja) .policy-hero h1 {
+      font-size: clamp(2.35rem, 10vw, 3.25rem);
+      line-height: 1.18;
+    }
+
+    .policy-highlights {
+      margin-top: 48px;
+    }
+
+    .policy-highlights ul,
+    .policy-contents ol {
+      grid-template-columns: 1fr;
+    }
+
+    .policy-highlights li {
+      min-height: auto;
+    }
+
+    .policy-highlights li > p {
+      margin-top: 18px;
+    }
+
+    .policy-layout {
+      padding-block: 72px 88px;
+    }
+
+    .policy-document {
+      padding: 30px 22px;
+      border-radius: var(--radius-md);
+    }
+
+    .policy-document > section {
+      padding-block: 48px;
+    }
+
+    .policy-section-heading {
+      grid-template-columns: 32px 1fr;
+      gap: 8px;
+    }
+
+    .policy-section-heading h2 {
+      font-size: clamp(1.65rem, 8vw, 2.25rem);
+    }
+
+    .policy-document section > p,
+    .policy-item-list {
+      margin-left: 40px;
+    }
+
     .stack-list > div {
       grid-template-columns: 1fr;
       gap: 10px;
@@ -1148,6 +1556,11 @@
     .footer-shell > p {
       grid-column: 1 / -1;
       grid-row: 2;
+    }
+
+    .footer-nav {
+      flex-wrap: wrap;
+      gap: 8px 16px;
     }
   }
 
@@ -1173,6 +1586,7 @@
 
   @media (forced-colors: active) {
     .hero::before,
+    .policy-hero::before,
     .privacy-leaf,
     .editorial-leaf,
     .brand-stage__leaves {

@@ -10,9 +10,8 @@ import {
 } from "../scripts/site-origin.mjs";
 
 const root = fileURLToPath(new URL("../", import.meta.url));
-const siteOrigin = new URL(
-  process.env.KOKAGE_SITE_URL ?? TEST_SITE_ORIGIN,
-).origin;
+const siteOrigin = new URL(process.env.KOKAGE_SITE_URL ?? TEST_SITE_ORIGIN)
+  .origin;
 
 async function read(relativePath) {
   return readFile(new URL(relativePath, `file://${root}/`), "utf8");
@@ -53,7 +52,10 @@ function assertPage(
   assert.match(html, /<main id="main">/);
   assert.equal((html.match(/<h1[ >]/g) ?? []).length, 1);
   assert.match(html, new RegExp(`<link rel="canonical" href="${canonical}"`));
-  assert.match(html, new RegExp(`hreflang="${alternate.lang}" href="${alternate.href}"`));
+  assert.match(
+    html,
+    new RegExp(`hreflang="${alternate.lang}" href="${alternate.href}"`),
+  );
   assert.match(html, new RegExp(`hreflang="x-default" href="${xDefault}"`));
   assert.match(html, new RegExp(`<title>${escapeRegExp(title)}</title>`));
   assert.match(
@@ -65,11 +67,10 @@ function assertPage(
   assert.match(html, new RegExp(`property="og:locale" content="${ogLocale}"`));
   assert.match(
     html,
-    new RegExp(
-      `property="og:locale:alternate" content="${alternateOgLocale}"`,
-    ),
+    new RegExp(`property="og:locale:alternate" content="${alternateOgLocale}"`),
   );
   assert.match(html, new RegExp(`"inLanguage":"${lang}"`));
+  assert.match(html, /"@type":"WebSite"/);
   assert.doesNotMatch(html, /href="#"/);
   assert.doesNotMatch(html, /Lorem ipsum|example\.com|TODO|placeholder/i);
 
@@ -85,10 +86,7 @@ function assertPage(
   )?.[0];
   assert.ok(languageSwitch);
   assert.match(languageSwitch, /href="\/"[^>]*data-language-option="en"/);
-  assert.match(
-    languageSwitch,
-    /href="\/ja\/"[^>]*data-language-option="ja"/,
-  );
+  assert.match(languageSwitch, /href="\/ja\/"[^>]*data-language-option="ja"/);
 
   assert.match(html, /<ol class="turn-flow" role="list">/);
   assert.match(html, /<ul class="feature-list" role="list">/);
@@ -170,8 +168,139 @@ test("English and Japanese pages emit localized metadata and complete navigation
   assert.match(japanese, /sherpa_onnx/);
 
   for (const html of [english, japanese]) {
-    assert.match(html, /<aside class="network-note" aria-labelledby="network-note-title">/);
+    assert.match(
+      html,
+      /<aside class="network-note" aria-labelledby="network-note-title">/,
+    );
+    assert.match(
+      html,
+      /class="privacy-policy-link" href="\/(?:ja\/)?privacy\/"/,
+    );
+    assert.match(html, /<nav class="footer-nav"/);
   }
+});
+
+test("privacy policy pages are localized, indexable, and linked across languages", async () => {
+  const [english, japanese] = await Promise.all([
+    read("dist/privacy/index.html"),
+    read("dist/ja/privacy/index.html"),
+  ]);
+
+  const cases = [
+    {
+      html: english,
+      locale: "en",
+      lang: "en",
+      englishPath: "/privacy/",
+      japanesePath: "/ja/privacy/",
+      canonical: `${siteOrigin}/privacy/`,
+      title: "Privacy Policy | Kokage",
+      description:
+        "How Kokage handles conversations, microphone and camera input, local data, model downloads, and website data.",
+      heading: "Kokage processes conversations on your device.",
+      date: "August 3, 2026",
+      homePath: "/",
+    },
+    {
+      html: japanese,
+      locale: "ja",
+      lang: "ja",
+      englishPath: "/privacy/",
+      japanesePath: "/ja/privacy/",
+      canonical: `${siteOrigin}/ja/privacy/`,
+      title: "プライバシーポリシー | Kokage（こかげ）",
+      description:
+        "こかげにおける会話、マイクとカメラの入力、端末内の保存データ、モデルのダウンロード、ウェブサイトのデータの扱いを説明します。",
+      heading: "こかげは、会話を端末内で処理します。",
+      date: "2026年8月3日",
+      homePath: "/ja/",
+    },
+  ];
+
+  for (const policy of cases) {
+    const { html } = policy;
+    assert.match(html, new RegExp(`<html lang="${policy.lang}"`));
+    assert.match(html, new RegExp(`data-site-locale="${policy.locale}"`));
+    assert.match(
+      html,
+      new RegExp(`data-english-url="${escapeRegExp(policy.englishPath)}"`),
+    );
+    assert.match(
+      html,
+      new RegExp(`data-japanese-url="${escapeRegExp(policy.japanesePath)}"`),
+    );
+    assert.match(
+      html,
+      new RegExp(`<link rel="canonical" href="${policy.canonical}"`),
+    );
+    assert.match(
+      html,
+      new RegExp(`hreflang="en" href="${siteOrigin}/privacy/"`),
+    );
+    assert.match(
+      html,
+      new RegExp(`hreflang="ja" href="${siteOrigin}/ja/privacy/"`),
+    );
+    assert.match(
+      html,
+      new RegExp(`hreflang="x-default" href="${siteOrigin}/privacy/"`),
+    );
+    assert.match(
+      html,
+      new RegExp(`<title>${escapeRegExp(policy.title)}</title>`),
+    );
+    assert.match(
+      html,
+      new RegExp(
+        `<meta name="description" content="${escapeRegExp(policy.description)}">`,
+      ),
+    );
+    assert.match(html, /<main id="main" class="policy-page">/);
+    assert.equal((html.match(/<h1[ >]/g) ?? []).length, 1);
+    assert.match(
+      html,
+      new RegExp(`<h1[^>]*>${escapeRegExp(policy.heading)}</h1>`),
+    );
+    assert.match(
+      html,
+      new RegExp(
+        `<time datetime="2026-08-03">${escapeRegExp(policy.date)}</time>`,
+      ),
+    );
+    assert.match(html, /"@type":"WebPage"/);
+    assert.match(html, /"isPartOf":\{"@type":"WebSite","name":"Kokage"/);
+    assert.match(html, new RegExp(`class="brand" href="${policy.homePath}"`));
+    assert.match(
+      html,
+      /aria-current="page">[^<]*Privacy policy|aria-current="page">[^<]*プライバシーポリシー/,
+    );
+
+    for (const id of [
+      "scope",
+      "collection",
+      "local-data",
+      "network",
+      "retention",
+      "permissions",
+      "website",
+      "changes",
+    ]) {
+      assert.match(html, new RegExp(`href="#${id}"`));
+      assert.match(html, new RegExp(`id="${id}"`));
+    }
+
+    assert.match(html, /https:\/\/huggingface\.co\/privacy/);
+    assert.match(html, /https:\/\/docs\.github\.com\//);
+    assert.match(
+      html,
+      /https:\/\/developers\.google\.com\/fonts\/faq\/privacy/,
+    );
+    assert.doesNotMatch(html, /Lorem ipsum|TODO|placeholder|\[insert/i);
+    assert.doesNotMatch(html, /href="#"/);
+  }
+
+  assert.match(english, /same or greater standard as this policy/);
+  assert.match(japanese, /本ポリシーと同等以上の保護/);
 });
 
 test("site origins distinguish development, test, and production builds", () => {
@@ -216,18 +345,58 @@ test("sitemap and robots output point to the configured production origin", asyn
   ]);
 
   assert.match(sitemap, new RegExp(`${siteOrigin}/ja/`));
+  assert.match(sitemap, new RegExp(`${siteOrigin}/privacy/`));
+  assert.match(sitemap, new RegExp(`${siteOrigin}/ja/privacy/`));
   assert.match(sitemap, /hreflang="en"/);
   assert.match(sitemap, /hreflang="ja"/);
   assert.match(robots, new RegExp(`${siteOrigin}/sitemap-index\.xml`));
+
+  const urlBlocks = sitemap.match(/<url>[\s\S]*?<\/url>/g) ?? [];
+  for (const location of [
+    `${siteOrigin}/privacy/`,
+    `${siteOrigin}/ja/privacy/`,
+  ]) {
+    const block = urlBlocks.find((entry) =>
+      entry.includes(`<loc>${location}</loc>`),
+    );
+    assert.ok(block, location);
+    assert.match(
+      block,
+      new RegExp(
+        `hreflang="en" href="${escapeRegExp(`${siteOrigin}/privacy/`)}"`,
+      ),
+    );
+    assert.match(
+      block,
+      new RegExp(
+        `hreflang="ja" href="${escapeRegExp(`${siteOrigin}/ja/privacy/`)}"`,
+      ),
+    );
+  }
 });
 
 test("published branding stays byte-identical to Kokage source assets", async () => {
   const expected = new Map([
-    ["public/brand/kokage-app-icon.svg", "27c812d40608e79746f142924cdf98fc5a7d9c8c311d93e2f605293c64b0c1dc"],
-    ["public/brand/kokage-app-icon.png", "3aa093afc19c43be5154b55c13cd3ab4394942629f07d34bce3eb72db9103189"],
-    ["public/brand/kokage-leaves.svg", "e2fd58ce0a1992b73ad1eec538575b3a63306c7e685938b61bc95cd2e76473bc"],
-    ["public/brand/kokage-large-leaf.svg", "a2d0d496959771c6701060c560838f76b854f2f52e4875d0ff55ced1ff940240"],
-    ["public/brand/kokage-large-leaf-with-petiole.svg", "766f7d1f5644d849123818990026444fce3db45bb02bdf5657096dbe1f5d68e5"],
+    [
+      "public/brand/kokage-app-icon.svg",
+      "27c812d40608e79746f142924cdf98fc5a7d9c8c311d93e2f605293c64b0c1dc",
+    ],
+    [
+      "public/brand/kokage-app-icon.png",
+      "3aa093afc19c43be5154b55c13cd3ab4394942629f07d34bce3eb72db9103189",
+    ],
+    [
+      "public/brand/kokage-leaves.svg",
+      "e2fd58ce0a1992b73ad1eec538575b3a63306c7e685938b61bc95cd2e76473bc",
+    ],
+    [
+      "public/brand/kokage-large-leaf.svg",
+      "a2d0d496959771c6701060c560838f76b854f2f52e4875d0ff55ced1ff940240",
+    ],
+    [
+      "public/brand/kokage-large-leaf-with-petiole.svg",
+      "766f7d1f5644d849123818990026444fce3db45bb02bdf5657096dbe1f5d68e5",
+    ],
   ]);
 
   for (const [path, expectedDigest] of expected) {

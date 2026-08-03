@@ -49,6 +49,8 @@ function createBrowserRuntime({
   storage = createStorage(),
   search = "",
   hash = "",
+  englishUrl = "/",
+  japaneseUrl = "/ja/",
 } = {}) {
   const replacements = [];
   const links = [createLanguageLink("en"), createLanguageLink("ja")];
@@ -58,8 +60,8 @@ function createBrowserRuntime({
       documentElement: {
         dataset: {
           siteLocale: currentLocale,
-          englishUrl: "/",
-          japaneseUrl: "/ja/",
+          englishUrl,
+          japaneseUrl,
           languageAutoDetect: String(autoDetect),
         },
       },
@@ -193,6 +195,35 @@ test("a stored English choice overrides a later Japanese route", () => {
   initializeLanguagePreference(runtime);
 
   assert.deepEqual(runtime.replacements, ["/"]);
+});
+
+test("localized subpages keep their route while changing language", () => {
+  const japaneseVisit = createBrowserRuntime({
+    languages: ["ja-JP"],
+    englishUrl: "/privacy/",
+    japaneseUrl: "/ja/privacy/",
+    search: "?source=app-store",
+    hash: "#retention",
+  });
+
+  initializeLanguagePreference(japaneseVisit);
+
+  assert.deepEqual(japaneseVisit.replacements, [
+    "/ja/privacy/?source=app-store#retention",
+  ]);
+
+  const storedEnglish = createBrowserRuntime({
+    currentLocale: "ja",
+    autoDetect: false,
+    languages: ["ja-JP"],
+    storage: createStorage([[LANGUAGE_PREFERENCE_STORAGE_KEY, "en"]]),
+    englishUrl: "/privacy/",
+    japaneseUrl: "/ja/privacy/",
+  });
+
+  initializeLanguagePreference(storedEnglish);
+
+  assert.deepEqual(storedEnglish.replacements, ["/privacy/"]);
 });
 
 test("unavailable browser storage never blocks detection or language links", () => {

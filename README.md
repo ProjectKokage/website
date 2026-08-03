@@ -16,6 +16,7 @@ npm test
 ```
 
 English is served at `/` and Japanese at `/ja/`.
+The privacy policy is served at `/privacy/` and `/ja/privacy/`.
 Set `KOKAGE_SITE_URL` to the approved site origin before running a production build.
 Development uses a loopback origin, and the test runner uses a reserved non-public origin.
 

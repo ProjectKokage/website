@@ -1,5 +1,39 @@
 export type SiteLocale = "en" | "ja";
 
+export interface PrivacyPolicyItem {
+  title: string;
+  body: string;
+  link?: {
+    href: string;
+    label: string;
+  };
+}
+
+export interface PrivacyPolicySection {
+  id: string;
+  title: string;
+  paragraphs: string[];
+  items?: PrivacyPolicyItem[];
+}
+
+export interface PrivacyPolicyCopy {
+  meta: {
+    title: string;
+    description: string;
+  };
+  eyebrow: string;
+  title: string;
+  lede: string;
+  updatedLabel: string;
+  updatedDate: string;
+  updatedDateDisplay: string;
+  highlightsLabel: string;
+  highlights: string[];
+  contentsLabel: string;
+  sections: PrivacyPolicySection[];
+  backHomeLabel: string;
+}
+
 export interface SiteCopy {
   locale: SiteLocale;
   htmlLang: string;
@@ -60,7 +94,9 @@ export interface SiteCopy {
     }>;
     networkLabel: string;
     networkBody: string;
+    policyLink: string;
   };
+  privacyPolicy: PrivacyPolicyCopy;
   stack: {
     eyebrow: string;
     title: string;
@@ -83,5 +119,7 @@ export interface SiteCopy {
   footer: {
     descriptor: string;
     statusLink: string;
+    privacyLink: string;
+    navigationLabel: string;
   };
 }

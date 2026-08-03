@@ -1,0 +1,120 @@
+---
+import type { SiteCopy } from "../i18n";
+import { localizedRoutes } from "../i18n/routes";
+import SiteLayout from "../layouts/SiteLayout.astro";
+
+interface Props {
+  copy: SiteCopy;
+}
+
+const { copy } = Astro.props;
+const policy = copy.privacyPolicy;
+const homePath = localizedRoutes[copy.locale].home;
+---
+
+<SiteLayout
+  copy={copy}
+  page={{
+    kind: "privacy",
+    englishPath: localizedRoutes.en.privacy,
+    japanesePath: localizedRoutes.ja.privacy,
+    title: policy.meta.title,
+    description: policy.meta.description,
+  }}
+>
+  <main id="main" class="policy-page">
+    <header class="policy-hero">
+      <div class="page-shell policy-hero__inner">
+        <p class="eyebrow">{policy.eyebrow}</p>
+        <h1 id="privacy-policy-title">{policy.title}</h1>
+        <p class="policy-hero__lede">{policy.lede}</p>
+        <p class="policy-updated">
+          <span>{policy.updatedLabel}</span>
+          <time datetime={policy.updatedDate}>{policy.updatedDateDisplay}</time>
+        </p>
+
+        <section
+          class="policy-highlights"
+          aria-labelledby="policy-highlights-title"
+        >
+          <h2 id="policy-highlights-title" class="visually-hidden">
+            {policy.highlightsLabel}
+          </h2>
+          <ul role="list">
+            {
+              policy.highlights.map((highlight, index) => (
+                <li>
+                  <span aria-hidden="true">
+                    {String(index + 1).padStart(2, "0")}
+                  </span>
+                  <p>{highlight}</p>
+                </li>
+              ))
+            }
+          </ul>
+        </section>
+      </div>
+    </header>
+
+    <div class="page-shell policy-layout">
+      <nav class="policy-contents" aria-label={policy.contentsLabel}>
+        <p>{policy.contentsLabel}</p>
+        <ol>
+          {
+            policy.sections.map((section, index) => (
+              <li>
+                <a href={`#${section.id}`}>
+                  <span aria-hidden="true">
+                    {String(index + 1).padStart(2, "0")}
+                  </span>
+                  {section.title}
+                </a>
+              </li>
+            ))
+          }
+        </ol>
+      </nav>
+
+      <article class="policy-document" aria-labelledby="privacy-policy-title">
+        {
+          policy.sections.map((section, index) => (
+            <section id={section.id} aria-labelledby={`${section.id}-title`}>
+              <div class="policy-section-heading">
+                <span aria-hidden="true">
+                  {String(index + 1).padStart(2, "0")}
+                </span>
+                <h2 id={`${section.id}-title`}>{section.title}</h2>
+              </div>
+
+              {section.paragraphs.map((paragraph) => (
+                <p>{paragraph}</p>
+              ))}
+
+              {section.items && (
+                <ul class="policy-item-list" role="list">
+                  {section.items.map((item) => (
+                    <li>
+                      <h3>{item.title}</h3>
+                      <p>{item.body}</p>
+                      {item.link && (
+                        <a href={item.link.href} rel="external">
+                          {item.link.label}
+                          <span aria-hidden="true">↗</span>
+                        </a>
+                      )}
+                    </li>
+                  ))}
+                </ul>
+              )}
+            </section>
+          ))
+        }
+
+        <a class="policy-back-link" href={homePath}>
+          <span aria-hidden="true">←</span>
+          {policy.backHomeLabel}
+        </a>
+      </article>
+    </div>
+  </main>
+</SiteLayout>

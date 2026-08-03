@@ -1,5 +1,6 @@
 ---
 import type { SiteCopy } from "../i18n";
+import { localizedRoutes } from "../i18n/routes";
 import SiteLayout from "../layouts/SiteLayout.astro";
 
 interface Props {
@@ -7,6 +8,7 @@ interface Props {
 }
 
 const { copy } = Astro.props;
+const privacyPolicyPath = localizedRoutes[copy.locale].privacy;
 ---
 
 <SiteLayout copy={copy}>
@@ -168,6 +170,11 @@ const { copy } = Astro.props;
           <p id="network-note-title">{copy.privacy.networkLabel}</p>
           <p>{copy.privacy.networkBody}</p>
         </aside>
+
+        <a class="privacy-policy-link" href={privacyPolicyPath}>
+          {copy.privacy.policyLink}
+          <span aria-hidden="true">→</span>
+        </a>
       </div>
     </section>
 
