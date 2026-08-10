@@ -22,8 +22,8 @@ Development uses a loopback origin, and the test runner uses a reserved non-publ
 
 ## Content and asset boundary
 
-Product claims come from the sibling `../kokage` repository, primarily its root README, current constraints, runtime contract, trust contract, and release records.
-The site must continue to describe Kokage as an experimental prototype and must not add download claims, testimonials, usage figures, compatibility badges, or unverified platform promises.
+Product claims come from the sibling `../kokage` repository, primarily its root README, current constraints, runtime contract, trust contract, and release records; where those documents lag reality, the product owner's current statements win.
+The site must continue to describe Kokage as a prerelease beta (currently distributed to testers through TestFlight) and must not add public-store availability claims, testimonials, usage figures, compatibility badges, or unverified platform promises.
 
 The icon and leaf artwork under `public/brand/` and `src/assets/brand/` are copied from Kokage's current canonical branding assets.
 No VRM render, application screenshot, generated motion, model weight, voice, or other restricted product asset belongs in this repository.
