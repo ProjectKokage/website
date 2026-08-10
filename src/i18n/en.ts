@@ -7,9 +7,9 @@ export const en = {
   alternateOgLocale: "ja_JP",
   brandLabel: "Kokage",
   meta: {
-    title: "Kokage | Local-first character chat",
+    title: "Kokage | Local-first companion chat",
     description:
-      "Kokage is an experimental Flutter app that combines an on-device language model with a VRM character you choose.",
+      "Kokage is an experimental AI companion app that combines an on-device language model with a VRM avatar you choose.",
   },
   skipLink: "Skip to content",
   navigation: {
@@ -23,10 +23,10 @@ export const en = {
     languageLabel: "Language",
   },
   hero: {
-    eyebrow: "Local-first character chat",
-    titleLead: "Talk with a character",
+    eyebrow: "Local-first companion chat",
+    titleLead: "Talk with your companion",
     titleAccentLines: ["on your own device."],
-    lede: "Kokage brings an on-device language model together with a VRM character you choose. Add the optional voice features to speak and hear replies in Japanese. On mobile, when the selected model supports image input, you can attach one camera still to a message.",
+    lede: "Kokage brings an on-device language model together with a VRM avatar you choose. Add the optional voice features to speak and hear replies in Japanese. On mobile, when the selected model supports image input, you can attach one camera still to a message.",
     primaryAction: "Explore the features",
     secondaryAction: "View development status",
     notice: "Kokage is an experimental prototype.",
@@ -34,8 +34,8 @@ export const en = {
   },
   flow: {
     eyebrow: "A conversation in Kokage",
-    title: "From your message to the character’s reply",
-    lede: "Each turn moves from your message to an on-device reply, optional speech, and character animation.",
+    title: "From your message to your companion’s reply",
+    lede: "Each turn moves from your message to an on-device reply, optional speech, and companion animation.",
     stages: [
       {
         label: "Input",
@@ -55,10 +55,10 @@ export const en = {
           "When speech is set up, Kokage can read the reply aloud in Japanese.",
       },
       {
-        label: "Character",
-        title: "Animate the character",
+        label: "Companion",
+        title: "Animate your companion",
         detail:
-          "During playback, Kokage can sync the character’s mouth to the audio. When available, expressions and motions can also respond to the reply.",
+          "During playback, Kokage can sync your companion’s mouth to the audio. When available, expressions and motions can also respond to the reply.",
       },
     ],
     footnote:
@@ -66,16 +66,16 @@ export const en = {
   },
   features: {
     eyebrow: "What Kokage does",
-    title: "On-device chat with optional voice and a VRM character",
-    lede: "Kokage connects local text generation with optional Japanese speech and a VRM character you provide.",
+    title: "On-device companion chat with optional voice and a VRM avatar",
+    lede: "Kokage connects local text generation with optional Japanese speech and a VRM avatar you provide.",
     items: [
       {
         title: "Replies generated on your device",
         body: "After setup, the selected language model generates replies on your device. If generation fails, Kokage keeps your message so you can try again.",
       },
       {
-        title: "A VRM character you choose",
-        body: "Kokage can import a self-contained VRM 0.x or 1.0 file up to 128 MiB. It does not include a character model, so choose a file you have permission to use.",
+        title: "A VRM avatar you choose",
+        body: "Kokage can import a self-contained VRM 0.x or 1.0 file up to 128 MiB. It does not include a VRM, so choose a file you have permission to use.",
       },
       {
         title: "Speak or attach one image",
@@ -105,13 +105,13 @@ export const en = {
         body: "Only text you explicitly add, plus its local search index, is saved. Conversation content, audio, images, files, tool results, and model output stay outside that index.",
       },
       {
-        title: "Models and characters",
+        title: "Models and imported VRMs",
         body: "Downloaded model data and an imported VRM stay in app-private storage. Kokage does not retain the VRM’s original path, URL, or filename after import.",
       },
     ],
     networkLabel: "When Kokage uses the network",
     networkBody:
-      "Network access is limited to provisioning that you direct: downloading model data, importing a character from an HTTPS URL, or checking public Hugging Face model information. You confirm each new installation or download action before it begins, and a confirmed partial model transfer may resume across launches.",
+      "Network access is limited to provisioning that you direct: downloading model data, importing a VRM from an HTTPS URL, or checking public Hugging Face model information. You confirm each new installation or download action before it begins, and a confirmed partial model transfer may resume across launches.",
     policyLink: "Read the full privacy policy",
   },
   privacyPolicy: {
@@ -148,7 +148,7 @@ export const en = {
         id: "collection",
         title: "Data the Kokage developer does not collect",
         paragraphs: [
-          "The Kokage developer does not receive your conversations, prompts, microphone audio, transcripts, camera images, local knowledge, character memories, profiles, model output, generated speech, or imported character files.",
+          "The Kokage developer does not receive your conversations, prompts, microphone audio, transcripts, camera images, local knowledge, memories, profiles, model output, generated speech, or imported VRM files.",
         ],
         items: [
           {
@@ -185,16 +185,16 @@ export const en = {
             body: "Kokage stores text you add, its title, an optional source URL, its creation time, and a derived search index; it does not add chat, microphone, camera, file, tool, or model content to that index on its own.",
           },
           {
-            title: "Models, characters, profile, and setup",
-            body: "Verified model files, bounded partial model transfers, an imported VRM, your typed character profile, settings, and setup metadata stay in app-private storage; a custom public-model selection also stores its canonical repository, full commit, selected filenames, sizes, and digests for repair, while Kokage does not retain the imported VRM's original name, path, or URL.",
+            title: "Models, VRM, profile, and setup",
+            body: "Verified model files, bounded partial model transfers, an imported VRM, your typed profile, settings, and setup metadata stay in app-private storage; a custom public-model selection also stores its canonical repository, full commit, selected filenames, sizes, and digests for repair, while Kokage does not retain the imported VRM's original name, path, or URL.",
           },
           {
             title: "Device capacity",
             body: "During fresh setup, Kokage reads the total physical memory reported by the operating system to recommend a model size, without persisting or transmitting that value.",
           },
           {
-            title: "Character memory, when available",
-            body: "If your version offers Character Memory, the feature starts off. After you opt in, an eligible typed message may produce one temporary save proposal without a save request. Kokage writes nothing until you approve the exact key and value, requires separate approval for each delete, and stores approved entries, timestamps, search data, and the consent-policy setting on your device. Its instruction to propose non-sensitive facts is not a content classifier, so review each proposal before approval.",
+            title: "Memory, when available",
+            body: "If your version offers the memory feature, it starts off. After you opt in, an eligible typed message may produce one temporary save proposal without a save request. Kokage writes nothing until you approve the exact key and value, requires separate approval for each delete, and stores approved entries, timestamps, search data, and the consent-policy setting on your device. Its instruction to propose non-sensitive facts is not a content classifier, so review each proposal before approval.",
           },
         ],
       },
@@ -220,8 +220,8 @@ export const en = {
             },
           },
           {
-            title: "Characters from HTTPS",
-            body: "A confirmed character import contacts GitHub for the prefilled source or the HTTPS host you select and any redirect destination; importing a local file makes no host request.",
+            title: "VRM files from HTTPS",
+            body: "A confirmed VRM import contacts GitHub for the prefilled source or the HTTPS host you select and any redirect destination; importing a local file makes no host request.",
             link: {
               href: "https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement",
               label: "GitHub privacy statement",
@@ -238,7 +238,7 @@ export const en = {
         title: "Retention and deletion",
         paragraphs: [
           "The Kokage developer has no server-side copy of your app data to access, export, correct, or delete for you.",
-          "Local knowledge, profiles, settings, approved character memories, installed artifacts, and setup metadata can persist across launches because Kokage applies no time-based expiration to them.",
+          "Local knowledge, profiles, settings, approved memories, installed artifacts, and setup metadata can persist across launches because Kokage applies no time-based expiration to them.",
         ],
         items: [
           {
@@ -250,8 +250,8 @@ export const en = {
             body: "The Local Knowledge screen lets you delete one saved document or clear all saved documents and their search index.",
           },
           {
-            title: "Character memory, when available",
-            body: "The Character Memory screen lets you inspect entries, delete one entry, or clear all entries even while model access is disabled; turning access off does not erase retained entries by itself.",
+            title: "Memory, when available",
+            body: "The Memory screen lets you inspect entries, delete one entry, or clear all entries even while model access is disabled; turning access off does not erase retained entries by itself.",
           },
           {
             title: "Downloads and remaining app files",
@@ -323,8 +323,8 @@ export const en = {
         body: "Open JTalk prepares the reading, and Kokoro generates the audio.",
       },
       {
-        title: "Character",
-        body: "Flutter Scene renders the character, and flvtterm handles VRM presentation.",
+        title: "VRM presentation",
+        body: "Flutter Scene renders the imported VRM, and flvtterm handles its presentation.",
       },
     ],
   },
@@ -353,7 +353,7 @@ export const en = {
     ],
   },
   footer: {
-    descriptor: "Local-first character chat",
+    descriptor: "Local-first companion chat",
     statusLink: "Development status",
     privacyLink: "Privacy policy",
     navigationLabel: "Footer navigation",

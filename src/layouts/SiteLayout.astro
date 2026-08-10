@@ -31,7 +31,7 @@ const isHomePage = page === undefined;
 const schema = {
   "@context": "https://schema.org",
   "@type": isHomePage ? "WebSite" : "WebPage",
-  name: isHomePage ? "Kokage" : meta.title,
+  name: isHomePage ? copy.brandLabel : meta.title,
   url: canonicalUrl.href,
   description: meta.description,
   inLanguage: copy.htmlLang,
@@ -40,7 +40,7 @@ const schema = {
     : {
         isPartOf: {
           "@type": "WebSite",
-          name: "Kokage",
+          name: copy.brandLabel,
           url: new URL(homePath, Astro.site).href,
         },
       }),
@@ -79,7 +79,7 @@ const schema = {
     <link rel="sitemap" href="/sitemap-index.xml" />
 
     <meta property="og:type" content="website" />
-    <meta property="og:site_name" content="Kokage" />
+    <meta property="og:site_name" content={copy.brandLabel} />
     <meta property="og:title" content={meta.title} />
     <meta property="og:description" content={meta.description} />
     <meta property="og:url" content={canonicalUrl} />

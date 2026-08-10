@@ -12,6 +12,24 @@ import {
 const root = fileURLToPath(new URL("../", import.meta.url));
 const siteOrigin = new URL(process.env.KOKAGE_SITE_URL ?? TEST_SITE_ORIGIN)
   .origin;
+const retiredProductTerms = [
+  new RegExp(["char", "acter"].join(""), "i"),
+  new RegExp(
+    String.fromCodePoint(0x30ad, 0x30e3, 0x30e9, 0x30af, 0x30bf, 0x30fc),
+  ),
+  new RegExp(String.fromCodePoint(0x76f8, 0x68d2)),
+  new RegExp(
+    `(?<!AI)${String.fromCodePoint(
+      0x30b3,
+      0x30f3,
+      0x30d1,
+      0x30cb,
+      0x30aa,
+      0x30f3,
+    )}`,
+    "u",
+  ),
+];
 
 async function read(relativePath) {
   return readFile(new URL(relativePath, `file://${root}/`), "utf8");
@@ -73,6 +91,9 @@ function assertPage(
   assert.match(html, /"@type":"WebSite"/);
   assert.doesNotMatch(html, /href="#"/);
   assert.doesNotMatch(html, /Lorem ipsum|example\.com|TODO|placeholder/i);
+  for (const term of retiredProductTerms) {
+    assert.doesNotMatch(html, term);
+  }
 
   const primaryNavigation = html.match(
     /<nav class="site-nav"[\s\S]*?<\/nav>/,
@@ -116,9 +137,9 @@ test("English and Japanese pages emit localized metadata and complete navigation
     canonical: `${siteOrigin}/`,
     alternate: { lang: "ja", href: `${siteOrigin}/ja/` },
     xDefault: `${siteOrigin}/`,
-    title: "Kokage | Local-first character chat",
+    title: "Kokage | Local-first companion chat",
     description:
-      "Kokage is an experimental Flutter app that combines an on-device language model with a VRM character you choose.",
+      "Kokage is an experimental AI companion app that combines an on-device language model with a VRM avatar you choose.",
     ogLocale: "en_US",
     alternateOgLocale: "ja_JP",
   });
@@ -129,14 +150,14 @@ test("English and Japanese pages emit localized metadata and complete navigation
     canonical: `${siteOrigin}/ja/`,
     alternate: { lang: "en", href: `${siteOrigin}/` },
     xDefault: `${siteOrigin}/`,
-    title: "Kokage（こかげ） | 端末で動くキャラクターチャット",
+    title: "こかげ | 端末で動くAIコンパニオンとのチャット",
     description:
-      "こかげ（Kokage）は、端末内の言語モデルと自分で選んだVRMキャラクターで会話できる、開発中のFlutterアプリです。",
+      "こかげは、端末内の言語モデルと自分で選んだVRMアバターを組み合わせた、開発中のAIコンパニオンアプリです。",
     ogLocale: "ja_JP",
     alternateOgLocale: "en_US",
   });
 
-  assert.match(english, /Talk with a character/);
+  assert.match(english, /Talk with your companion/);
   assert.match(english, /Kokage is an experimental prototype/);
   assert.equal(
     (english.match(/<span class="brand__name">Kokage<\/span>/g) ?? []).length,
@@ -144,13 +165,14 @@ test("English and Japanese pages emit localized metadata and complete navigation
   );
   assert.match(
     japanese.replaceAll(/<[^>]+>/g, ""),
-    /自分で選んだキャラクターと端末の中で話す/,
+    /自分で選んだAIコンパニオンと端末の中で話す/,
   );
   assert.match(japanese, /こかげは現在開発中のプロトタイプ/);
   assert.equal(
     (japanese.match(/<span class="brand__name">こかげ<\/span>/g) ?? []).length,
     2,
   );
+  assert.doesNotMatch(japanese, /\bKokage\b/);
   assert.doesNotMatch(
     `${english}\n${japanese}`,
     /No public distribution|一般配布|配布承認|TestFlight|Google Play|欧州連合/,
@@ -198,6 +220,7 @@ test("privacy policy pages are localized, indexable, and linked across languages
       description:
         "How Kokage handles conversations, microphone and camera input, local data, model downloads, and website data.",
       heading: "Kokage processes conversations on your device.",
+      siteName: "Kokage",
       date: "August 3, 2026",
       homePath: "/",
     },
@@ -208,10 +231,11 @@ test("privacy policy pages are localized, indexable, and linked across languages
       englishPath: "/privacy/",
       japanesePath: "/ja/privacy/",
       canonical: `${siteOrigin}/ja/privacy/`,
-      title: "プライバシーポリシー | Kokage（こかげ）",
+      title: "プライバシーポリシー | こかげ",
       description:
         "こかげにおける会話、マイクとカメラの入力、端末内の保存データ、モデルのダウンロード、ウェブサイトのデータの扱いを説明します。",
       heading: "こかげは、会話を端末内で処理します。",
+      siteName: "こかげ",
       date: "2026年8月3日",
       homePath: "/ja/",
     },
@@ -268,7 +292,12 @@ test("privacy policy pages are localized, indexable, and linked across languages
       ),
     );
     assert.match(html, /"@type":"WebPage"/);
-    assert.match(html, /"isPartOf":\{"@type":"WebSite","name":"Kokage"/);
+    assert.match(
+      html,
+      new RegExp(
+        `"isPartOf":\\{"@type":"WebSite","name":"${policy.siteName}"`,
+      ),
+    );
     assert.match(html, new RegExp(`class="brand" href="${policy.homePath}"`));
     assert.match(
       html,
@@ -297,8 +326,12 @@ test("privacy policy pages are localized, indexable, and linked across languages
     );
     assert.doesNotMatch(html, /Lorem ipsum|TODO|placeholder|\[insert/i);
     assert.doesNotMatch(html, /href="#"/);
+    for (const term of retiredProductTerms) {
+      assert.doesNotMatch(html, term);
+    }
   }
 
+  assert.doesNotMatch(japanese, /\bKokage\b/);
   assert.match(english, /same or greater standard as this policy/);
   assert.match(japanese, /本ポリシーと同等以上の保護/);
 });

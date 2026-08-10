@@ -26,4 +26,4 @@ Product claims come from the sibling `../kokage` repository, primarily its root 
 The site must continue to describe Kokage as an experimental prototype and must not add download claims, testimonials, usage figures, compatibility badges, or unverified platform promises.
 
 The icon and leaf artwork under `public/brand/` and `src/assets/brand/` are copied from Kokage's current canonical branding assets.
-No character render, application screenshot, generated motion, model weight, voice, or other restricted product asset belongs in this repository.
+No VRM render, application screenshot, generated motion, model weight, voice, or other restricted product asset belongs in this repository.
