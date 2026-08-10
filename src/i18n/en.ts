@@ -9,7 +9,7 @@ export const en = {
   meta: {
     title: "Kokage | Local-first companion chat",
     description:
-      "Kokage is an experimental AI companion app that combines an on-device language model with a VRM avatar you choose.",
+      "Kokage is an AI companion app in beta that pairs an on-device language model with a 3D companion — bundled by default, replaceable with a VRM you choose.",
   },
   skipLink: "Skip to content",
   navigation: {
@@ -26,10 +26,10 @@ export const en = {
     eyebrow: "Local-first companion chat",
     titleLead: "Talk with your companion",
     titleAccentLines: ["on your own device."],
-    lede: "Kokage brings an on-device language model together with a VRM avatar you choose. Add the optional voice features to speak and hear replies in Japanese. On mobile, when the selected model supports image input, you can attach one camera still to a message.",
+    lede: "Kokage pairs an on-device language model with a 3D AI companion. The sample companion AvatarSample_A is included, and you can swap in a VRM you choose. Chat in Japanese or English, add the optional voice features for spoken input and Japanese replies, and on mobile attach one camera still when the selected model supports image input.",
     primaryAction: "Explore the features",
     secondaryAction: "View development status",
-    notice: "Kokage is an experimental prototype.",
+    notice: "Kokage is in prerelease beta testing.",
     imageAlt: "Kokage app icon, a mint speech bubble with two leaves",
   },
   flow: {
@@ -58,7 +58,7 @@ export const en = {
         label: "Companion",
         title: "Animate your companion",
         detail:
-          "During playback, Kokage can sync your companion’s mouth to the audio. When available, expressions and motions can also respond to the reply.",
+          "During playback, Kokage syncs your companion’s mouth to the audio it actually plays. Expressions and motions can respond to the reply, and between turns your companion keeps up a gentle idle motion.",
       },
     ],
     footnote:
@@ -66,20 +66,28 @@ export const en = {
   },
   features: {
     eyebrow: "What Kokage does",
-    title: "On-device companion chat with optional voice and a VRM avatar",
-    lede: "Kokage connects local text generation with optional Japanese speech and a VRM avatar you provide.",
+    title: "On-device companion chat with an included 3D companion, voice, and memory",
+    lede: "Kokage connects local text generation with a bundled VRM companion, optional Japanese speech, local memory, and knowledge you add.",
     items: [
       {
         title: "Replies generated on your device",
         body: "After setup, the selected language model generates replies on your device. If generation fails, Kokage keeps your message so you can try again.",
       },
       {
-        title: "A VRM avatar you choose",
-        body: "Kokage can import a self-contained VRM 0.x or 1.0 file up to 128 MiB. It does not include a VRM, so choose a file you have permission to use.",
+        title: "A companion included, or bring your own VRM",
+        body: "Fresh setup starts with the bundled sample companion AvatarSample_A. Custom VRM can replace it with a self-contained VRM 0.x or 1.0 file up to 128 MiB, from a local file or an HTTPS URL, that you have permission to use.",
+      },
+      {
+        title: "Shape how your companion replies",
+        body: "Set the chat language to Japanese or English, and adjust your companion’s name, role, tone, reply length, initiative, and expressiveness.",
       },
       {
         title: "Speak or attach one image",
         body: "After you set up voice input, Kokage converts microphone speech to text on your device. On mobile, a model that supports image input can receive one camera still with a message.",
+      },
+      {
+        title: "Memory you can inspect and control",
+        body: "From a typed message, Kokage may keep at most one short, exact span as a durable memory and reports each save with Undo. Memory starts enabled, stays on your device, and the Memory screen lets you inspect, edit, delete, or disable it.",
       },
       {
         title: "Add text for Kokage to reference",
@@ -101,17 +109,21 @@ export const en = {
         body: "Kokage keeps microphone audio only while recognizing speech. It keeps one camera image only for the current message or a failed message awaiting retry. Neither is logged or added to completed chat history.",
       },
       {
+        title: "Memory",
+        body: "Memory saves at most one short, exact span from an eligible typed message, reporting each save with Undo. Voice turns, images, and model output can never create a memory, and the Memory screen lets you inspect, edit, delete, or disable everything it keeps.",
+      },
+      {
         title: "Local knowledge",
         body: "Only text you explicitly add, plus its local search index, is saved. Conversation content, audio, images, files, tool results, and model output stay outside that index.",
       },
       {
-        title: "Models and imported VRMs",
-        body: "Downloaded model data and an imported VRM stay in app-private storage. Kokage does not retain the VRM’s original path, URL, or filename after import.",
+        title: "Models and VRMs",
+        body: "Downloaded model data and an imported VRM stay in app-private storage. The bundled companion needs no network access, and Kokage does not retain an imported VRM’s original path, URL, or filename.",
       },
     ],
     networkLabel: "When Kokage uses the network",
     networkBody:
-      "Network access is limited to provisioning that you direct: downloading model data, importing a VRM from an HTTPS URL, or checking public Hugging Face model information. You confirm each new installation or download action before it begins, and a confirmed partial model transfer may resume across launches.",
+      "Network access is limited to provisioning that you direct: downloading model, voice, and dictionary data, importing a VRM from an HTTPS URL, or checking public Hugging Face model information. You confirm each new installation or download action before it begins; a confirmed transfer may resume across launches and, when the operating system supports it, continue in the background.",
     policyLink: "Read the full privacy policy",
   },
   privacyPolicy: {
@@ -124,13 +136,13 @@ export const en = {
     title: "Kokage processes conversations on your device.",
     lede: "This policy explains what the app keeps, when it connects to other services, and how you can remove local data.",
     updatedLabel: "Last updated",
-    updatedDate: "2026-08-03",
-    updatedDateDisplay: "August 3, 2026",
+    updatedDate: "2026-08-10",
+    updatedDateDisplay: "August 10, 2026",
     highlightsLabel: "Policy summary",
     highlights: [
       "No Kokage account or developer-operated inference server",
       "No analytics, advertising, telemetry, or tracking in the app",
-      "Conversation, microphone, and camera content stays on your device",
+      "Conversation, microphone, camera, and memory content stays on your device",
       "In the app, network access is limited to setup and downloads that you direct",
     ],
     contentsLabel: "On this page",
@@ -139,9 +151,9 @@ export const en = {
         id: "scope",
         title: "Scope",
         paragraphs: [
-          "This policy describes data handling in the Kokage app and the Kokage project website as of August 3, 2026.",
+          "This policy describes data handling in the Kokage app and the Kokage project website as of August 10, 2026.",
           "Websites and download services that Kokage contacts at your direction apply their own privacy policies.",
-          "Kokage is an experimental local-first app with no Kokage account system or developer-operated inference service.",
+          "Kokage is a local-first app in prerelease testing with no Kokage account system or developer-operated inference service.",
         ],
       },
       {
@@ -181,20 +193,28 @@ export const en = {
             body: "Messages and prompts remain in the active conversation without a persistent chat log; microphone PCM lasts through recognition and its transcript joins that active conversation; one camera image may remain for the current or failed turn; and generated speech is not persisted.",
           },
           {
+            title: "Voice emotion hint",
+            body: "Local speech recognition may estimate one coarse emotion for the current utterance, without a confidence score. A default-off profile setting can use an eligible label as a weak local reply-tone hint for that turn; the label is not written to local knowledge or memory and is not sent to the developer.",
+          },
+          {
             title: "Local knowledge",
             body: "Kokage stores text you add, its title, an optional source URL, its creation time, and a derived search index; it does not add chat, microphone, camera, file, tool, or model content to that index on its own.",
           },
           {
-            title: "Models, VRM, profile, and setup",
-            body: "Verified model files, bounded partial model transfers, an imported VRM, your typed profile, settings, and setup metadata stay in app-private storage; a custom public-model selection also stores its canonical repository, full commit, selected filenames, sizes, and digests for repair, while Kokage does not retain the imported VRM's original name, path, or URL.",
+            title: "Models, VRMs, profile, and setup",
+            body: "Verified model files, bounded partial model transfers, an installed Custom VRM, your typed profile, settings, and setup metadata stay in app-private storage; the bundled sample companion is a read-only packaged asset. A custom public-model selection also stores its canonical repository, full commit, selected filenames, sizes, and digests for repair, while Kokage does not retain an imported VRM's original name, path, or URL.",
           },
           {
             title: "Device capacity",
             body: "During fresh setup, Kokage reads the total physical memory reported by the operating system to recommend a model size, without persisting or transmitting that value.",
           },
           {
-            title: "Memory, when available",
-            body: "If your version offers the memory feature, it starts off. After you opt in, an eligible typed message may produce one temporary save proposal without a save request. Kokage writes nothing until you approve the exact key and value, requires separate approval for each delete, and stores approved entries, timestamps, search data, and the consent-policy setting on your device. Its instruction to propose non-sensitive facts is not a content classifier, so review each proposal before approval.",
+            title: "Memory",
+            body: "Memory is a separate, local-only store that starts enabled, without an initial consent prompt or per-record approval. From an eligible directly typed message, the local model may keep at most one durable detail even if you did not ask it to save anything, and the saved value must be one exact span of that message. Images, local knowledge, older chat, model output, and voice-input turns can never source a save. Kokage reports each settled save with a temporary Undo, and the model's selection can be wrong — it may keep a sensitive or otherwise excluded detail — so review the Memory screen, where you can inspect, edit, delete, clear, disable, and re-enable memory. Disabling stops recall and capture but keeps existing entries until you delete them.",
+          },
+          {
+            title: "First-run guidance marker",
+            body: "To avoid repeating completed or dismissed guidance, Kokage may keep a local marker holding only two closed progress states. It contains no chat text, model output, saved-memory values, identifiers, or timestamps, and clearing app data or uninstalling removes it.",
           },
         ],
       },
@@ -213,23 +233,27 @@ export const en = {
           },
           {
             title: "Public model information and files",
-            body: "A Hugging Face Check requests public repository metadata, and a confirmed install can contact Hugging Face plus its redirect or delivery hosts; Kokage supports no private repository token and does not retain a temporary signed delivery URL.",
+            body: "A Hugging Face Check requests public repository metadata, and a confirmed install downloads model and voice files from Hugging Face plus its redirect or delivery hosts; Kokage supports no private repository token and does not retain a temporary signed delivery URL.",
             link: {
               href: "https://huggingface.co/privacy",
               label: "Hugging Face privacy policy",
             },
           },
           {
-            title: "VRM files from HTTPS",
-            body: "A confirmed VRM import contacts GitHub for the prefilled source or the HTTPS host you select and any redirect destination; importing a local file makes no host request.",
+            title: "Voice and dictionary files from GitHub",
+            body: "A confirmed setup can also download voice and dictionary artifacts from GitHub-hosted release endpoints and their redirect destinations, which receive the same standard connection data as other download hosts.",
             link: {
               href: "https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement",
               label: "GitHub privacy statement",
             },
           },
           {
-            title: "Confirmed transfer resume",
-            body: "Kokage may keep one bounded, checksum-keyed partial model transfer across launches and resume the same confirmed request, while a new installation or download action still needs your confirmation.",
+            title: "VRM files from HTTPS",
+            body: "The bundled companion needs no download. A confirmed Custom VRM import contacts the HTTPS host you select and any redirect destination; importing a local file makes no host request.",
+          },
+          {
+            title: "Confirmed transfer resume and background continuation",
+            body: "Kokage may keep one bounded, checksum-keyed partial model transfer across launches and resume the same confirmed request. After you confirm a download, iOS, Android, or macOS may continue that transfer through the operating system's background-transfer service when the system reports support, and the system may hold the request URL, expected length, destination, and progress until completion or cancellation. A new installation or download action still needs your confirmation.",
           },
         ],
       },
@@ -250,8 +274,8 @@ export const en = {
             body: "The Local Knowledge screen lets you delete one saved document or clear all saved documents and their search index.",
           },
           {
-            title: "Memory, when available",
-            body: "The Memory screen lets you inspect entries, delete one entry, or clear all entries even while model access is disabled; turning access off does not erase retained entries by itself.",
+            title: "Memory",
+            body: "The Memory screen lets you inspect, edit, delete one, or clear all entries even while memory is disabled; turning memory off stops recall and capture but does not erase retained entries by itself.",
           },
           {
             title: "Downloads and remaining app files",
@@ -311,8 +335,8 @@ export const en = {
     lede: "Kokage uses separate libraries for language generation, speech, and VRM rendering.",
     items: [
       {
-        title: "Language model",
-        body: "Kokage runs llama.cpp through fllamer.",
+        title: "Language model and embeddings",
+        body: "Kokage runs llama.cpp through fllamer, both for replies and for the embeddings behind memory and knowledge search.",
       },
       {
         title: "Voice input",
@@ -320,30 +344,48 @@ export const en = {
       },
       {
         title: "Japanese speech",
-        body: "Open JTalk prepares the reading, and Kokoro generates the audio.",
+        body: "Open JTalk prepares the reading through misakid, and Kokoro generates the audio through fonix.",
       },
       {
         title: "VRM presentation",
-        body: "Flutter Scene renders the imported VRM, and flvtterm handles its presentation.",
+        body: "Flutter Scene renders the companion, and flvtterm handles its presentation.",
       },
     ],
   },
   status: {
     eyebrow: "Development status",
     title: "Current platform coverage",
-    lede: "macOS is the primary development environment. Other targets have code paths, but not the same level of validation.",
+    lede: "macOS is the primary development environment, and iOS builds now reach testers through TestFlight. Coverage still differs by platform.",
     platforms: [
       {
         name: "macOS",
         state: "Primary development environment",
         detail:
-          "After the required data is installed, local chat, knowledge search, voice input, Japanese speech, and VRM presentation can run on macOS.",
+          "After the required data is installed, local chat, memory, knowledge search, voice input, Japanese speech, and VRM presentation run on macOS.",
       },
       {
-        name: "Other native targets",
-        state: "Validation incomplete",
+        name: "iOS",
+        state: "In beta testing",
         detail:
-          "iOS has not been validated for inference or on a physical device. Android’s native inference path is unvalidated and may not run. Linux and Windows have not been built or run on their target systems.",
+          "Kokage runs on physical iPhones and is distributed to testers through TestFlight.",
+      },
+      {
+        name: "Android",
+        state: "Emulator-validated",
+        detail:
+          "Local inference and speech tests pass on Android emulators. Physical-device coverage is still in progress.",
+      },
+      {
+        name: "Linux",
+        state: "Configured in source",
+        detail:
+          "Native x64 and arm64 code paths, including Japanese speech, are configured but have not been validated on their target systems.",
+      },
+      {
+        name: "Windows",
+        state: "Configured in source",
+        detail:
+          "A native x64 code path, including Japanese speech, is configured but has not been validated on its target system.",
       },
       {
         name: "Web",

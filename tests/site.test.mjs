@@ -139,7 +139,7 @@ test("English and Japanese pages emit localized metadata and complete navigation
     xDefault: `${siteOrigin}/`,
     title: "Kokage | Local-first companion chat",
     description:
-      "Kokage is an experimental AI companion app that combines an on-device language model with a VRM avatar you choose.",
+      "Kokage is an AI companion app in beta that pairs an on-device language model with a 3D companion — bundled by default, replaceable with a VRM you choose.",
     ogLocale: "en_US",
     alternateOgLocale: "ja_JP",
   });
@@ -152,30 +152,32 @@ test("English and Japanese pages emit localized metadata and complete navigation
     xDefault: `${siteOrigin}/`,
     title: "こかげ | 端末で動くAIコンパニオンとのチャット",
     description:
-      "こかげは、端末内の言語モデルと自分で選んだVRMアバターを組み合わせた、開発中のAIコンパニオンアプリです。",
+      "こかげは、端末内の言語モデルと同梱の3DのAIコンパニオンを組み合わせた、ベータテスト中のアプリです。自分で選んだVRMへの置き換えにも対応します。",
     ogLocale: "ja_JP",
     alternateOgLocale: "en_US",
   });
 
   assert.match(english, /Talk with your companion/);
-  assert.match(english, /Kokage is an experimental prototype/);
+  assert.match(english, /Kokage is in prerelease beta testing/);
   assert.equal(
     (english.match(/<span class="brand__name">Kokage<\/span>/g) ?? []).length,
     2,
   );
   assert.match(
     japanese.replaceAll(/<[^>]+>/g, ""),
-    /自分で選んだAIコンパニオンと端末の中で話す/,
+    /あなたの端末の中でAIコンパニオンと話す/,
   );
-  assert.match(japanese, /こかげは現在開発中のプロトタイプ/);
+  assert.match(japanese, /こかげは現在ベータテスト中のプレリリース版/);
   assert.equal(
     (japanese.match(/<span class="brand__name">こかげ<\/span>/g) ?? []).length,
     2,
   );
   assert.doesNotMatch(japanese, /\bKokage\b/);
+  assert.match(english, /TestFlight/);
+  assert.match(japanese, /TestFlight/);
   assert.doesNotMatch(
     `${english}\n${japanese}`,
-    /No public distribution|一般配布|配布承認|TestFlight|Google Play|欧州連合/,
+    /No public distribution|一般配布|配布承認|Google Play|欧州連合/,
   );
   assert.doesNotMatch(
     `${english}\n${japanese}`,
@@ -221,7 +223,7 @@ test("privacy policy pages are localized, indexable, and linked across languages
         "How Kokage handles conversations, microphone and camera input, local data, model downloads, and website data.",
       heading: "Kokage processes conversations on your device.",
       siteName: "Kokage",
-      date: "August 3, 2026",
+      date: "August 10, 2026",
       homePath: "/",
     },
     {
@@ -236,7 +238,7 @@ test("privacy policy pages are localized, indexable, and linked across languages
         "こかげにおける会話、マイクとカメラの入力、端末内の保存データ、モデルのダウンロード、ウェブサイトのデータの扱いを説明します。",
       heading: "こかげは、会話を端末内で処理します。",
       siteName: "こかげ",
-      date: "2026年8月3日",
+      date: "2026年8月10日",
       homePath: "/ja/",
     },
   ];
@@ -288,7 +290,7 @@ test("privacy policy pages are localized, indexable, and linked across languages
     assert.match(
       html,
       new RegExp(
-        `<time datetime="2026-08-03">${escapeRegExp(policy.date)}</time>`,
+        `<time datetime="2026-08-10">${escapeRegExp(policy.date)}</time>`,
       ),
     );
     assert.match(html, /"@type":"WebPage"/);
