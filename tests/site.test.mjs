@@ -225,10 +225,10 @@ test("privacy policy pages are localized, indexable, and linked across languages
       canonical: `${siteOrigin}/privacy/`,
       title: "Privacy Policy | Kokage",
       description:
-        "How Kokage handles conversations, reports, microphone and camera input, local data, model downloads, and website data.",
+        "How Kokage handles conversations, reports, camera input, local data, model downloads, and website data.",
       heading: "Kokage processes conversations on your device.",
       siteName: "Kokage",
-      date: "August 12, 2026",
+      date: "August 16, 2026",
       homePath: "/",
     },
     {
@@ -240,10 +240,10 @@ test("privacy policy pages are localized, indexable, and linked across languages
       canonical: `${siteOrigin}/ja/privacy/`,
       title: "プライバシーポリシー | こかげ",
       description:
-        "こかげにおける会話、報告、マイクとカメラの入力、端末内の保存データ、モデルのダウンロード、ウェブサイトのデータの扱いを説明します。",
+        "こかげにおける会話、報告、カメラ入力、端末内の保存データ、モデルのダウンロード、ウェブサイトのデータの扱いを説明します。",
       heading: "こかげは、会話を端末内で処理します。",
       siteName: "こかげ",
-      date: "2026年8月12日",
+      date: "2026年8月16日",
       homePath: "/ja/",
     },
   ];
@@ -295,7 +295,7 @@ test("privacy policy pages are localized, indexable, and linked across languages
     assert.match(
       html,
       new RegExp(
-        `<time datetime="2026-08-12">${escapeRegExp(policy.date)}</time>`,
+        `<time datetime="2026-08-16">${escapeRegExp(policy.date)}</time>`,
       ),
     );
     assert.match(html, /"@type":"WebPage"/);

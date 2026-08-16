@@ -26,7 +26,7 @@ export const en = {
     eyebrow: "Local-first companion chat",
     titleLead: "Talk with your companion",
     titleAccentLines: ["on your own device."],
-    lede: "Kokage pairs an on-device language model with a 3D AI companion. The sample companion AvatarSample_A is included, and you can swap in a VRM you choose. Chat in Japanese or English, add the optional voice features for spoken input and Japanese replies, and on mobile attach one camera still when the selected model supports image input.",
+    lede: "Kokage pairs an on-device language model with a 3D AI companion. The sample companion AvatarSample_A is included, and you can swap in a VRM you choose. Chat in Japanese or English, add optional Japanese speech for spoken replies, and on mobile attach one camera still when the selected model supports image input.",
     primaryAction: "Explore the features",
     secondaryAction: "View development status",
     notice:
@@ -40,8 +40,8 @@ export const en = {
     stages: [
       {
         label: "Input",
-        title: "Type or speak",
-        detail: "Type a message or use the microphone.",
+        title: "Type a message",
+        detail: "Type a message and, on supported mobile setups, attach one camera still.",
       },
       {
         label: "Reply",
@@ -63,11 +63,11 @@ export const en = {
       },
     ],
     footnote:
-      "If voice input, the camera, or 3D rendering is unavailable, you can continue the conversation by typing.",
+      "If the camera or 3D rendering is unavailable, you can continue the conversation by typing.",
   },
   features: {
     eyebrow: "What Kokage does",
-    title: "On-device companion chat with an included 3D companion, voice, and memory",
+    title: "On-device companion chat with an included 3D companion, Japanese speech, and memory",
     lede: "Kokage connects local text generation with a bundled VRM companion, optional Japanese speech, local memory, and knowledge you add.",
     items: [
       {
@@ -80,19 +80,19 @@ export const en = {
       },
       {
         title: "Shape how your companion replies",
-        body: "Set the chat language to Japanese or English, and adjust your companion’s name, role, tone, reply length, initiative, and expressiveness.",
+        body: "Set the chat language to Japanese or English, and adjust your companion’s role, tone, reply length, initiative, and expressiveness.",
       },
       {
-        title: "Speak or attach one image",
-        body: "After you set up voice input, Kokage converts microphone speech to text on your device. On mobile, a model that supports image input can receive one camera still with a message.",
+        title: "Hear Japanese replies or attach one image",
+        body: "After you set up Japanese speech, Kokage can read replies aloud. On mobile, a model that supports image input can receive one camera still with a message. Voice input is unavailable in this release.",
       },
       {
         title: "Memory you can inspect and control",
-        body: "From a typed message, Kokage may keep at most one short, exact span as a durable memory and reports each save with Undo. Memory starts enabled, stays on your device, and the Memory screen lets you inspect, edit, delete, or disable it.",
+        body: "Memory stays on your device. When enabled, retained entries can be recalled for replies, and the Memory screen lets you inspect, edit, delete, clear, or disable them. Automatic capture from incidental typed turns is unavailable in this release.",
       },
       {
         title: "Add text for Kokage to reference",
-        body: "Paste text you want Kokage to search while composing future replies. Chat, microphone audio, images, and model output are never added to this local knowledge automatically.",
+        body: "Paste text you want Kokage to search while composing future replies. Chat, images, and model output are never added to this local knowledge automatically.",
       },
     ],
   },
@@ -106,12 +106,12 @@ export const en = {
         body: "Kokage holds messages and prompts only while the conversation is active. It does not save conversation content to logs or persistent history.",
       },
       {
-        title: "Microphone and camera",
-        body: "Kokage keeps microphone audio only while recognizing speech. It keeps one camera image only for the current message or a failed message awaiting retry. Neither is logged or added to completed chat history.",
+        title: "Camera",
+        body: "Kokage keeps one camera image only for the current message or a failed message awaiting retry. It is not logged or added to completed chat history. Voice input is unavailable, so the current release does not request microphone access or capture microphone audio.",
       },
       {
         title: "Memory",
-        body: "Memory saves at most one short, exact span from an eligible typed message, reporting each save with Undo. Voice turns, images, and model output can never create a memory, and the Memory screen lets you inspect, edit, delete, or disable everything it keeps.",
+        body: "Retained memory stays on the device and can be recalled while memory is enabled. The Memory screen lets you inspect, edit, delete, clear, or disable it. Automatic incidental capture is unavailable in this release.",
       },
       {
         title: "Local knowledge",
@@ -131,19 +131,19 @@ export const en = {
     meta: {
       title: "Privacy Policy | Kokage",
       description:
-        "How Kokage handles conversations, reports, microphone and camera input, local data, model downloads, and website data.",
+        "How Kokage handles conversations, reports, camera input, local data, model downloads, and website data.",
     },
     eyebrow: "Kokage privacy policy",
     title: "Kokage processes conversations on your device.",
     lede: "This policy explains what the app keeps, when it connects to other services, and how you can remove local data.",
     updatedLabel: "Last updated",
-    updatedDate: "2026-08-12",
-    updatedDateDisplay: "August 12, 2026",
+    updatedDate: "2026-08-16",
+    updatedDateDisplay: "August 16, 2026",
     highlightsLabel: "Policy summary",
     highlights: [
       "No Kokage account or developer-operated inference server",
       "No analytics, advertising, telemetry, or tracking in the app",
-      "Prompts, conversation history, microphone, camera, and memory content stay on your device",
+      "Prompts, conversation history, camera images, and saved memory stay on your device",
       "A release-configured report you confirm may send one selected displayed reply through Formspark",
     ],
     contentsLabel: "On this page",
@@ -152,7 +152,7 @@ export const en = {
         id: "scope",
         title: "Scope",
         paragraphs: [
-          "This policy describes data handling in the Kokage app and the Kokage project website as of August 12, 2026.",
+          "This policy describes data handling in the Kokage app and the Kokage project website as of August 16, 2026.",
           "Websites and download services that Kokage contacts at your direction apply their own privacy policies.",
           "Kokage is a local-first app in prerelease testing with no Kokage account system or developer-operated inference service.",
         ],
@@ -161,7 +161,7 @@ export const en = {
         id: "collection",
         title: "Data not sent during ordinary use",
         paragraphs: [
-          "The Kokage developer does not receive your prompts, conversation history, microphone audio, transcripts, camera images, local knowledge, memories, profiles, generated speech, or imported VRM files during ordinary use.",
+          "The Kokage developer does not receive your prompts, conversation history, camera images, local knowledge, memories, profiles, generated speech, or imported VRM files during ordinary use.",
           "A report that you confirm is the sole generated-content exception. It can send one selected displayed reply, a closed reason, and an optional bounded note only after an approved Formspark form is configured for that release.",
         ],
         items: [
@@ -191,16 +191,16 @@ export const en = {
         ],
         items: [
           {
-            title: "Conversation, microphone, camera, and speech",
-            body: "Messages and prompts remain in the active conversation without a persistent chat log; microphone PCM lasts through recognition and its transcript joins that active conversation; one camera image may remain for the current or failed turn; and generated speech is not persisted.",
+            title: "Conversation, camera, and speech",
+            body: "Messages and prompts remain in the active conversation without a persistent chat log; one camera image may remain for the current or failed turn; and generated speech is not persisted.",
           },
           {
-            title: "Voice emotion hint",
-            body: "Local speech recognition may estimate one coarse emotion for the current utterance, without a confidence score. A default-off profile setting can use an eligible label as a weak local reply-tone hint for that turn; the label is not written to local knowledge or memory and is not sent to the developer.",
+            title: "Voice input",
+            body: "Voice input is unavailable in the current product composition. Kokage does not construct a speech recognizer, request microphone permission, or capture microphone audio while this fail-closed policy is active.",
           },
           {
             title: "Local knowledge",
-            body: "Kokage stores text you add, its title, an optional source URL, its creation time, and a derived search index; it does not add chat, microphone, camera, file, tool, or model content to that index on its own.",
+            body: "Kokage stores text you add, its title, an optional source URL, its creation time, and a derived search index; it does not add chat, camera, file, tool, or model content to that index on its own.",
           },
           {
             title: "Models, VRMs, profile, and setup",
@@ -212,11 +212,11 @@ export const en = {
           },
           {
             title: "Memory",
-            body: "Memory is a separate, local-only store that starts enabled, without an initial consent prompt or per-record approval. From an eligible directly typed message, the local model may keep at most one durable detail even if you did not ask it to save anything, and the saved value must be one exact span of that message. Images, local knowledge, older chat, model output, and voice-input turns can never source a save. Kokage reports each settled save with a temporary Undo, and the model's selection can be wrong — it may keep a sensitive or otherwise excluded detail — so review the Memory screen, where you can inspect, edit, delete, clear, disable, and re-enable memory. Disabling stops recall and capture but keeps existing entries until you delete them.",
+            body: "Memory is a separate, local-only store. When memory is enabled, retained entries can be recalled for local replies; the Memory screen lets you inspect, edit, delete, clear, disable, and re-enable them. Disabling memory stops recall without erasing retained entries. Automatic incidental capture from typed turns is unavailable in this release.",
           },
           {
-            title: "First-run guidance marker",
-            body: "To avoid repeating completed or dismissed guidance, Kokage may keep a local marker holding only two closed progress states. It contains no chat text, model output, saved-memory values, identifiers, or timestamps, and clearing app data or uninstalling removes it.",
+            title: "Automatic first-conversation guidance",
+            body: "Model-generated first-conversation guidance is unavailable in this release. Normal use does not start that path or create new guidance-progress data.",
           },
         ],
       },
@@ -272,12 +272,12 @@ export const en = {
         title: "Retention and deletion",
         paragraphs: [
           "The Kokage developer has no server-side copy of your ordinary app data. A submitted report is the exception: Formspark and the developer mailbox may each retain a copy.",
-          "Local knowledge, profiles, settings, approved memories, installed artifacts, and setup metadata can persist across launches because Kokage applies no time-based expiration to them.",
+          "Local knowledge, profiles, settings, saved memories, installed artifacts, and setup metadata can persist across launches because Kokage applies no time-based expiration to them.",
         ],
         items: [
           {
             title: "Short-lived turn data",
-            body: "Kokage releases microphone PCM after recognition, removes the temporary native camera file after reading it, and retires in-memory camera and conversation data when its turn or conversation no longer owns that data.",
+            body: "Kokage removes the temporary native camera file after reading it and retires in-memory camera and conversation data when its turn or conversation no longer owns that data.",
           },
           {
             title: "Local knowledge",
@@ -285,7 +285,7 @@ export const en = {
           },
           {
             title: "Memory",
-            body: "The Memory screen lets you inspect, edit, delete one, or clear all entries even while memory is disabled; turning memory off stops recall and capture but does not erase retained entries by itself.",
+            body: "The Memory screen lets you inspect, edit, delete one, or clear all retained entries even while memory is disabled; turning memory off stops recall but does not erase retained entries by itself. Automatic incidental capture is unavailable in this release.",
           },
           {
             title: "Downloads and remaining app files",
@@ -301,8 +301,8 @@ export const en = {
         id: "permissions",
         title: "Permissions and local protection",
         paragraphs: [
-          "Kokage asks for microphone access when you start local voice input and for camera access when you attach one still to a message.",
-          "You can deny or revoke either permission in system settings and continue with typed chat.",
+          "Kokage asks for camera access when you attach one still to a message. You can deny or revoke that permission in system settings and continue with typed chat.",
+          "Voice input is unavailable in this release, and Kokage does not request microphone permission.",
           "Kokage uses app-private storage and operating-system protections, but it does not add application-layer encryption to saved content.",
           "Kokage configures Android app data not to be backed up and marks its iOS app-owned support directory as excluded from backup, while the operating system enforces those settings.",
         ],
@@ -381,16 +381,16 @@ export const en = {
             body: "Use the exact error category shown by the app, confirm that setup completed, and retry from the app. Do not email a model file, private repository token, prompt, or native stack trace that contains a private path.",
           },
           {
-            title: "Voice, camera, speech, or 3D presentation fails",
-            body: "Continue with typed chat where it remains available. A microphone, camera, playback, or presentation failure should not require sharing the captured audio, image, generated reply, or imported VRM.",
+            title: "Camera, speech output, or 3D presentation fails",
+            body: "Continue with typed chat where it remains available. A camera, playback, or presentation failure should not require sharing the captured image, generated reply, or imported VRM.",
           },
         ],
       },
       {
         id: "permissions",
-        title: "Microphone and camera permissions",
+        title: "Camera permission",
         paragraphs: [
-          "Kokage asks for microphone access when you start voice input and camera access when you attach one still. You can deny or revoke either permission in system settings and continue by typing.",
+          "Kokage asks for camera access when you attach one still. You can deny or revoke that permission in system settings and continue by typing. Voice input is unavailable, so the current release does not request microphone permission.",
           "If a permission prompt does not appear, review Kokage's permission state in the operating system before reinstalling or clearing app data.",
         ],
       },
@@ -427,8 +427,8 @@ export const en = {
         body: "Kokage runs llama.cpp through fllamer, both for replies and for the embeddings behind memory and knowledge search.",
       },
       {
-        title: "Voice input",
-        body: "Through sherpa_onnx, Silero VAD detects spoken segments and SenseVoice transcribes them.",
+        title: "Voice input unavailable",
+        body: "Silero VAD and SenseVoice paths through sherpa_onnx remain isolated qualification-harness code. The current product does not construct that recognizer or request microphone access.",
       },
       {
         title: "Japanese speech",
@@ -449,7 +449,7 @@ export const en = {
         name: "macOS",
         state: "Primary development environment",
         detail:
-          "After the required data is installed, local chat, memory, knowledge search, voice input, Japanese speech, and VRM presentation run on macOS.",
+          "After the required data is installed, local chat, memory management and recall, knowledge search, Japanese speech, and VRM presentation run on macOS. Voice input remains unavailable.",
       },
       {
         name: "iOS",
