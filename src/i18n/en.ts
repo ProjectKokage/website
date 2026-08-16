@@ -9,7 +9,7 @@ export const en = {
   meta: {
     title: "Kokage | Local-first companion chat",
     description:
-      "Kokage is an AI companion app in beta that pairs an on-device language model with a 3D companion — bundled by default, replaceable with a VRM you choose.",
+      "Kokage is an AI companion app in internal prerelease development that pairs an on-device language model with a bundled 3D companion.",
   },
   skipLink: "Skip to content",
   navigation: {
@@ -29,7 +29,8 @@ export const en = {
     lede: "Kokage pairs an on-device language model with a 3D AI companion. The sample companion AvatarSample_A is included, and you can swap in a VRM you choose. Chat in Japanese or English, add the optional voice features for spoken input and Japanese replies, and on mobile attach one camera still when the selected model supports image input.",
     primaryAction: "Explore the features",
     secondaryAction: "View development status",
-    notice: "Kokage is in prerelease beta testing.",
+    notice:
+      "Kokage is under internal prerelease development and is not currently distributed.",
     imageAlt: "Kokage app icon, a mint speech bubble with two leaves",
   },
   flow: {
@@ -98,7 +99,7 @@ export const en = {
   privacy: {
     eyebrow: "App data and privacy",
     title: "Conversation processing stays on your device",
-    lede: "Replies are generated on your device. Kokage does not use remote inference, analytics, or telemetry, and it does not send conversation content to a server.",
+    lede: "Replies are generated on your device. Kokage does not use remote inference, analytics, or telemetry. A release-configured report that you confirm may send only one selected displayed reply, a closed reason, and an optional bounded note through Formspark.",
     items: [
       {
         title: "Conversation",
@@ -123,27 +124,27 @@ export const en = {
     ],
     networkLabel: "When Kokage uses the network",
     networkBody:
-      "Network access is limited to provisioning that you direct: downloading model, voice, and dictionary data, importing a VRM from an HTTPS URL, or checking public Hugging Face model information. You confirm each new installation or download action before it begins; a confirmed transfer may resume across launches and, when the operating system supports it, continue in the background.",
+      "Network access covers provisioning that you direct and, only in a release with an approved Formspark form, an offensive-output report that you confirm in the app. Reporting remains unavailable until the form, provider approval, retention and deletion procedure, public disclosure, and signed-release checks are complete.",
     policyLink: "Read the full privacy policy",
   },
   privacyPolicy: {
     meta: {
       title: "Privacy Policy | Kokage",
       description:
-        "How Kokage handles conversations, microphone and camera input, local data, model downloads, and website data.",
+        "How Kokage handles conversations, reports, microphone and camera input, local data, model downloads, and website data.",
     },
     eyebrow: "Kokage privacy policy",
     title: "Kokage processes conversations on your device.",
     lede: "This policy explains what the app keeps, when it connects to other services, and how you can remove local data.",
     updatedLabel: "Last updated",
-    updatedDate: "2026-08-10",
-    updatedDateDisplay: "August 10, 2026",
+    updatedDate: "2026-08-12",
+    updatedDateDisplay: "August 12, 2026",
     highlightsLabel: "Policy summary",
     highlights: [
       "No Kokage account or developer-operated inference server",
       "No analytics, advertising, telemetry, or tracking in the app",
-      "Conversation, microphone, camera, and memory content stays on your device",
-      "In the app, network access is limited to setup and downloads that you direct",
+      "Prompts, conversation history, microphone, camera, and memory content stay on your device",
+      "A release-configured report you confirm may send one selected displayed reply through Formspark",
     ],
     contentsLabel: "On this page",
     sections: [
@@ -151,16 +152,17 @@ export const en = {
         id: "scope",
         title: "Scope",
         paragraphs: [
-          "This policy describes data handling in the Kokage app and the Kokage project website as of August 10, 2026.",
+          "This policy describes data handling in the Kokage app and the Kokage project website as of August 12, 2026.",
           "Websites and download services that Kokage contacts at your direction apply their own privacy policies.",
           "Kokage is a local-first app in prerelease testing with no Kokage account system or developer-operated inference service.",
         ],
       },
       {
         id: "collection",
-        title: "Data the Kokage developer does not collect",
+        title: "Data not sent during ordinary use",
         paragraphs: [
-          "The Kokage developer does not receive your conversations, prompts, microphone audio, transcripts, camera images, local knowledge, memories, profiles, model output, generated speech, or imported VRM files.",
+          "The Kokage developer does not receive your prompts, conversation history, microphone audio, transcripts, camera images, local knowledge, memories, profiles, generated speech, or imported VRM files during ordinary use.",
+          "A report that you confirm is the sole generated-content exception. It can send one selected displayed reply, a closed reason, and an optional bounded note only after an approved Formspark form is configured for that release.",
         ],
         items: [
           {
@@ -172,8 +174,8 @@ export const en = {
             body: "The app contains no analytics, telemetry, advertising, or tracking service, and the Kokage developer does not sell or rent app data.",
           },
           {
-            title: "No app-content recipients",
-            body: "Kokage does not send conversation or media content to analytics tools, advertising networks, third-party inference services, or related companies; provisioning hosts still receive the connection metadata described below.",
+            title: "No inference, analytics, or advertising recipients",
+            body: "Kokage does not send prompts, conversation history, or media to analytics tools, advertising networks, third-party inference services, or related companies. Provisioning hosts receive the connection metadata described below, and an approved Formspark report receives only its disclosed payload.",
           },
           {
             title: "Content-free diagnostics",
@@ -222,14 +224,22 @@ export const en = {
         id: "network",
         title: "Network connections and third-party services",
         paragraphs: [
-          "Kokage uses the network for provisioning that you direct, not for conversation generation.",
-          "A download host can receive standard connection data such as your IP address, request time, requested URL, and HTTP headers, while Kokage keeps conversation and media content out of those requests.",
-          "The host controls its own logs and retention under its privacy policy, so review the policy of any custom host before using it.",
+          "Kokage uses the network for provisioning that you direct and, in a release configured with an approved form, a report that you confirm. Conversation generation stays on your device.",
+          "A provider can receive standard connection data such as your IP address, request time, requested URL, and HTTP headers. Formspark may infer location from an IP address.",
+          "Each provider controls its logs and retention under its policy. Reporting will remain unavailable until Kokage publishes an approved Formspark and developer-mailbox retention and deletion procedure.",
         ],
         items: [
           {
             title: "Protection by providers",
-            body: "No outside provider currently processes app content on the Kokage developer's behalf. Before a future provider can receive user data on that basis, it must protect the data to the same or greater standard as this policy. GitHub, Hugging Face, redirects, and a custom HTTPS host are independent download destinations whose policies govern the request metadata they receive.",
+            body: "GitHub, Hugging Face, redirects, and a custom HTTPS host are independent download destinations whose policies govern their request metadata. In a release that enables reporting, Formspark processes the submitted report for the Kokage developer and the developer's mailbox provider stores the emailed or forwarded copy. Kokage will not enable that path until its provider and release reviews pass.",
+          },
+          {
+            title: "Optional offensive-output report",
+            body: "After you preview and confirm a report in the app, Kokage makes one HTTPS request to Formspark. It sends only a random report ID, one closed reason, the exact selected displayed generated reply, and an optional note. It does not add your prompt, other turns, history, citations, local knowledge, memory, profile, audio, images, identifiers, diagnostics, or a timestamp as separate fields. The selected reply may itself repeat information from one of those inputs; the preview lets you cancel before sending it. The reply is limited to 16,384 Unicode scalar values and 64 KiB; the note is limited to 1,000 scalar values and 4 KiB. Kokage does not persist, queue, log, send in the background, or automatically retry the report. Formspark stores an accepted submission and sends or forwards a copy to the developer mailbox.",
+            link: {
+              href: "https://formspark.io/legal/privacy-policy/",
+              label: "Formspark privacy policy",
+            },
           },
           {
             title: "Public model information and files",
@@ -261,7 +271,7 @@ export const en = {
         id: "retention",
         title: "Retention and deletion",
         paragraphs: [
-          "The Kokage developer has no server-side copy of your app data to access, export, correct, or delete for you.",
+          "The Kokage developer has no server-side copy of your ordinary app data. A submitted report is the exception: Formspark and the developer mailbox may each retain a copy.",
           "Local knowledge, profiles, settings, approved memories, installed artifacts, and setup metadata can persist across launches because Kokage applies no time-based expiration to them.",
         ],
         items: [
@@ -280,6 +290,10 @@ export const en = {
           {
             title: "Downloads and remaining app files",
             body: "Canceling an incomplete model download removes its partial transfer; to ask the operating system to remove the remaining app-private files, use its app-removal controls, with final removal and device backups controlled by the operating system.",
+          },
+          {
+            title: "Submitted reports",
+            body: "The app keeps no report after its request settles, but clearing app data or uninstalling cannot delete the Formspark or mailbox copies. Reporting remains unavailable until Kokage publishes a maximum retention period, deletion steps for both copies, and the providers' backup behavior. After reporting is enabled, you can request deletion by emailing contact@orcalogy.com with the report ID shown by the app. Kokage will not promise a response time or backup erasure until the approved procedure supports it.",
           },
         ],
       },
@@ -323,10 +337,84 @@ export const en = {
         title: "Changes to this policy",
         paragraphs: [
           "The project will update this page and its last-updated date when Kokage's data practices change.",
-          "A version that adds network inference, analytics, telemetry, uploads, content reporting, or new persistence must update its user-facing privacy information and request consent where law or platform rules require it.",
+          "Kokage will update this page with the approved retention and deletion schedule before a release enables content reporting. A version that adds network inference, analytics, telemetry, another upload, or new persistence must update its user-facing privacy information and request consent where law or platform rules require it.",
         ],
       },
     ],
+    backHomeLabel: "Back to Kokage",
+  },
+  support: {
+    meta: {
+      title: "Support | Kokage",
+      description:
+        "Kokage prerelease status, troubleshooting, local-data guidance, and a privacy-conscious way to contact the project.",
+    },
+    eyebrow: "Kokage support",
+    title: "Support for Kokage prerelease builds",
+    lede: "Kokage remains in internal development. It is not currently distributed through TestFlight, Google Play, or a public tester program.",
+    highlightsLabel: "Support summary",
+    highlights: [
+      "No public or tester download is currently available",
+      "Typed chat remains the fallback when an optional device feature fails",
+      "Private conversation or media content should never be sent by email",
+      "Local app data cannot be viewed or restored by project support",
+    ],
+    contentsLabel: "On this page",
+    sections: [
+      {
+        id: "availability",
+        title: "Availability",
+        paragraphs: [
+          "Kokage is an internal prerelease project. There is no approved TestFlight, Google Play, tester, or public distribution at this time, and this site does not provide an app download.",
+          "Platform notes on the home page describe development evidence only. They are not release, compatibility, or distribution promises.",
+        ],
+      },
+      {
+        id: "troubleshooting",
+        title: "Troubleshooting a development build",
+        paragraphs: [
+          "A development build needs compatible local model and speech data before the related features can run. Keep enough free storage for the selected files and use the in-app controls to retry or cancel an interrupted transfer.",
+        ],
+        items: [
+          {
+            title: "A local model does not start",
+            body: "Use the exact error category shown by the app, confirm that setup completed, and retry from the app. Do not email a model file, private repository token, prompt, or native stack trace that contains a private path.",
+          },
+          {
+            title: "Voice, camera, speech, or 3D presentation fails",
+            body: "Continue with typed chat where it remains available. A microphone, camera, playback, or presentation failure should not require sharing the captured audio, image, generated reply, or imported VRM.",
+          },
+        ],
+      },
+      {
+        id: "permissions",
+        title: "Microphone and camera permissions",
+        paragraphs: [
+          "Kokage asks for microphone access when you start voice input and camera access when you attach one still. You can deny or revoke either permission in system settings and continue by typing.",
+          "If a permission prompt does not appear, review Kokage's permission state in the operating system before reinstalling or clearing app data.",
+        ],
+      },
+      {
+        id: "local-data",
+        title: "Local data and privacy",
+        paragraphs: [
+          "Conversation processing and the app's memory, knowledge, profile, model, and VRM data stay on the device under the behavior described in the privacy policy. Project support cannot remotely inspect, recover, export, or erase that local data.",
+          "Use the in-app Memory and Local Knowledge controls for those stores. Use the operating system's app-removal controls to request removal of remaining app-private data; final removal and device backups are controlled by the operating system.",
+        ],
+      },
+      {
+        id: "contact",
+        title: "Contact the project",
+        paragraphs: [
+          "For a source or development-build problem, email contact@orcalogy.com with the platform, app version or source revision, the visible error category, and short steps that reproduce the issue.",
+          "Email is handled outside Kokage by the sender's and recipient's email providers. Do not include prompts, replies, memory values, recordings, photos, model or VRM files, credentials, or other confidential content. No response time is promised.",
+          "The optional in-app offensive-output report remains unavailable unless an approved release explicitly enables it. Email is not a substitute for that bounded report flow and should not include generated conversation content.",
+        ],
+      },
+    ],
+    contactLabel: "Email Kokage project support",
+    contactEmail: "contact@orcalogy.com",
+    privacyLinkLabel: "Read the privacy policy",
     backHomeLabel: "Back to Kokage",
   },
   stack: {
@@ -355,7 +443,7 @@ export const en = {
   status: {
     eyebrow: "Development status",
     title: "Current platform coverage",
-    lede: "macOS is the primary development environment, and iOS builds now reach testers through TestFlight. Coverage still differs by platform.",
+    lede: "Kokage is in internal prerelease development and is not currently distributed through TestFlight, Google Play, or a tester program. Coverage still differs by platform.",
     platforms: [
       {
         name: "macOS",
@@ -365,9 +453,9 @@ export const en = {
       },
       {
         name: "iOS",
-        state: "In beta testing",
+        state: "Internal development",
         detail:
-          "Kokage runs on physical iPhones and is distributed to testers through TestFlight.",
+          "Physical-iPhone validation is in progress. No TestFlight or tester distribution is active.",
       },
       {
         name: "Android",
@@ -398,6 +486,7 @@ export const en = {
     descriptor: "Local-first companion chat",
     statusLink: "Development status",
     privacyLink: "Privacy policy",
+    supportLink: "Support",
     navigationLabel: "Footer navigation",
   },
 } satisfies SiteCopy;

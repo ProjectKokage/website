@@ -34,6 +34,36 @@ export interface PrivacyPolicyCopy {
   backHomeLabel: string;
 }
 
+export interface SupportPageItem {
+  title: string;
+  body: string;
+}
+
+export interface SupportPageSection {
+  id: string;
+  title: string;
+  paragraphs: string[];
+  items?: SupportPageItem[];
+}
+
+export interface SupportPageCopy {
+  meta: {
+    title: string;
+    description: string;
+  };
+  eyebrow: string;
+  title: string;
+  lede: string;
+  highlightsLabel: string;
+  highlights: string[];
+  contentsLabel: string;
+  sections: SupportPageSection[];
+  contactLabel: string;
+  contactEmail: string;
+  privacyLinkLabel: string;
+  backHomeLabel: string;
+}
+
 export interface SiteCopy {
   locale: SiteLocale;
   htmlLang: string;
@@ -97,6 +127,7 @@ export interface SiteCopy {
     policyLink: string;
   };
   privacyPolicy: PrivacyPolicyCopy;
+  support: SupportPageCopy;
   stack: {
     eyebrow: string;
     title: string;
@@ -120,6 +151,7 @@ export interface SiteCopy {
     descriptor: string;
     statusLink: string;
     privacyLink: string;
+    supportLink: string;
     navigationLabel: string;
   };
 }

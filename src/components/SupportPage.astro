@@ -1,0 +1,117 @@
+---
+import type { SiteCopy } from "../i18n";
+import { localizedRoutes } from "../i18n/routes";
+import SiteLayout from "../layouts/SiteLayout.astro";
+
+interface Props {
+  copy: SiteCopy;
+}
+
+const { copy } = Astro.props;
+const support = copy.support;
+const homePath = localizedRoutes[copy.locale].home;
+const privacyPath = localizedRoutes[copy.locale].privacy;
+const contactHref = `mailto:${support.contactEmail}?subject=${encodeURIComponent("Kokage support")}`;
+---
+
+<SiteLayout
+  copy={copy}
+  page={{
+    kind: "support",
+    englishPath: localizedRoutes.en.support,
+    japanesePath: localizedRoutes.ja.support,
+    title: support.meta.title,
+    description: support.meta.description,
+  }}
+>
+  <main id="main" class="policy-page support-page">
+    <header class="policy-hero">
+      <div class="page-shell policy-hero__inner">
+        <p class="eyebrow">{support.eyebrow}</p>
+        <h1 id="support-title">{support.title}</h1>
+        <p class="policy-hero__lede">{support.lede}</p>
+
+        <section
+          class="policy-highlights"
+          aria-labelledby="support-highlights-title"
+        >
+          <h2 id="support-highlights-title" class="visually-hidden">
+            {support.highlightsLabel}
+          </h2>
+          <ul role="list">
+            {
+              support.highlights.map((highlight, index) => (
+                <li>
+                  <span aria-hidden="true">
+                    {String(index + 1).padStart(2, "0")}
+                  </span>
+                  <p>{highlight}</p>
+                </li>
+              ))
+            }
+          </ul>
+        </section>
+      </div>
+    </header>
+
+    <div class="page-shell policy-layout">
+      <nav class="policy-contents" aria-label={support.contentsLabel}>
+        <p>{support.contentsLabel}</p>
+        <ol>
+          {
+            support.sections.map((section, index) => (
+              <li>
+                <a href={`#${section.id}`}>
+                  <span aria-hidden="true">
+                    {String(index + 1).padStart(2, "0")}
+                  </span>
+                  {section.title}
+                </a>
+              </li>
+            ))
+          }
+        </ol>
+      </nav>
+
+      <article class="policy-document" aria-labelledby="support-title">
+        {
+          support.sections.map((section, index) => (
+            <section id={section.id} aria-labelledby={`${section.id}-title`}>
+              <div class="policy-section-heading">
+                <span aria-hidden="true">
+                  {String(index + 1).padStart(2, "0")}
+                </span>
+                <h2 id={`${section.id}-title`}>{section.title}</h2>
+              </div>
+
+              {section.paragraphs.map((paragraph) => (
+                <p>{paragraph}</p>
+              ))}
+
+              {section.items && (
+                <ul class="policy-item-list" role="list">
+                  {section.items.map((item) => (
+                    <li>
+                      <h3>{item.title}</h3>
+                      <p>{item.body}</p>
+                    </li>
+                  ))}
+                </ul>
+              )}
+            </section>
+          ))
+        }
+
+        <nav class="support-actions" aria-label={support.contactLabel}>
+          <a href={contactHref}>{support.contactLabel}</a>
+          <a href={privacyPath}>{support.privacyLinkLabel}</a>
+        </nav>
+
+        <a class="policy-back-link" href={homePath}>
+          <span aria-hidden="true">←</span>
+          {support.backHomeLabel}
+        </a>
+      </article>
+    </div>
+  </main>
+</SiteLayout>

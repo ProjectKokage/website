@@ -6,7 +6,7 @@ import "../styles/global.css";
 interface Props {
   copy: SiteCopy;
   page?: {
-    kind: "privacy";
+    kind: "privacy" | "support";
     englishPath: string;
     japanesePath: string;
     title: string;
@@ -22,6 +22,7 @@ const japaneseUrl = page?.japanesePath ?? japaneseHomeUrl;
 const canonicalPath = copy.locale === "en" ? englishUrl : japaneseUrl;
 const homePath = copy.locale === "en" ? englishHomeUrl : japaneseHomeUrl;
 const privacyPath = localizedRoutes[copy.locale].privacy;
+const supportPath = localizedRoutes[copy.locale].support;
 const canonicalUrl = new URL(canonicalPath, Astro.site);
 const englishAbsoluteUrl = new URL(englishUrl, Astro.site);
 const japaneseAbsoluteUrl = new URL(japaneseUrl, Astro.site);
@@ -190,6 +191,12 @@ const schema = {
             aria-current={page?.kind === "privacy" ? "page" : undefined}
           >
             {copy.footer.privacyLink}
+          </a>
+          <a
+            href={supportPath}
+            aria-current={page?.kind === "support" ? "page" : undefined}
+          >
+            {copy.footer.supportLink}
           </a>
         </nav>
       </div>

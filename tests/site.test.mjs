@@ -139,7 +139,7 @@ test("English and Japanese pages emit localized metadata and complete navigation
     xDefault: `${siteOrigin}/`,
     title: "Kokage | Local-first companion chat",
     description:
-      "Kokage is an AI companion app in beta that pairs an on-device language model with a 3D companion — bundled by default, replaceable with a VRM you choose.",
+      "Kokage is an AI companion app in internal prerelease development that pairs an on-device language model with a bundled 3D companion.",
     ogLocale: "en_US",
     alternateOgLocale: "ja_JP",
   });
@@ -152,13 +152,13 @@ test("English and Japanese pages emit localized metadata and complete navigation
     xDefault: `${siteOrigin}/`,
     title: "こかげ | 端末で動くAIコンパニオンとのチャット",
     description:
-      "こかげは、端末内の言語モデルと同梱の3DのAIコンパニオンを組み合わせた、ベータテスト中のアプリです。自分で選んだVRMへの置き換えにも対応します。",
+      "こかげは、端末内の言語モデルと同梱の3DのAIコンパニオンを組み合わせた、内部開発中のプレリリースアプリです。",
     ogLocale: "ja_JP",
     alternateOgLocale: "en_US",
   });
 
   assert.match(english, /Talk with your companion/);
-  assert.match(english, /Kokage is in prerelease beta testing/);
+  assert.match(english, /under internal prerelease development/);
   assert.equal(
     (english.match(/<span class="brand__name">Kokage<\/span>/g) ?? []).length,
     2,
@@ -167,18 +167,22 @@ test("English and Japanese pages emit localized metadata and complete navigation
     japanese.replaceAll(/<[^>]+>/g, ""),
     /あなたの端末の中でAIコンパニオンと話す/,
   );
-  assert.match(japanese, /こかげは現在ベータテスト中のプレリリース版/);
+  assert.match(japanese, /内部開発中のプレリリース版/);
   assert.equal(
     (japanese.match(/<span class="brand__name">こかげ<\/span>/g) ?? []).length,
     2,
   );
   assert.doesNotMatch(japanese, /\bKokage\b/);
-  assert.match(english, /TestFlight/);
-  assert.match(japanese, /TestFlight/);
-  assert.doesNotMatch(
-    `${english}\n${japanese}`,
-    /No public distribution|一般配布|配布承認|Google Play|欧州連合/,
+  assert.match(
+    english,
+    /not currently distributed through TestFlight, Google Play, or a tester program/,
   );
+  assert.match(
+    japanese,
+    /現在はTestFlight、Google Play、テスタープログラムのいずれでも配布していません/,
+  );
+  assert.doesNotMatch(english, /reach testers|distributed to testers/);
+  assert.doesNotMatch(japanese, /テスト配信を始め|テスターに配信しています/);
   assert.doesNotMatch(
     `${english}\n${japanese}`,
     /current dependency graph|ONNX Runtime|API 36|署名済み配布/,
@@ -201,6 +205,7 @@ test("English and Japanese pages emit localized metadata and complete navigation
       /class="privacy-policy-link" href="\/(?:ja\/)?privacy\/"/,
     );
     assert.match(html, /<nav class="footer-nav"/);
+    assert.match(html, /href="\/(?:ja\/)?support\/"/);
   }
 });
 
@@ -220,10 +225,10 @@ test("privacy policy pages are localized, indexable, and linked across languages
       canonical: `${siteOrigin}/privacy/`,
       title: "Privacy Policy | Kokage",
       description:
-        "How Kokage handles conversations, microphone and camera input, local data, model downloads, and website data.",
+        "How Kokage handles conversations, reports, microphone and camera input, local data, model downloads, and website data.",
       heading: "Kokage processes conversations on your device.",
       siteName: "Kokage",
-      date: "August 10, 2026",
+      date: "August 12, 2026",
       homePath: "/",
     },
     {
@@ -235,10 +240,10 @@ test("privacy policy pages are localized, indexable, and linked across languages
       canonical: `${siteOrigin}/ja/privacy/`,
       title: "プライバシーポリシー | こかげ",
       description:
-        "こかげにおける会話、マイクとカメラの入力、端末内の保存データ、モデルのダウンロード、ウェブサイトのデータの扱いを説明します。",
+        "こかげにおける会話、報告、マイクとカメラの入力、端末内の保存データ、モデルのダウンロード、ウェブサイトのデータの扱いを説明します。",
       heading: "こかげは、会話を端末内で処理します。",
       siteName: "こかげ",
-      date: "2026年8月10日",
+      date: "2026年8月12日",
       homePath: "/ja/",
     },
   ];
@@ -290,7 +295,7 @@ test("privacy policy pages are localized, indexable, and linked across languages
     assert.match(
       html,
       new RegExp(
-        `<time datetime="2026-08-10">${escapeRegExp(policy.date)}</time>`,
+        `<time datetime="2026-08-12">${escapeRegExp(policy.date)}</time>`,
       ),
     );
     assert.match(html, /"@type":"WebPage"/);
@@ -334,8 +339,115 @@ test("privacy policy pages are localized, indexable, and linked across languages
   }
 
   assert.doesNotMatch(japanese, /\bKokage\b/);
-  assert.match(english, /same or greater standard as this policy/);
-  assert.match(japanese, /本ポリシーと同等以上の保護/);
+  assert.match(english, /Optional offensive-output report/);
+  assert.match(japanese, /任意の不適切な回答の報告/);
+  assert.match(english, /https:\/\/formspark\.io\/legal\/privacy-policy\//);
+  assert.match(japanese, /https:\/\/formspark\.io\/legal\/privacy-policy\//);
+});
+
+test("support pages are bilingual, indexable, and privacy-conscious", async () => {
+  const [english, japanese] = await Promise.all([
+    read("dist/support/index.html"),
+    read("dist/ja/support/index.html"),
+  ]);
+
+  const cases = [
+    {
+      html: english,
+      locale: "en",
+      lang: "en",
+      englishPath: "/support/",
+      japanesePath: "/ja/support/",
+      canonical: `${siteOrigin}/support/`,
+      title: "Support | Kokage",
+      description:
+        "Kokage prerelease status, troubleshooting, local-data guidance, and a privacy-conscious way to contact the project.",
+      heading: "Support for Kokage prerelease builds",
+      homePath: "/",
+      privacyPath: "/privacy/",
+    },
+    {
+      html: japanese,
+      locale: "ja",
+      lang: "ja",
+      englishPath: "/support/",
+      japanesePath: "/ja/support/",
+      canonical: `${siteOrigin}/ja/support/`,
+      title: "サポート | こかげ",
+      description:
+        "こかげのプレリリース状況、開発用ビルドの問題の切り分け、端末内データの案内、プロジェクトへの連絡方法を説明します。",
+      heading: "プレリリース版のサポート",
+      homePath: "/ja/",
+      privacyPath: "/ja/privacy/",
+    },
+  ];
+
+  for (const support of cases) {
+    const { html } = support;
+    assert.match(html, new RegExp(`<html lang="${support.lang}"`));
+    assert.match(html, new RegExp(`data-site-locale="${support.locale}"`));
+    assert.match(
+      html,
+      new RegExp(`data-english-url="${escapeRegExp(support.englishPath)}"`),
+    );
+    assert.match(
+      html,
+      new RegExp(`data-japanese-url="${escapeRegExp(support.japanesePath)}"`),
+    );
+    assert.match(
+      html,
+      new RegExp(`<link rel="canonical" href="${support.canonical}"`),
+    );
+    assert.match(
+      html,
+      new RegExp(`<title>${escapeRegExp(support.title)}</title>`),
+    );
+    assert.match(
+      html,
+      new RegExp(
+        `<meta name="description" content="${escapeRegExp(support.description)}">`,
+      ),
+    );
+    assert.match(html, /<main id="main" class="policy-page support-page">/);
+    assert.equal((html.match(/<h1[ >]/g) ?? []).length, 1);
+    assert.match(
+      html,
+      new RegExp(`<h1[^>]*>${escapeRegExp(support.heading)}</h1>`),
+    );
+    assert.match(html, /"@type":"WebPage"/);
+    assert.match(html, new RegExp(`class="brand" href="${support.homePath}"`));
+    assert.match(
+      html,
+      new RegExp(`href="${support.privacyPath}">[^<]*(?:privacy|プライバシー)`),
+    );
+    assert.match(
+      html,
+      /href="mailto:contact@orcalogy\.com\?subject=Kokage%20support"/,
+    );
+    assert.match(html, /aria-current="page">[^<]*(?:Support|サポート)/);
+
+    for (const id of [
+      "availability",
+      "troubleshooting",
+      "permissions",
+      "local-data",
+      "contact",
+    ]) {
+      assert.match(html, new RegExp(`href="#${id}"`));
+      assert.match(html, new RegExp(`id="${id}"`));
+    }
+
+    assert.doesNotMatch(html, /Lorem ipsum|TODO|placeholder|\[insert/i);
+    assert.doesNotMatch(html, /href="#"/);
+    for (const term of retiredProductTerms) {
+      assert.doesNotMatch(html, term);
+    }
+  }
+
+  assert.match(english, /No response time is promised/);
+  assert.match(japanese, /返信までの期間は約束していません/);
+  assert.doesNotMatch(english, /available (?:now|today)|download Kokage/i);
+  assert.doesNotMatch(japanese, /今すぐダウンロード|公開中/);
 });
 
 test("site origins distinguish development, test, and production builds", () => {
@@ -382,31 +494,35 @@ test("sitemap and robots output point to the configured production origin", asyn
   assert.match(sitemap, new RegExp(`${siteOrigin}/ja/`));
   assert.match(sitemap, new RegExp(`${siteOrigin}/privacy/`));
   assert.match(sitemap, new RegExp(`${siteOrigin}/ja/privacy/`));
+  assert.match(sitemap, new RegExp(`${siteOrigin}/support/`));
+  assert.match(sitemap, new RegExp(`${siteOrigin}/ja/support/`));
   assert.match(sitemap, /hreflang="en"/);
   assert.match(sitemap, /hreflang="ja"/);
   assert.match(robots, new RegExp(`${siteOrigin}/sitemap-index\.xml`));
 
   const urlBlocks = sitemap.match(/<url>[\s\S]*?<\/url>/g) ?? [];
-  for (const location of [
-    `${siteOrigin}/privacy/`,
-    `${siteOrigin}/ja/privacy/`,
-  ]) {
-    const block = urlBlocks.find((entry) =>
-      entry.includes(`<loc>${location}</loc>`),
-    );
-    assert.ok(block, location);
-    assert.match(
-      block,
-      new RegExp(
-        `hreflang="en" href="${escapeRegExp(`${siteOrigin}/privacy/`)}"`,
-      ),
-    );
-    assert.match(
-      block,
-      new RegExp(
-        `hreflang="ja" href="${escapeRegExp(`${siteOrigin}/ja/privacy/`)}"`,
-      ),
-    );
+  for (const page of ["privacy", "support"]) {
+    for (const location of [
+      `${siteOrigin}/${page}/`,
+      `${siteOrigin}/ja/${page}/`,
+    ]) {
+      const block = urlBlocks.find((entry) =>
+        entry.includes(`<loc>${location}</loc>`),
+      );
+      assert.ok(block, location);
+      assert.match(
+        block,
+        new RegExp(
+          `hreflang="en" href="${escapeRegExp(`${siteOrigin}/${page}/`)}"`,
+        ),
+      );
+      assert.match(
+        block,
+        new RegExp(
+          `hreflang="ja" href="${escapeRegExp(`${siteOrigin}/ja/${page}/`)}"`,
+        ),
+      );
+    }
   }
 });
 
