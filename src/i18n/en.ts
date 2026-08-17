@@ -9,7 +9,7 @@ export const en = {
   meta: {
     title: "Kokage | Local-first companion chat",
     description:
-      "Kokage is an AI companion app in internal prerelease development that pairs an on-device language model with a bundled 3D companion.",
+      "Kokage is an AI companion app that pairs an on-device language model with a bundled 3D companion.",
   },
   skipLink: "Skip to content",
   navigation: {
@@ -29,8 +29,7 @@ export const en = {
     lede: "Kokage pairs an on-device language model with a 3D AI companion. The sample companion AvatarSample_A is included, and you can swap in a VRM you choose. Chat in Japanese or English, add optional Japanese speech for spoken replies, and on mobile attach one camera still when the selected model supports image input.",
     primaryAction: "Explore the features",
     secondaryAction: "View development status",
-    notice:
-      "Kokage is under internal prerelease development and is not currently distributed.",
+    notice: "Kokage is under active development.",
     imageAlt: "Kokage app icon, a mint speech bubble with two leaves",
   },
   flow: {
@@ -154,7 +153,7 @@ export const en = {
         paragraphs: [
           "This policy describes data handling in the Kokage app and the Kokage project website as of August 16, 2026.",
           "Websites and download services that Kokage contacts at your direction apply their own privacy policies.",
-          "Kokage is a local-first app in prerelease testing with no Kokage account system or developer-operated inference service.",
+          "Kokage is a local-first app with no Kokage account system or developer-operated inference service.",
         ],
       },
       {
@@ -347,14 +346,14 @@ export const en = {
     meta: {
       title: "Support | Kokage",
       description:
-        "Kokage prerelease status, troubleshooting, local-data guidance, and a privacy-conscious way to contact the project.",
+        "Kokage troubleshooting, local-data guidance, and a privacy-conscious way to ask questions and contact the project.",
     },
     eyebrow: "Kokage support",
-    title: "Support for Kokage prerelease builds",
-    lede: "Kokage remains in internal development. It is not currently distributed through TestFlight, Google Play, or a public tester program.",
+    title: "Support for Kokage",
+    lede: "Ask a question, report a problem, and find troubleshooting steps for Kokage.",
     highlightsLabel: "Support summary",
     highlights: [
-      "No public or tester download is currently available",
+      "Initial setup downloads the selected model data before the first conversation",
       "Typed chat remains the fallback when an optional device feature fails",
       "Private conversation or media content should never be sent by email",
       "Local app data cannot be viewed or restored by project support",
@@ -365,15 +364,15 @@ export const en = {
         id: "availability",
         title: "Availability",
         paragraphs: [
-          "Kokage is an internal prerelease project. There is no approved TestFlight, Google Play, tester, or public distribution at this time, and this site does not provide an app download.",
+          "Kokage releases are distributed through each platform's app store. This site does not provide a direct app download.",
           "Platform notes on the home page describe development evidence only. They are not release, compatibility, or distribution promises.",
         ],
       },
       {
         id: "troubleshooting",
-        title: "Troubleshooting a development build",
+        title: "Troubleshooting",
         paragraphs: [
-          "A development build needs compatible local model and speech data before the related features can run. Keep enough free storage for the selected files and use the in-app controls to retry or cancel an interrupted transfer.",
+          "Kokage needs compatible local model and speech data before the related features can run. Keep enough free storage for the selected files and use the in-app controls to retry or cancel an interrupted transfer.",
         ],
         items: [
           {
@@ -406,7 +405,7 @@ export const en = {
         id: "contact",
         title: "Contact the project",
         paragraphs: [
-          "For a source or development-build problem, email contact@orcalogy.com with the platform, app version or source revision, the visible error category, and short steps that reproduce the issue.",
+          "For a question or problem with Kokage, email contact@orcalogy.com with the platform, app version or source revision, the visible error category, and short steps that reproduce the issue.",
           "Email is handled outside Kokage by the sender's and recipient's email providers. Do not include prompts, replies, memory values, recordings, photos, model or VRM files, credentials, or other confidential content. No response time is promised.",
           "The optional in-app offensive-output report remains unavailable unless an approved release explicitly enables it. Email is not a substitute for that bounded report flow and should not include generated conversation content.",
         ],
@@ -443,7 +442,7 @@ export const en = {
   status: {
     eyebrow: "Development status",
     title: "Current platform coverage",
-    lede: "Kokage is in internal prerelease development and is not currently distributed through TestFlight, Google Play, or a tester program. Coverage still differs by platform.",
+    lede: "Kokage is under active development, and validated coverage still differs by platform.",
     platforms: [
       {
         name: "macOS",
@@ -453,9 +452,9 @@ export const en = {
       },
       {
         name: "iOS",
-        state: "Internal development",
+        state: "App Store release in preparation",
         detail:
-          "Physical-iPhone validation is in progress. No TestFlight or tester distribution is active.",
+          "An iOS release is being prepared for the App Store. Physical-device validation is in progress.",
       },
       {
         name: "Android",

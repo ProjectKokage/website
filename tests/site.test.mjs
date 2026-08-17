@@ -139,7 +139,7 @@ test("English and Japanese pages emit localized metadata and complete navigation
     xDefault: `${siteOrigin}/`,
     title: "Kokage | Local-first companion chat",
     description:
-      "Kokage is an AI companion app in internal prerelease development that pairs an on-device language model with a bundled 3D companion.",
+      "Kokage is an AI companion app that pairs an on-device language model with a bundled 3D companion.",
     ogLocale: "en_US",
     alternateOgLocale: "ja_JP",
   });
@@ -152,13 +152,13 @@ test("English and Japanese pages emit localized metadata and complete navigation
     xDefault: `${siteOrigin}/`,
     title: "こかげ | 端末で動くAIコンパニオンとのチャット",
     description:
-      "こかげは、端末内の言語モデルと同梱の3DのAIコンパニオンを組み合わせた、内部開発中のプレリリースアプリです。",
+      "こかげは、端末内の言語モデルと同梱の3DのAIコンパニオンを組み合わせたアプリです。",
     ogLocale: "ja_JP",
     alternateOgLocale: "en_US",
   });
 
   assert.match(english, /Talk with your companion/);
-  assert.match(english, /under internal prerelease development/);
+  assert.match(english, /under active development/);
   assert.equal(
     (english.match(/<span class="brand__name">Kokage<\/span>/g) ?? []).length,
     2,
@@ -167,20 +167,14 @@ test("English and Japanese pages emit localized metadata and complete navigation
     japanese.replaceAll(/<[^>]+>/g, ""),
     /あなたの端末の中でAIコンパニオンと話す/,
   );
-  assert.match(japanese, /内部開発中のプレリリース版/);
+  assert.match(japanese, /現在も開発を続けています/);
   assert.equal(
     (japanese.match(/<span class="brand__name">こかげ<\/span>/g) ?? []).length,
     2,
   );
   assert.doesNotMatch(japanese, /\bKokage\b/);
-  assert.match(
-    english,
-    /not currently distributed through TestFlight, Google Play, or a tester program/,
-  );
-  assert.match(
-    japanese,
-    /現在はTestFlight、Google Play、テスタープログラムのいずれでも配布していません/,
-  );
+  assert.doesNotMatch(english, /internal prerelease|not currently distributed/);
+  assert.doesNotMatch(japanese, /内部開発中|プレリリース|配布していません/);
   assert.doesNotMatch(english, /reach testers|distributed to testers/);
   assert.doesNotMatch(japanese, /テスト配信を始め|テスターに配信しています/);
   assert.doesNotMatch(
@@ -361,8 +355,8 @@ test("support pages are bilingual, indexable, and privacy-conscious", async () =
       canonical: `${siteOrigin}/support/`,
       title: "Support | Kokage",
       description:
-        "Kokage prerelease status, troubleshooting, local-data guidance, and a privacy-conscious way to contact the project.",
-      heading: "Support for Kokage prerelease builds",
+        "Kokage troubleshooting, local-data guidance, and a privacy-conscious way to ask questions and contact the project.",
+      heading: "Support for Kokage",
       homePath: "/",
       privacyPath: "/privacy/",
     },
@@ -375,8 +369,8 @@ test("support pages are bilingual, indexable, and privacy-conscious", async () =
       canonical: `${siteOrigin}/ja/support/`,
       title: "サポート | こかげ",
       description:
-        "こかげのプレリリース状況、開発用ビルドの問題の切り分け、端末内データの案内、プロジェクトへの連絡方法を説明します。",
-      heading: "プレリリース版のサポート",
+        "こかげの問題の切り分け、端末内データの案内、質問や連絡の方法を説明します。",
+      heading: "サポートのご案内",
       homePath: "/ja/",
       privacyPath: "/ja/privacy/",
     },
