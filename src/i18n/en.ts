@@ -9,7 +9,7 @@ export const en = {
   meta: {
     title: "Kokage | Local-first companion chat",
     description:
-      "Kokage is an AI companion app that pairs an on-device language model with a bundled 3D companion.",
+      "Kokage is an AI companion app that pairs an on-device language model with a bundled or user-selected 3D companion.",
   },
   skipLink: "Skip to content",
   navigation: {
@@ -26,7 +26,7 @@ export const en = {
     eyebrow: "Local-first companion chat",
     titleLead: "Talk with your companion",
     titleAccentLines: ["on your own device."],
-    lede: "Kokage pairs an on-device language model with a 3D AI companion. The sample companion AvatarSample_A is included, and you can swap in a VRM you choose. Chat in Japanese or English, add optional Japanese speech for spoken replies, and on mobile attach one camera still when the selected model supports image input.",
+    lede: "Kokage pairs an on-device language model with a 3D AI companion. AvatarSample_A is included, and you can use one Custom VRM. Choose Japanese or English chat, the adaptive built-in catalog or a checked public Hugging Face model, Standard or experimental Extended context, experimental thinking controls, and any listed Japanese speech-output voice. On mobile, a vision-capable model can receive one camera still.",
     primaryAction: "Explore the features",
     secondaryAction: "View development status",
     notice: "Kokage is under active development.",
@@ -75,15 +75,15 @@ export const en = {
       },
       {
         title: "A companion included, or bring your own VRM",
-        body: "Fresh setup starts with the bundled sample companion AvatarSample_A. Custom VRM can replace it with a self-contained VRM 0.x or 1.0 file up to 128 MiB, from a local file or an HTTPS URL, that you have permission to use.",
+        body: "Fresh setup starts with the bundled AvatarSample_A. Custom VRM can replace it with one self-contained VRM 0.x or 1.0 file up to 128 MiB, from a local file or HTTPS URL, that you have permission to use.",
       },
       {
         title: "Shape how your companion replies",
-        body: "Set the chat language to Japanese or English, and adjust your companion’s role, tone, reply length, initiative, and expressiveness.",
+        body: "Set chat to Japanese or English, then adjust your companion’s role, tone, reply length, initiative, and expressiveness. The interface locale remains a separate setting.",
       },
       {
-        title: "Hear Japanese replies or attach one image",
-        body: "After you set up Japanese speech, Kokage can read replies aloud. On mobile, a model that supports image input can receive one camera still with a message. Voice input is unavailable in this release.",
+        title: "Hear replies, speak, or attach one image",
+        body: "Any listed Japanese speech-output voice can read replies aloud. Voice input accepts one bounded Japanese or English turn and processes it on the device. On mobile, a model with a compatible image projector can receive one camera still with a message.",
       },
       {
         title: "Memory you can inspect and control",
@@ -98,7 +98,7 @@ export const en = {
   privacy: {
     eyebrow: "App data and privacy",
     title: "Conversation processing stays on your device",
-    lede: "Replies are generated on your device. Kokage does not use remote inference, analytics, or telemetry. A release-configured report that you confirm may send only one selected displayed reply, a closed reason, and an optional bounded note through Formspark.",
+    lede: "Replies are generated on your device. Kokage does not use remote inference, analytics, or telemetry. A release-configured report that you confirm may send only a schema version, a random report ID, one closed reason, one selected displayed reply, an optional bounded note, the catalog model/template ID, and the app version through Formspark.",
     items: [
       {
         title: "Conversation",
@@ -106,7 +106,7 @@ export const en = {
       },
       {
         title: "Camera",
-        body: "Kokage keeps one camera image only for the current message or a failed message awaiting retry. It is not logged or added to completed chat history. Voice input is unavailable, so the current release does not request microphone access or capture microphone audio.",
+        body: "Kokage keeps one camera image only for the current message or a failed message awaiting retry. It is not logged or added to completed chat history. Voice input processes bounded microphone audio and recognition results on the device without retaining, logging, or uploading them.",
       },
       {
         title: "Memory",
@@ -118,7 +118,7 @@ export const en = {
       },
       {
         title: "Models and VRMs",
-        body: "Downloaded model data and an imported VRM stay in app-private storage. The bundled companion needs no network access, and Kokage does not retain an imported VRM’s original path, URL, or filename.",
+        body: "Downloaded model data, selected speech data, and an imported VRM stay in app-private storage. AvatarSample_A needs no network access, and Kokage does not retain an imported VRM’s original path, URL, or filename.",
       },
     ],
     networkLabel: "When Kokage uses the network",
@@ -130,19 +130,19 @@ export const en = {
     meta: {
       title: "Privacy Policy | Kokage",
       description:
-        "How Kokage handles conversations, reports, camera input, local data, model downloads, and website data.",
+        "How Kokage handles conversations, on-device voice input, reports, camera input, local data, model downloads, and website data.",
     },
     eyebrow: "Kokage privacy policy",
     title: "Kokage processes conversations on your device.",
     lede: "This policy explains what the app keeps, when it connects to other services, and how you can remove local data.",
     updatedLabel: "Last updated",
-    updatedDate: "2026-08-16",
-    updatedDateDisplay: "August 16, 2026",
+    updatedDate: "2026-08-21",
+    updatedDateDisplay: "August 21, 2026",
     highlightsLabel: "Policy summary",
     highlights: [
       "No Kokage account or developer-operated inference server",
       "No analytics, advertising, telemetry, or tracking in the app",
-      "Prompts, conversation history, camera images, and saved memory stay on your device",
+      "Prompts, conversation history, microphone audio, camera images, and saved memory stay on your device",
       "A release-configured report you confirm may send one selected displayed reply through Formspark",
     ],
     contentsLabel: "On this page",
@@ -151,17 +151,18 @@ export const en = {
         id: "scope",
         title: "Scope",
         paragraphs: [
-          "This policy describes data handling in the Kokage app and the Kokage project website as of August 16, 2026.",
+          "This policy describes data handling in the Kokage app and the Kokage project website as of August 21, 2026.",
           "Websites and download services that Kokage contacts at your direction apply their own privacy policies.",
           "Kokage is a local-first app with no Kokage account system or developer-operated inference service.",
+          "Fresh setup offers Japanese and English chat profiles, the adaptive built-in catalog, a checked public Hugging Face model, Standard and experimental Extended context, experimental thinking controls, every listed speech-output voice, bounded on-device voice input, AvatarSample_A, and Custom VRM. Release evidence remains open for several paths.",
         ],
       },
       {
         id: "collection",
         title: "Data not sent during ordinary use",
         paragraphs: [
-          "The Kokage developer does not receive your prompts, conversation history, camera images, local knowledge, memories, profiles, generated speech, or imported VRM files during ordinary use.",
-          "A report that you confirm is the sole generated-content exception. It can send one selected displayed reply, a closed reason, and an optional bounded note only after an approved Formspark form is configured for that release.",
+          "The Kokage developer does not receive your prompts, conversation history, microphone audio or recognition results, camera images, local knowledge, memories, profiles, generated speech, or imported VRM files during ordinary use.",
+          "A report that you confirm is the sole generated-content exception. Kokage can send its schema version, a random report ID, one selected displayed reply, a closed reason, an optional bounded note, the catalog model/template ID, and the app version only after the release includes an approved Formspark form.",
         ],
         items: [
           {
@@ -195,7 +196,7 @@ export const en = {
           },
           {
             title: "Voice input",
-            body: "Voice input is unavailable in the current product composition. Kokage does not construct a speech recognizer, request microphone permission, or capture microphone audio while this fail-closed policy is active.",
+            body: "Voice input uses record for bounded microphone capture and sherpa_onnx for Silero VAD, SenseVoice recognition, and optional diarization. It recognizes the selected Japanese or English chat language, suppresses Kokage's own playback, and does not retain, log, upload, or send microphone audio or recognition results to a remote service. Platform validation remains part of the release evidence matrix.",
           },
           {
             title: "Local knowledge",
@@ -203,11 +204,11 @@ export const en = {
           },
           {
             title: "Models, VRMs, profile, and setup",
-            body: "Verified model files, bounded partial model transfers, an installed Custom VRM, your typed profile, settings, and setup metadata stay in app-private storage; the bundled sample companion is a read-only packaged asset. A custom public-model selection also stores its canonical repository, full commit, selected filenames, sizes, and digests for repair, while Kokage does not retain an imported VRM's original name, path, or URL.",
+            body: "Verified model files, bounded partial transfers, a selected speech-output voice, an installed Custom VRM, your typed profile, settings, and setup metadata stay in app-private storage; AvatarSample_A is a read-only packaged asset. A custom public-model selection also stores its canonical repository, full commit, selected filenames, sizes, and digests for repair.",
           },
           {
             title: "Device capacity",
-            body: "During fresh setup, Kokage reads the total physical memory reported by the operating system to recommend a model size, without persisting or transmitting that value.",
+            body: "During fresh setup, Kokage reads the total physical memory reported by the operating system to recommend a model size. It does not persist or transmit that value.",
           },
           {
             title: "Memory",
@@ -215,7 +216,7 @@ export const en = {
           },
           {
             title: "Automatic first-conversation guidance",
-            body: "Model-generated first-conversation guidance is unavailable in this release. Normal use does not start that path or create new guidance-progress data.",
+            body: "After a successfully initialized local model passes Kokage's first-question preflight, Kokage may show a bounded fallback question written into the app in the selected chat language. An unqualified model does not generate that question. Kokage persists at most 256 encoded bytes of progress for the companion introduction and app walkthrough: each state is eligible, completed, or dismissed. The progress marker contains no user or model text, tool data, memory value, identity, timestamp, counter, capability snapshot, or telemetry.",
           },
         ],
       },
@@ -230,11 +231,11 @@ export const en = {
         items: [
           {
             title: "Protection by providers",
-            body: "GitHub, Hugging Face, redirects, and a custom HTTPS host are independent download destinations whose policies govern their request metadata. In a release that enables reporting, Formspark processes the submitted report for the Kokage developer and the developer's mailbox provider stores the emailed or forwarded copy. Kokage will not enable that path until its provider and release reviews pass.",
+            body: "GitHub, Hugging Face, their redirect hosts, and a user-selected Custom VRM HTTPS host apply their policies to request metadata. In a release that enables reporting, Formspark processes the submitted report for the Kokage developer and the developer's mailbox provider stores the emailed or forwarded copy. Kokage will not enable that path until its provider and release reviews pass.",
           },
           {
             title: "Optional offensive-output report",
-            body: "After you preview and confirm a report in the app, Kokage makes one HTTPS request to Formspark. It sends only a random report ID, one closed reason, the exact selected displayed generated reply, and an optional note. It does not add your prompt, other turns, history, citations, local knowledge, memory, profile, audio, images, identifiers, diagnostics, or a timestamp as separate fields. The selected reply may itself repeat information from one of those inputs; the preview lets you cancel before sending it. The reply is limited to 16,384 Unicode scalar values and 64 KiB; the note is limited to 1,000 scalar values and 4 KiB. Kokage does not persist, queue, log, send in the background, or automatically retry the report. Formspark stores an accepted submission and sends or forwards a copy to the developer mailbox.",
+            body: "After you preview and confirm a report in the app, Kokage makes one HTTPS request to Formspark. It sends only the report schema version (schema_version), a random report ID (report_id), one closed reason, the exact selected displayed generated reply, an optional note, the catalog model/template ID (model_template_id), and the app version. It does not add your prompt, other turns, history, citations, retrieved passages, local knowledge, memory, profile, audio, images, any other device, account, or model identifier, diagnostics, a timestamp, or arbitrary metadata as separate fields. The selected reply may itself repeat information from one of those inputs; the preview lets you cancel before sending it. The reply is limited to 16,384 Unicode scalar values and 64 KiB; the note is limited to 1,000 scalar values and 4 KiB. Kokage does not persist, queue, log, send in the background, or automatically retry the report. Formspark stores an accepted submission and sends or forwards a copy to the developer mailbox.",
             link: {
               href: "https://formspark.io/legal/privacy-policy/",
               label: "Formspark privacy policy",
@@ -242,7 +243,7 @@ export const en = {
           },
           {
             title: "Public model information and files",
-            body: "A Hugging Face Check requests public repository metadata, and a confirmed install downloads model and voice files from Hugging Face plus its redirect or delivery hosts; Kokage supports no private repository token and does not retain a temporary signed delivery URL.",
+            body: "A Hugging Face Check requests public repository metadata, and a confirmed install downloads selected model and voice files from Hugging Face plus its redirect or delivery hosts. Kokage supports no private repository token and does not retain a temporary signed delivery URL.",
             link: {
               href: "https://huggingface.co/privacy",
               label: "Hugging Face privacy policy",
@@ -258,7 +259,7 @@ export const en = {
           },
           {
             title: "VRM files from HTTPS",
-            body: "The bundled companion needs no download. A confirmed Custom VRM import contacts the HTTPS host you select and any redirect destination; importing a local file makes no host request.",
+            body: "AvatarSample_A needs no download. A confirmed Custom VRM import contacts the HTTPS host you select and any redirect destination; importing a local file makes no host request.",
           },
           {
             title: "Confirmed transfer resume and background continuation",
@@ -301,7 +302,7 @@ export const en = {
         title: "Permissions and local protection",
         paragraphs: [
           "Kokage asks for camera access when you attach one still to a message. You can deny or revoke that permission in system settings and continue with typed chat.",
-          "Voice input is unavailable in this release, and Kokage does not request microphone permission.",
+          "Kokage asks for microphone access before voice capture. If you deny or revoke access, typed chat remains available and the app offers retry or system-settings guidance where the platform supports it.",
           "Kokage uses app-private storage and operating-system protections, but it does not add application-layer encryption to saved content.",
           "Kokage configures Android app data not to be backed up and marks its iOS app-owned support directory as excluded from backup, while the operating system enforces those settings.",
         ],
@@ -380,16 +381,16 @@ export const en = {
             body: "Use the exact error category shown by the app, confirm that setup completed, and retry from the app. Do not email a model file, private repository token, prompt, or native stack trace that contains a private path.",
           },
           {
-            title: "Camera, speech output, or 3D presentation fails",
-            body: "Continue with typed chat where it remains available. A camera, playback, or presentation failure should not require sharing the captured image, generated reply, or imported VRM.",
+            title: "Camera, voice, or 3D presentation fails",
+            body: "Continue with typed chat where it remains available. Retry voice input or review microphone access in system settings; do not send a recording or transcript for support. A camera, playback, or presentation failure should not require sharing the captured image, generated reply, or imported VRM.",
           },
         ],
       },
       {
         id: "permissions",
-        title: "Camera permission",
+        title: "Camera and microphone permissions",
         paragraphs: [
-          "Kokage asks for camera access when you attach one still. You can deny or revoke that permission in system settings and continue by typing. Voice input is unavailable, so the current release does not request microphone permission.",
+          "Kokage asks for camera access when you attach one still and microphone access before voice capture. You can deny or revoke either permission in system settings and continue by typing.",
           "If a permission prompt does not appear, review Kokage's permission state in the operating system before reinstalling or clearing app data.",
         ],
       },
@@ -426,8 +427,8 @@ export const en = {
         body: "Kokage runs llama.cpp through fllamer, both for replies and for the embeddings behind memory and knowledge search.",
       },
       {
-        title: "Voice input unavailable",
-        body: "Silero VAD and SenseVoice paths through sherpa_onnx remain isolated qualification-harness code. The current product does not construct that recognizer or request microphone access.",
+        title: "On-device voice input",
+        body: "Kokage uses record for bounded microphone capture and sherpa_onnx for Silero VAD, SenseVoice ASR, and optional diarization. The recognizer handles Japanese or English input on the device and excludes Kokage's own playback.",
       },
       {
         title: "Japanese speech",
@@ -448,13 +449,13 @@ export const en = {
         name: "macOS",
         state: "Primary development environment",
         detail:
-          "After the required data is installed, local chat, memory management and recall, knowledge search, Japanese speech, and VRM presentation run on macOS. Voice input remains unavailable.",
+          "After the required data is installed, local chat, memory management and recall, knowledge search, Japanese speech, and VRM presentation run on macOS. Voice-input qualification remains in progress.",
       },
       {
         name: "iOS",
         state: "App Store release in preparation",
         detail:
-          "An iOS release is being prepared for the App Store. Physical-device validation is in progress.",
+          "The iPhone and iPad product scope includes bounded Japanese and English voice input through the record, Silero VAD, and SenseVoice pipeline. Physical permission, recognition, lifecycle, and signed-release validation of the full exposed feature set is still in progress.",
       },
       {
         name: "Android",

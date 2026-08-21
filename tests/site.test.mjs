@@ -13,22 +13,10 @@ const root = fileURLToPath(new URL("../", import.meta.url));
 const siteOrigin = new URL(process.env.KOKAGE_SITE_URL ?? TEST_SITE_ORIGIN)
   .origin;
 const retiredProductTerms = [
-  new RegExp(["char", "acter"].join(""), "i"),
-  new RegExp(
-    String.fromCodePoint(0x30ad, 0x30e3, 0x30e9, 0x30af, 0x30bf, 0x30fc),
-  ),
-  new RegExp(String.fromCodePoint(0x76f8, 0x68d2)),
-  new RegExp(
-    `(?<!AI)${String.fromCodePoint(
-      0x30b3,
-      0x30f3,
-      0x30d1,
-      0x30cb,
-      0x30aa,
-      0x30f3,
-    )}`,
-    "u",
-  ),
+  /character/i,
+  /キャラクター/,
+  /相棒/,
+  /(?<!AI)コンパニオン/u,
 ];
 
 async function read(relativePath) {
@@ -139,7 +127,7 @@ test("English and Japanese pages emit localized metadata and complete navigation
     xDefault: `${siteOrigin}/`,
     title: "Kokage | Local-first companion chat",
     description:
-      "Kokage is an AI companion app that pairs an on-device language model with a bundled 3D companion.",
+      "Kokage is an AI companion app that pairs an on-device language model with a bundled or user-selected 3D companion.",
     ogLocale: "en_US",
     alternateOgLocale: "ja_JP",
   });
@@ -152,7 +140,7 @@ test("English and Japanese pages emit localized metadata and complete navigation
     xDefault: `${siteOrigin}/`,
     title: "こかげ | 端末で動くAIコンパニオンとのチャット",
     description:
-      "こかげは、端末内の言語モデルと同梱の3DのAIコンパニオンを組み合わせたアプリです。",
+      "こかげは、端末内の言語モデルと、同梱またはユーザーが選んだ3DのAIコンパニオンを組み合わせたアプリです。",
     ogLocale: "ja_JP",
     alternateOgLocale: "en_US",
   });
@@ -177,6 +165,14 @@ test("English and Japanese pages emit localized metadata and complete navigation
   assert.doesNotMatch(japanese, /内部開発中|プレリリース|配布していません/);
   assert.doesNotMatch(english, /reach testers|distributed to testers/);
   assert.doesNotMatch(japanese, /テスト配信を始め|テスターに配信しています/);
+  assert.match(english, /Japanese or English chat/);
+  assert.match(english, /Custom VRM/);
+  assert.match(english, /public Hugging Face model/);
+  assert.match(english, /experimental Extended context/);
+  assert.match(japanese, /会話は日本語と英語から選び/);
+  assert.match(japanese, /カスタムVRM/);
+  assert.match(japanese, /公開Hugging Faceモデル/);
+  assert.match(japanese, /実験的な拡張コンテキスト/);
   assert.doesNotMatch(
     `${english}\n${japanese}`,
     /current dependency graph|ONNX Runtime|API 36|署名済み配布/,
@@ -185,9 +181,18 @@ test("English and Japanese pages emit localized metadata and complete navigation
     japanese,
     /ConversationCoordinator|単調増加|プロジェクター|再生済みサンプル|開発者ゲート|マイクのPCM/,
   );
-  assert.match(japanese, /Silero VAD/);
+  assert.match(japanese, /Silero/);
   assert.match(japanese, /SenseVoice/);
   assert.match(japanese, /sherpa_onnx/);
+  assert.match(english, /record for bounded microphone capture/);
+  assert.match(english, /Silero VAD/);
+  assert.match(english, /SenseVoice ASR/);
+  assert.match(japanese, /recordで長さを制限/);
+  assert.match(japanese, /Silero VAD/);
+  assert.match(japanese, /SenseVoice音声認識/);
+  assert.doesNotMatch(`${english}\n${japanese}`, /Apple Speech|AVFAudio/);
+  assert.doesNotMatch(english, /Voice input is unavailable in this release/);
+  assert.doesNotMatch(japanese, /音声入力はこのリリースでは利用できません/);
 
   for (const html of [english, japanese]) {
     assert.match(
@@ -219,10 +224,10 @@ test("privacy policy pages are localized, indexable, and linked across languages
       canonical: `${siteOrigin}/privacy/`,
       title: "Privacy Policy | Kokage",
       description:
-        "How Kokage handles conversations, reports, camera input, local data, model downloads, and website data.",
+        "How Kokage handles conversations, on-device voice input, reports, camera input, local data, model downloads, and website data.",
       heading: "Kokage processes conversations on your device.",
       siteName: "Kokage",
-      date: "August 16, 2026",
+      date: "August 21, 2026",
       homePath: "/",
     },
     {
@@ -234,10 +239,10 @@ test("privacy policy pages are localized, indexable, and linked across languages
       canonical: `${siteOrigin}/ja/privacy/`,
       title: "プライバシーポリシー | こかげ",
       description:
-        "こかげにおける会話、報告、カメラ入力、端末内の保存データ、モデルのダウンロード、ウェブサイトのデータの扱いを説明します。",
+        "こかげにおける会話、端末上の音声入力、報告、カメラ入力、端末内の保存データ、モデルのダウンロード、ウェブサイトのデータの扱いを説明します。",
       heading: "こかげは、会話を端末内で処理します。",
       siteName: "こかげ",
-      date: "2026年8月16日",
+      date: "2026年8月21日",
       homePath: "/ja/",
     },
   ];
@@ -289,7 +294,7 @@ test("privacy policy pages are localized, indexable, and linked across languages
     assert.match(
       html,
       new RegExp(
-        `<time datetime="2026-08-16">${escapeRegExp(policy.date)}</time>`,
+        `<time datetime="2026-08-21">${escapeRegExp(policy.date)}</time>`,
       ),
     );
     assert.match(html, /"@type":"WebPage"/);
@@ -335,8 +340,29 @@ test("privacy policy pages are localized, indexable, and linked across languages
   assert.doesNotMatch(japanese, /\bKokage\b/);
   assert.match(english, /Optional offensive-output report/);
   assert.match(japanese, /任意の不適切な回答の報告/);
+  for (const html of [english, japanese]) {
+    assert.match(html, /schema_version/);
+    assert.match(html, /report_id/);
+    assert.match(html, /model_template_id/);
+  }
+  assert.match(english, /An unqualified model does not generate that question/);
+  assert.match(japanese, /適格性を確認していないモデルには、この質問を生成させません/);
+  assert.match(english, /in the selected chat language/);
+  assert.match(japanese, /選んだ会話言語で表示/);
+  assert.match(english, /Reporting will remain unavailable/);
+  assert.match(japanese, /報告機能を利用できない状態/);
   assert.match(english, /https:\/\/formspark\.io\/legal\/privacy-policy\//);
   assert.match(japanese, /https:\/\/formspark\.io\/legal\/privacy-policy\//);
+  assert.match(english, /sherpa_onnx for Silero VAD, SenseVoice recognition/);
+  assert.match(
+    english,
+    /does not retain, log, upload, or send microphone audio or recognition results/,
+  );
+  assert.match(japanese, /sherpa_onnxのSilero VAD、SenseVoice音声認識/);
+  assert.match(
+    japanese,
+    /保存、ログ記録、アップロード、外部サービスへの送信を行いません/,
+  );
 });
 
 test("support pages are bilingual, indexable, and privacy-conscious", async () => {
@@ -442,6 +468,10 @@ test("support pages are bilingual, indexable, and privacy-conscious", async () =
   assert.match(japanese, /返信までの期間は約束していません/);
   assert.doesNotMatch(english, /available (?:now|today)|download Kokage/i);
   assert.doesNotMatch(japanese, /今すぐダウンロード|公開中/);
+  assert.match(english, /microphone access before voice capture/);
+  assert.match(english, /Retry voice input or review microphone access/);
+  assert.match(japanese, /音声入力を始める前にマイクの使用許可/);
+  assert.match(japanese, /音声入力を再試行するか、OSの設定でマイク/);
 });
 
 test("site origins distinguish development, test, and production builds", () => {

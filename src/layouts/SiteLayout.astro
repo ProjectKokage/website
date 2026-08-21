@@ -7,8 +7,6 @@ interface Props {
   copy: SiteCopy;
   page?: {
     kind: "privacy" | "support";
-    englishPath: string;
-    japanesePath: string;
     title: string;
     description: string;
   };
@@ -17,8 +15,8 @@ interface Props {
 const { copy, page } = Astro.props;
 const englishHomeUrl = localizedRoutes.en.home;
 const japaneseHomeUrl = localizedRoutes.ja.home;
-const englishUrl = page?.englishPath ?? englishHomeUrl;
-const japaneseUrl = page?.japanesePath ?? japaneseHomeUrl;
+const englishUrl = page ? localizedRoutes.en[page.kind] : englishHomeUrl;
+const japaneseUrl = page ? localizedRoutes.ja[page.kind] : japaneseHomeUrl;
 const canonicalPath = copy.locale === "en" ? englishUrl : japaneseUrl;
 const homePath = copy.locale === "en" ? englishHomeUrl : japaneseHomeUrl;
 const privacyPath = localizedRoutes[copy.locale].privacy;
