@@ -48,6 +48,10 @@ Report the checks run and any missing visual or browser evidence.
 
 ## Delivery
 
+Branch names must not begin with `codex` (case-insensitive), including
+`codex/` and `codex-`. Rename tool-generated defaults before committing or
+pushing; use a descriptive name such as `docs-agent-guides`.
+
 Use a task branch and review the diff. Commit only task files; push, merge and
 publish only when authorized for that action. Make routine fixes within the
 requested scope; obtain approval before changing product, privacy or release
