@@ -197,6 +197,36 @@ test("English and Japanese pages emit localized metadata and complete navigation
   assert.doesNotMatch(english, /Voice input is unavailable in this release/);
   assert.doesNotMatch(japanese, /音声入力はこのリリースでは利用できません/);
 
+  assert.match(
+    english,
+    /A build configured for Kokage Cloud also offers optional cloud replies after its disclosure/,
+  );
+  assert.match(
+    english,
+    /no advertising, analytics or remote crash-reporting feature/,
+  );
+  assert.match(english, /Saved memory can enter a cloud request you have consented to/);
+  assert.match(english, /saves the conversation on your device as displayed/);
+  assert.match(english, /Photo retention starts on/);
+  assert.match(english, /in a build configured for Report/);
+  assert.doesNotMatch(
+    english,
+    /remote inference|telemetry|unavailable in this release|persistent history|remains unavailable|Conversation processing stays on your device/,
+  );
+  assert.match(
+    japanese,
+    /こかげクラウドに対応するビルドでは、説明を確認したうえでクラウドでの返事も選べ/,
+  );
+  assert.match(japanese, /広告、解析、遠隔クラッシュ報告の機能は組み込んでいません/);
+  assert.match(japanese, /保存済みの記憶は、同意済みのクラウド会話に含まれる場合があります/);
+  assert.match(japanese, /画面に表示した会話を端末に保存し/);
+  assert.match(japanese, /写真の保存は初期状態でオンです/);
+  assert.match(japanese, /報告機能を設定したビルドで/);
+  assert.doesNotMatch(
+    japanese,
+    /外部推論|テレメトリー|このリリースでは利用できません|端末内だけに残り|会話履歴にも残しません|報告機能は利用できません|会話の処理は端末の中で/,
+  );
+
   for (const html of [english, japanese]) {
     assert.match(
       html,
@@ -243,7 +273,7 @@ test("privacy policy pages are localized, indexable, and linked across languages
       canonical: `${siteOrigin}/ja/privacy/`,
       title: "プライバシーポリシー | こかげ",
       description:
-        "こかげにおける端末内の会話とクラウド会話、Kokage Cloudのモーション、声、読み上げ、アバター、会話の保存、記憶、報告、アカウント、ダウンロード、ウェブサイトのデータの扱いを説明します。",
+        "こかげにおける端末内の会話とクラウド会話、こかげクラウドのモーション、声、読み上げ、アバター、会話の保存、記憶、報告、アカウント、ダウンロード、ウェブサイトのデータの扱いを説明します。",
       heading: "こかげが端末に保存するデータと、クラウド機能が送信するデータ",
       siteName: "こかげ",
       date: "2026年10月2日",
@@ -355,9 +385,8 @@ test("privacy policy pages are localized, indexable, and linked across languages
     }
   }
 
-  // The service name "Kokage Cloud" is the only Latin-script use of the brand.
-  assert.doesNotMatch(japanese, /\bKokage\b(?! Cloud)/);
-  assert.match(japanese, /Kokage Cloud/);
+  assert.doesNotMatch(japanese, /\bKokage\b/);
+  assert.match(japanese, /こかげクラウド/);
 
   // Cloud features are disclosed, with the configured-build qualifier.
   assert.match(english, /or, in a configured build, cloud chat/);
@@ -375,7 +404,7 @@ test("privacy policy pages are localized, indexable, and linked across languages
   assert.match(japanese, /端末内のモデルへの入力は端末内にとどまります/);
   assert.match(
     japanese,
-    /Kokage CloudはOrcalogy LLCがGoogle Cloud上で運用しています/,
+    /こかげクラウドはOrcalogy LLCがGoogle Cloud上で運用しています/,
   );
   assert.match(japanese, /OpenRouterを経由して第三者のAIモデル提供事業者に送られます/);
   assert.match(japanese, /クラウドモーションはクラウド接続を設定すると初期状態でオン/);
@@ -392,6 +421,19 @@ test("privacy policy pages are localized, indexable, and linked across languages
   );
   assert.match(japanese, /音声認識は端末内で行います/);
   assert.match(japanese, /一時的に扱い、保存、ログ記録、アップロードしません/);
+
+  // The report reference and the permission prompts are named as the app
+  // names and asks for them.
+  assert.match(english, /a random Reference ID/);
+  assert.match(english, /with the Reference ID the app showed you/);
+  assert.doesNotMatch(english, /report reference/);
+  assert.match(japanese, /ランダムな受付ID/);
+  assert.match(japanese, /アプリに表示された受付IDを添えて/);
+  assert.doesNotMatch(japanese, /参照ID|報告番号/);
+  assert.match(english, /or take a picture for an avatar/);
+  assert.match(english, /before voice capture or a voice-clone recording/);
+  assert.match(japanese, /アバター用の画像を撮影するときにカメラの使用許可/);
+  assert.match(japanese, /声の複製のための録音を始める前にマイクの使用許可/);
 
   // Statements the app no longer supports, and draft-only notes, stay out.
   assert.doesNotMatch(
@@ -503,6 +545,15 @@ test("support pages are bilingual, indexable, and privacy-conscious", async () =
     }
   }
 
+  assert.match(english, /cloud features send what the privacy policy lists/);
+  assert.match(english, /exists in a build configured for Report/);
+  assert.doesNotMatch(english, /remains unavailable/);
+  assert.match(
+    japanese,
+    /クラウド機能は、プライバシーポリシーに記載したデータを送信します/,
+  );
+  assert.match(japanese, /報告機能を設定したビルドで利用できます/);
+  assert.doesNotMatch(japanese, /有効にするまで利用できません|\bKokage\b(?!%20support)/);
   assert.match(english, /No response time is promised/);
   assert.match(japanese, /返信までの期間は約束していません/);
   assert.doesNotMatch(english, /available (?:now|today)|download Kokage/i);

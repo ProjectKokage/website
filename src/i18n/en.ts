@@ -35,7 +35,7 @@ export const en = {
   flow: {
     eyebrow: "A conversation in Kokage",
     title: "From your message to your companion’s reply",
-    lede: "Each turn moves from your message to an on-device reply, optional speech, and companion animation.",
+    lede: "Each turn moves from your message to a reply, optional speech, and companion animation.",
     stages: [
       {
         label: "Input",
@@ -46,7 +46,7 @@ export const en = {
         label: "Reply",
         title: "Generate on the device",
         detail:
-          "The language model selected during setup generates a reply on your device.",
+          "The on-device model selected during setup generates a reply on your device. A build configured for Kokage Cloud also offers optional cloud replies after its disclosure.",
       },
       {
         label: "Speech",
@@ -71,7 +71,7 @@ export const en = {
     items: [
       {
         title: "Replies generated on your device",
-        body: "After setup, the selected language model generates replies on your device. If generation fails, Kokage keeps your message so you can try again.",
+        body: "After setup, the selected on-device model generates replies on your device. A build configured for Kokage Cloud also offers optional cloud replies after its disclosure. If generation fails, Kokage keeps your message so you can try again.",
       },
       {
         title: "A companion included, or bring your own VRM",
@@ -87,7 +87,7 @@ export const en = {
       },
       {
         title: "Memory you can inspect and control",
-        body: "Memory stays on your device. When enabled, retained entries can be recalled for replies, and the Memory screen lets you inspect, edit, delete, clear, or disable them. Automatic capture from incidental typed turns is unavailable in this release.",
+        body: "Memory is kept on your device and starts on when its local services are available. It can save a useful detail from text you submit, with a notice and Undo. Retained entries can be recalled for replies, and the Memory screen lets you inspect, edit, delete, clear, or disable them. Saved memory can enter a cloud request you have consented to.",
       },
       {
         title: "Add text for Kokage to reference",
@@ -97,20 +97,20 @@ export const en = {
   },
   privacy: {
     eyebrow: "App data and privacy",
-    title: "Conversation processing stays on your device",
-    lede: "Replies are generated on your device. Kokage does not use remote inference, analytics, or telemetry. A release-configured report that you confirm may send only a schema version, a random report ID, one closed reason, one selected displayed reply, an optional bounded note, the catalog model/template ID, and the app version through Formspark.",
+    title: "On-device replies keep their generation context on your device",
+    lede: "The on-device model generates replies on your device. A build configured for Kokage Cloud also offers optional cloud replies after its disclosure, and cloud features send what the privacy policy lists. Kokage's own source code includes no advertising, analytics or remote crash-reporting feature. A release-configured report that you confirm may send only a schema version, a random Reference ID, one closed reason, one selected displayed reply, an optional bounded note, the catalog model/template ID, and the app version through Formspark.",
     items: [
       {
         title: "Conversation",
-        body: "Kokage holds messages and prompts only while the conversation is active. It does not save conversation content to logs or persistent history.",
+        body: "On native devices, Kokage saves the conversation on your device as displayed, and each relationship keeps its own records.",
       },
       {
         title: "Camera",
-        body: "Kokage keeps one camera image only for the current message or a failed message awaiting retry. It is not logged or added to completed chat history. Voice input processes bounded microphone audio and recognition results on the device without retaining, logging, or uploading them.",
+        body: "Photo retention starts on; turning it off deletes saved photos and stops retaining new ones. A photo you submit can reach the selected cloud vision service after its disclosure. Voice input processes bounded microphone audio and recognition results on the device without retaining, logging, or uploading them.",
       },
       {
         title: "Memory",
-        body: "Retained memory stays on the device and can be recalled while memory is enabled. The Memory screen lets you inspect, edit, delete, clear, or disable it. Automatic incidental capture is unavailable in this release.",
+        body: "Memory is kept on the device and starts on when its local services are available. It can save a useful detail from text you submit, with a notice and Undo, and the Memory screen lets you inspect, edit, delete, clear, or disable it. Saved memory can enter a cloud request you have consented to.",
       },
       {
         title: "Local knowledge",
@@ -123,7 +123,7 @@ export const en = {
     ],
     networkLabel: "When Kokage uses the network",
     networkBody:
-      "Network access covers provisioning that you direct and, only in a release with an approved Formspark form, an offensive-output report that you confirm in the app. Reporting remains unavailable until the form, provider approval, retention and deletion procedure, public disclosure, and signed-release checks are complete.",
+      "Kokage uses the network for provisioning that you direct, for the Kokage Cloud features of a configured build, and, in a build configured for Report, for a report that you review and confirm in the app. The privacy policy explains how reports are kept and how to ask for deletion.",
     policyLink: "Read the full privacy policy",
   },
   privacyPolicy: {
@@ -329,7 +329,7 @@ export const en = {
           },
           {
             title: "Purchases",
-            body: "Purchases on supported iOS builds also involve RevenueCat and store services. On iOS, purchases go through Apple and RevenueCat under their policies; RevenueCat receives the purchase and a random account identifier, not your conversations.",
+            body: "On iOS, purchases go through Apple and RevenueCat under their policies; RevenueCat receives the purchase and a random account identifier, not your conversations.",
             link: {
               href: "https://www.revenuecat.com/privacy",
               label: "RevenueCat privacy policy",
@@ -382,12 +382,12 @@ export const en = {
         title: "Reports",
         paragraphs: [
           "In a build configured for Report, you review the selected displayed response, choose a reason, optionally add a note, and confirm sending it to Formspark.",
-          "The payload includes the catalog model/template ID and app version, a format version, and a random report reference. That reference identifies the submission, not your device or account. No separate prompt, history or media fields and no device or account identifier fields are added. The selected response itself may repeat private context.",
+          "The payload includes the catalog model/template ID and app version, a format version, and a random Reference ID. That ID identifies the submission, not your device or account. No separate prompt, history or media fields and no device or account identifier fields are added. The selected response itself may repeat private context.",
         ],
         items: [
           {
             title: "Retention and deletion of reports",
-            body: "Formspark and the developer mailbox may each retain a copy. Clearing local app data does not delete those copies. There is no fixed retention period: Formspark and the Orcalogy mailbox keep a report until Orcalogy deletes it. To ask for deletion, email contact@orcalogy.com with the report reference the app showed you; Orcalogy then deletes the Formspark submission and the mailbox copy. Copies in those providers' backups follow the providers' own schedules.",
+            body: "Formspark and the developer mailbox may each retain a copy. Clearing local app data does not delete those copies. There is no fixed retention period: Formspark and the Orcalogy mailbox keep a report until Orcalogy deletes it. To ask for deletion, email contact@orcalogy.com with the Reference ID the app showed you; Orcalogy then deletes the Formspark submission and the mailbox copy. Copies in those providers' backups follow the providers' own schedules.",
             link: {
               href: "https://formspark.io/legal/privacy-policy/",
               label: "Formspark privacy policy",
@@ -400,8 +400,8 @@ export const en = {
         title: "Permissions and local protection",
         paragraphs: [
           "Camera, microphone and notification permissions have separate explicit controls.",
-          "Kokage asks for camera access when you attach one still to a message. You can deny or revoke that permission in system settings and continue with typed chat.",
-          "Kokage asks for microphone access before voice capture. If you deny or revoke access, typed chat remains available and the app offers retry or system-settings guidance where the platform supports it.",
+          "Kokage asks for camera access when you attach one still to a message or take a picture for an avatar. You can deny or revoke that permission in system settings and continue with typed chat.",
+          "Kokage asks for microphone access before voice capture or a voice-clone recording. If you deny or revoke access, typed chat remains available and the app offers retry or system-settings guidance where the platform supports it.",
           "Kokage uses app-private storage and operating-system protections, but it does not add application-layer encryption to saved content.",
           "Android excludes app data from OS backup and device transfer; on Apple platforms, the app's private support storage is excluded from backup. The operating system can reclaim cache. These measures are not a blanket guarantee about Linux, Windows or third-party desktop backups.",
           "To ask the operating system to remove the remaining app-private files, use its app-removal controls; final removal and device backups are controlled by the operating system.",
@@ -498,7 +498,7 @@ export const en = {
         id: "local-data",
         title: "Local data and privacy",
         paragraphs: [
-          "Conversation processing and the app's memory, knowledge, profile, model, and VRM data stay on the device under the behavior described in the privacy policy. Project support cannot remotely inspect, recover, export, or erase that local data.",
+          "On-device processing and the app's local memory, knowledge, profile, model, and VRM data stay on the device; cloud features send what the privacy policy lists. Project support cannot remotely inspect, recover, export, or erase that local data.",
           "Use the in-app Memory and Local Knowledge controls for those stores. Use the operating system's app-removal controls to request removal of remaining app-private data; final removal and device backups are controlled by the operating system.",
         ],
       },
@@ -508,7 +508,7 @@ export const en = {
         paragraphs: [
           "For a question or problem with Kokage, email contact@orcalogy.com with the platform, app version or source revision, the visible error category, and short steps that reproduce the issue.",
           "Email is handled outside Kokage by the sender's and recipient's email providers. Do not include prompts, replies, memory values, recordings, photos, model or VRM files, credentials, or other confidential content. No response time is promised.",
-          "The optional in-app offensive-output report remains unavailable unless an approved release explicitly enables it. Email is not a substitute for that bounded report flow and should not include generated conversation content.",
+          "The optional in-app offensive-output report exists in a build configured for Report: you review the selected reply and confirm before it is sent, and the privacy policy explains retention and deletion. Email is not a substitute for that bounded report flow and should not include generated conversation content.",
         ],
       },
     ],
