@@ -130,20 +130,20 @@ export const en = {
     meta: {
       title: "Privacy Policy | Kokage",
       description:
-        "How Kokage handles conversations, on-device voice input, reports, camera input, local data, model downloads, and website data.",
+        "How Kokage handles on-device and cloud chat, Kokage Cloud motion, voices, speech and avatars, saved conversations, memory, reports, accounts, downloads, and website data.",
     },
     eyebrow: "Kokage privacy policy",
-    title: "Kokage processes conversations on your device.",
-    lede: "This policy explains what the app keeps, when it connects to other services, and how you can remove local data.",
+    title: "What Kokage keeps on your device and what its cloud features send",
+    lede: "This policy explains what the app saves on your device, what it sends to Kokage Cloud and other services and when, and how you can delete it.",
     updatedLabel: "Last updated",
-    updatedDate: "2026-08-21",
-    updatedDateDisplay: "August 21, 2026",
+    updatedDate: "2026-10-02",
+    updatedDateDisplay: "October 2, 2026",
     highlightsLabel: "Policy summary",
     highlights: [
-      "No Kokage account or developer-operated inference server",
-      "No analytics, advertising, telemetry, or tracking in the app",
-      "Prompts, conversation history, microphone audio, camera images, and saved memory stay on your device",
-      "A release-configured report you confirm may send one selected displayed reply through Formspark",
+      "On-device replies keep their generation context on your device",
+      "In a configured build, Kokage Cloud features send the data this policy lists, and the app explains cloud chat before you use it",
+      "Microphone recognition runs on your device; conversation audio is not logged or uploaded",
+      "Kokage's own source code includes no advertising, analytics or remote crash-reporting feature",
     ],
     contentsLabel: "On this page",
     sections: [
@@ -151,99 +151,213 @@ export const en = {
         id: "scope",
         title: "Scope",
         paragraphs: [
-          "This policy describes data handling in the Kokage app and the Kokage project website as of August 21, 2026.",
+          "This policy describes data handling in the Kokage app, Kokage Cloud and the Kokage project website as of October 2, 2026.",
+          "The parts of this policy about Kokage Cloud apply to a build configured for Kokage Cloud.",
           "Websites and download services that Kokage contacts at your direction apply their own privacy policies.",
-          "Kokage is a local-first app with no Kokage account system or developer-operated inference service.",
-          "Fresh setup offers Japanese and English chat profiles, the adaptive built-in catalog, a checked public Hugging Face model, Standard and experimental Extended context, experimental thinking controls, every listed speech-output voice, bounded on-device voice input, AvatarSample_A, and Custom VRM. Release evidence remains open for several paths.",
         ],
       },
       {
-        id: "collection",
-        title: "Data not sent during ordinary use",
+        id: "chat",
+        title: "On-device and cloud chat",
         paragraphs: [
-          "The Kokage developer does not receive your prompts, conversation history, microphone audio or recognition results, camera images, local knowledge, memories, profiles, generated speech, or imported VRM files during ordinary use.",
-          "A report that you confirm is the sole generated-content exception. Kokage can send its schema version, a random report ID, one selected displayed reply, a closed reason, an optional bounded note, the catalog model/template ID, and the app version only after the release includes an approved Formspark form.",
+          "Kokage lets you choose on-device replies or, in a configured build, cloud chat. On-device replies keep their generation context on your device.",
+          "Before you use cloud chat, the app explains that selected conversation text, character content, history, recap, images and recalled context can reach Kokage Cloud and its AI providers. Automatic guidance, initiative and enabled memory work can also use that service and spend Leaves from your Kokage Cloud balance.",
+          "Automatic cloud recap refresh has a separate setting, off by default, and its own disclosure, because reading older exchanges can cost more than a short reply.",
         ],
         items: [
           {
-            title: "No account or developer cloud",
-            body: "The app has no Kokage login, cloud conversation history, remote inference endpoint, or developer database of app content.",
+            title: "Voice-emotion reply hint",
+            body: "An optional voice-emotion reply hint is enabled by default. When eligible, one coarse normalized label may accompany the current request, including a cloud request. It is an uncertain tone hint, not a diagnosis or memory source; you can turn it off. Raw audio and recognizer metadata are not sent.",
+          },
+        ],
+      },
+      {
+        id: "cloud-motion",
+        title: "Cloud Motion",
+        paragraphs: [
+          "Cloud Motion is on by default when cloud access is configured, including with on-device replies. It sends the derived action description, duration and stage bounds to Kokage Cloud in Singapore; it does not upload the conversation transcript or avatar. Descriptions, poses and embeddings are transient.",
+          "Local presets are free. Generated motion reserves Leaves separately and, once it starts, charges for the motion time the server sends, which can include buffered motion that is never displayed. Motion that does not start is free.",
+          "You can turn Cloud Motion off in Settings; this cancels current and prefetched generated actions. For a character card that requires local inference, the action description is not sent to Kokage Cloud either.",
+          "While you are chatting in the foreground with Cloud Motion on, the app keeps an authenticated connection to Kokage Cloud so motion generation is ready; the connection itself carries no conversation content or action. It closes two minutes after you last open the chat, type or have a reply under way, and when the app goes to the background or the chat closes; waiting with the microphone open does not keep it.",
+        ],
+      },
+      {
+        id: "cloud-voices",
+        title: "Cloud voices and speech",
+        paragraphs: [
+          "In a configured build you can create private voices in your Kokage Cloud account and choose one to read replies.",
+        ],
+        items: [
+          {
+            title: "Voice design",
+            body: "Voice design sends the description you type to Kokage Cloud for processing in Singapore. One purchase creates three candidate voices; the price shown tells you when your account's first design is free. A designed voice may resemble a real person. Describing someone's voice is not their consent, and using a voice to impersonate anyone is not allowed. In a build configured for Report, you can report voice misuse from the voice creation page; that report contains a fixed subject line, your chosen reason and optional note, and no voice, audio or account identifier.",
           },
           {
-            title: "No analytics or advertising",
-            body: "The app contains no analytics, telemetry, advertising, or tracking service, and the Kokage developer does not sell or rent app data.",
+            title: "Voice cloning",
+            body: "Voice cloning uploads only audio files you choose, or a recording you make on that page for this purpose. On iPhone, iPad, Mac and Android, a file in another format, such as M4A or MP3, is first converted to WAV on your device, and only the converted audio is uploaded. Ordinary conversation audio is never used. A recording stays in memory on your device until you confirm the upload, and it is discarded if you leave the app or close the page. Before uploading, you state whether the voice is yours or an authorized speaker's, confirm that you have permission, and choose whether to keep the original files; Kokage Cloud records these choices with the upload and processes the audio in Singapore.",
           },
           {
-            title: "No inference, analytics, or advertising recipients",
-            body: "Kokage does not send prompts, conversation history, or media to analytics tools, advertising networks, third-party inference services, or related companies. Provisioning hosts receive the connection metadata described below, and an approved Formspark report receives only its disclosed payload.",
+            title: "Keeping and deleting voices",
+            body: "Candidates you do not save expire 24 hours after they are ready, and their audio and inputs are then deleted; uploads that were never submitted are removed after 24 hours. Saving a voice keeps its reference audio, derived voice data and preview in your private account until you delete the voice. The derived data is not anonymous: speech can be recovered from it. A saved designed voice also keeps the description used to create it. For a cloned voice, the original uploads are kept for seven days after saving for recovery, or while the voice stays saved if you chose to keep them for migration. Deleting a voice revokes it immediately, cancels speech that is using it and schedules deletion of its audio and data. A download link that was already issued can work for up to 60 seconds, and copies you downloaded cannot be recalled. Purchase and consent records remain with your account.",
           },
           {
-            title: "Content-free diagnostics",
-            body: "Local diagnostics may contain error categories, redacted artifact identities, turn IDs, durations, counters, and queue sizes, but they exclude raw private content and are not sent to the developer by the app.",
+            title: "Reading replies with a cloud voice",
+            body: "When you choose a cloud voice for replies, including on-device replies, the clean text of each part of a reply that is spoken is sent with that voice's identity, the speaking rate and, for expressive replies, the chosen delivery preset and strength to Kokage Cloud and processed in Singapore. The conversation history, character data and avatar are not sent for speech. Speech text and generated audio are processed in memory and are not stored as recordings or written to ordinary logs. Cloud speech spends Leaves for the audio produced. Opening a chat with a cloud voice selected, and a periodic keep-warm while you keep chatting, sends a request that names only the voice; it stops two minutes after your last activity in the chat, and when the app goes to the background or the chat closes. The voice installed on your device stays available. An optional setting, off by default, reads replies with it while a cloud voice is getting ready; that text then stays on your device. Character cards requiring local inference cannot use cloud speech.",
+          },
+        ],
+      },
+      {
+        id: "avatar-creation",
+        title: "Avatar creation",
+        paragraphs: [
+          "Avatar creation is an optional Kokage Cloud feature in Settings. You describe how a character looks, add a picture you choose or take for this purpose, or both. Kokage sends the description and the picture to Kokage Cloud, where the avatar is made on GPUs in Singapore.",
+        ],
+        items: [
+          {
+            title: "Safety check",
+            body: "Before any 3D work, an outside AI service checks the picture once for safety, together with the description; a request without a picture has the picture drawn from its description checked instead. Because of that check, avatar creation needs outside processing and is not available to accounts limited to in-house processing.",
+          },
+          {
+            title: "Pictures you send",
+            body: "Before a picture is sent, you confirm that you may use it and that any real person shown has given permission. The app re-encodes the picture without camera or location metadata. A photo of a real person is redrawn in the app's style unless you keep realism.",
+          },
+          {
+            title: "What Kokage Cloud keeps",
+            body: "Kokage Cloud deletes the description, the picture and intermediate drawings after the job and its retry window. It keeps a record of the safety check (the picture's hash, policy and model versions, the decision and flags) without the picture. A finished avatar stays in your private Kokage Cloud account until you delete it. The creation screen offers deletion while it shows that avatar; starting a new one removes it from the screen, not from your account.",
+          },
+          {
+            title: "Downloading and using an avatar",
+            body: "Previewing, downloading and using a finished avatar cost no more Leaves; if no avatar is made, the reserved Leaves are returned. The Download VRM option saves or shares the file with the destination you choose. The Use character option keeps a verified copy on this device for the current character; deleting the avatar from Kokage Cloud does not remove that copy. The app remembers only which request it is following, so the screen can resume after you leave; preview copies are temporary and removed when the screen closes.",
           },
         ],
       },
       {
         id: "local-data",
-        title: "Data handled on your device",
+        title: "Your saved conversation and inputs",
         paragraphs: [
-          "Kokage keeps the following data for app functions on the device where you use it.",
+          "On native devices, Kokage saves the conversation as displayed, including final voice text you submit. Each relationship keeps its own records across model, backend and setup changes.",
+          "Deleting a relationship removes its local conversation, recap, retained photos and memory; if cleanup fails, the app offers a retry. Archiving a card leaves that private state intact. Removing an individual memory does not remove the same information from conversation or recap.",
         ],
         items: [
           {
-            title: "Conversation, camera, and speech",
-            body: "Messages and prompts remain in the active conversation without a persistent chat log; one camera image may remain for the current or failed turn; and generated speech is not persisted.",
+            title: "Photos",
+            body: "Photo retention starts on. Turning it off removes saved photo bytes and stops retaining future photos, while keeping text and image markers. Turning it back on affects future photos. A current photo you choose to submit may still reach the selected cloud vision service after its disclosure.",
           },
           {
-            title: "Voice input",
-            body: "Voice input uses record for bounded microphone capture and sherpa_onnx for Silero VAD, SenseVoice recognition, and optional diarization. It recognizes the selected Japanese or English chat language, suppresses Kokage's own playback, and does not retain, log, upload, or send microphone audio or recognition results to a remote service. Platform validation remains part of the release evidence matrix.",
-          },
-          {
-            title: "Local knowledge",
-            body: "Kokage stores text you add, its title, an optional source URL, its creation time, and a derived search index; it does not add chat, camera, file, tool, or model content to that index on its own.",
-          },
-          {
-            title: "Models, VRMs, profile, and setup",
-            body: "Verified model files, bounded partial transfers, a selected speech-output voice, an installed Custom VRM, your typed profile, settings, and setup metadata stay in app-private storage; AvatarSample_A is a read-only packaged asset. A custom public-model selection also stores its canonical repository, full commit, selected filenames, sizes, and digests for repair.",
-          },
-          {
-            title: "Device capacity",
-            body: "During fresh setup, Kokage reads the total physical memory reported by the operating system to recommend a model size. It does not persist or transmit that value.",
-          },
-          {
-            title: "Memory",
-            body: "Memory is a separate, local-only store. When memory is enabled, retained entries can be recalled for local replies; the Memory screen lets you inspect, edit, delete, clear, disable, and re-enable them. Disabling memory stops recall without erasing retained entries. Automatic incidental capture from typed turns is unavailable in this release.",
-          },
-          {
-            title: "Automatic first-conversation guidance",
-            body: "After a successfully initialized local model passes Kokage's first-question preflight, Kokage may show a bounded fallback question written into the app in the selected chat language. An unqualified model does not generate that question. Kokage persists at most 256 encoded bytes of progress for the companion introduction and app walkthrough: each state is eligible, completed, or dismissed. The progress marker contains no user or model text, tool data, memory value, identity, timestamp, counter, capability snapshot, or telemetry.",
+            title: "Microphone",
+            body: "Microphone recognition runs on-device. Conversation microphone audio, recognition drafts, intermediate results and voice metadata are transient and are not logged or uploaded. Only final text you actually submit follows the ordinary conversation storage and selected reply-backend rules. A voice-clone recording that you explicitly make and confirm is uploaded as described under Cloud voices and speech.",
           },
         ],
       },
       {
-        id: "network",
-        title: "Network connections and third-party services",
+        id: "memory",
+        title: "Memory and Knowledge",
         paragraphs: [
-          "Kokage uses the network for provisioning that you direct and, in a release configured with an approved form, a report that you confirm. Conversation generation stays on your device.",
-          "A provider can receive standard connection data such as your IP address, request time, requested URL, and HTTP headers. Formspark may infer location from an IP address.",
-          "Each provider controls its logs and retention under its policy. Reporting will remain unavailable until Kokage publishes an approved Formspark and developer-mailbox retention and deletion procedure.",
+          "Memory starts on when its local services are available.",
         ],
         items: [
           {
-            title: "Protection by providers",
-            body: "GitHub, Hugging Face, their redirect hosts, and a user-selected Custom VRM HTTPS host apply their policies to request metadata. In a release that enables reporting, Formspark processes the submitted report for the Kokage developer and the developer's mailbox provider stores the emailed or forwarded copy. Kokage will not enable that path until its provider and release reviews pass.",
+            title: "What memory saves",
+            body: "Memory can save at most one useful detail from text you submit, including information about you, other people, plans, events, health, finances or locations. It must preserve attribution, uncertainty, negation and time qualifiers. The model is instructed to exclude passwords, access PINs, API keys, recovery codes and information you ask it not to remember. Selection can be wrong; these instructions do not guarantee that unwanted information will never be saved.",
           },
           {
-            title: "Optional offensive-output report",
-            body: "After you preview and confirm a report in the app, Kokage makes one HTTPS request to Formspark. It sends only the report schema version (schema_version), a random report ID (report_id), one closed reason, the exact selected displayed generated reply, an optional note, the catalog model/template ID (model_template_id), and the app version. It does not add your prompt, other turns, history, citations, retrieved passages, local knowledge, memory, profile, audio, images, any other device, account, or model identifier, diagnostics, a timestamp, or arbitrary metadata as separate fields. The selected reply may itself repeat information from one of those inputs; the preview lets you cancel before sending it. The reply is limited to 16,384 Unicode scalar values and 64 KiB; the note is limited to 1,000 scalar values and 4 KiB. Kokage does not persist, queue, log, send in the background, or automatically retry the report. Formspark stores an accepted submission and sends or forwards a copy to the developer mailbox.",
+            title: "Memory controls",
+            body: "There is no initial memory consent prompt or per-entry approval. A save notice offers temporary Undo, and you can inspect, edit, delete, clear or turn memory off. Turning memory off stops automatic access while retaining editable records. Memory has no reminder or automatic-expiry feature. Your own submitted words can supply a memory even when a turn includes a photo or retrieved text; those other sources cannot supply the saved quote.",
+          },
+          {
+            title: "Knowledge",
+            body: "Knowledge indexes only text you explicitly add. It does not automatically index chat, microphone, camera or model output. In a build that includes those services, selected Knowledge excerpts and saved memory can enter a cloud request you have consented to.",
+          },
+        ],
+      },
+      {
+        id: "smart-home",
+        title: "Optional smart home",
+        paragraphs: [
+          "On iOS and iPadOS, Smart home starts off. Enabling it requests Apple Home access and lets Kokage read supported state across accessible homes and carry out requested, validated device actions while the app is in the foreground. Suggestions wait for your reply. HomeKit handles platform traffic; Android smart home is disabled.",
+          "Selected home, room and device names and identifiers, sensor readings, states, and action outcomes can reach Kokage Cloud and its AI providers when you use cloud replies. The app explains this before enabling. Raw snapshots and structured tool data remain transient and unlogged. Visible home-related dialogue is saved and summarized like ordinary conversation.",
+          "Turning Smart home off stops future access and retires pending work, but cannot undo an already-submitted device action or remove past visible dialogue.",
+        ],
+      },
+      {
+        id: "notifications",
+        title: "Optional notifications",
+        paragraphs: [
+          "Nudges, the app's optional notifications, start off. The app prepares only the next notification while open, using the selected model and permitted conversation and memory context. With cloud selected, preparation sends that context and spends ordinary Leaves. A new message waits for another foreground opening; the model does not run while the app is closed.",
+          "One private record on your device and the operating system retain the scheduled notification. The model prepares a full line and a reduced preview, but automatic checks cannot guarantee that the preview omits every private detail. Your operating system controls how previews and notification history are displayed. Turning Nudges off, a replacement, opening the chat or an expiry check retires the old notification; an already scheduled iOS alert can still appear late while the app is closed.",
+        ],
+      },
+      {
+        id: "characters",
+        title: "Character imports and sharing",
+        paragraphs: [
+          "Cards you create or explicitly import, their media, and inert original source fields are saved locally. Import preview does not activate a character or grant it access to tools. Separate relationships keep their own local state. Card lore is not automatically added to your Knowledge index.",
+        ],
+        items: [
+          {
+            title: "Importing from a URL",
+            body: "Pasting a public card URL contacts the selected sharing platform or direct file host and its validated redirects. They receive the requested URL and ordinary connection information such as your IP address. Kokage sends no app credentials, chat or memory with that request and does not automatically fetch secondary media.",
+          },
+          {
+            title: "Cards marked for local-only inference",
+            body: "A character card marked for local-only inference uses an on-device model. Kokage blocks cloud replies and automatic model rounds for that character even when you previously enabled cloud chat. You can select an on-device model or another character; your saved backend preference remains unchanged.",
+          },
+          {
+            title: "Export and sharing",
+            body: "Before export, you review authored card content and choose the media to include. Private relationship state, memory, chats, permissions and quarantined source fields are excluded. Desktop saves to your chosen location; mobile uses the OS share sheet and the recipient you select. App staging files are removed after the share callback. Android's sharing component can keep a temporary delivery copy until the next share or cache reclamation. A crash can leave temporary files for cache reclamation. Copies saved by a recipient are controlled by that recipient.",
+          },
+        ],
+      },
+      {
+        id: "cloud-account",
+        title: "Kokage Cloud account, providers and purchases",
+        paragraphs: [
+          "Cloud account and wallet actions use a device credential and account state. Opening the wallet can connect before chat consent. Selecting on-device replies keeps your earlier cloud acceptance; the app has no control for revoking that consent.",
+        ],
+        items: [
+          {
+            title: "Who runs Kokage Cloud",
+            body: "Kokage Cloud is run by Orcalogy LLC on Google Cloud. Its gateway and database are in Tokyo; speech, motion and avatar GPU work and the private files for voices and avatars are in Singapore.",
+          },
+          {
+            title: "AI model providers",
+            body: "Cloud chat requests, and the avatar safety check, go through OpenRouter to third-party AI model providers; which provider answers depends on the reply model and can change. Kokage Cloud does not store the text or images of a cloud chat request as conversation history; it keeps the amounts used, timing, the model route and the charge for billing. OpenRouter and the model providers handle requests under their own terms and privacy policies, which decide how long they keep data.",
             link: {
-              href: "https://formspark.io/legal/privacy-policy/",
-              label: "Formspark privacy policy",
+              href: "https://openrouter.ai/privacy",
+              label: "OpenRouter privacy policy",
             },
           },
           {
+            title: "Purchases",
+            body: "Purchases on supported iOS builds also involve RevenueCat and store services. On iOS, purchases go through Apple and RevenueCat under their policies; RevenueCat receives the purchase and a random account identifier, not your conversations.",
+            link: {
+              href: "https://www.revenuecat.com/privacy",
+              label: "RevenueCat privacy policy",
+            },
+          },
+        ],
+      },
+      {
+        id: "retention",
+        title: "Account deletion and retention",
+        paragraphs: [
+          "You can delete your Kokage Cloud account in Settings with the Delete Kokage Cloud account option. After you confirm, Kokage Cloud revokes the account's sign-in on every device at once and accepts no new paid work, then erases the account's saved cloud voices, avatars and uploaded files in the background.",
+          "Remaining Leaves are lost and not refunded, and deleting does not refund store purchases. This device forgets the account, the cloud voice you selected, the avatar request it was following and its copy of the balance. Characters, chats, memories, Knowledge and avatars already in use stay on this device. Using Kokage Cloud again creates a new, empty account.",
+          "After deletion, Kokage Cloud keeps records that contain no conversation, voice or picture content: the closed account's identifier, the Leaf balance and spending history, store purchase records, voice consent records, safety-check records of avatar requests that were refused or failed, and audit entries. They are kept for accounting, fraud prevention and legal duties and have no fixed deletion date.",
+          "Copies held by Kokage Cloud and its providers, by the stores and in submitted reports each have separate retention.",
+        ],
+      },
+      {
+        id: "network",
+        title: "Downloads and other connections",
+        paragraphs: [
+          "Downloads you confirm and public-model Check requests contact their hosts and CDNs with source coordinates and normal connection metadata, such as your IP address. They do not include chat or media content. A confirmed transfer may continue through the platform's transfer service and keep a bounded restart checkpoint. Canceling removes partial transfer state. Model activation verifies size and digest.",
+          "Kokage's own source code includes no advertising, analytics or remote crash-reporting feature.",
+        ],
+        items: [
+          {
             title: "Public model information and files",
-            body: "A Hugging Face Check requests public repository metadata, and a confirmed install downloads selected model and voice files from Hugging Face plus its redirect or delivery hosts. Kokage supports no private repository token and does not retain a temporary signed delivery URL.",
+            body: "A Hugging Face Check requests public repository metadata, and a confirmed install downloads selected model and voice files from Hugging Face plus its redirect or delivery hosts.",
             link: {
               href: "https://huggingface.co/privacy",
               label: "Hugging Face privacy policy",
@@ -258,42 +372,26 @@ export const en = {
             },
           },
           {
-            title: "VRM files from HTTPS",
-            body: "AvatarSample_A needs no download. A confirmed Custom VRM import contacts the HTTPS host you select and any redirect destination; importing a local file makes no host request.",
-          },
-          {
-            title: "Confirmed transfer resume and background continuation",
-            body: "Kokage may keep one bounded, checksum-keyed partial model transfer across launches and resume the same confirmed request. After you confirm a download, iOS, Android, or macOS may continue that transfer through the operating system's background-transfer service when the system reports support, and the system may hold the request URL, expected length, destination, and progress until completion or cancellation. A new installation or download action still needs your confirmation.",
+            title: "Avatar files",
+            body: "AvatarSample_A and local Custom VRM import need no host request. A Custom VRM HTTPS import contacts your chosen host. The app retains a validated private-cache copy and its digest and size, not the original locator. Cache loss may require you to select the custom source again.",
           },
         ],
       },
       {
-        id: "retention",
-        title: "Retention and deletion",
+        id: "reports",
+        title: "Reports",
         paragraphs: [
-          "The Kokage developer has no server-side copy of your ordinary app data. A submitted report is the exception: Formspark and the developer mailbox may each retain a copy.",
-          "Local knowledge, profiles, settings, saved memories, installed artifacts, and setup metadata can persist across launches because Kokage applies no time-based expiration to them.",
+          "In a build configured for Report, you review the selected displayed response, choose a reason, optionally add a note, and confirm sending it to Formspark.",
+          "The payload includes the catalog model/template ID and app version, a format version, and a random report reference. That reference identifies the submission, not your device or account. No separate prompt, history or media fields and no device or account identifier fields are added. The selected response itself may repeat private context.",
         ],
         items: [
           {
-            title: "Short-lived turn data",
-            body: "Kokage removes the temporary native camera file after reading it and retires in-memory camera and conversation data when its turn or conversation no longer owns that data.",
-          },
-          {
-            title: "Local knowledge",
-            body: "The Local Knowledge screen lets you delete one saved document or clear all saved documents and their search index.",
-          },
-          {
-            title: "Memory",
-            body: "The Memory screen lets you inspect, edit, delete one, or clear all retained entries even while memory is disabled; turning memory off stops recall but does not erase retained entries by itself. Automatic incidental capture is unavailable in this release.",
-          },
-          {
-            title: "Downloads and remaining app files",
-            body: "Canceling an incomplete model download removes its partial transfer; to ask the operating system to remove the remaining app-private files, use its app-removal controls, with final removal and device backups controlled by the operating system.",
-          },
-          {
-            title: "Submitted reports",
-            body: "The app keeps no report after its request settles, but clearing app data or uninstalling cannot delete the Formspark or mailbox copies. Reporting remains unavailable until Kokage publishes a maximum retention period, deletion steps for both copies, and the providers' backup behavior. After reporting is enabled, you can request deletion by emailing contact@orcalogy.com with the report ID shown by the app. Kokage will not promise a response time or backup erasure until the approved procedure supports it.",
+            title: "Retention and deletion of reports",
+            body: "Formspark and the developer mailbox may each retain a copy. Clearing local app data does not delete those copies. There is no fixed retention period: Formspark and the Orcalogy mailbox keep a report until Orcalogy deletes it. To ask for deletion, email contact@orcalogy.com with the report reference the app showed you; Orcalogy then deletes the Formspark submission and the mailbox copy. Copies in those providers' backups follow the providers' own schedules.",
+            link: {
+              href: "https://formspark.io/legal/privacy-policy/",
+              label: "Formspark privacy policy",
+            },
           },
         ],
       },
@@ -301,10 +399,12 @@ export const en = {
         id: "permissions",
         title: "Permissions and local protection",
         paragraphs: [
+          "Camera, microphone and notification permissions have separate explicit controls.",
           "Kokage asks for camera access when you attach one still to a message. You can deny or revoke that permission in system settings and continue with typed chat.",
           "Kokage asks for microphone access before voice capture. If you deny or revoke access, typed chat remains available and the app offers retry or system-settings guidance where the platform supports it.",
           "Kokage uses app-private storage and operating-system protections, but it does not add application-layer encryption to saved content.",
-          "Kokage configures Android app data not to be backed up and marks its iOS app-owned support directory as excluded from backup, while the operating system enforces those settings.",
+          "Android excludes app data from OS backup and device transfer; on Apple platforms, the app's private support storage is excluded from backup. The operating system can reclaim cache. These measures are not a blanket guarantee about Linux, Windows or third-party desktop backups.",
+          "To ask the operating system to remove the remaining app-private files, use its app-removal controls; final removal and device backups are controlled by the operating system.",
         ],
       },
       {
@@ -334,10 +434,10 @@ export const en = {
       },
       {
         id: "changes",
-        title: "Changes to this policy",
+        title: "Changes and contact",
         paragraphs: [
           "The project will update this page and its last-updated date when Kokage's data practices change.",
-          "Kokage will update this page with the approved retention and deletion schedule before a release enables content reporting. A version that adds network inference, analytics, telemetry, another upload, or new persistence must update its user-facing privacy information and request consent where law or platform rules require it.",
+          "Contact: contact@orcalogy.com.",
         ],
       },
     ],

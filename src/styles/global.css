@@ -972,6 +972,9 @@
   .policy-contents {
     position: sticky;
     top: calc(var(--header-height) + 34px);
+    max-height: calc(100vh - var(--header-height) - 58px);
+    overflow-y: auto;
+    overscroll-behavior: contain;
   }
 
   .policy-contents > p {
@@ -1381,6 +1384,8 @@
 
     .policy-contents {
       position: static;
+      max-height: none;
+      overflow-y: visible;
     }
 
     .policy-contents ol {

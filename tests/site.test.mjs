@@ -18,6 +18,9 @@ const retiredProductTerms = [
   /相棒/,
   /(?<!AI)コンパニオン/u,
 ];
+// The privacy policy names app features as the app does (character cards,
+// "Use character"), so it keeps only the terms that stay retired everywhere.
+const retiredPolicyTerms = [/相棒/, /(?<!AI)コンパニオン/u];
 
 async function read(relativePath) {
   return readFile(new URL(relativePath, `file://${root}/`), "utf8");
@@ -224,10 +227,11 @@ test("privacy policy pages are localized, indexable, and linked across languages
       canonical: `${siteOrigin}/privacy/`,
       title: "Privacy Policy | Kokage",
       description:
-        "How Kokage handles conversations, on-device voice input, reports, camera input, local data, model downloads, and website data.",
-      heading: "Kokage processes conversations on your device.",
+        "How Kokage handles on-device and cloud chat, Kokage Cloud motion, voices, speech and avatars, saved conversations, memory, reports, accounts, downloads, and website data.",
+      heading:
+        "What Kokage keeps on your device and what its cloud features send",
       siteName: "Kokage",
-      date: "August 21, 2026",
+      date: "October 2, 2026",
       homePath: "/",
     },
     {
@@ -239,10 +243,10 @@ test("privacy policy pages are localized, indexable, and linked across languages
       canonical: `${siteOrigin}/ja/privacy/`,
       title: "プライバシーポリシー | こかげ",
       description:
-        "こかげにおける会話、端末上の音声入力、報告、カメラ入力、端末内の保存データ、モデルのダウンロード、ウェブサイトのデータの扱いを説明します。",
-      heading: "こかげは、会話を端末内で処理します。",
+        "こかげにおける端末内の会話とクラウド会話、Kokage Cloudのモーション、声、読み上げ、アバター、会話の保存、記憶、報告、アカウント、ダウンロード、ウェブサイトのデータの扱いを説明します。",
+      heading: "こかげが端末に保存するデータと、クラウド機能が送信するデータ",
       siteName: "こかげ",
-      date: "2026年8月21日",
+      date: "2026年10月2日",
       homePath: "/ja/",
     },
   ];
@@ -294,7 +298,7 @@ test("privacy policy pages are localized, indexable, and linked across languages
     assert.match(
       html,
       new RegExp(
-        `<time datetime="2026-08-21">${escapeRegExp(policy.date)}</time>`,
+        `<time datetime="2026-10-02">${escapeRegExp(policy.date)}</time>`,
       ),
     );
     assert.match(html, /"@type":"WebPage"/);
@@ -312,10 +316,19 @@ test("privacy policy pages are localized, indexable, and linked across languages
 
     for (const id of [
       "scope",
-      "collection",
+      "chat",
+      "cloud-motion",
+      "cloud-voices",
+      "avatar-creation",
       "local-data",
-      "network",
+      "memory",
+      "smart-home",
+      "notifications",
+      "characters",
+      "cloud-account",
       "retention",
+      "network",
+      "reports",
       "permissions",
       "website",
       "changes",
@@ -330,38 +343,64 @@ test("privacy policy pages are localized, indexable, and linked across languages
       html,
       /https:\/\/developers\.google\.com\/fonts\/faq\/privacy/,
     );
+    assert.match(html, /https:\/\/formspark\.io\/legal\/privacy-policy\//);
+    assert.match(html, /href="https:\/\/openrouter\.ai\/privacy"/);
+    assert.match(html, /href="https:\/\/www\.revenuecat\.com\/privacy"/);
+    assert.match(html, /contact@orcalogy\.com/);
+    assert.match(html, /Orcalogy LLC/);
     assert.doesNotMatch(html, /Lorem ipsum|TODO|placeholder|\[insert/i);
     assert.doesNotMatch(html, /href="#"/);
-    for (const term of retiredProductTerms) {
+    for (const term of retiredPolicyTerms) {
       assert.doesNotMatch(html, term);
     }
   }
 
-  assert.doesNotMatch(japanese, /\bKokage\b/);
-  assert.match(english, /Optional offensive-output report/);
-  assert.match(japanese, /任意の不適切な回答の報告/);
-  for (const html of [english, japanese]) {
-    assert.match(html, /schema_version/);
-    assert.match(html, /report_id/);
-    assert.match(html, /model_template_id/);
-  }
-  assert.match(english, /An unqualified model does not generate that question/);
-  assert.match(japanese, /適格性を確認していないモデルには、この質問を生成させません/);
-  assert.match(english, /in the selected chat language/);
-  assert.match(japanese, /選んだ会話言語で表示/);
-  assert.match(english, /Reporting will remain unavailable/);
-  assert.match(japanese, /報告機能を利用できない状態/);
-  assert.match(english, /https:\/\/formspark\.io\/legal\/privacy-policy\//);
-  assert.match(japanese, /https:\/\/formspark\.io\/legal\/privacy-policy\//);
-  assert.match(english, /sherpa_onnx for Silero VAD, SenseVoice recognition/);
+  // The service name "Kokage Cloud" is the only Latin-script use of the brand.
+  assert.doesNotMatch(japanese, /\bKokage\b(?! Cloud)/);
+  assert.match(japanese, /Kokage Cloud/);
+
+  // Cloud features are disclosed, with the configured-build qualifier.
+  assert.match(english, /or, in a configured build, cloud chat/);
   assert.match(
     english,
-    /does not retain, log, upload, or send microphone audio or recognition results/,
+    /On-device replies keep their generation context on your device/,
   );
-  assert.match(japanese, /sherpa_onnxのSilero VAD、SenseVoice音声認識/);
+  assert.match(english, /Kokage Cloud is run by Orcalogy LLC on Google Cloud/);
+  assert.match(english, /go through OpenRouter to third-party AI model providers/);
+  assert.match(english, /Cloud Motion is on by default when cloud access is configured/);
+  assert.match(english, /delete your Kokage Cloud account in Settings/);
+  assert.match(english, /have no fixed deletion date/);
+  assert.match(english, /There is no fixed retention period/);
+  assert.match(japanese, /対応ビルドでのクラウド会話を選べます/);
+  assert.match(japanese, /端末内のモデルへの入力は端末内にとどまります/);
   assert.match(
     japanese,
-    /保存、ログ記録、アップロード、外部サービスへの送信を行いません/,
+    /Kokage CloudはOrcalogy LLCがGoogle Cloud上で運用しています/,
+  );
+  assert.match(japanese, /OpenRouterを経由して第三者のAIモデル提供事業者に送られます/);
+  assert.match(japanese, /クラウドモーションはクラウド接続を設定すると初期状態でオン/);
+  assert.match(japanese, /こかげクラウドのアカウントを削除/);
+  assert.match(japanese, /削除期日は定めていません/);
+  assert.match(japanese, /保存期間は定めていません/);
+
+  // Microphone recognition stays on the device; only a confirmed voice-clone
+  // recording is uploaded.
+  assert.match(english, /Microphone recognition runs on-device/);
+  assert.match(
+    english,
+    /recognition drafts, intermediate results and voice metadata are transient and are not logged or uploaded/,
+  );
+  assert.match(japanese, /音声認識は端末内で行います/);
+  assert.match(japanese, /一時的に扱い、保存、ログ記録、アップロードしません/);
+
+  // Statements the app no longer supports, and draft-only notes, stay out.
+  assert.doesNotMatch(
+    english,
+    /No Kokage account|developer-operated inference|no Kokage login|without a persistent chat log|unavailable in this release|remains? unavailable|must be (?:completed|added)|before publication|before this policy is published|Check:/i,
+  );
+  assert.doesNotMatch(
+    japanese,
+    /アカウント機能と、?開発者が運用する推論|永続的な会話ログへ書き込まず|このリリースでは利用できません|報告機能を利用できない状態|公開前に|Check:/,
   );
 });
 
