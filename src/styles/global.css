@@ -89,6 +89,11 @@
     line-break: strict;
   }
 
+  :lang(ja) :is(h1, h2, h3) {
+    overflow-wrap: anywhere;
+    word-break: auto-phrase;
+  }
+
   ::selection {
     color: var(--ink);
     background: var(--mint-500);
@@ -637,6 +642,84 @@
     line-height: 1.72;
   }
 
+  .section--cloud {
+    overflow: clip;
+    color: var(--ink);
+    background:
+      radial-gradient(circle at 88% 6%, rgb(255 255 255 / 55%), transparent 34%),
+      var(--mint-300);
+  }
+
+  .cloud-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px;
+  }
+
+  .cloud-grid li {
+    padding: 34px 36px 40px;
+    border: 1px solid var(--line-dark);
+    border-radius: var(--radius-md);
+    background: rgb(253 242 225 / 52%);
+  }
+
+  .cloud-label {
+    display: inline-block;
+    padding: 6px 12px;
+    color: var(--mint-300);
+    border-radius: 999px;
+    background: var(--moss-700);
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+  }
+
+  .cloud-grid h3 {
+    margin-top: 22px;
+    font-size: clamp(1.45rem, 2.4vw, 2rem);
+    line-height: 1.2;
+    letter-spacing: -0.035em;
+  }
+
+  .cloud-grid li > p:last-child {
+    margin-top: 14px;
+    color: rgb(18 32 25 / 72%);
+    font-size: 0.98rem;
+    line-height: 1.72;
+  }
+
+  .leaf-note {
+    display: grid;
+    grid-template-columns: 72px 1fr;
+    gap: 30px;
+    align-items: center;
+    margin-top: 18px;
+    padding: 30px 38px;
+    color: var(--text);
+    background: var(--forest-800);
+    border-radius: var(--radius-md);
+  }
+
+  .leaf-note img {
+    width: 72px;
+    height: auto;
+    transform: rotate(-10deg);
+  }
+
+  .leaf-note p:first-child {
+    color: var(--mint-500);
+    font-size: 0.78rem;
+    font-weight: 800;
+    letter-spacing: 0.1em;
+  }
+
+  .leaf-note p:last-child {
+    margin-top: 8px;
+    color: var(--mint-300);
+    font-size: 1rem;
+    line-height: 1.7;
+  }
+
   .section--privacy {
     overflow: clip;
     color: var(--ink);
@@ -850,6 +933,26 @@
     color: var(--muted);
     font-size: 0.92rem;
     line-height: 1.7;
+  }
+
+  .platform-link {
+    display: inline-flex;
+    gap: 10px;
+    align-items: center;
+    margin-top: 20px;
+    padding-block: 6px;
+    color: var(--mint-400);
+    border-bottom: 1px solid rgb(192 224 212 / 40%);
+    font-size: 0.86rem;
+    font-weight: 700;
+    transition:
+      color 180ms ease,
+      border-color 180ms ease;
+  }
+
+  .platform-link:hover {
+    color: var(--cream-100);
+    border-color: var(--cream-100);
   }
 
   .policy-page {
@@ -1377,6 +1480,10 @@
       column-gap: 36px;
     }
 
+    .cloud-grid {
+      grid-template-columns: 1fr;
+    }
+
     .policy-layout {
       grid-template-columns: 1fr;
       gap: 52px;
@@ -1503,6 +1610,21 @@
       grid-template-columns: 1fr;
       gap: 16px;
       padding: 28px;
+    }
+
+    .cloud-grid li {
+      padding: 26px 24px 30px;
+    }
+
+    .leaf-note {
+      grid-template-columns: 48px 1fr;
+      gap: 18px;
+      align-items: start;
+      padding: 26px 24px;
+    }
+
+    .leaf-note img {
+      width: 48px;
     }
 
     .policy-hero__inner {

@@ -24,7 +24,7 @@ Development uses a loopback origin, and the test runner uses a reserved non-publ
 ## Content and asset boundary
 
 Product claims come from the sibling `../kokage` repository, primarily its root README, current constraints, runtime contract, trust contract, and release records; where those documents lag reality, the product owner's current statements win.
-The site must not claim current store availability and must not add download links, testimonials, usage figures, compatibility badges, or unverified platform promises before the owning release records approve them. A store submission in progress may be described as a release in preparation.
+Kokage is published on the App Store (iPhone and iPad, with Kokage Cloud) and on Google Play (Android, without Kokage Cloud); the site links to those two listings, whose URLs live in `src/i18n/routes.ts`. Check the live listings before changing what the site says about a platform. The site must not add testimonials, usage figures, compatibility badges, or unverified platform promises.
 
 The icon and leaf artwork under `public/brand/` and `src/assets/brand/` are copied from Kokage's current canonical branding assets.
 No VRM render, application screenshot, generated motion, model weight, voice, or other restricted product asset belongs in this repository.

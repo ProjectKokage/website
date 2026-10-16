@@ -1,12 +1,14 @@
 export type SiteLocale = "en" | "ja";
 
+export interface ExternalLink {
+  href: string;
+  label: string;
+}
+
 export interface PrivacyPolicyItem {
   title: string;
   body: string;
-  link?: {
-    href: string;
-    label: string;
-  };
+  link?: ExternalLink;
 }
 
 export interface PrivacyPolicySection {
@@ -34,10 +36,7 @@ export interface PrivacyPolicyCopy {
   backHomeLabel: string;
 }
 
-export interface SupportPageItem {
-  title: string;
-  body: string;
-}
+export type SupportPageItem = PrivacyPolicyItem;
 
 export interface SupportPageSection {
   id: string;
@@ -89,10 +88,24 @@ export interface SiteCopy {
     titleLead: string;
     titleAccentLines: string[];
     lede: string;
-    primaryAction: string;
-    secondaryAction: string;
+    appStoreAction: string;
+    googlePlayAction: string;
+    cloudAction: string;
     notice: string;
     imageAlt: string;
+  };
+  cloud: {
+    eyebrow: string;
+    title: string;
+    lede: string;
+    items: Array<{
+      label: string;
+      title: string;
+      body: string;
+    }>;
+    leafLabel: string;
+    leafBody: string;
+    policyLink: string;
   };
   flow: {
     eyebrow: string;
@@ -145,6 +158,7 @@ export interface SiteCopy {
       name: string;
       state: string;
       detail: string;
+      link?: ExternalLink;
     }>;
   };
   footer: {
