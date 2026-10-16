@@ -1,6 +1,6 @@
 ---
 import type { SiteCopy } from "../i18n";
-import { localizedRoutes } from "../i18n/routes";
+import { localizedRoutes, storeListings } from "../i18n/routes";
 import SiteLayout from "../layouts/SiteLayout.astro";
 
 interface Props {
@@ -27,12 +27,25 @@ const privacyPolicyPath = localizedRoutes[copy.locale].privacy;
           </h1>
           <p class="hero__lede reveal reveal--three">{copy.hero.lede}</p>
           <div class="hero__actions reveal reveal--four">
-            <a class="button button--primary" href="#features">
-              {copy.hero.primaryAction}
-              <span aria-hidden="true">↓</span>
+            <a
+              class="button button--primary"
+              href={storeListings.appStore}
+              rel="external"
+            >
+              {copy.hero.appStoreAction}
+              <span aria-hidden="true">↗</span>
             </a>
-            <a class="button button--secondary" href="#status">
-              {copy.hero.secondaryAction}
+            <a
+              class="button button--primary"
+              href={storeListings.googlePlay}
+              rel="external"
+            >
+              {copy.hero.googlePlayAction}
+              <span aria-hidden="true">↗</span>
+            </a>
+            <a class="button button--secondary" href="#cloud">
+              {copy.hero.cloudAction}
+              <span aria-hidden="true">↓</span>
             </a>
           </div>
           <p class="hero__notice reveal reveal--four">
@@ -101,6 +114,50 @@ const privacyPolicyPath = localizedRoutes[copy.locale].privacy;
             ))
           }
         </ul>
+      </div>
+    </section>
+
+    <section id="cloud" class="section section--cloud" aria-labelledby="cloud-title">
+      <div class="page-shell">
+        <div class="section-heading section-heading--split section-heading--dark">
+          <div>
+            <p class="eyebrow">{copy.cloud.eyebrow}</p>
+            <h2 id="cloud-title">{copy.cloud.title}</h2>
+          </div>
+          <p>{copy.cloud.lede}</p>
+        </div>
+
+        <ul class="cloud-grid" role="list">
+          {
+            copy.cloud.items.map((item) => (
+              <li>
+                <p class="cloud-label">{item.label}</p>
+                <h3>{item.title}</h3>
+                <p>{item.body}</p>
+              </li>
+            ))
+          }
+        </ul>
+
+        <aside class="leaf-note" aria-labelledby="leaf-note-title">
+          <img
+            src="/brand/kokage-large-leaf-with-petiole.svg"
+            alt=""
+            width="288"
+            height="314"
+            loading="lazy"
+            aria-hidden="true"
+          />
+          <div>
+            <p id="leaf-note-title">{copy.cloud.leafLabel}</p>
+            <p>{copy.cloud.leafBody}</p>
+          </div>
+        </aside>
+
+        <a class="privacy-policy-link" href={privacyPolicyPath}>
+          {copy.cloud.policyLink}
+          <span aria-hidden="true">→</span>
+        </a>
       </div>
     </section>
 
@@ -218,6 +275,16 @@ const privacyPolicyPath = localizedRoutes[copy.locale].privacy;
                   <p>{platform.state}</p>
                 </div>
                 <p>{platform.detail}</p>
+                {platform.link && (
+                  <a
+                    class="platform-link"
+                    href={platform.link.href}
+                    rel="external"
+                  >
+                    {platform.link.label}
+                    <span aria-hidden="true">↗</span>
+                  </a>
+                )}
               </article>
             ))
           }

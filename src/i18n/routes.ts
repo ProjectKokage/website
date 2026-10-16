@@ -15,3 +15,9 @@ export const localizedRoutes = {
   SiteLocale,
   { home: string; privacy: string; support: string }
 >;
+
+export const storeListings = {
+  appStore: "https://apps.apple.com/app/id6792312333",
+  googlePlay:
+    "https://play.google.com/store/apps/details?id=com.orcalogy.kokage",
+};

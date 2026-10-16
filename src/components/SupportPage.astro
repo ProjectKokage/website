@@ -92,6 +92,12 @@ const contactHref = `mailto:${support.contactEmail}?subject=${encodeURIComponent
                     <li>
                       <h3>{item.title}</h3>
                       <p>{item.body}</p>
+                      {item.link && (
+                        <a href={item.link.href} rel="external">
+                          {item.link.label}
+                          <span aria-hidden="true">↗</span>
+                        </a>
+                      )}
                     </li>
                   ))}
                 </ul>

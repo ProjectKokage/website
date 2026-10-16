@@ -1,3 +1,4 @@
+import { storeListings } from "./routes";
 import type { SiteCopy } from "./types";
 
 export const en = {
@@ -7,9 +8,9 @@ export const en = {
   alternateOgLocale: "ja_JP",
   brandLabel: "Kokage",
   meta: {
-    title: "Kokage | Local-first companion chat",
+    title: "Kokage | Talk with your 3D AI character",
     description:
-      "Kokage is an AI companion app that pairs an on-device language model with a bundled or user-selected 3D companion.",
+      "Kokage is an app for talking with a 3D AI character. Make replies free on your device, or use Kokage Cloud for instant chat, cloud voices, new looks and Cloud Motion. On the App Store and Google Play.",
   },
   skipLink: "Skip to content",
   navigation: {
@@ -17,113 +18,156 @@ export const en = {
     homeLabel: "home",
     items: [
       { href: "#features", label: "Features" },
+      { href: "#cloud", label: "Kokage Cloud" },
       { href: "#how", label: "How it works" },
       { href: "#privacy", label: "Data" },
     ],
     languageLabel: "Language",
   },
   hero: {
-    eyebrow: "Local-first companion chat",
-    titleLead: "Talk with your companion",
-    titleAccentLines: ["on your own device."],
-    lede: "Kokage pairs an on-device language model with a 3D AI companion. AvatarSample_A is included, and you can use one Custom VRM. Choose Japanese or English chat, the adaptive built-in catalog or a checked public Hugging Face model, Standard or experimental Extended context, experimental thinking controls, and any listed Japanese speech-output voice. On mobile, a vision-capable model can receive one camera still.",
-    primaryAction: "Explore the features",
-    secondaryAction: "View development status",
-    notice: "Kokage is under active development.",
+    eyebrow: "AI character chat",
+    titleLead: "Talk with your AI character",
+    titleAccentLines: ["on your device or in the cloud."],
+    lede: "Kokage brings a 3D AI character to your iPhone, iPad or Android device. Make replies free on your device, or, on iPhone and iPad, start talking right away with Kokage Cloud. Type or speak, hear the reply in a voice, and give your character a voice and a look of its own with Kokage Cloud.",
+    appStoreAction: "Download on the App Store",
+    googlePlayAction: "Get it on Google Play",
+    cloudAction: "Explore Kokage Cloud",
+    notice:
+      "Free to download. Kokage Cloud features use Leaf, which you can buy in the app on iPhone and iPad.",
     imageAlt: "Kokage app icon, a mint speech bubble with two leaves",
+  },
+  cloud: {
+    eyebrow: "Kokage Cloud",
+    title: "More for your character with Kokage Cloud",
+    lede: "Kokage Cloud is Kokage's optional online service, in the App Store version for iPhone and iPad. It gives you replies without a download, voices you design or clone, a new 3D look and generated motion. Cloud voices, new looks and Cloud Motion also work while replies are made on your device.",
+    items: [
+      {
+        label: "Cloud chat",
+        title: "Start talking right away",
+        body: "Choose Kokage Cloud during setup and chat without downloading a model. Replies come from AI models through Kokage Cloud, and the app explains what is sent before your first cloud reply. You can add the free on-device option later and switch in Settings.",
+      },
+      {
+        label: "Cloud voices",
+        title: "A voice of its own",
+        body: "Describe a voice in your own words and pick from three candidates Kokage Cloud designs, or clone one from recordings of your own voice or of someone who has given permission. Each saved voice speaks Japanese, English or Chinese, reads your character's replies, and can change its delivery, such as happy or whispering.",
+      },
+      {
+        label: "Create a new look",
+        title: "A new 3D look, made on Kokage Cloud",
+        body: "Describe how your character looks, add a picture, or both, and Kokage Cloud builds a VRM avatar. Preview it, use it for your character, or download the VRM file. If no avatar is made, the Leaf reserved for it is returned.",
+      },
+      {
+        label: "Cloud Motion",
+        title: "Movement made for the moment",
+        body: "Cloud Motion makes body movement on Kokage Cloud from a short description of what your character does in the conversation, beyond its built-in animations. It works with either reply source, and you can turn it off in Settings.",
+      },
+    ],
+    leafLabel: "Leaf (言の葉)",
+    leafBody:
+      "Kokage Cloud features spend Leaf. The wallet in Settings shows your balance and what each feature spent, and on iPhone and iPad you can buy Leaf packs there. Replies made on your device never use Leaf.",
+    policyLink: "What Kokage Cloud sends and keeps",
   },
   flow: {
     eyebrow: "A conversation in Kokage",
-    title: "From your message to your companion’s reply",
-    lede: "Each turn moves from your message to a reply, optional speech, and companion animation.",
+    title: "From your message to your character's reply",
+    lede: "Each turn moves from your message to a reply, its voice, and your character's movement.",
     stages: [
       {
         label: "Input",
-        title: "Type a message",
-        detail: "Type a message and, on supported mobile setups, attach one camera still.",
+        title: "Type or speak",
+        detail:
+          "Type a message or say it; speech is recognized on your device. With a model that can see, you can also attach one camera photo.",
       },
       {
         label: "Reply",
-        title: "Generate on the device",
+        title: "On your device or Kokage Cloud",
         detail:
-          "The on-device model selected during setup generates a reply on your device. A build configured for Kokage Cloud also offers optional cloud replies after its disclosure.",
+          "The model on your device makes the reply privately and for free, or Kokage Cloud makes it after you have agreed to what it sends.",
       },
       {
-        label: "Speech",
-        title: "Hear the reply in Japanese",
+        label: "Voice",
+        title: "Hear it spoken",
         detail:
-          "When speech is set up, Kokage can read the reply aloud in Japanese.",
+          "A Japanese or English voice installed on your device reads the reply aloud, or the cloud voice you chose speaks it in Japanese, English or Chinese.",
       },
       {
-        label: "Companion",
-        title: "Animate your companion",
+        label: "Character",
+        title: "Your character responds",
         detail:
-          "During playback, Kokage syncs your companion’s mouth to the audio it actually plays. Expressions and motions can respond to the reply, and between turns your companion keeps up a gentle idle motion.",
+          "Its mouth follows the audio it actually plays, and animation clips show it listening, thinking and speaking. Gestures can follow the reply, and Cloud Motion adds movement made on Kokage Cloud.",
       },
     ],
     footnote:
-      "If the camera or 3D rendering is unavailable, you can continue the conversation by typing.",
+      "If the camera, microphone or 3D view is unavailable, you can keep the conversation going by typing.",
   },
   features: {
     eyebrow: "What Kokage does",
-    title: "On-device companion chat with an included 3D companion, Japanese speech, and memory",
-    lede: "Kokage connects local text generation with a bundled VRM companion, optional Japanese speech, local memory, and knowledge you add.",
+    title: "A 3D character who talks, listens, remembers and moves",
+    lede: "Each character keeps its own conversation, memory and look. Replies come from a model on your device or from Kokage Cloud.",
     items: [
       {
-        title: "Replies generated on your device",
-        body: "After setup, the selected on-device model generates replies on your device. A build configured for Kokage Cloud also offers optional cloud replies after its disclosure. If generation fails, Kokage keeps your message so you can try again.",
+        title: "Free on your device, or instant with Kokage Cloud",
+        body: "Download a language model once and replies are made on your device at no cost. Kokage recommends a model that fits your device's memory, or you can check a public Hugging Face model. On iPhone and iPad you can instead start with Kokage Cloud and no download. If a reply does not finish, your message stays so you can send it again.",
       },
       {
-        title: "A companion included, or bring your own VRM",
-        body: "Fresh setup starts with the bundled AvatarSample_A. Custom VRM can replace it with one self-contained VRM 0.x or 1.0 file up to 128 MiB, from a local file or HTTPS URL, that you have permission to use.",
+        title: "Characters with lives of their own",
+        body: "Keep several characters in your library, each with its own conversation, recap, memory and avatar. Start with the included AvatarSample_A or your own VRM 0.x or 1.0 file, import character cards from a file or a link, and export the ones you make for another Kokage or for other character apps.",
       },
       {
-        title: "Shape how your companion replies",
-        body: "Set chat to Japanese or English, then adjust your companion’s role, tone, reply length, initiative, and expressiveness. The interface locale remains a separate setting.",
+        title: "Personality and language",
+        body: "Set your character's role, tone, reply length, initiative and expressiveness. It can talk in Japanese, English, or Chinese written in Simplified or Traditional characters, or follow the language of your latest message, whatever language the app itself uses. A Chinese cloud voice speaks Chinese replies.",
       },
       {
-        title: "Hear replies, speak, or attach one image",
-        body: "Any listed Japanese speech-output voice can read replies aloud. Voice input accepts one bounded Japanese or English turn and processes it on the device. On mobile, a model with a compatible image projector can receive one camera still with a message.",
+        title: "Speak, listen, and show a photo",
+        body: "Speak your message and it is recognized on your device; the audio stays there. Replies can be read aloud by a Japanese or English voice installed on your device or by a cloud voice. With a model that can see, attach a camera photo to your message.",
       },
       {
-        title: "Memory you can inspect and control",
-        body: "Memory is kept on your device and starts on when its local services are available. It can save a useful detail from text you submit, with a notice and Undo. Retained entries can be recalled for replies, and the Memory screen lets you inspect, edit, delete, clear, or disable them. Saved memory can enter a cloud request you have consented to.",
+        title: "Memory you can see and edit",
+        body: "Your character can remember a useful detail from what you tell it, with a notice and Undo. The Memory page lists what it remembers, and you can edit, delete or turn memory off. Add notes every character can use, and Kokage looks them up while it replies.",
       },
       {
-        title: "Add text for Kokage to reference",
-        body: "Paste text you want Kokage to search while composing future replies. Chat, images, and model output are never added to this local knowledge automatically.",
+        title: "Moves with its voice",
+        body: "Your character listens, thinks and speaks with animation clips, moves its mouth with the audio it actually plays, and can nod, shake its head, bow or cheer when a reply calls for it. With Cloud Motion, Kokage Cloud adds movement made for what it is doing.",
+      },
+      {
+        title: "Invitations to chat and smart home",
+        body: "Turn on invitations to chat and your character can send a daily greeting, an occasional invitation or a note after time away. On iPhone and iPad, Smart home lets it check Apple Home devices and operate them when you ask. Both start off.",
       },
     ],
   },
   privacy: {
     eyebrow: "App data and privacy",
     title: "On-device replies keep their generation context on your device",
-    lede: "The on-device model generates replies on your device. A build configured for Kokage Cloud also offers optional cloud replies after its disclosure, and cloud features send what the privacy policy lists. Kokage's own source code includes no advertising, analytics or remote crash-reporting feature. A release-configured report that you confirm may send only a schema version, a random Reference ID, one closed reason, one selected displayed reply, an optional bounded note, the catalog model/template ID, and the app version through Formspark.",
+    lede: "The model on your device makes its replies on your device. Kokage Cloud is optional: the app explains what cloud chat sends before you use it, and cloud features send what the privacy policy lists. Kokage's own source code includes no advertising, analytics or remote crash-reporting feature. A report that you review and confirm in the app sends only a format version, a random Reference ID, the reason you chose, the selected reply, an optional short note, the catalog model or template ID, and the app version through Formspark.",
     items: [
       {
         title: "Conversation",
-        body: "On native devices, Kokage saves the conversation on your device as displayed, and each relationship keeps its own records.",
+        body: "On native devices, Kokage saves the conversation on your device as displayed, and each character relationship keeps its own records.",
       },
       {
-        title: "Camera",
+        title: "Camera and microphone",
         body: "Photo retention starts on; turning it off deletes saved photos and stops retaining new ones. A photo you submit can reach the selected cloud vision service after its disclosure. Voice input processes bounded microphone audio and recognition results on the device without retaining, logging, or uploading them.",
       },
       {
         title: "Memory",
-        body: "Memory is kept on the device and starts on when its local services are available. It can save a useful detail from text you submit, with a notice and Undo, and the Memory screen lets you inspect, edit, delete, clear, or disable it. Saved memory can enter a cloud request you have consented to.",
+        body: "Memory is kept on the device and starts on when its local services are available. It can save a useful detail from text you submit, with a notice and Undo, and the Memory page lets you inspect, edit, delete, clear, or disable it. Saved memory can enter a cloud request you have consented to.",
       },
       {
-        title: "Local knowledge",
-        body: "Only text you explicitly add, plus its local search index, is saved. Conversation content, audio, images, files, tool results, and model output stay outside that index.",
+        title: "Notes",
+        body: "Only notes you explicitly add, plus their local search index, are saved. Conversation content, audio, images, files, tool results, and model output stay outside that index.",
       },
       {
         title: "Models and VRMs",
         body: "Downloaded model data, selected speech data, and an imported VRM stay in app-private storage. AvatarSample_A needs no network access, and Kokage does not retain an imported VRM’s original path, URL, or filename.",
       },
+      {
+        title: "Kokage Cloud",
+        body: "Kokage Cloud does not keep the text or images of a cloud chat as conversation history; it records amounts, timing and charges for billing. Saved cloud voices and avatars stay in your private account until you delete them, and Settings can delete the whole Kokage Cloud account.",
+      },
     ],
     networkLabel: "When Kokage uses the network",
     networkBody:
-      "Kokage uses the network for provisioning that you direct, for the Kokage Cloud features of a configured build, and, in a build configured for Report, for a report that you review and confirm in the app. The privacy policy explains how reports are kept and how to ask for deletion.",
+      "Kokage uses the network for downloads that you confirm, for Kokage Cloud features, and for a report that you review and confirm in the app. The privacy policy explains how reports are kept and how to ask for deletion.",
     policyLink: "Read the full privacy policy",
   },
   privacyPolicy: {
@@ -447,14 +491,14 @@ export const en = {
     meta: {
       title: "Support | Kokage",
       description:
-        "Kokage troubleshooting, local-data guidance, and a privacy-conscious way to ask questions and contact the project.",
+        "Getting Kokage, troubleshooting, Kokage Cloud and Leaf, local-data guidance, and a privacy-conscious way to ask questions and contact the project.",
     },
     eyebrow: "Kokage support",
     title: "Support for Kokage",
-    lede: "Ask a question, report a problem, and find troubleshooting steps for Kokage.",
+    lede: "Get the app, ask a question, report a problem, and find troubleshooting steps for Kokage.",
     highlightsLabel: "Support summary",
     highlights: [
-      "Initial setup downloads the selected model data before the first conversation",
+      "Kokage is on the App Store for iPhone and iPad and on Google Play for Android",
       "Typed chat remains the fallback when an optional device feature fails",
       "Private conversation or media content should never be sent by email",
       "Local app data cannot be viewed or restored by project support",
@@ -463,17 +507,35 @@ export const en = {
     sections: [
       {
         id: "availability",
-        title: "Availability",
+        title: "Getting Kokage",
         paragraphs: [
-          "Kokage releases are distributed through each platform's app store. This site does not provide a direct app download.",
-          "Platform notes on the home page describe development evidence only. They are not release, compatibility, or distribution promises.",
+          "Kokage is free to download from each platform's app store. This site does not provide a direct app download.",
+          "Kokage Cloud features and Leaf packs are in the App Store version for iPhone and iPad. The Android version makes replies on your device.",
+        ],
+        items: [
+          {
+            title: "iPhone and iPad",
+            body: "Download Kokage from the App Store.",
+            link: {
+              href: storeListings.appStore,
+              label: "Kokage on the App Store",
+            },
+          },
+          {
+            title: "Android",
+            body: "Download Kokage from Google Play.",
+            link: {
+              href: storeListings.googlePlay,
+              label: "Kokage on Google Play",
+            },
+          },
         ],
       },
       {
         id: "troubleshooting",
         title: "Troubleshooting",
         paragraphs: [
-          "Kokage needs compatible local model and speech data before the related features can run. Keep enough free storage for the selected files and use the in-app controls to retry or cancel an interrupted transfer.",
+          "Replies made on your device need the model and speech data that setup downloads. Keep enough free storage for the selected files and use the in-app controls to retry or cancel an interrupted download. Kokage Cloud replies need no model download, but they need a connection and Leaf.",
         ],
         items: [
           {
@@ -484,13 +546,25 @@ export const en = {
             title: "Camera, voice, or 3D presentation fails",
             body: "Continue with typed chat where it remains available. Retry voice input or review microphone access in system settings; do not send a recording or transcript for support. A camera, playback, or presentation failure should not require sharing the captured image, generated reply, or imported VRM.",
           },
+          {
+            title: "A Kokage Cloud feature stops",
+            body: "Check your connection and the balance in the Leaf wallet in Settings, where you can also add Leaf on iPhone and iPad. If an avatar is not made, the Leaf reserved for it is returned. Do not email a voice recording, picture, or reply for support.",
+          },
+        ],
+      },
+      {
+        id: "kokage-cloud",
+        title: "Kokage Cloud account and Leaf",
+        paragraphs: [
+          "Kokage Cloud uses an account that the app creates for you, with no sign-in. Your saved cloud voices and avatars belong to that account, and the Leaf wallet in Settings shows its balance and what each feature spent.",
+          "To delete the account, use Delete Kokage Cloud account in Settings. Remaining Leaf is lost and not refunded, and store purchases are not refunded. Characters, chats, memories and avatars already in use stay on your device. The privacy policy explains what Kokage Cloud keeps after deletion.",
         ],
       },
       {
         id: "permissions",
         title: "Camera and microphone permissions",
         paragraphs: [
-          "Kokage asks for camera access when you attach one still and microphone access before voice capture. You can deny or revoke either permission in system settings and continue by typing.",
+          "Kokage asks for camera access when you attach a photo to a message or take a picture for a new look, and microphone access before voice capture or a voice-clone recording. You can deny or revoke either permission in system settings and continue by typing.",
           "If a permission prompt does not appear, review Kokage's permission state in the operating system before reinstalling or clearing app data.",
         ],
       },
@@ -498,15 +572,15 @@ export const en = {
         id: "local-data",
         title: "Local data and privacy",
         paragraphs: [
-          "On-device processing and the app's local memory, knowledge, profile, model, and VRM data stay on the device; cloud features send what the privacy policy lists. Project support cannot remotely inspect, recover, export, or erase that local data.",
-          "Use the in-app Memory and Local Knowledge controls for those stores. Use the operating system's app-removal controls to request removal of remaining app-private data; final removal and device backups are controlled by the operating system.",
+          "On-device processing and the app's local memory, notes, character, model, and VRM data stay on the device; cloud features send what the privacy policy lists. Project support cannot remotely inspect, recover, export, or erase that local data.",
+          "Use the in-app Memory and notes pages for those stores. Use the operating system's app-removal controls to request removal of remaining app-private data; final removal and device backups are controlled by the operating system.",
         ],
       },
       {
         id: "contact",
         title: "Contact the project",
         paragraphs: [
-          "For a question or problem with Kokage, email contact@orcalogy.com with the platform, app version or source revision, the visible error category, and short steps that reproduce the issue.",
+          "For a question or problem with Kokage, email contact@orcalogy.com with the platform, app version, the visible error category, and short steps that reproduce the issue.",
           "Email is handled outside Kokage by the sender's and recipient's email providers. Do not include prompts, replies, memory values, recordings, photos, model or VRM files, credentials, or other confidential content. No response time is promised.",
           "The optional in-app offensive-output report exists in a build configured for Report: you review the selected reply and confirm before it is sent, and the privacy policy explains retention and deletion. Email is not a substitute for that bounded report flow and should not include generated conversation content.",
         ],
@@ -519,49 +593,61 @@ export const en = {
   },
   stack: {
     eyebrow: "Technology",
-    title: "The local runtimes behind Kokage",
-    lede: "Kokage uses separate libraries for language generation, speech, and VRM rendering.",
+    title: "What runs Kokage",
+    lede: "On your device, separate libraries handle language, speech, and the 3D character. Kokage Cloud runs the optional online features.",
     items: [
       {
         title: "Language model and embeddings",
-        body: "Kokage runs llama.cpp through fllamer, both for replies and for the embeddings behind memory and knowledge search.",
+        body: "Kokage runs llama.cpp through fllamer, both for replies and for the embeddings behind memory and notes search.",
       },
       {
         title: "On-device voice input",
         body: "Kokage uses record for bounded microphone capture and sherpa_onnx for Silero VAD, SenseVoice ASR, and optional diarization. The recognizer handles Japanese or English input on the device and excludes Kokage's own playback.",
       },
       {
-        title: "Japanese speech",
-        body: "Open JTalk prepares the reading through misakid, and Kokoro generates the audio through fonix.",
+        title: "On-device speech",
+        body: "misakid prepares the reading, through Open JTalk for Japanese and its own English pronunciation for English, and Kokoro generates the audio through fonix.",
       },
       {
         title: "VRM presentation",
-        body: "Flutter Scene renders the companion, and flvtterm handles its presentation.",
+        body: "Flutter Scene renders the character, and flvtterm handles its presentation.",
+      },
+      {
+        title: "Kokage Cloud",
+        body: "Orcalogy LLC runs Kokage Cloud on Google Cloud, with its gateway in Tokyo and speech, motion and avatar work on GPUs in Singapore. Cloud chat goes through OpenRouter to third-party AI model providers.",
       },
     ],
   },
   status: {
-    eyebrow: "Development status",
-    title: "Current platform coverage",
-    lede: "Kokage is under active development, and validated coverage still differs by platform.",
+    eyebrow: "Platforms",
+    title: "Where to get Kokage",
+    lede: "Kokage is on the App Store for iPhone and iPad and on Google Play for Android. Other platforms run only from source.",
     platforms: [
       {
-        name: "macOS",
-        state: "Primary development environment",
+        name: "iPhone and iPad",
+        state: "On the App Store",
         detail:
-          "After the required data is installed, local chat, memory management and recall, knowledge search, Japanese speech, and VRM presentation run on macOS. Voice-input qualification remains in progress.",
-      },
-      {
-        name: "iOS",
-        state: "App Store release in preparation",
-        detail:
-          "The iPhone and iPad product scope includes bounded Japanese and English voice input through the record, Silero VAD, and SenseVoice pipeline. Physical permission, recognition, lifecycle, and signed-release validation of the full exposed feature set is still in progress.",
+          "On-device and Kokage Cloud replies, voice input and speech, camera photos, invitations to chat, Smart home with Apple Home, and Leaf packs in the app.",
+        link: {
+          href: storeListings.appStore,
+          label: "Kokage on the App Store",
+        },
       },
       {
         name: "Android",
-        state: "Emulator-validated",
+        state: "On Google Play",
         detail:
-          "Local inference and speech tests pass on Android emulators. Physical-device coverage is still in progress.",
+          "On-device replies, voice input and speech, camera photos, invitations to chat, and the 3D character. The Android version does not include Kokage Cloud.",
+        link: {
+          href: storeListings.googlePlay,
+          label: "Kokage on Google Play",
+        },
+      },
+      {
+        name: "macOS",
+        state: "Development platform",
+        detail:
+          "Kokage is developed on macOS, where local and Kokage Cloud chat, voice, speech and VRM presentation run from source. It is not distributed for Mac.",
       },
       {
         name: "Linux",
@@ -583,8 +669,8 @@ export const en = {
     ],
   },
   footer: {
-    descriptor: "Local-first companion chat",
-    statusLink: "Development status",
+    descriptor: "AI character chat",
+    statusLink: "Platforms",
     privacyLink: "Privacy policy",
     supportLink: "Support",
     navigationLabel: "Footer navigation",
