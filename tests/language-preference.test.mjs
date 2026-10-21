@@ -49,8 +49,12 @@ function createBrowserRuntime({
   storage = createStorage(),
   search = "",
   hash = "",
-  englishUrl = "/",
-  japaneseUrl = "/ja/",
+  languageUrls = {
+    en: "/",
+    ja: "/ja/",
+    "zh-hans": "/zh-hans/",
+    "zh-hant": "/zh-hant/",
+  },
 } = {}) {
   const replacements = [];
   const links = [createLanguageLink("en"), createLanguageLink("ja")];
@@ -60,8 +64,7 @@ function createBrowserRuntime({
       documentElement: {
         dataset: {
           siteLocale: currentLocale,
-          englishUrl,
-          japaneseUrl,
+          languageUrls: JSON.stringify(languageUrls),
           languageAutoDetect: String(autoDetect),
         },
       },
@@ -90,10 +93,19 @@ test("browser language tags map to supported site locales", () => {
   assert.equal(localeFromLanguageTag("ja"), "ja");
   assert.equal(localeFromLanguageTag("JA-jp"), "ja");
   assert.equal(localeFromLanguageTag("en_GB"), "en");
+  assert.equal(localeFromLanguageTag("zh"), "zh-hans");
+  assert.equal(localeFromLanguageTag("zh-CN"), "zh-hans");
+  assert.equal(localeFromLanguageTag("zh-SG"), "zh-hans");
+  assert.equal(localeFromLanguageTag("zh-Hans-HK"), "zh-hans");
+  assert.equal(localeFromLanguageTag("zh-TW"), "zh-hant");
+  assert.equal(localeFromLanguageTag("zh_HK"), "zh-hant");
+  assert.equal(localeFromLanguageTag("zh-MO"), "zh-hant");
+  assert.equal(localeFromLanguageTag("zh-Hant"), "zh-hant");
   assert.equal(localeFromLanguageTag("fr-FR"), null);
   assert.equal(localeFromLanguageTag(undefined), null);
 
   assert.equal(detectBrowserLocale(["fr-FR", "ja-JP"]), "ja");
+  assert.equal(detectBrowserLocale(["fr-FR", "zh-TW", "ja-JP"]), "zh-hant");
   assert.equal(detectBrowserLocale(["fr-FR", "de-DE"]), DEFAULT_LOCALE);
   assert.equal(detectBrowserLocale([]), DEFAULT_LOCALE);
 });
@@ -200,8 +212,12 @@ test("a stored English choice overrides a later Japanese route", () => {
 test("localized subpages keep their route while changing language", () => {
   const japaneseVisit = createBrowserRuntime({
     languages: ["ja-JP"],
-    englishUrl: "/privacy/",
-    japaneseUrl: "/ja/privacy/",
+    languageUrls: {
+      en: "/privacy/",
+      ja: "/ja/privacy/",
+      "zh-hans": "/zh-hans/privacy/",
+      "zh-hant": "/zh-hant/privacy/",
+    },
     search: "?source=app-store",
     hash: "#retention",
   });
@@ -217,13 +233,48 @@ test("localized subpages keep their route while changing language", () => {
     autoDetect: false,
     languages: ["ja-JP"],
     storage: createStorage([[LANGUAGE_PREFERENCE_STORAGE_KEY, "en"]]),
-    englishUrl: "/privacy/",
-    japaneseUrl: "/ja/privacy/",
+    languageUrls: {
+      en: "/privacy/",
+      ja: "/ja/privacy/",
+      "zh-hans": "/zh-hans/privacy/",
+      "zh-hant": "/zh-hant/privacy/",
+    },
   });
 
   initializeLanguagePreference(storedEnglish);
 
   assert.deepEqual(storedEnglish.replacements, ["/privacy/"]);
+});
+
+test("Chinese browsers land on the matching script", () => {
+  const simplified = createBrowserRuntime({ languages: ["zh-CN", "en-US"] });
+  initializeLanguagePreference(simplified);
+  assert.deepEqual(simplified.replacements, ["/zh-hans/"]);
+
+  const traditional = createBrowserRuntime({ languages: ["zh-TW"] });
+  initializeLanguagePreference(traditional);
+  assert.deepEqual(traditional.replacements, ["/zh-hant/"]);
+});
+
+test("a stored Chinese choice follows the reader to other routes", () => {
+  const runtime = createBrowserRuntime({
+    currentLocale: "ja",
+    autoDetect: false,
+    languages: ["ja-JP"],
+    storage: createStorage([[LANGUAGE_PREFERENCE_STORAGE_KEY, "zh-hant"]]),
+  });
+
+  initializeLanguagePreference(runtime);
+
+  assert.deepEqual(runtime.replacements, ["/zh-hant/"]);
+});
+
+test("a missing or malformed URL map never redirects", () => {
+  const runtime = createBrowserRuntime({ languages: ["ja-JP"] });
+  runtime.documentObject.documentElement.dataset.languageUrls = "{not json";
+
+  assert.doesNotThrow(() => initializeLanguagePreference(runtime));
+  assert.deepEqual(runtime.replacements, []);
 });
 
 test("unavailable browser storage never blocks detection or language links", () => {

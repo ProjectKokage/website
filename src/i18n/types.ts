@@ -1,4 +1,4 @@
-export type SiteLocale = "en" | "ja";
+export type SiteLocale = "en" | "ja" | "zh-hans" | "zh-hant";
 
 export interface ExternalLink {
   href: string;
@@ -67,7 +67,6 @@ export interface SiteCopy {
   locale: SiteLocale;
   htmlLang: string;
   ogLocale: string;
-  alternateOgLocale: string;
   brandLabel: string;
   meta: {
     title: string;
@@ -116,7 +115,6 @@ export interface SiteCopy {
       title: string;
       detail: string;
     }>;
-    footnote: string;
   };
   features: {
     eyebrow: string;
@@ -131,25 +129,10 @@ export interface SiteCopy {
     eyebrow: string;
     title: string;
     lede: string;
-    items: Array<{
-      title: string;
-      body: string;
-    }>;
-    networkLabel: string;
-    networkBody: string;
     policyLink: string;
   };
   privacyPolicy: PrivacyPolicyCopy;
   support: SupportPageCopy;
-  stack: {
-    eyebrow: string;
-    title: string;
-    lede: string;
-    items: Array<{
-      title: string;
-      body: string;
-    }>;
-  };
   status: {
     eyebrow: string;
     title: string;

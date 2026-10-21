@@ -6,6 +6,7 @@ const projectRoot = fileURLToPath(new URL("../", import.meta.url));
 const npmCommand = process.platform === "win32" ? "npm.cmd" : "npm";
 const env = {
   ...process.env,
+  ASTRO_TELEMETRY_DISABLED: process.env.ASTRO_TELEMETRY_DISABLED ?? "1",
   KOKAGE_SITE_URL:
     process.env.KOKAGE_SITE_URL ?? TEST_SITE_ORIGIN,
   KOKAGE_ALLOW_TEST_SITE_ORIGIN: "1",

@@ -5,12 +5,11 @@ export const en = {
   locale: "en",
   htmlLang: "en",
   ogLocale: "en_US",
-  alternateOgLocale: "ja_JP",
   brandLabel: "Kokage",
   meta: {
-    title: "Kokage | Talk with your 3D AI character",
+    title: "Kokage | Talk with a 3D AI character",
     description:
-      "Kokage is an app for talking with a 3D AI character. Make replies free on your device, or use Kokage Cloud for instant chat, cloud voices, new looks and Cloud Motion. On the App Store and Google Play.",
+      "Kokage is an app for talking with a 3D AI character on iPhone, iPad, and Android. Chat for free on your device, or use Kokage Cloud on iPhone and iPad for instant chat, custom voices, 3D avatars, and Cloud Motion.",
   },
   skipLink: "Skip to content",
   navigation: {
@@ -20,154 +19,123 @@ export const en = {
       { href: "#features", label: "Features" },
       { href: "#cloud", label: "Kokage Cloud" },
       { href: "#how", label: "How it works" },
-      { href: "#privacy", label: "Data" },
+      { href: "#privacy", label: "Privacy" },
     ],
     languageLabel: "Language",
   },
   hero: {
     eyebrow: "AI character chat",
-    titleLead: "Talk with your AI character",
+    titleLead: "Talk with a 3D AI character",
     titleAccentLines: ["on your device or in the cloud."],
-    lede: "Kokage brings a 3D AI character to your iPhone, iPad or Android device. Make replies free on your device, or, on iPhone and iPad, start talking right away with Kokage Cloud. Type or speak, hear the reply in a voice, and give your character a voice and a look of its own with Kokage Cloud.",
+    lede: "Kokage is an app for chatting with a 3D AI character by voice or text. Hear replies spoken aloud and watch your character respond with expressions and gestures. You can chat for free on your device, or start talking right away on iPhone and iPad with Kokage Cloud.",
     appStoreAction: "Download on the App Store",
     googlePlayAction: "Get it on Google Play",
     cloudAction: "Explore Kokage Cloud",
     notice:
-      "Free to download. Kokage Cloud features use Leaf, which you can buy in the app on iPhone and iPad.",
+      "Free to download, and on-device chat is always free. On iPhone and iPad, you can also use Kokage Cloud features with Leaf.",
     imageAlt: "Kokage app icon, a mint speech bubble with two leaves",
   },
   cloud: {
     eyebrow: "Kokage Cloud",
-    title: "More for your character with Kokage Cloud",
-    lede: "Kokage Cloud is Kokage's optional online service, in the App Store version for iPhone and iPad. It gives you replies without a download, voices you design or clone, a new 3D look and generated motion. Cloud voices, new looks and Cloud Motion also work while replies are made on your device.",
+    title: "What you can do with Kokage Cloud",
+    lede: "On iPhone and iPad, you can use Kokage Cloud to start chatting without downloading a model, design a custom voice, create a new 3D avatar, or generate live body movement. Cloud voices, new looks, and Cloud Motion also work when replies are made on your device.",
     items: [
       {
         label: "Cloud chat",
-        title: "Start talking right away",
-        body: "Choose Kokage Cloud during setup and chat without downloading a model. Replies come from AI models through Kokage Cloud, and the app explains what is sent before your first cloud reply. You can add the free on-device option later and switch in Settings.",
+        title: "Start talking without a download",
+        body: "Start chatting right after installing the app, without waiting for a model download. You can add the free on-device model later, even from an open chat. When both are set up, Kokage automatically switches to on-device replies if you run out of Leaf.",
       },
       {
         label: "Cloud voices",
-        title: "A voice of its own",
-        body: "Describe a voice in your own words and pick from three candidates Kokage Cloud designs, or clone one from recordings of your own voice or of someone who has given permission. Each saved voice speaks Japanese, English or Chinese, reads your character's replies, and can change its delivery, such as happy or whispering.",
+        title: "Make a voice that fits your character",
+        body: "Describe the voice you have in mind and preview three candidates, or clone a voice from a recording of yourself or someone who has given permission. Saved voices speak Japanese, English, or Chinese in expressive tones such as happy, whispered, or sleepy.",
       },
       {
         label: "Create a new look",
-        title: "A new 3D look, made on Kokage Cloud",
-        body: "Describe how your character looks, add a picture, or both, and Kokage Cloud builds a VRM avatar. Preview it, use it for your character, or download the VRM file. If no avatar is made, the Leaf reserved for it is returned.",
+        title: "Create a 3D avatar from words or a picture",
+        body: "Describe how your character looks, add a picture, or combine both to make a 3D VRM avatar with an expressive face. Preview the result, apply it to your character, or download the VRM file.",
       },
       {
         label: "Cloud Motion",
-        title: "Movement made for the moment",
-        body: "Cloud Motion makes body movement on Kokage Cloud from a short description of what your character does in the conversation, beyond its built-in animations. It works with either reply source, and you can turn it off in Settings.",
+        title: "Movement matched to the conversation",
+        body: "Alongside built-in animations and gestures, Cloud Motion generates body movement matched to what your character is doing in the conversation. It works with both on-device and cloud replies and can be turned on or off anytime.",
       },
     ],
     leafLabel: "Leaf (言の葉)",
     leafBody:
-      "Kokage Cloud features spend Leaf. The wallet in Settings shows your balance and what each feature spent, and on iPhone and iPad you can buy Leaf packs there. Replies made on your device never use Leaf.",
-    policyLink: "What Kokage Cloud sends and keeps",
+      "Kokage Cloud features use Leaf so you only pay for what you use. Leaf packs never expire, and nothing is charged if a request fails before finishing. In Settings on iPhone and iPad, the wallet shows your balance and history, lets you buy Leaf packs or redeem an App Store offer code, and lets you move your account to a new device with a transfer code.",
+    policyLink: "How Kokage Cloud handles your data",
   },
   flow: {
-    eyebrow: "A conversation in Kokage",
+    eyebrow: "How it works",
     title: "From your message to your character's reply",
-    lede: "Each turn moves from your message to a reply, its voice, and your character's movement.",
+    lede: "Speak or type a message, and your character answers with voice and movement.",
     stages: [
       {
-        label: "Input",
-        title: "Type or speak",
+        label: "Send",
+        title: "Type, speak, or share a photo",
         detail:
-          "Type a message or say it; speech is recognized on your device. With a model that can see, you can also attach one camera photo.",
+          "Type a message or speak into the microphone. With a model that supports images, you can also attach a photo from your camera.",
       },
       {
-        label: "Reply",
-        title: "On your device or Kokage Cloud",
+        label: "Think",
+        title: "On your device or in the cloud",
         detail:
-          "The model on your device makes the reply privately and for free, or Kokage Cloud makes it after you have agreed to what it sends.",
+          "A model on your device creates a reply for free, or Kokage Cloud answers using your recent conversation and saved memories.",
       },
       {
-        label: "Voice",
-        title: "Hear it spoken",
+        label: "Speak",
+        title: "Hear it read aloud",
         detail:
-          "A Japanese or English voice installed on your device reads the reply aloud, or the cloud voice you chose speaks it in Japanese, English or Chinese.",
+          "An on-device voice or a custom cloud voice reads the reply aloud, pronouncing names, dates, times, and numbers naturally.",
       },
       {
-        label: "Character",
-        title: "Your character responds",
+        label: "Move",
+        title: "Respond with expressions and gestures",
         detail:
-          "Its mouth follows the audio it actually plays, and animation clips show it listening, thinking and speaking. Gestures can follow the reply, and Cloud Motion adds movement made on Kokage Cloud.",
+          "Your character's mouth moves in time with the voice while animations, gestures, and Cloud Motion match what it is saying.",
       },
     ],
-    footnote:
-      "If the camera, microphone or 3D view is unavailable, you can keep the conversation going by typing.",
   },
   features: {
-    eyebrow: "What Kokage does",
-    title: "A 3D character who talks, listens, remembers and moves",
-    lede: "Each character keeps its own conversation, memory and look. Replies come from a model on your device or from Kokage Cloud.",
+    eyebrow: "Features",
+    title: "A 3D character who talks, listens, remembers, and moves",
+    lede: "Each character keeps its own conversation history, memories, voice, and 3D look.",
     items: [
       {
         title: "Free on your device, or instant with Kokage Cloud",
-        body: "Download a language model once and replies are made on your device at no cost. Kokage recommends a model that fits your device's memory, or you can check a public Hugging Face model. On iPhone and iPad you can instead start with Kokage Cloud and no download. If a reply does not finish, your message stays so you can send it again.",
+        body: "Download a language model once to chat on your device for free, even offline. Kokage recommends a model that fits your device, or you can add a compatible public Hugging Face model. On iPhone and iPad, you can also start with Kokage Cloud and download the free on-device model later.",
       },
       {
-        title: "Characters with lives of their own",
-        body: "Keep several characters in your library, each with its own conversation, recap, memory and avatar. Start with the included AvatarSample_A or your own VRM 0.x or 1.0 file, import character cards from a file or a link, and export the ones you make for another Kokage or for other character apps.",
+        title: "Keep multiple characters",
+        body: "Register as many characters as you like, each with its own chat history, memories, voice, and 3D avatar. Start with the included character or your own VRM file, import character cards from a file or link, and export the cards you create to share or use on another device.",
       },
       {
-        title: "Personality and language",
-        body: "Set your character's role, tone, reply length, initiative and expressiveness. It can talk in Japanese, English, or Chinese written in Simplified or Traditional characters, or follow the language of your latest message, whatever language the app itself uses. A Chinese cloud voice speaks Chinese replies.",
+        title: "Customize personality, style, and language",
+        body: "Adjust your character's personality, tone, reply length, how often it starts a conversation, and how expressive its voice sounds. Characters can talk in Japanese, English, or Chinese (Simplified or Traditional), or match the language of your latest message, with reading marks so names are pronounced properly.",
       },
       {
-        title: "Speak, listen, and show a photo",
-        body: "Speak your message and it is recognized on your device; the audio stays there. Replies can be read aloud by a Japanese or English voice installed on your device or by a cloud voice. With a model that can see, attach a camera photo to your message.",
+        title: "Talk by voice and share camera photos",
+        body: "What you say into the microphone is transcribed right on your device. Hear replies from an on-device voice (Japanese or English) or a cloud voice (Japanese, English, or Chinese). With an image-capable model, share a camera photo—and when you switch to the rear camera, your character turns around too.",
       },
       {
-        title: "Memory you can see and edit",
-        body: "Your character can remember a useful detail from what you tell it, with a notice and Undo. The Memory page lists what it remembers, and you can edit, delete or turn memory off. Add notes every character can use, and Kokage looks them up while it replies.",
+        title: "Memories and notes you can review and edit",
+        body: "Your character remembers useful details from your conversations and shows an Undo notice whenever a new memory is saved. Open the Memory page anytime to view, edit, or delete entries, or add shared notes that all of your characters can reference.",
       },
       {
-        title: "Moves with its voice",
-        body: "Your character listens, thinks and speaks with animation clips, moves its mouth with the audio it actually plays, and can nod, shake its head, bow or cheer when a reply calls for it. With Cloud Motion, Kokage Cloud adds movement made for what it is doing.",
+        title: "Mouth and body movement in sync with speech",
+        body: "Your character changes posture as it listens, thinks, and speaks, moving its mouth in time with the voice. It can nod, shake its head, bow, or cheer, and enabling Cloud Motion adds live movement matched to the action.",
       },
       {
-        title: "Invitations to chat and smart home",
-        body: "Turn on invitations to chat and your character can send a daily greeting, an occasional invitation or a note after time away. On iPhone and iPad, Smart home lets it check Apple Home devices and operate them when you ask. Both start off.",
+        title: "Chat invitations and Apple Home",
+        body: "Turn on invitations to chat to receive a daily greeting or a message after time away. On iPhone and iPad, you can also connect Apple Home so your character can check device statuses and operate them when you ask.",
       },
     ],
   },
   privacy: {
-    eyebrow: "App data and privacy",
-    title: "On-device replies keep their generation context on your device",
-    lede: "The model on your device makes its replies on your device. Kokage Cloud is optional: the app explains what cloud chat sends before you use it, and cloud features send what the privacy policy lists. Kokage's own source code includes no advertising, analytics or remote crash-reporting feature. A report that you review and confirm in the app sends only a format version, a random Reference ID, the reason you chose, the selected reply, an optional short note, the catalog model or template ID, and the app version through Formspark.",
-    items: [
-      {
-        title: "Conversation",
-        body: "On native devices, Kokage saves the conversation on your device as displayed, and each character relationship keeps its own records.",
-      },
-      {
-        title: "Camera and microphone",
-        body: "Photo retention starts on; turning it off deletes saved photos and stops retaining new ones. A photo you submit can reach the selected cloud vision service after its disclosure. Voice input processes bounded microphone audio and recognition results on the device without retaining, logging, or uploading them.",
-      },
-      {
-        title: "Memory",
-        body: "Memory is kept on the device and starts on when its local services are available. It can save a useful detail from text you submit, with a notice and Undo, and the Memory page lets you inspect, edit, delete, clear, or disable it. Saved memory can enter a cloud request you have consented to.",
-      },
-      {
-        title: "Notes",
-        body: "Only notes you explicitly add, plus their local search index, are saved. Conversation content, audio, images, files, tool results, and model output stay outside that index.",
-      },
-      {
-        title: "Models and VRMs",
-        body: "Downloaded model data, selected speech data, and an imported VRM stay in app-private storage. AvatarSample_A needs no network access, and Kokage does not retain an imported VRM’s original path, URL, or filename.",
-      },
-      {
-        title: "Kokage Cloud",
-        body: "Kokage Cloud does not keep the text or images of a cloud chat as conversation history; it records amounts, timing and charges for billing. Saved cloud voices and avatars stay in your private account until you delete them, and Settings can delete the whole Kokage Cloud account.",
-      },
-    ],
-    networkLabel: "When Kokage uses the network",
-    networkBody:
-      "Kokage uses the network for downloads that you confirm, for Kokage Cloud features, and for a report that you review and confirm in the app. The privacy policy explains how reports are kept and how to ask for deletion.",
+    eyebrow: "Privacy",
+    title: "Built to keep your conversations in your hands",
+    lede: "When replies are made on your device, your conversations stay on your device. Voice input is transcribed on your device, so your everyday spoken audio is never uploaded, and the app contains no advertising or analytics. When you use Kokage Cloud, the app explains what is sent beforehand, and you can manage or delete your memories, notes, and cloud account at any time.",
     policyLink: "Read the full privacy policy",
   },
   privacyPolicy: {
@@ -178,16 +146,16 @@ export const en = {
     },
     eyebrow: "Kokage privacy policy",
     title: "What Kokage keeps on your device and what its cloud features send",
-    lede: "This policy explains what the app saves on your device, what it sends to Kokage Cloud and other services and when, and how you can delete it.",
+    lede: "This page explains what the Kokage app saves on your device, what it sends to Kokage Cloud and external services, when that happens, and how you can manage or delete your data.",
     updatedLabel: "Last updated",
     updatedDate: "2026-10-02",
     updatedDateDisplay: "October 2, 2026",
     highlightsLabel: "Policy summary",
     highlights: [
-      "On-device replies keep their generation context on your device",
-      "In a configured build, Kokage Cloud features send the data this policy lists, and the app explains cloud chat before you use it",
-      "Microphone recognition runs on your device; conversation audio is not logged or uploaded",
-      "Kokage's own source code includes no advertising, analytics or remote crash-reporting feature",
+      "When replies are made on your device, your conversation stays on your device",
+      "When you use Kokage Cloud, it sends only the data described in this policy, and the app explains cloud chat before you start using it",
+      "Speech recognition runs on your device; conversation audio is never logged or uploaded",
+      "The app includes no advertising, analytics, or automatic crash reporting",
     ],
     contentsLabel: "On this page",
     sections: [
@@ -195,23 +163,24 @@ export const en = {
         id: "scope",
         title: "Scope",
         paragraphs: [
-          "This policy describes data handling in the Kokage app, Kokage Cloud and the Kokage project website as of October 2, 2026.",
-          "The parts of this policy about Kokage Cloud apply to a build configured for Kokage Cloud.",
-          "Websites and download services that Kokage contacts at your direction apply their own privacy policies.",
+          "This policy describes how data is handled by the Kokage app, Kokage Cloud, and this website as of October 2, 2026.",
+          "The sections about Kokage Cloud apply to versions of the app that include Kokage Cloud (such as the App Store version for iPhone and iPad).",
+          "External websites and download hosts that you connect to from the app handle requests under their own privacy policies.",
         ],
       },
       {
         id: "chat",
         title: "On-device and cloud chat",
         paragraphs: [
-          "Kokage lets you choose on-device replies or, in a configured build, cloud chat. On-device replies keep their generation context on your device.",
-          "Before you use cloud chat, the app explains that selected conversation text, character content, history, recap, images and recalled context can reach Kokage Cloud and its AI providers. Automatic guidance, initiative and enabled memory work can also use that service and spend Leaves from your Kokage Cloud balance.",
-          "Automatic cloud recap refresh has a separate setting, off by default, and its own disclosure, because reading older exchanges can cost more than a short reply.",
+          "Kokage lets you chat using a model on your device or, on supported versions, Kokage Cloud. When replies are made on your device, what you type or say stays on your device.",
+          "Before your first cloud reply, the app explains that conversation text, character settings, recent history, conversation summaries, attached photos, and relevant memories or notes are sent to Kokage Cloud and its AI model providers. In-chat hints, character chat invitations, and memory extraction also use the selected cloud service and may spend Leaf from your balance.",
+          "When both Kokage Cloud and an on-device model are set up, 'Reply on this device when Leaf runs out' (on by default) automatically switches to your on-device model if your Leaf balance cannot cover a reply. Replies made on your device are not sent to the cloud.",
+          "Automatic cloud summary updates have a separate switch in Settings (off by default) and their own explanation, because summarizing older messages sends prior conversation turns to the cloud model and can use more Leaf than a single reply.",
         ],
         items: [
           {
-            title: "Voice-emotion reply hint",
-            body: "An optional voice-emotion reply hint is enabled by default. When eligible, one coarse normalized label may accompany the current request, including a cloud request. It is an uncertain tone hint, not a diagnosis or memory source; you can turn it off. Raw audio and recognizer metadata are not sent.",
+            title: "Using voice tone as a reply hint",
+            body: "By default, when you speak a message, the app may attach a single simple tone label to the reply request (including in cloud chat). This is used only to help match the tone of the reply, never for diagnosis or saved memories, and you can turn it off in Settings. Your microphone audio is never sent.",
           },
         ],
       },
@@ -219,34 +188,34 @@ export const en = {
         id: "cloud-motion",
         title: "Cloud Motion",
         paragraphs: [
-          "Cloud Motion is on by default when cloud access is configured, including with on-device replies. It sends the derived action description, duration and stage bounds to Kokage Cloud in Singapore; it does not upload the conversation transcript or avatar. Descriptions, poses and embeddings are transient.",
-          "Local presets are free. Generated motion reserves Leaves separately and, once it starts, charges for the motion time the server sends, which can include buffered motion that is never displayed. Motion that does not start is free.",
-          "You can turn Cloud Motion off in Settings; this cancels current and prefetched generated actions. For a character card that requires local inference, the action description is not sent to Kokage Cloud either.",
-          "While you are chatting in the foreground with Cloud Motion on, the app keeps an authenticated connection to Kokage Cloud so motion generation is ready; the connection itself carries no conversation content or action. It closes two minutes after you last open the chat, type or have a reply under way, and when the app goes to the background or the chat closes; waiting with the microphone open does not keep it.",
+          "Cloud Motion is on by default when Kokage Cloud is available, including when replies are made on your device. When a reply includes a generated action, the app sends only a short action description, duration, and movement bounds to Kokage Cloud in Singapore; it never sends your conversation history or avatar. The action description and generated motion are processed temporarily in memory and are not stored.",
+          "Built-in animations and preset gestures are free. Generated motion uses Leaf and, once movement begins, charges for the motion duration sent by the server (which can include buffered motion if stopped early). Motion that never starts costs no Leaf.",
+          "You can turn Cloud Motion off in Settings at any time, which cancels any active or queued generated movement. Character cards set to on-device only never use Cloud Motion.",
+          "While a chat is open in the foreground with Cloud Motion enabled, the app keeps a connection to Kokage Cloud ready so movement can start quickly. This standby connection sends no conversation content, action text, or avatar data, and closes two minutes after your last activity or when you leave the chat.",
         ],
       },
       {
         id: "cloud-voices",
         title: "Cloud voices and speech",
         paragraphs: [
-          "In a configured build you can create private voices in your Kokage Cloud account and choose one to read replies.",
+          "On supported versions, you can create private voices in Japanese, English, or Chinese in your Kokage Cloud account and use them to read your character's replies.",
         ],
         items: [
           {
             title: "Voice design",
-            body: "Voice design sends the description you type to Kokage Cloud for processing in Singapore. One purchase creates three candidate voices; the price shown tells you when your account's first design is free. A designed voice may resemble a real person. Describing someone's voice is not their consent, and using a voice to impersonate anyone is not allowed. In a build configured for Report, you can report voice misuse from the voice creation page; that report contains a fixed subject line, your chosen reason and optional note, and no voice, audio or account identifier.",
+            body: "Voice design sends your text description and chosen language to Kokage Cloud in Singapore and creates three previewable candidates. The price shown on screen indicates when your account's first design is free. A designed voice may happen to sound like a real person, but describing someone's voice does not count as their consent, and impersonation is prohibited. You can report voice misuse from the voice creation screen; a report sends only a fixed subject line, your chosen reason, and an optional short note, with no voice, audio, or account ID.",
           },
           {
             title: "Voice cloning",
-            body: "Voice cloning uploads only audio files you choose, or a recording you make on that page for this purpose. On iPhone, iPad, Mac and Android, a file in another format, such as M4A or MP3, is first converted to WAV on your device, and only the converted audio is uploaded. Ordinary conversation audio is never used. A recording stays in memory on your device until you confirm the upload, and it is discarded if you leave the app or close the page. Before uploading, you state whether the voice is yours or an authorized speaker's, confirm that you have permission, and choose whether to keep the original files; Kokage Cloud records these choices with the upload and processes the audio in Singapore.",
+            body: "Voice cloning uploads only the audio files you select or a recording you make on the cloning screen. Files such as M4A or MP3 are converted to WAV on your device first, and everyday conversation audio is never used. A recording made on the cloning screen stays in memory until you confirm the upload and is discarded if you close the screen. Before uploading, you confirm whether the voice is yours or someone who gave permission and choose how the original file should be kept. Kokage Cloud records these choices and processes the audio in Singapore.",
           },
           {
-            title: "Keeping and deleting voices",
-            body: "Candidates you do not save expire 24 hours after they are ready, and their audio and inputs are then deleted; uploads that were never submitted are removed after 24 hours. Saving a voice keeps its reference audio, derived voice data and preview in your private account until you delete the voice. The derived data is not anonymous: speech can be recovered from it. A saved designed voice also keeps the description used to create it. For a cloned voice, the original uploads are kept for seven days after saving for recovery, or while the voice stays saved if you chose to keep them for migration. Deleting a voice revokes it immediately, cancels speech that is using it and schedules deletion of its audio and data. A download link that was already issued can work for up to 60 seconds, and copies you downloaded cannot be recalled. Purchase and consent records remain with your account.",
+            title: "Saving and deleting voices",
+            body: "Voice candidates you do not save and unsubmitted uploads are automatically deleted after 24 hours. When you save a voice, its reference audio, voice data, and preview sample stay in your private account until you delete it (voice data is not anonymous because speech can be generated from it). Saved designed voices also keep their text description. For cloned voices, the original uploaded audio is kept for seven days for recovery, or for as long as the voice stays saved if you chose to keep it for migration. Deleting a saved voice disables it immediately and schedules its audio and data for deletion. Already-issued download links may remain valid for up to 60 seconds, and audio already downloaded to a device cannot be recalled. Purchase and consent records remain with your account.",
           },
           {
             title: "Reading replies with a cloud voice",
-            body: "When you choose a cloud voice for replies, including on-device replies, the clean text of each part of a reply that is spoken is sent with that voice's identity, the speaking rate and, for expressive replies, the chosen delivery preset and strength to Kokage Cloud and processed in Singapore. The conversation history, character data and avatar are not sent for speech. Speech text and generated audio are processed in memory and are not stored as recordings or written to ordinary logs. Cloud speech spends Leaves for the audio produced. Opening a chat with a cloud voice selected, and a periodic keep-warm while you keep chatting, sends a request that names only the voice; it stops two minutes after your last activity in the chat, and when the app goes to the background or the chat closes. The voice installed on your device stays available. An optional setting, off by default, reads replies with it while a cloud voice is getting ready; that text then stays on your device. Character cards requiring local inference cannot use cloud speech.",
+            body: "When you select a cloud voice—even if replies are made on your device—the spoken text (including reading marks), selected voice, speaking speed, and delivery style are sent to Kokage Cloud in Singapore. Conversation history, character settings, and avatars are not sent. The text and generated audio are handled in memory and are not stored as recordings or written to ordinary logs. Cloud speech uses Leaf based on audio length. While a chat is open with a cloud voice selected, the app periodically sends a lightweight keep-ready request naming only the voice, stopping two minutes after your last activity or when you close the chat. You can also turn on a setting to read replies with your on-device voice while a cloud voice is warming up. Character cards set to on-device only never use cloud speech.",
           },
         ],
       },
@@ -254,126 +223,126 @@ export const en = {
         id: "avatar-creation",
         title: "Avatar creation",
         paragraphs: [
-          "Avatar creation is an optional Kokage Cloud feature in Settings. You describe how a character looks, add a picture you choose or take for this purpose, or both. Kokage sends the description and the picture to Kokage Cloud, where the avatar is made on GPUs in Singapore.",
+          "From 'Create a new look' in Settings, you can use Kokage Cloud to generate a 3D avatar from a text description, a picture you choose or take, or both. The description and picture are sent to Kokage Cloud in Singapore to build the 3D avatar.",
         ],
         items: [
           {
             title: "Safety check",
-            body: "Before any 3D work, an outside AI service checks the picture once for safety, together with the description; a request without a picture has the picture drawn from its description checked instead. Because of that check, avatar creation needs outside processing and is not available to accounts limited to in-house processing.",
+            body: "Before 3D generation starts, an external AI service checks the picture (or the concept image generated from your description) and the description once for safety. Because this step uses an external service, avatar creation is unavailable to accounts restricted from external processing.",
           },
           {
             title: "Pictures you send",
-            body: "Before a picture is sent, you confirm that you may use it and that any real person shown has given permission. The app re-encodes the picture without camera or location metadata. A photo of a real person is redrawn in the app's style unless you keep realism.",
+            body: "Before sending a picture, you confirm that you have the right to use it and permission from any real person shown. The app resizes and re-encodes the image on your device, stripping camera and location metadata (such as Exif). Photos of real people are redrawn in an illustrated style unless you choose to keep a realistic look.",
           },
           {
             title: "What Kokage Cloud keeps",
-            body: "Kokage Cloud deletes the description, the picture and intermediate drawings after the job and its retry window. It keeps a record of the safety check (the picture's hash, policy and model versions, the decision and flags) without the picture. A finished avatar stays in your private Kokage Cloud account until you delete it. The creation screen offers deletion while it shows that avatar; starting a new one removes it from the screen, not from your account.",
+            body: "Once processing and the retry window finish, Kokage Cloud deletes the description, uploaded picture, and intermediate images. It keeps a safety-check record (image fingerprint, policy and model versions, and decision result) without keeping the picture itself. A completed avatar stays in your private Kokage Cloud account until you delete it, and you can delete it from the cloud right on the creation screen. Starting a new avatar clears the screen without deleting earlier avatars from your account.",
           },
           {
             title: "Downloading and using an avatar",
-            body: "Previewing, downloading and using a finished avatar cost no more Leaves; if no avatar is made, the reserved Leaves are returned. The Download VRM option saves or shares the file with the destination you choose. The Use character option keeps a verified copy on this device for the current character; deleting the avatar from Kokage Cloud does not remove that copy. The app remembers only which request it is following, so the screen can resume after you leave; preview copies are temporary and removed when the screen closes.",
+            body: "Previewing, downloading the VRM file, and applying a finished avatar to your character cost no extra Leaf, and reserved Leaf is returned in full if an avatar cannot be completed. 'Use character' saves a copy on your device for that character, so deleting the avatar from Kokage Cloud later does not remove your local copy. Temporary preview files are deleted when you close the screen.",
           },
         ],
       },
       {
         id: "local-data",
-        title: "Your saved conversation and inputs",
+        title: "Saved conversations and inputs",
         paragraphs: [
-          "On native devices, Kokage saves the conversation as displayed, including final voice text you submit. Each relationship keeps its own records across model, backend and setup changes.",
-          "Deleting a relationship removes its local conversation, recap, retained photos and memory; if cleanup fails, the app offers a retry. Archiving a card leaves that private state intact. Removing an individual memory does not remove the same information from conversation or recap.",
+          "Conversations shown on screen, including transcribed voice messages that you send, are saved on your device. Each character keeps its own separate history and summary even if you change models or voices.",
+          "Deleting a character's data removes its conversation history, summary, saved photos, and memories from your device. Archiving a character card hides it from your active list without deleting its data. Deleting an individual memory on the Memory page does not alter past messages in the chat log.",
         ],
         items: [
           {
             title: "Photos",
-            body: "Photo retention starts on. Turning it off removes saved photo bytes and stops retaining future photos, while keeping text and image markers. Turning it back on affects future photos. A current photo you choose to submit may still reach the selected cloud vision service after its disclosure.",
+            body: "Saving attached photos on your device is on by default. Turning it off deletes previously saved photos from your device and stops saving new ones (message text and attachment indicators remain). When using an image-capable cloud model, a photo attached to a new message is still sent to the cloud service as explained in the cloud chat notice.",
           },
           {
             title: "Microphone",
-            body: "Microphone recognition runs on-device. Conversation microphone audio, recognition drafts, intermediate results and voice metadata are transient and are not logged or uploaded. Only final text you actually submit follows the ordinary conversation storage and selected reply-backend rules. A voice-clone recording that you explicitly make and confirm is uploaded as described under Cloud voices and speech.",
+            body: "Speech recognition runs on your device. Microphone audio and in-progress transcription drafts are discarded immediately and are never saved, logged, or uploaded. Only the final text you send is saved as part of your conversation (only recordings you explicitly make and confirm on the voice cloning screen are uploaded, as described under Cloud voices and speech).",
           },
         ],
       },
       {
         id: "memory",
-        title: "Memory and Knowledge",
+        title: "Memory and notes (Local Knowledge)",
         paragraphs: [
-          "Memory starts on when its local services are available.",
+          "Memory is on by default and saves helpful details from your conversations on your device.",
         ],
         items: [
           {
             title: "What memory saves",
-            body: "Memory can save at most one useful detail from text you submit, including information about you, other people, plans, events, health, finances or locations. It must preserve attribution, uncertainty, negation and time qualifiers. The model is instructed to exclude passwords, access PINs, API keys, recovery codes and information you ask it not to remember. Selection can be wrong; these instructions do not guarantee that unwanted information will never be saved.",
+            body: "From messages you send, Memory can save up to one useful detail per turn—such as preferences, plans, people, or places. The model is instructed not to save passwords, PINs, API keys, transfer codes, or anything you ask it not to remember, though automated selection cannot guarantee that unwanted details will never be saved.",
           },
           {
-            title: "Memory controls",
-            body: "There is no initial memory consent prompt or per-entry approval. A save notice offers temporary Undo, and you can inspect, edit, delete, clear or turn memory off. Turning memory off stops automatic access while retaining editable records. Memory has no reminder or automatic-expiry feature. Your own submitted words can supply a memory even when a turn includes a photo or retrieved text; those other sources cannot supply the saved quote.",
+            title: "Viewing, editing, and deleting memories",
+            body: "Whenever a memory is saved, a notice appears with an Undo button so you can remove it right away. You can also open the Memory page anytime to view, edit, delete single entries, clear all entries, or turn Memory off. Turning it off stops new memories from being saved or looked up while keeping existing entries editable. Memories are created only from words you submit yourself, never automatically from photos or notes.",
           },
           {
-            title: "Knowledge",
-            body: "Knowledge indexes only text you explicitly add. It does not automatically index chat, microphone, camera or model output. In a build that includes those services, selected Knowledge excerpts and saved memory can enter a cloud request you have consented to.",
+            title: "Notes (Local Knowledge)",
+            body: "Notes store only the text you add yourself. Chat messages, microphone audio, photos, character card lore, and AI replies are never added to your notes automatically. When using cloud chat, relevant excerpts from your saved memories and notes may be included in requests to help your character reply.",
           },
         ],
       },
       {
         id: "smart-home",
-        title: "Optional smart home",
+        title: "Smart home (optional)",
         paragraphs: [
-          "On iOS and iPadOS, Smart home starts off. Enabling it requests Apple Home access and lets Kokage read supported state across accessible homes and carry out requested, validated device actions while the app is in the foreground. Suggestions wait for your reply. HomeKit handles platform traffic; Android smart home is disabled.",
-          "Selected home, room and device names and identifiers, sensor readings, states, and action outcomes can reach Kokage Cloud and its AI providers when you use cloud replies. The app explains this before enabling. Raw snapshots and structured tool data remain transient and unlogged. Visible home-related dialogue is saved and summarized like ordinary conversation.",
-          "Turning Smart home off stops future access and retires pending work, but cannot undo an already-submitted device action or remove past visible dialogue.",
+          "On iPhone and iPad, Smart home is off by default. Turning it on asks for Apple Home permission so Kokage can check device statuses and run actions you ask for while the app is open. If your character suggests an action, it waits for your confirmation first. Apple HomeKit handles communication with your devices, and this feature is not available on Android.",
+          "When using cloud chat with Smart home enabled, home, room, and device names, identifiers, sensor readings, device states, and action results may be sent to Kokage Cloud and its AI model providers (the app explains this before you turn Smart home on). Temporary device state snapshots are not logged, while smart-home messages shown in chat are saved like regular conversation.",
+          "Turning Smart home off stops future access, though it cannot undo actions already carried out or erase past chat messages.",
         ],
       },
       {
         id: "notifications",
-        title: "Optional notifications",
+        title: "Chat invitations and notifications (optional)",
         paragraphs: [
-          "Nudges, the app's optional notifications, start off. The app prepares only the next notification while open, using the selected model and permitted conversation and memory context. With cloud selected, preparation sends that context and spends ordinary Leaves. A new message waits for another foreground opening; the model does not run while the app is closed.",
-          "One private record on your device and the operating system retain the scheduled notification. The model prepares a full line and a reduced preview, but automatic checks cannot guarantee that the preview omits every private detail. Your operating system controls how previews and notification history are displayed. Turning Nudges off, a replacement, opening the chat or an expiry check retires the old notification; an already scheduled iOS alert can still appear late while the app is closed.",
+          "Invitations to chat (notifications) are off by default. When turned on, the app prepares only the single next notification while the app is open, using your selected model and recent conversation and memories. When cloud chat is selected, preparing that notification sends relevant context to Kokage Cloud and uses Leaf. No AI model runs in the background while the app is closed; the next notification is prepared the next time you open the app.",
+          "At most one scheduled notification is held on your device and by the operating system. A short lock-screen preview is also generated; because automated checks cannot guarantee that no personal detail appears in a preview, you can control lock-screen preview visibility in your device's notification settings. Turning invitations off, opening the chat, or passing the scheduled time cancels old notifications (on iOS, an alert scheduled just before closing the app may still appear).",
         ],
       },
       {
         id: "characters",
-        title: "Character imports and sharing",
+        title: "Importing and sharing character cards",
         paragraphs: [
-          "Cards you create or explicitly import, their media, and inert original source fields are saved locally. Import preview does not activate a character or grant it access to tools. Separate relationships keep their own local state. Card lore is not automatically added to your Knowledge index.",
+          "Character cards you create or import, along with their avatars and portraits, are saved on your device. Previewing a card before importing does not activate the character or grant any permissions. Each character's data is kept separate, and character card lore is never copied into your notes automatically.",
         ],
         items: [
           {
             title: "Importing from a URL",
-            body: "Pasting a public card URL contacts the selected sharing platform or direct file host and its validated redirects. They receive the requested URL and ordinary connection information such as your IP address. Kokage sends no app credentials, chat or memory with that request and does not automatically fetch secondary media.",
+            body: "When you enter a public character card URL, the app connects to that host, which receives the URL and standard connection data such as your IP address. No account credentials, chat history, or memories are sent, and external linked media is not fetched automatically.",
           },
           {
-            title: "Cards marked for local-only inference",
-            body: "A character card marked for local-only inference uses an on-device model. Kokage blocks cloud replies and automatic model rounds for that character even when you previously enabled cloud chat. You can select an on-device model or another character; your saved backend preference remains unchanged.",
+            title: "Cards set to on-device only",
+            body: "A character card marked for on-device inference only always uses an on-device model. Even if Kokage Cloud is enabled, cloud chat, cloud summaries, cloud voices, and Cloud Motion are disabled for that character.",
           },
           {
-            title: "Export and sharing",
-            body: "Before export, you review authored card content and choose the media to include. Private relationship state, memory, chats, permissions and quarantined source fields are excluded. Desktop saves to your chosen location; mobile uses the OS share sheet and the recipient you select. App staging files are removed after the share callback. Android's sharing component can keep a temporary delivery copy until the next share or cache reclamation. A crash can leave temporary files for cache reclamation. Copies saved by a recipient are controlled by that recipient.",
+            title: "Exporting and sharing cards",
+            body: "Before exporting a character card, you can review what is included and choose which images or avatars to attach. Your private chat history, summaries, memories, and permissions are never included. Temporary export files are cleaned up after sharing (though Android's share sheet or an unexpected close may leave a cached file until the OS clears cache). Any copy saved by a recipient is managed by that recipient.",
           },
         ],
       },
       {
         id: "cloud-account",
-        title: "Kokage Cloud account, providers and purchases",
+        title: "Kokage Cloud account, providers, and purchases",
         paragraphs: [
-          "Cloud account and wallet actions use a device credential and account state. Opening the wallet can connect before chat consent. Selecting on-device replies keeps your earlier cloud acceptance; the app has no control for revoking that consent.",
+          "Kokage Cloud creates an account tied to your device automatically, without requiring an email address or password. Opening the Leaf wallet or cloud settings may connect to your account before you start cloud chat. To move to a new device, you can generate a single-use transfer code (valid for seven days, with an optional six-digit PIN) to transfer your Leaf balance, saved voices, created avatars, and consent records while signing out the old device.",
         ],
         items: [
           {
-            title: "Who runs Kokage Cloud",
-            body: "Kokage Cloud is run by Orcalogy LLC on Google Cloud. Its gateway and database are in Tokyo; speech, motion and avatar GPU work and the private files for voices and avatars are in Singapore.",
+            title: "How Kokage Cloud is operated",
+            body: "Kokage Cloud is operated by Orcalogy LLC on Google Cloud. Its gateway and database run in Tokyo, while voice, motion, and avatar processing—as well as private storage for saved voices and avatars—run in Singapore.",
           },
           {
-            title: "AI model providers",
-            body: "Cloud chat requests, and the avatar safety check, go through OpenRouter to third-party AI model providers; which provider answers depends on the reply model and can change. Kokage Cloud does not store the text or images of a cloud chat request as conversation history; it keeps the amounts used, timing, the model route and the charge for billing. OpenRouter and the model providers handle requests under their own terms and privacy policies, which decide how long they keep data.",
+            title: "AI model providers (OpenRouter)",
+            body: "Cloud chat requests and avatar safety checks are routed through OpenRouter to third-party AI model providers (which provider responds depends on the model and may change). Kokage Cloud does not store the text or images of cloud chat requests as conversation history; it records only usage amounts, timestamps, model routes, and Leaf charges for billing. OpenRouter and the model providers handle requests under their own terms and privacy policies.",
             link: {
               href: "https://openrouter.ai/privacy",
               label: "OpenRouter privacy policy",
             },
           },
           {
-            title: "Purchases",
-            body: "On iOS, purchases go through Apple and RevenueCat under their policies; RevenueCat receives the purchase and a random account identifier, not your conversations.",
+            title: "Purchases and offer codes (Apple and RevenueCat)",
+            body: "On iPhone and iPad, in-app purchases are processed through Apple and RevenueCat under their respective policies. RevenueCat receives purchase records and a random account identifier, never your conversations or media. Tapping 'Redeem a code' in the Leaf wallet opens the App Store offer-code redemption sheet.",
             link: {
               href: "https://www.revenuecat.com/privacy",
               label: "RevenueCat privacy policy",
@@ -383,25 +352,25 @@ export const en = {
       },
       {
         id: "retention",
-        title: "Account deletion and retention",
+        title: "Account deletion and data retention",
         paragraphs: [
-          "You can delete your Kokage Cloud account in Settings with the Delete Kokage Cloud account option. After you confirm, Kokage Cloud revokes the account's sign-in on every device at once and accepts no new paid work, then erases the account's saved cloud voices, avatars and uploaded files in the background.",
-          "Remaining Leaves are lost and not refunded, and deleting does not refund store purchases. This device forgets the account, the cloud voice you selected, the avatar request it was following and its copy of the balance. Characters, chats, memories, Knowledge and avatars already in use stay on this device. Using Kokage Cloud again creates a new, empty account.",
-          "After deletion, Kokage Cloud keeps records that contain no conversation, voice or picture content: the closed account's identifier, the Leaf balance and spending history, store purchase records, voice consent records, safety-check records of avatar requests that were refused or failed, and audit entries. They are kept for accounting, fraud prevention and legal duties and have no fixed deletion date.",
-          "Copies held by Kokage Cloud and its providers, by the stores and in submitted reports each have separate retention.",
+          "You can delete your cloud account at any time from 'Delete Kokage Cloud account' in Settings. Confirming deletion immediately signs out all devices, invalidates unused transfer codes, and erases your saved cloud voices, created avatars, and uploaded files from the server.",
+          "When you delete your account, any remaining Leaf is forfeited without refund, and past store purchases are not refunded. Your device removes the cloud account info, selected cloud voice setting, and cached balance, while keeping your characters, conversations, memories, notes, and avatars already applied to your characters on your device. If you use Kokage Cloud again later, a new empty account is created.",
+          "After account deletion, Kokage Cloud retains only administrative records that contain no conversation, voice, or image content: the closed account ID, Leaf balance and usage history, store purchase records, voice consent records, safety-check records for refused or failed avatar requests, and audit logs. These are kept for accounting, fraud prevention, and legal obligations and have no fixed deletion date.",
+          "Data held by AI model providers, the App Store, RevenueCat, and submitted reports follows each service's own retention rules.",
         ],
       },
       {
         id: "network",
-        title: "Downloads and other connections",
+        title: "Model downloads and external connections",
         paragraphs: [
-          "Downloads you confirm and public-model Check requests contact their hosts and CDNs with source coordinates and normal connection metadata, such as your IP address. They do not include chat or media content. A confirmed transfer may continue through the platform's transfer service and keep a bounded restart checkpoint. Canceling removes partial transfer state. Model activation verifies size and digest.",
-          "Kokage's own source code includes no advertising, analytics or remote crash-reporting feature.",
+          "When you download a model or check a public model, the download host receives the requested file path and standard connection information such as your IP address, with no conversation or media content. Canceling a download deletes any partial files.",
+          "The app includes no advertising, analytics, or automatic crash reporting.",
         ],
         items: [
           {
-            title: "Public model information and files",
-            body: "A Hugging Face Check requests public repository metadata, and a confirmed install downloads selected model and voice files from Hugging Face plus its redirect or delivery hosts.",
+            title: "Models from Hugging Face",
+            body: "Checking or downloading a public model fetches repository details and model or speech files from Hugging Face and its delivery servers.",
             link: {
               href: "https://huggingface.co/privacy",
               label: "Hugging Face privacy policy",
@@ -409,29 +378,29 @@ export const en = {
           },
           {
             title: "Voice and dictionary files from GitHub",
-            body: "A confirmed setup can also download voice and dictionary artifacts from GitHub-hosted release endpoints and their redirect destinations, which receive the same standard connection data as other download hosts.",
+            body: "During setup, the app may download on-device voice and dictionary files from public GitHub releases, which receive standard connection data like any other download host.",
             link: {
               href: "https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement",
               label: "GitHub privacy statement",
             },
           },
           {
-            title: "Avatar files",
-            body: "AvatarSample_A and local Custom VRM import need no host request. A Custom VRM HTTPS import contacts your chosen host. The app retains a validated private-cache copy and its digest and size, not the original locator. Cache loss may require you to select the custom source again.",
+            title: "VRM files",
+            body: "The included character and VRM files imported from your device require no network connection. Importing a VRM from an HTTPS link connects only to the host you specify. Kokage saves a verified copy in private app storage without recording the original file path or URL.",
           },
         ],
       },
       {
         id: "reports",
-        title: "Reports",
+        title: "Reporting inappropriate replies or misuse",
         paragraphs: [
-          "In a build configured for Report, you review the selected displayed response, choose a reason, optionally add a note, and confirm sending it to Formspark.",
-          "The payload includes the catalog model/template ID and app version, a format version, and a random Reference ID. That ID identifies the submission, not your device or account. No separate prompt, history or media fields and no device or account identifier fields are added. The selected response itself may repeat private context.",
+          "Using the in-app Report option, you can report an offensive AI reply or voice misuse on the voice creation screen after reviewing what will be sent, choosing a reason, and optionally adding a short note. Reports are submitted through Formspark.",
+          "A report sends only the catalog model or template ID, app version, format version, a random Reference ID generated for that report, your chosen reason, the selected reply (or a fixed subject line for voice misuse), and your optional note. The Reference ID identifies the report itself—not your device or account—and no prompts, chat history, audio, or images are attached (though the reported reply text itself may contain details from your conversation).",
         ],
         items: [
           {
-            title: "Retention and deletion of reports",
-            body: "Formspark and the developer mailbox may each retain a copy. Clearing local app data does not delete those copies. There is no fixed retention period: Formspark and the Orcalogy mailbox keep a report until Orcalogy deletes it. To ask for deletion, email contact@orcalogy.com with the Reference ID the app showed you; Orcalogy then deletes the Formspark submission and the mailbox copy. Copies in those providers' backups follow the providers' own schedules.",
+            title: "Report storage and deletion requests",
+            body: "Submitted reports are kept in Formspark and our support mailbox until we delete them; there is no fixed retention period, and uninstalling the app does not remove a submitted report. To request deletion, email contact@orcalogy.com with the Reference ID shown in the app, and we will delete the report from Formspark and our mailbox (copies in provider backups follow each provider's backup schedule).",
             link: {
               href: "https://formspark.io/legal/privacy-policy/",
               label: "Formspark privacy policy",
@@ -441,34 +410,34 @@ export const en = {
       },
       {
         id: "permissions",
-        title: "Permissions and local protection",
+        title: "Device permissions and local storage protection",
         paragraphs: [
-          "Camera, microphone and notification permissions have separate explicit controls.",
-          "Kokage asks for camera access when you attach one still to a message or take a picture for an avatar. You can deny or revoke that permission in system settings and continue with typed chat.",
-          "Kokage asks for microphone access before voice capture or a voice-clone recording. If you deny or revoke access, typed chat remains available and the app offers retry or system-settings guidance where the platform supports it.",
-          "Kokage uses app-private storage and operating-system protections, but it does not add application-layer encryption to saved content.",
-          "Android excludes app data from OS backup and device transfer; on Apple platforms, the app's private support storage is excluded from backup. The operating system can reclaim cache. These measures are not a blanket guarantee about Linux, Windows or third-party desktop backups.",
-          "To ask the operating system to remove the remaining app-private files, use its app-removal controls; final removal and device backups are controlled by the operating system.",
+          "Camera, microphone, Apple Home, and notification permissions are requested only when you use the corresponding feature.",
+          "Kokage asks for camera access when you attach a photo to a message or take a picture for a new avatar, and you can continue chatting by text without granting it.",
+          "Kokage asks for microphone access before voice input or voice-clone recording. If you decline, typed chat remains available and the app offers a retry or a link to system settings.",
+          "Local data is stored in app-private storage protected by the operating system (without a separate in-app encryption password).",
+          "To protect your privacy, app data is excluded from OS backups and device-to-device transfers on Android, and private storage is excluded from backups on iPhone and iPad (this does not restrict third-party computer backup tools).",
+          "To erase all remaining app data from your device, uninstall Kokage from your device's settings.",
         ],
       },
       {
         id: "website",
-        title: "This website",
+        title: "About this website",
         paragraphs: [
-          "The Kokage website code creates no account, contact form, analytics, advertising, tracking script, or tracking cookie.",
+          "This website uses no user accounts, contact forms, analytics, advertising, or tracking cookies.",
         ],
         items: [
           {
-            title: "Language preference",
-            body: "The site reads browser language settings and stores the value en or ja under kokage-language in local browser storage after you choose a language; you can remove it by clearing site data in your browser.",
+            title: "Language setting",
+            body: "On your first visit, the site checks your browser's language setting, and saves the chosen language code ('en', 'ja', 'zh-hans', or 'zh-hant') under kokage-language in local storage only if you manually switch languages. Clearing your browser's site data removes it.",
           },
           {
-            title: "Website delivery",
-            body: "The server that delivers this public site receives standard request data such as an IP address, requested path, time, and HTTP headers, and its hosting provider may keep operational or security logs under the provider's terms.",
+            title: "Page delivery",
+            body: "When you view this site, the hosting server receives standard request information such as your IP address, requested page, timestamp, and browser headers, and may keep operational or security logs under the host's terms.",
           },
           {
             title: "Google Fonts",
-            body: "The site loads Zen Maru Gothic from Google Fonts, which gives Google the standard request data needed to deliver the font under Google's privacy terms.",
+            body: "This site loads the Zen Maru Gothic font from Google Fonts, which receives standard request data needed to serve the font.",
             link: {
               href: "https://developers.google.com/fonts/faq/privacy",
               label: "Google Fonts privacy information",
@@ -478,9 +447,9 @@ export const en = {
       },
       {
         id: "changes",
-        title: "Changes and contact",
+        title: "Updates and contact",
         paragraphs: [
-          "The project will update this page and its last-updated date when Kokage's data practices change.",
+          "If our data practices change, we will update this page and the last-updated date above.",
           "Contact: contact@orcalogy.com.",
         ],
       },
@@ -491,26 +460,26 @@ export const en = {
     meta: {
       title: "Support | Kokage",
       description:
-        "Getting Kokage, troubleshooting, Kokage Cloud and Leaf, local-data guidance, and a privacy-conscious way to ask questions and contact the project.",
+        "How to download Kokage, helpful tips when something is not working, managing Kokage Cloud and Leaf, your data on device, and how to contact us.",
     },
     eyebrow: "Kokage support",
     title: "Support for Kokage",
-    lede: "Get the app, ask a question, report a problem, and find troubleshooting steps for Kokage.",
-    highlightsLabel: "Support summary",
+    lede: "Find download links, simple tips when something is not working as expected, and how to reach us safely.",
+    highlightsLabel: "Quick guide",
     highlights: [
-      "Kokage is on the App Store for iPhone and iPad and on Google Play for Android",
-      "Typed chat remains the fallback when an optional device feature fails",
-      "Private conversation or media content should never be sent by email",
-      "Local app data cannot be viewed or restored by project support",
+      "Download Kokage for free on the App Store for iPhone and iPad, or on Google Play for Android",
+      "You can always keep chatting by typing if voice, camera, 3D view, or cloud features are unavailable",
+      "Please do not include private conversations, recordings, photos, or VRM files when emailing support",
+      "Our support team cannot remotely view, restore, or erase conversations or memories stored on your device",
     ],
     contentsLabel: "On this page",
     sections: [
       {
         id: "availability",
-        title: "Getting Kokage",
+        title: "Downloading Kokage",
         paragraphs: [
-          "Kokage is free to download from each platform's app store. This site does not provide a direct app download.",
-          "Kokage Cloud features and Leaf packs are in the App Store version for iPhone and iPad. The Android version makes replies on your device.",
+          "Kokage is free to download from the official app stores. We do not offer direct file downloads from this website.",
+          "Kokage Cloud features and Leaf packs are available in the App Store version for iPhone and iPad. The Android version on Google Play makes replies on your device.",
         ],
         items: [
           {
@@ -533,22 +502,22 @@ export const en = {
       },
       {
         id: "troubleshooting",
-        title: "Troubleshooting",
+        title: "When something is not working",
         paragraphs: [
-          "Replies made on your device need the model and speech data that setup downloads. Keep enough free storage for the selected files and use the in-app controls to retry or cancel an interrupted download. Kokage Cloud replies need no model download, but they need a connection and Leaf.",
+          "If something goes wrong during a chat, Kokage shows a short tip above the message box and keeps what you were typing in place so you can send it again right away. For on-device replies, make sure the initial model and voice download has finished and that your device has enough free storage.",
         ],
         items: [
           {
-            title: "A local model does not start",
-            body: "Use the exact error category shown by the app, confirm that setup completed, and retry from the app. Do not email a model file, private repository token, prompt, or native stack trace that contains a private path.",
+            title: "An on-device model does not start",
+            body: "Check the message shown in the app and make sure the model download is complete in Settings. If your device is low on memory, switching to the recommended model for your device helps it run smoothly.",
           },
           {
-            title: "Camera, voice, or 3D presentation fails",
-            body: "Continue with typed chat where it remains available. Retry voice input or review microphone access in system settings; do not send a recording or transcript for support. A camera, playback, or presentation failure should not require sharing the captured image, generated reply, or imported VRM.",
+            title: "Voice, camera, or 3D view is unavailable",
+            body: "Whenever voice, camera, or 3D display is temporarily unavailable, you can keep chatting by typing. Retry voice input or check that microphone and camera permissions are enabled for Kokage in your device's system settings.",
           },
           {
-            title: "A Kokage Cloud feature stops",
-            body: "Check your connection and the balance in the Leaf wallet in Settings, where you can also add Leaf on iPhone and iPad. If an avatar is not made, the Leaf reserved for it is returned. Do not email a voice recording, picture, or reply for support.",
+            title: "A Kokage Cloud feature pauses or takes a moment",
+            body: "Check your internet connection and your Leaf balance in the wallet in Settings. On iPhone and iPad, you can add Leaf packs or tap 'Redeem a code' in the wallet. If Leaf runs out while an on-device model is installed, Kokage automatically switches to on-device replies. Cloud voice and motion servers also rest when idle, so the first request after a quiet period can take about a minute to warm up while you continue chatting by text. If an avatar or voice creation cannot be completed, no Leaf is spent.",
           },
         ],
       },
@@ -556,115 +525,65 @@ export const en = {
         id: "kokage-cloud",
         title: "Kokage Cloud account and Leaf",
         paragraphs: [
-          "Kokage Cloud uses an account that the app creates for you, with no sign-in. Your saved cloud voices and avatars belong to that account, and the Leaf wallet in Settings shows its balance and what each feature spent.",
-          "To delete the account, use Delete Kokage Cloud account in Settings. Remaining Leaf is lost and not refunded, and store purchases are not refunded. Characters, chats, memories and avatars already in use stay on your device. The privacy policy explains what Kokage Cloud keeps after deletion.",
+          "Kokage Cloud creates an account for you automatically without asking for an email address or password. Your saved cloud voices, created avatars, and Leaf balance stay with that account. When moving to a new device, open the wallet in Settings to create a single-use transfer code.",
+          "If you ever wish to remove your cloud account, use 'Delete Kokage Cloud account' in Settings. Deleting the account forfeits any remaining Leaf without refund, while keeping your characters, conversations, memories, notes, and avatars already in use on your device.",
         ],
       },
       {
         id: "permissions",
-        title: "Camera and microphone permissions",
+        title: "Camera and microphone settings",
         paragraphs: [
-          "Kokage asks for camera access when you attach a photo to a message or take a picture for a new look, and microphone access before voice capture or a voice-clone recording. You can deny or revoke either permission in system settings and continue by typing.",
-          "If a permission prompt does not appear, review Kokage's permission state in the operating system before reinstalling or clearing app data.",
+          "Kokage asks for camera access only when you attach a photo or take a picture for a new avatar look, and asks for microphone access before voice input or voice cloning. If you prefer not to grant them, you can still enjoy typed conversation.",
+          "If a permission prompt no longer appears, check Kokage's permissions in your device's system settings before reinstalling the app.",
         ],
       },
       {
         id: "local-data",
-        title: "Local data and privacy",
+        title: "Your data and privacy",
         paragraphs: [
-          "On-device processing and the app's local memory, notes, character, model, and VRM data stay on the device; cloud features send what the privacy policy lists. Project support cannot remotely inspect, recover, export, or erase that local data.",
-          "Use the in-app Memory and notes pages for those stores. Use the operating system's app-removal controls to request removal of remaining app-private data; final removal and device backups are controlled by the operating system.",
+          "Your on-device conversations, memories, notes, characters, and downloaded models or VRM files stay on your device, and cloud features send only what the privacy policy describes. Support cannot remotely view, recover, or delete data stored on your device.",
+          "You can review, edit, or delete memories, notes, and characters right inside the app at any time. Uninstalling Kokage removes all remaining app data from your device.",
         ],
       },
       {
         id: "contact",
-        title: "Contact the project",
+        title: "Contact us",
         paragraphs: [
-          "For a question or problem with Kokage, email contact@orcalogy.com with the platform, app version, the visible error category, and short steps that reproduce the issue.",
-          "Email is handled outside Kokage by the sender's and recipient's email providers. Do not include prompts, replies, memory values, recordings, photos, model or VRM files, credentials, or other confidential content. No response time is promised.",
-          "The optional in-app offensive-output report exists in a build configured for Report: you review the selected reply and confirm before it is sent, and the privacy policy explains retention and deletion. Email is not a substitute for that bounded report flow and should not include generated conversation content.",
+          "If you have a question or run into an issue, email contact@orcalogy.com with your device model, OS version, app version, the message shown on screen (or the summary from Settings → Show details), and a brief description of what happened.",
+          "To protect your privacy, please do not send private conversations, voice recordings, photos, VRM files, or transfer codes by email. Please note that we cannot promise a specific response time.",
+          "To report an offensive AI reply or voice misuse, use the in-app Report option. You can review what will be sent before confirming, and if you later want the report deleted, email contact@orcalogy.com with the Reference ID shown in the app.",
         ],
       },
     ],
-    contactLabel: "Email Kokage project support",
+    contactLabel: "Email Kokage support",
     contactEmail: "contact@orcalogy.com",
     privacyLinkLabel: "Read the privacy policy",
     backHomeLabel: "Back to Kokage",
   },
-  stack: {
-    eyebrow: "Technology",
-    title: "What runs Kokage",
-    lede: "On your device, separate libraries handle language, speech, and the 3D character. Kokage Cloud runs the optional online features.",
-    items: [
-      {
-        title: "Language model and embeddings",
-        body: "Kokage runs llama.cpp through fllamer, both for replies and for the embeddings behind memory and notes search.",
-      },
-      {
-        title: "On-device voice input",
-        body: "Kokage uses record for bounded microphone capture and sherpa_onnx for Silero VAD, SenseVoice ASR, and optional diarization. The recognizer handles Japanese or English input on the device and excludes Kokage's own playback.",
-      },
-      {
-        title: "On-device speech",
-        body: "misakid prepares the reading, through Open JTalk for Japanese and its own English pronunciation for English, and Kokoro generates the audio through fonix.",
-      },
-      {
-        title: "VRM presentation",
-        body: "Flutter Scene renders the character, and flvtterm handles its presentation.",
-      },
-      {
-        title: "Kokage Cloud",
-        body: "Orcalogy LLC runs Kokage Cloud on Google Cloud, with its gateway in Tokyo and speech, motion and avatar work on GPUs in Singapore. Cloud chat goes through OpenRouter to third-party AI model providers.",
-      },
-    ],
-  },
   status: {
     eyebrow: "Platforms",
-    title: "Where to get Kokage",
-    lede: "Kokage is on the App Store for iPhone and iPad and on Google Play for Android. Other platforms run only from source.",
+    title: "Get Kokage",
+    lede: "Download Kokage for free on the App Store for iPhone and iPad, or on Google Play for Android.",
     platforms: [
       {
         name: "iPhone and iPad",
-        state: "On the App Store",
+        state: "Available on the App Store",
         detail:
-          "On-device and Kokage Cloud replies, voice input and speech, camera photos, invitations to chat, Smart home with Apple Home, and Leaf packs in the app.",
+          "Includes free on-device chat and all optional Kokage Cloud features (cloud chat, cloud voices, 3D avatar creation, and Cloud Motion), plus voice input and speech, camera photo sharing, daily greetings, and Apple Home support.",
         link: {
           href: storeListings.appStore,
-          label: "Kokage on the App Store",
+          label: "View on the App Store",
         },
       },
       {
         name: "Android",
-        state: "On Google Play",
+        state: "Available on Google Play",
         detail:
-          "On-device replies, voice input and speech, camera photos, invitations to chat, and the 3D character. The Android version does not include Kokage Cloud.",
+          "Includes free on-device chat, voice input and speech, camera photo sharing, daily greetings, and 3D VRM characters (the Android version does not include Kokage Cloud).",
         link: {
           href: storeListings.googlePlay,
-          label: "Kokage on Google Play",
+          label: "View on Google Play",
         },
-      },
-      {
-        name: "macOS",
-        state: "Development platform",
-        detail:
-          "Kokage is developed on macOS, where local and Kokage Cloud chat, voice, speech and VRM presentation run from source. It is not distributed for Mac.",
-      },
-      {
-        name: "Linux",
-        state: "Configured in source",
-        detail:
-          "Native x64 and arm64 code paths, including Japanese speech, are configured but have not been validated on their target systems.",
-      },
-      {
-        name: "Windows",
-        state: "Configured in source",
-        detail:
-          "A native x64 code path, including Japanese speech, is configured but has not been validated on its target system.",
-      },
-      {
-        name: "Web",
-        state: "Model-free viewer mode",
-        detail: "The web target runs without language-model inference.",
       },
     ],
   },

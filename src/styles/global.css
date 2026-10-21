@@ -94,6 +94,29 @@
     word-break: auto-phrase;
   }
 
+  /* Zen Maru Gothic only carries Japanese glyph forms, so Chinese pages use
+     the reader's system CJK fonts behind the same rounded Latin fallbacks. */
+  :lang(zh-Hans) {
+    --font-kokage:
+      ui-rounded, "SF Pro Rounded", "Arial Rounded MT Bold", "PingFang SC",
+      "Hiragino Sans GB", "Microsoft YaHei", "Noto Sans SC", sans-serif;
+  }
+
+  :lang(zh-Hant) {
+    --font-kokage:
+      ui-rounded, "SF Pro Rounded", "Arial Rounded MT Bold", "PingFang TC",
+      "Microsoft JhengHei", "Noto Sans TC", sans-serif;
+  }
+
+  :lang(zh) {
+    font-family: var(--font-kokage);
+    line-break: strict;
+  }
+
+  :lang(zh) :is(h1, h2, h3) {
+    overflow-wrap: anywhere;
+  }
+
   ::selection {
     color: var(--ink);
     background: var(--mint-500);
@@ -164,9 +187,9 @@
     letter-spacing: -0.055em;
   }
 
-  :lang(ja) .section-heading h2,
-  :lang(ja) .editorial-intro h2,
-  :lang(ja) .stack-intro h2 {
+  :is(:lang(ja), :lang(zh)) .section-heading h2,
+  :is(:lang(ja), :lang(zh)) .editorial-intro h2,
+  :is(:lang(ja), :lang(zh)) .stack-intro h2 {
     font-size: clamp(2.55rem, 5vw, 4.9rem);
     line-height: 1.12;
     letter-spacing: -0.045em;
@@ -199,7 +222,7 @@
     content: "";
   }
 
-  :lang(ja) .eyebrow {
+  :is(:lang(ja), :lang(zh)) .eyebrow {
     letter-spacing: 0.1em;
   }
 }
@@ -299,26 +322,108 @@
   }
 
   .language-switch {
+    position: relative;
+    font-size: 0.78rem;
+    font-weight: 700;
+  }
+
+  .language-menu__toggle {
     display: inline-flex;
-    gap: 8px;
+    gap: 7px;
     align-items: center;
-    padding: 7px 10px;
+    min-height: 36px;
+    padding: 6px 12px 6px 10px;
     color: var(--muted);
     border: 1px solid var(--line);
     border-radius: 999px;
-    font-size: 0.72rem;
-    font-weight: 700;
-    letter-spacing: 0.05em;
+    cursor: pointer;
+    list-style: none;
+    transition:
+      color 180ms ease,
+      border-color 180ms ease;
   }
 
-  .language-switch a {
-    padding: 4px 3px;
-    transition: color 180ms ease;
+  .language-menu__toggle::-webkit-details-marker {
+    display: none;
   }
 
-  .language-switch a:hover,
-  .language-switch a[aria-current="page"] {
+  .language-menu__toggle:hover,
+  .language-menu[open] .language-menu__toggle {
     color: var(--cream-100);
+    border-color: rgb(216 235 227 / 32%);
+  }
+
+  .language-menu__toggle:focus-visible {
+    outline: 2px solid var(--mint-500);
+    outline-offset: 3px;
+  }
+
+  .language-menu__globe,
+  .language-menu__chevron {
+    flex: none;
+    fill: none;
+    stroke: currentcolor;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+
+  .language-menu__globe {
+    stroke-width: 1.6;
+  }
+
+  .language-menu__chevron {
+    stroke-width: 1.5;
+    transition: transform 180ms var(--ease-out);
+  }
+
+  .language-menu[open] .language-menu__chevron {
+    transform: rotate(180deg);
+  }
+
+  .language-menu__list {
+    position: absolute;
+    z-index: 60;
+    top: calc(100% + 8px);
+    right: 0;
+    min-width: 168px;
+    padding: 6px;
+    border: 1px solid var(--line);
+    border-radius: var(--radius-sm);
+    background: var(--forest-850);
+    box-shadow: 0 18px 40px rgb(0 0 0 / 38%);
+  }
+
+  .language-menu__list a {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 9px 12px;
+    color: var(--muted);
+    border-radius: 8px;
+    font-size: 0.86rem;
+    font-weight: 600;
+    transition:
+      color 140ms ease,
+      background-color 140ms ease;
+  }
+
+  .language-menu__list a:hover,
+  .language-menu__list a:focus-visible {
+    color: var(--text);
+    background: rgb(216 235 227 / 8%);
+    outline: none;
+  }
+
+  .language-menu__list a[aria-current="page"] {
+    color: var(--cream-100);
+  }
+
+  .language-menu__list a[aria-current="page"]::after {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--mint-500);
+    content: "";
   }
 
   .hero {
@@ -365,7 +470,7 @@
     letter-spacing: -0.065em;
   }
 
-  :lang(ja) .hero__title {
+  :is(:lang(ja), :lang(zh)) .hero__title {
     font-size: clamp(3.25rem, 5vw, 5.5rem);
     line-height: 1.08;
     letter-spacing: -0.055em;
@@ -550,7 +655,7 @@
     letter-spacing: -0.025em;
   }
 
-  :lang(ja) .turn-flow h3 {
+  :is(:lang(ja), :lang(zh)) .turn-flow h3 {
     line-height: 1.4;
   }
 
@@ -994,7 +1099,7 @@
     letter-spacing: -0.06em;
   }
 
-  :lang(ja) .policy-hero h1 {
+  :is(:lang(ja), :lang(zh)) .policy-hero h1 {
     max-width: 970px;
     font-size: clamp(3rem, 6vw, 5.8rem);
     line-height: 1.14;
@@ -1021,7 +1126,7 @@
     text-transform: uppercase;
   }
 
-  :lang(ja) .policy-updated {
+  :is(:lang(ja), :lang(zh)) .policy-updated {
     letter-spacing: 0.04em;
     text-transform: none;
   }
@@ -1088,7 +1193,7 @@
     text-transform: uppercase;
   }
 
-  :lang(ja) .policy-contents > p {
+  :is(:lang(ja), :lang(zh)) .policy-contents > p {
     letter-spacing: 0.1em;
   }
 
@@ -1164,7 +1269,7 @@
     letter-spacing: -0.04em;
   }
 
-  :lang(ja) .policy-section-heading h2 {
+  :is(:lang(ja), :lang(zh)) .policy-section-heading h2 {
     line-height: 1.35;
     letter-spacing: -0.03em;
   }
@@ -1521,9 +1626,9 @@
       letter-spacing: -0.045em;
     }
 
-    :lang(ja) .section-heading h2,
-    :lang(ja) .editorial-intro h2,
-    :lang(ja) .stack-intro h2 {
+    :is(:lang(ja), :lang(zh)) .section-heading h2,
+    :is(:lang(ja), :lang(zh)) .editorial-intro h2,
+    :is(:lang(ja), :lang(zh)) .stack-intro h2 {
       font-size: clamp(2.05rem, 9vw, 2.8rem);
       line-height: 1.18;
       letter-spacing: -0.035em;
@@ -1544,10 +1649,10 @@
       height: 34px;
     }
 
-    .language-switch {
+    .language-menu__toggle {
       gap: 6px;
-      padding: 6px 8px;
-      font-size: 0.72rem;
+      padding: 6px 10px 6px 8px;
+      font-size: 0.74rem;
     }
 
     .site-nav {
@@ -1563,7 +1668,7 @@
       line-height: 0.96;
     }
 
-    :lang(ja) .hero__title {
+    :is(:lang(ja), :lang(zh)) .hero__title {
       font-size: clamp(2.25rem, 8.4vw, 3.25rem);
       line-height: 1.1;
     }
@@ -1636,7 +1741,7 @@
       line-height: 1;
     }
 
-    :lang(ja) .policy-hero h1 {
+    :is(:lang(ja), :lang(zh)) .policy-hero h1 {
       font-size: clamp(2.35rem, 10vw, 3.25rem);
       line-height: 1.18;
     }

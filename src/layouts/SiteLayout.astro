@@ -1,6 +1,6 @@
 ---
-import type { SiteCopy } from "../i18n";
-import { localizedRoutes } from "../i18n/routes";
+import { translations, type SiteCopy } from "../i18n";
+import { localeNames, localizedRoutes, siteLocales } from "../i18n/routes";
 import "../styles/global.css";
 
 interface Props {
@@ -13,17 +13,22 @@ interface Props {
 }
 
 const { copy, page } = Astro.props;
-const englishHomeUrl = localizedRoutes.en.home;
-const japaneseHomeUrl = localizedRoutes.ja.home;
-const englishUrl = page ? localizedRoutes.en[page.kind] : englishHomeUrl;
-const japaneseUrl = page ? localizedRoutes.ja[page.kind] : japaneseHomeUrl;
-const canonicalPath = copy.locale === "en" ? englishUrl : japaneseUrl;
-const homePath = copy.locale === "en" ? englishHomeUrl : japaneseHomeUrl;
+const languages = siteLocales.map((locale) => ({
+  locale,
+  name: localeNames[locale],
+  htmlLang: translations[locale].htmlLang,
+  ogLocale: translations[locale].ogLocale,
+  path: localizedRoutes[locale][page?.kind ?? "home"],
+}));
+const languageUrls = Object.fromEntries(
+  languages.map(({ locale, path }) => [locale, path]),
+);
+const canonicalPath = languageUrls[copy.locale];
+const homePath = localizedRoutes[copy.locale].home;
 const privacyPath = localizedRoutes[copy.locale].privacy;
 const supportPath = localizedRoutes[copy.locale].support;
 const canonicalUrl = new URL(canonicalPath, Astro.site);
-const englishAbsoluteUrl = new URL(englishUrl, Astro.site);
-const japaneseAbsoluteUrl = new URL(japaneseUrl, Astro.site);
+const defaultAbsoluteUrl = new URL(languageUrls.en, Astro.site);
 const imageUrl = new URL("/brand/kokage-app-icon.png", Astro.site);
 const meta = page ?? copy.meta;
 const isHomePage = page === undefined;
@@ -50,8 +55,7 @@ const schema = {
 <html
   lang={copy.htmlLang}
   data-site-locale={copy.locale}
-  data-english-url={englishUrl}
-  data-japanese-url={japaneseUrl}
+  data-language-urls={JSON.stringify(languageUrls)}
   data-language-auto-detect={copy.locale === "en" ? "true" : "false"}
 >
   <head>
@@ -72,9 +76,12 @@ const schema = {
     <title>{meta.title}</title>
     <meta name="description" content={meta.description} />
     <link rel="canonical" href={canonicalUrl} />
-    <link rel="alternate" hreflang="en" href={englishAbsoluteUrl} />
-    <link rel="alternate" hreflang="ja" href={japaneseAbsoluteUrl} />
-    <link rel="alternate" hreflang="x-default" href={englishAbsoluteUrl} />
+    {
+      languages.map(({ htmlLang, path }) => (
+        <link rel="alternate" hreflang={htmlLang} href={new URL(path, Astro.site)} />
+      ))
+    }
+    <link rel="alternate" hreflang="x-default" href={defaultAbsoluteUrl} />
     <link rel="sitemap" href="/sitemap-index.xml" />
 
     <meta property="og:type" content="website" />
@@ -83,7 +90,13 @@ const schema = {
     <meta property="og:description" content={meta.description} />
     <meta property="og:url" content={canonicalUrl} />
     <meta property="og:locale" content={copy.ogLocale} />
-    <meta property="og:locale:alternate" content={copy.alternateOgLocale} />
+    {
+      languages
+        .filter(({ locale }) => locale !== copy.locale)
+        .map(({ ogLocale }) => (
+          <meta property="og:locale:alternate" content={ogLocale} />
+        ))
+    }
     <meta property="og:image" content={imageUrl} />
     <meta property="og:image:width" content="1024" />
     <meta property="og:image:height" content="1024" />
@@ -101,9 +114,11 @@ const schema = {
 
     <script is:inline type="application/ld+json" set:html={JSON.stringify(schema)} />
     <script>
+      import { initializeLanguageMenu } from "../scripts/language-menu.mjs";
       import { initializeLanguagePreference } from "../scripts/language-preference.mjs";
 
       initializeLanguagePreference();
+      initializeLanguageMenu();
     </script>
   </head>
   <body id="top">
@@ -137,25 +152,48 @@ const schema = {
         </nav>
 
         <nav class="language-switch" aria-label={copy.navigation.languageLabel}>
-          <a
-            href={englishUrl}
-            hreflang="en"
-            lang="en"
-            data-language-option="en"
-            aria-current={copy.locale === "en" ? "page" : undefined}
-          >
-            EN
-          </a>
-          <span aria-hidden="true">/</span>
-          <a
-            href={japaneseUrl}
-            hreflang="ja"
-            lang="ja"
-            data-language-option="ja"
-            aria-current={copy.locale === "ja" ? "page" : undefined}
-          >
-            日本語
-          </a>
+          <details class="language-menu">
+            <summary class="language-menu__toggle">
+              <svg
+                class="language-menu__globe"
+                viewBox="0 0 24 24"
+                width="16"
+                height="16"
+                aria-hidden="true"
+              >
+                <circle cx="12" cy="12" r="9" />
+                <path d="M3 12h18M12 3c2.6 2.6 3.9 5.6 3.9 9s-1.3 6.4-3.9 9c-2.6-2.6-3.9-5.6-3.9-9S9.4 5.6 12 3Z" />
+              </svg>
+              <span class="visually-hidden">{copy.navigation.languageLabel}: </span>
+              <span class="language-menu__current">{localeNames[copy.locale]}</span>
+              <svg
+                class="language-menu__chevron"
+                viewBox="0 0 12 12"
+                width="10"
+                height="10"
+                aria-hidden="true"
+              >
+                <path d="m2.5 4.5 3.5 3.5 3.5-3.5" />
+              </svg>
+            </summary>
+            <ul class="language-menu__list" role="list">
+              {
+                languages.map(({ locale, name, htmlLang, path }) => (
+                  <li>
+                    <a
+                      href={path}
+                      hreflang={htmlLang}
+                      lang={htmlLang}
+                      data-language-option={locale}
+                      aria-current={copy.locale === locale ? "page" : undefined}
+                    >
+                      {name}
+                    </a>
+                  </li>
+                ))
+              }
+            </ul>
+          </details>
         </nav>
       </div>
     </header>
