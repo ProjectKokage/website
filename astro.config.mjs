@@ -13,7 +13,7 @@ export default defineConfig({
   output: "static",
   trailingSlash: "always",
   i18n: {
-    locales: ["en", "ja"],
+    locales: ["en", "ja", "zh-hans", "zh-hant"],
     defaultLocale: "en",
     routing: {
       prefixDefaultLocale: false,
@@ -26,6 +26,8 @@ export default defineConfig({
         locales: {
           en: "en",
           ja: "ja",
+          "zh-hans": "zh-Hans",
+          "zh-hant": "zh-Hant",
         },
       },
     }),

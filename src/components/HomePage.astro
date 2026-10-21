@@ -185,11 +185,6 @@ const privacyPolicyPath = localizedRoutes[copy.locale].privacy;
             ))
           }
         </ol>
-
-        <p class="flow-note">
-          <span aria-hidden="true">↳</span>
-          {copy.flow.footnote}
-        </p>
       </div>
     </section>
 
@@ -209,50 +204,10 @@ const privacyPolicyPath = localizedRoutes[copy.locale].privacy;
           <p>{copy.privacy.lede}</p>
         </div>
 
-        <div class="privacy-grid">
-          {
-            copy.privacy.items.map((item, index) => (
-              <article>
-                <span class="privacy-index" aria-hidden="true">
-                  {String(index + 1).padStart(2, "0")}
-                </span>
-                <h3>{item.title}</h3>
-                <p>{item.body}</p>
-              </article>
-            ))
-          }
-        </div>
-
-        <aside class="network-note" aria-labelledby="network-note-title">
-          <p id="network-note-title">{copy.privacy.networkLabel}</p>
-          <p>{copy.privacy.networkBody}</p>
-        </aside>
-
         <a class="privacy-policy-link" href={privacyPolicyPath}>
           {copy.privacy.policyLink}
           <span aria-hidden="true">→</span>
         </a>
-      </div>
-    </section>
-
-    <section class="section section--stack" aria-labelledby="stack-title">
-      <div class="page-shell stack-grid">
-        <div class="stack-intro">
-          <p class="eyebrow">{copy.stack.eyebrow}</p>
-          <h2 id="stack-title">{copy.stack.title}</h2>
-          <p>{copy.stack.lede}</p>
-        </div>
-
-        <dl class="stack-list">
-          {
-            copy.stack.items.map((item) => (
-              <div>
-                <dt>{item.title}</dt>
-                <dd>{item.body}</dd>
-              </div>
-            ))
-          }
-        </dl>
       </div>
     </section>
 

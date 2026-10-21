@@ -1,10 +1,25 @@
 export const DEFAULT_LOCALE = "en";
 export const LANGUAGE_PREFERENCE_STORAGE_KEY = "kokage-language";
 
-const supportedLocales = new Set(["en", "ja"]);
+const supportedLocales = new Set(["en", "ja", "zh-hans", "zh-hant"]);
+const traditionalChineseRegions = new Set(["tw", "hk", "mo"]);
 
 export function isSiteLocale(value) {
   return typeof value === "string" && supportedLocales.has(value);
+}
+
+function chineseLocaleFromSubtags(subtags) {
+  if (subtags.includes("hant")) {
+    return "zh-hant";
+  }
+
+  if (subtags.includes("hans")) {
+    return "zh-hans";
+  }
+
+  return subtags.some((subtag) => traditionalChineseRegions.has(subtag))
+    ? "zh-hant"
+    : "zh-hans";
 }
 
 export function localeFromLanguageTag(value) {
@@ -12,7 +27,15 @@ export function localeFromLanguageTag(value) {
     return null;
   }
 
-  const [primaryLanguage] = value.trim().toLowerCase().split(/[-_]/u);
+  const [primaryLanguage, ...subtags] = value
+    .trim()
+    .toLowerCase()
+    .split(/[-_]/u);
+
+  if (primaryLanguage === "zh") {
+    return chineseLocaleFromSubtags(subtags);
+  }
+
   return isSiteLocale(primaryLanguage) ? primaryLanguage : null;
 }
 
@@ -87,6 +110,15 @@ function browserLanguageTags(navigatorObject) {
   return languageTags;
 }
 
+function parseLanguageUrls(value) {
+  try {
+    const urls = JSON.parse(value ?? "{}");
+    return urls !== null && typeof urls === "object" ? urls : {};
+  } catch {
+    return {};
+  }
+}
+
 function browserStorage(windowObject) {
   try {
     return windowObject.localStorage;
@@ -105,8 +137,7 @@ export function initializeLanguagePreference({
 
   const {
     siteLocale: currentLocale,
-    englishUrl,
-    japaneseUrl,
+    languageUrls,
     languageAutoDetect,
   } = documentObject.documentElement.dataset;
 
@@ -135,8 +166,8 @@ export function initializeLanguagePreference({
     return;
   }
 
-  const targetPath = preferredLocale === "ja" ? japaneseUrl : englishUrl;
-  if (targetPath === undefined || targetPath.length === 0) {
+  const targetPath = parseLanguageUrls(languageUrls)[preferredLocale];
+  if (typeof targetPath !== "string" || targetPath.length === 0) {
     return;
   }
 
