@@ -198,7 +198,8 @@ test("English and Japanese pages emit localized metadata and complete navigation
 
   assert.match(english, /Talk with a 3D AI character/);
   assert.match(english, /Download on the App Store/);
-  assert.match(english, /Get it on Google Play/);
+  assert.match(english, /Download on Google Play/);
+  assert.doesNotMatch(english, /Get it on Google Play/);
   assert.equal(
     (english.match(/<span class="brand__name">Kokage<\/span>/g) ?? []).length,
     2,
@@ -208,7 +209,11 @@ test("English and Japanese pages emit localized metadata and complete navigation
     /3DのAIキャラクターと話す。端末でも、クラウドでも。/,
   );
   assert.match(japanese, /App Storeからダウンロード/);
-  assert.match(japanese, /Google Playで手に入れよう/);
+  assert.match(japanese, /Google Playからダウンロード/);
+  assert.doesNotMatch(
+    japanese,
+    /手に入れよう|ダンロード|iPhone・iPad|メモリー|後から|二枚の葉|クラウドでの会話|新しい3Dの見た目/,
+  );
   assert.equal(
     (japanese.match(/<span class="brand__name">こかげ<\/span>/g) ?? []).length,
     2,
@@ -453,11 +458,11 @@ test("privacy policy pages are localized, indexable, and linked across languages
   // Statements the app no longer supports, and draft-only notes, stay out.
   assert.doesNotMatch(
     english,
-    /No Kokage account|developer-operated inference|no Kokage login|without a persistent chat log|unavailable in this release|remains? unavailable|must be (?:completed|added)|before publication|before this policy is published|Check:/i,
+    /No Kokage account|developer-operated inference|no Kokage login|without a persistent chat log|unavailable in this release|remains? unavailable|must be (?:completed|added)|before publication|before this policy is published|Check:|on-device inference only/i,
   );
   assert.doesNotMatch(
     japanese,
-    /アカウント機能と、?開発者が運用する推論|永続的な会話ログへ書き込まず|このリリースでは利用できません|報告機能を利用できない状態|公開前に|Check:/,
+    /アカウント機能と、?開発者が運用する推論|永続的な会話ログへ書き込まず|このリリースでは利用できません|報告機能を利用できない状態|公開前に|Check:|iPhone・iPad|メモリー|後から|端末内推論|Appleの「ホーム」|本ウェブサイト|ダンロード/,
   );
 });
 
@@ -572,6 +577,16 @@ test("support pages are bilingual, indexable, and privacy-conscious", async () =
   assert.match(english, /Retry voice input or check that microphone/);
   assert.match(japanese, /録音を始める前にだけ求めます/);
   assert.match(japanese, /音声入力を再試行するか、OSの設定でマイク/);
+  assert.match(japanese, /App Storeで見る/);
+  assert.match(japanese, /Google Playで見る/);
+  assert.doesNotMatch(
+    japanese,
+    /手に入れよう|ダンロード|iPhone・iPad|メモリー|後から|App Storeのこかげ|Google Playのこかげ/,
+  );
+  assert.doesNotMatch(
+    english,
+    /Get it on Google Play|Kokage on the App Store|Kokage on Google Play/,
+  );
 });
 
 test("Chinese pages are complete, script-consistent, and free of retired terms", async () => {
@@ -620,6 +635,11 @@ test("Chinese pages are complete, script-consistent, and free of retired terms",
       );
       assert.doesNotMatch(text, retiredChineseTerms, label);
       assert.doesNotMatch(text, otherScript, label);
+      assert.doesNotMatch(
+        text,
+        /在 Google Play (?:获取|取得)|(?:App Store|Google Play) 上的 Kokage|仅限设备端推理|僅限裝置端推論/,
+        label,
+      );
       // Japanese kana only appears inside the product term 言の葉.
       assert.doesNotMatch(
         text.replaceAll("言の葉", ""),

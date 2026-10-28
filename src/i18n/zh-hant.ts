@@ -29,7 +29,7 @@ export const zhHant = {
     titleAccentLines: ["在裝置上，或在雲端。"],
     lede: "Kokage 是一款透過語音或文字與 3D AI 角色聊天的 App。你可以聽到朗讀出來的回覆，看著角色用表情和動作回應你。你可以在裝置上免費聊天，也可以在 iPhone 和 iPad 上透過 Kokage Cloud 立即開始對話。",
     appStoreAction: "在 App Store 下載",
-    googlePlayAction: "在 Google Play 取得",
+    googlePlayAction: "在 Google Play 下載",
     cloudAction: "了解 Kokage Cloud",
     notice:
       "免費下載，裝置端聊天永遠免費。在 iPhone 和 iPad 上，你還可以使用言の葉來使用 Kokage Cloud 功能。",
@@ -136,7 +136,7 @@ export const zhHant = {
     eyebrow: "隱私權",
     title: "讓你的對話掌握在自己手中",
     lede: "回覆在裝置上產生時，你的對話會留在裝置上。語音輸入在裝置上轉成文字，因此你日常說話的音訊絕不會被上傳，App 中也沒有任何廣告或分析工具。使用 Kokage Cloud 時，App 會事先說明將傳送哪些內容，你也可以隨時管理或刪除你的記憶、筆記和雲端帳戶。",
-    policyLink: "閱讀完整的隱私權政策",
+    policyLink: "閱讀隱私權政策",
   },
   privacyPolicy: {
     meta: {
@@ -313,7 +313,7 @@ export const zhHant = {
           },
           {
             title: "設為僅限裝置端的角色卡",
-            body: "標示為僅限裝置端推論的角色卡一律使用裝置端模型。即使已啟用 Kokage Cloud，該角色的雲端對話、雲端摘要、雲端聲音和雲端動作也會被停用。",
+            body: "設為僅限裝置端的角色卡一律使用裝置端模型。即使已啟用 Kokage Cloud，該角色的雲端對話、雲端摘要、雲端聲音和雲端動作也會被停用。",
           },
           {
             title: "匯出和分享角色卡",
@@ -487,7 +487,7 @@ export const zhHant = {
             body: "從 App Store 下載 Kokage。",
             link: {
               href: storeListings.appStore,
-              label: "App Store 上的 Kokage",
+              label: "在 App Store 查看",
             },
           },
           {
@@ -495,7 +495,7 @@ export const zhHant = {
             body: "從 Google Play 下載 Kokage。",
             link: {
               href: storeListings.googlePlay,
-              label: "Google Play 上的 Kokage",
+              label: "在 Google Play 查看",
             },
           },
         ],
