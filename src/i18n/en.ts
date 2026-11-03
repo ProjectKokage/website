@@ -29,7 +29,7 @@ export const en = {
     titleAccentLines: ["on your device or in the cloud."],
     lede: "Kokage is an app for chatting with a 3D AI character by voice or text. Hear replies spoken aloud and watch your character respond with expressions and gestures. You can chat for free on your device, or start talking right away on iPhone and iPad with Kokage Cloud.",
     appStoreAction: "Download on the App Store",
-    googlePlayAction: "Get it on Google Play",
+    googlePlayAction: "Download on Google Play",
     cloudAction: "Explore Kokage Cloud",
     notice:
       "Free to download, and on-device chat is always free. On iPhone and iPad, you can also use Kokage Cloud features with Leaf.",
@@ -136,7 +136,7 @@ export const en = {
     eyebrow: "Privacy",
     title: "Built to keep your conversations in your hands",
     lede: "When replies are made on your device, your conversations stay on your device. Voice input is transcribed on your device, so your everyday spoken audio is never uploaded, and the app contains no advertising or analytics. When you use Kokage Cloud, the app explains what is sent beforehand, and you can manage or delete your memories, notes, and cloud account at any time.",
-    policyLink: "Read the full privacy policy",
+    policyLink: "Read the privacy policy",
   },
   privacyPolicy: {
     meta: {
@@ -313,7 +313,7 @@ export const en = {
           },
           {
             title: "Cards set to on-device only",
-            body: "A character card marked for on-device inference only always uses an on-device model. Even if Kokage Cloud is enabled, cloud chat, cloud summaries, cloud voices, and Cloud Motion are disabled for that character.",
+            body: "A character card set to on-device only always uses an on-device model. Even if Kokage Cloud is enabled, cloud chat, cloud summaries, cloud voices, and Cloud Motion are disabled for that character.",
           },
           {
             title: "Exporting and sharing cards",
@@ -487,7 +487,7 @@ export const en = {
             body: "Download Kokage from the App Store.",
             link: {
               href: storeListings.appStore,
-              label: "Kokage on the App Store",
+              label: "View on the App Store",
             },
           },
           {
@@ -495,7 +495,7 @@ export const en = {
             body: "Download Kokage from Google Play.",
             link: {
               href: storeListings.googlePlay,
-              label: "Kokage on Google Play",
+              label: "View on Google Play",
             },
           },
         ],

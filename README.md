@@ -1,6 +1,6 @@
 # Kokage website
 
-The bilingual project site for Kokage, built as a static Astro site.
+The multilingual project site for Kokage, built as a static Astro site.
 
 ## Development
 
@@ -15,9 +15,8 @@ Run all repository checks with:
 npm test
 ```
 
-English is served at `/` and Japanese at `/ja/`.
-The privacy policy is served at `/privacy/` and `/ja/privacy/`.
-Support is served at `/support/` and `/ja/support/`.
+English is served at `/`, Japanese at `/ja/`, Simplified Chinese at `/zh-hans/`, and Traditional Chinese at `/zh-hant/`.
+Each language includes a home page, privacy policy (`privacy/`), and support page (`support/`).
 Set `KOKAGE_SITE_URL` to the approved site origin before running a production build.
 Development uses a loopback origin, and the test runner uses a reserved non-public origin.
 
