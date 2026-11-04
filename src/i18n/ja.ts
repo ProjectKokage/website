@@ -332,6 +332,10 @@ export const ja = {
           {
             title: "こかげクラウドの運用体制",
             body: "こかげクラウドはOrcalogy LLCがGoogle Cloud上で運用しています。ゲートウェイとデータベースは東京リージョンにあり、声・モーション・アバターの生成処理および保存した声やアバターの非公開ファイルはシンガポールリージョンで管理しています。",
+            link: {
+              href: "https://kokage.cloud/ja/privacy/",
+              label: "こかげクラウドのアカウントのプライバシーポリシー",
+            },
           },
           {
             title: "AIモデル提供事業者（OpenRouter）",

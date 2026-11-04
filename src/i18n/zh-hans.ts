@@ -331,6 +331,10 @@ export const zhHans = {
           {
             title: "Kokage Cloud 的运营方式",
             body: "Kokage Cloud 由 Orcalogy LLC 在 Google Cloud 上运营。其网关和数据库在东京运行，而声音、动作和虚拟形象的处理，以及已保存声音和虚拟形象的私人存储，均在新加坡运行。",
+            link: {
+              href: "https://kokage.cloud/zh/privacy/",
+              label: "Kokage Cloud 账户隐私政策",
+            },
           },
           {
             title: "AI 模型提供商（OpenRouter）",

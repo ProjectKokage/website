@@ -331,6 +331,10 @@ export const en = {
           {
             title: "How Kokage Cloud is operated",
             body: "Kokage Cloud is operated by Orcalogy LLC on Google Cloud. Its gateway and database run in Tokyo, while voice, motion, and avatar processing—as well as private storage for saved voices and avatars—run in Singapore.",
+            link: {
+              href: "https://kokage.cloud/privacy/",
+              label: "Kokage Cloud account privacy policy",
+            },
           },
           {
             title: "AI model providers (OpenRouter)",
