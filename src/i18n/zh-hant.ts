@@ -331,6 +331,10 @@ export const zhHant = {
           {
             title: "Kokage Cloud 的營運方式",
             body: "Kokage Cloud 由 Orcalogy LLC 在 Google Cloud 上營運。其閘道和資料庫在東京運作，而聲音、動作和虛擬形象的處理，以及已儲存聲音和虛擬形象的私人儲存空間，則在新加坡運作。",
+            link: {
+              href: "https://kokage.cloud/zh/privacy/",
+              label: "Kokage Cloud 帳戶隱私政策",
+            },
           },
           {
             title: "AI 模型供應商（OpenRouter）",
