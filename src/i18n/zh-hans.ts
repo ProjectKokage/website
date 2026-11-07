@@ -148,8 +148,8 @@ export const zhHans = {
     title: "Kokage 在你的设备上保存什么，以及云端功能发送什么",
     lede: "本页说明 Kokage 应用在你的设备上保存哪些内容、会向 Kokage Cloud 和外部服务发送哪些内容、何时发送，以及你如何管理或删除自己的数据。",
     updatedLabel: "最后更新",
-    updatedDate: "2026-10-02",
-    updatedDateDisplay: "2026年10月2日",
+    updatedDate: "2026-11-07",
+    updatedDateDisplay: "2026年11月7日",
     highlightsLabel: "政策摘要",
     highlights: [
       "回复在设备上生成时，你的对话会保留在设备上",
@@ -163,7 +163,7 @@ export const zhHans = {
         id: "scope",
         title: "适用范围",
         paragraphs: [
-          "本政策说明截至 2026年10月2日，Kokage 应用、Kokage Cloud 及本网站如何处理数据。",
+          "本政策说明截至 2026年11月7日，Kokage 应用、Kokage Cloud 及本网站如何处理数据。",
           "有关 Kokage Cloud 的部分适用于包含 Kokage Cloud 的应用版本（例如 iPhone 和 iPad 的 App Store 版本）。",
           "你从应用中连接的外部网站和下载服务器会依据其各自的隐私政策处理请求。",
         ],
@@ -361,6 +361,7 @@ export const zhHans = {
           "你可以随时通过设置中的“删除 Kokage Cloud 账户”删除你的云端账户。确认删除后，所有设备会立即退出登录，未使用的转移代码会失效，你保存的云端声音、制作的虚拟形象和上传的文件会从服务器上清除。",
           "删除账户后，剩余的言の葉将被作废且不予退款，过去在商店中的购买也不会退款。你的设备会移除云端账户信息、所选的云端声音设置和缓存的余额，但会保留你设备上的角色、对话、记忆、笔记以及已应用到角色上的虚拟形象。如果你之后再次使用 Kokage Cloud，将会创建一个新的空账户。",
           "账户删除后，Kokage Cloud 仅保留不含任何对话、声音或图像内容的管理记录：已关闭的账户 ID、言の葉余额和使用记录、商店购买记录、声音同意记录、被拒绝或失败的虚拟形象请求的安全检查记录，以及审计日志。这些记录出于会计、防范欺诈和法律义务的需要而保留，没有固定的删除日期。",
+          "如果你曾通过 Apple 或 Google 登录，Kokage Cloud 还会保留一个由你在 Apple 或 Google 的 ID 单向转换得到的值，用于记录该 Apple 或 Google 账号已经领取过首次登录赠送的言の葉。这个值既不包含 ID 本身，也不包含你的电子邮件地址。由于它在账户删除后仍会保留，用同一个 Apple 或 Google 账号再次登录时，新账户不会再获得首次登录赠送的言の葉。",
           "AI 模型提供商、App Store、RevenueCat 所持有的数据以及已提交的举报，遵循各服务自身的保留规则。",
         ],
       },
