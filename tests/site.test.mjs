@@ -184,7 +184,7 @@ test("English and Japanese pages emit localized metadata and complete navigation
     canonical: `${siteOrigin}/`,
     title: "Kokage | Talk with a 3D AI character",
     description:
-      "Kokage is an app for talking with a 3D AI character on iPhone, iPad, and Android. Chat for free on your device, or use Kokage Cloud on iPhone and iPad for instant chat, custom voices, 3D avatars, and Cloud Motion.",
+      "Kokage is an app for talking with a 3D AI character on iPhone, iPad, and Android. Chat for free on your device, or use Kokage Cloud for instant chat, custom voices, 3D avatars, and Cloud Motion.",
   });
   assertPage(japanese, {
     locale: "ja",
@@ -193,7 +193,7 @@ test("English and Japanese pages emit localized metadata and complete navigation
     canonical: `${siteOrigin}/ja/`,
     title: "こかげ | 3DのAIキャラクターと話せるアプリ",
     description:
-      "こかげは、iPhone、iPad、Androidで3DのAIキャラクターと会話できるアプリです。端末の中で無料で話せるほか、iPhoneとiPadではこかげクラウドを使って、キャラクターの声や3Dアバター、自然な動きを作れます。",
+      "こかげは、iPhone、iPad、Androidで3DのAIキャラクターと会話できるアプリです。端末の中で無料で話せるほか、こかげクラウドを使って、キャラクターの声や3Dアバター、自然な動きを作れます。",
   });
 
   assert.match(english, /Talk with a 3D AI character/);
@@ -245,7 +245,12 @@ test("English and Japanese pages emit localized metadata and complete navigation
     assert.match(english, new RegExp(`<p class="cloud-label">${name}</p>`));
   }
   assert.match(english, /Kokage Cloud features use Leaf/);
-  assert.match(english, /the Android version does not include Kokage Cloud/);
+  assert.doesNotMatch(english, /does not include Kokage Cloud/);
+  assert.match(
+    english,
+    /plus voice input and speech, photo sharing, daily greetings, and 3D VRM characters/,
+  );
+  assert.match(english, /A place of its own/);
   assert.match(english, /automatically switches to on-device replies/);
   assert.match(english, /explains what is sent beforehand/);
   assert.match(english, /no advertising or analytics/);
@@ -257,7 +262,9 @@ test("English and Japanese pages emit localized metadata and complete navigation
     assert.match(japanese, new RegExp(`<p class="cloud-label">${name}</p>`));
   }
   assert.match(japanese, /こかげクラウドの機能は、アプリ内の「言の葉」を使って/);
-  assert.match(japanese, /Android版にこかげクラウドは含まれません/);
+  assert.doesNotMatch(japanese, /こかげクラウドは含まれません/);
+  assert.match(japanese, /写真の共有、チャットへのお誘い、3DのVRMキャラクターとのおしゃべりに対応しています/);
+  assert.match(japanese, /キャラクターだけの場所/);
   assert.match(japanese, /言の葉がなくなったときも自動で端末内の返事に切り替わります/);
   assert.match(japanese, /何が送信されるかを事前にわかりやすく案内し/);
   assert.match(japanese, /アプリに広告やアクセス解析もありません/);
@@ -296,7 +303,7 @@ test("privacy policy pages are localized, indexable, and linked across languages
       heading:
         "What Kokage keeps on your device and what its cloud features send",
       siteName: "Kokage",
-      date: "November 7, 2026",
+      date: "November 9, 2026",
       homePath: "/",
     },
     {
@@ -309,7 +316,7 @@ test("privacy policy pages are localized, indexable, and linked across languages
         "こかげにおける端末内の会話とクラウド会話、こかげクラウドのモーション、声、読み上げ、アバター、会話の保存、記憶、報告、アカウント、ダウンロード、ウェブサイトのデータの扱いを説明します。",
       heading: "こかげが端末に保存するデータと、クラウド機能が送信するデータ",
       siteName: "こかげ",
-      date: "2026年11月7日",
+      date: "2026年11月9日",
       homePath: "/ja/",
     },
   ];
@@ -342,7 +349,7 @@ test("privacy policy pages are localized, indexable, and linked across languages
     assert.match(
       html,
       new RegExp(
-        `<time datetime="2026-11-07">${escapeRegExp(policy.date)}</time>`,
+        `<time datetime="2026-11-09">${escapeRegExp(policy.date)}</time>`,
       ),
     );
     assert.match(html, /"@type":"WebPage"/);
@@ -414,7 +421,10 @@ test("privacy policy pages are localized, indexable, and linked across languages
   assert.match(english, /Delete Kokage Cloud account/);
   assert.match(english, /Reply on this device when Leaf runs out/);
   assert.match(english, /Redeem a code/);
-  assert.match(english, /transfer code/);
+  assert.doesNotMatch(english, /transfer code/);
+  assert.match(english, /Signing in with Apple \(on iPhone and iPad\) or Google/);
+  assert.match(english, /Google Play on Android, together with RevenueCat/);
+  assert.match(english, /Removing a character from your library/);
   assert.match(english, /have no fixed deletion date/);
   assert.match(english, /there is no fixed retention period/);
   assert.match(japanese, /対応バージョンでのクラウド会話を選べます/);
@@ -428,7 +438,9 @@ test("privacy policy pages are localized, indexable, and linked across languages
   assert.match(japanese, /こかげクラウドのアカウントを削除/);
   assert.match(japanese, /言の葉が足りないときはこの端末で返事する/);
   assert.match(japanese, /コードを使う/);
-  assert.match(japanese, /引き継ぎコード/);
+  assert.doesNotMatch(japanese, /引き継ぎコード/);
+  assert.match(japanese, /Apple（iPhoneとiPad）またはGoogleでサインインすると/);
+  assert.match(japanese, /「ライブラリから取り除く」と一覧からは外れますが/);
   assert.match(japanese, /一定の削除期日は設けていません/);
   assert.match(japanese, /保管期間は定めておらず/);
 
@@ -450,7 +462,8 @@ test("privacy policy pages are localized, indexable, and linked across languages
   assert.match(japanese, /ランダムな受付ID/);
   assert.match(japanese, /アプリに表示された受付IDを添えて/);
   assert.doesNotMatch(japanese, /参照ID|報告番号/);
-  assert.match(english, /or take a picture for a new avatar/);
+  assert.match(english, /when you take a photo for a message or a new avatar/);
+  assert.match(english, /Kokage reads only the photo you pick/);
   assert.match(english, /before voice input or voice-clone recording/);
   assert.match(japanese, /アバター作成用の写真を撮るときにカメラの許可/);
   assert.match(japanese, /声の複製のための録音を始める前にマイクの許可/);
@@ -569,9 +582,13 @@ test("support pages are bilingual, indexable, and privacy-conscious", async () =
   assert.doesNotMatch(japanese, /有効にするまで利用できません|\bKokage\b(?!%20support)/);
   assert.match(english, /cannot promise a specific response time/);
   assert.match(japanese, /個別の返信時期についてはお約束しておりません/);
-  assert.match(english, /Kokage Cloud features and Leaf packs are available in the App Store version/);
+  assert.match(
+    english,
+    /the Google Play version for Android include free on-device chat and the optional Kokage Cloud features/,
+  );
+  assert.doesNotMatch(english, /transfer code/);
   assert.match(english, /Delete Kokage Cloud account/);
-  assert.match(japanese, /こかげクラウドの機能と言の葉のパックは、iPhoneとiPad向けのApp Store版/);
+  assert.match(japanese, /Android向けのGoogle Play版のどちらでも、無料の端末内での会話に加えて/);
   assert.match(japanese, /設定の「こかげクラウドのアカウントを削除」から/);
   assert.match(english, /microphone access before voice input/);
   assert.match(english, /Retry voice input or check that microphone/);
@@ -661,7 +678,7 @@ test("Chinese pages are complete, script-consistent, and free of retired terms",
       assert.match(home, new RegExp(`id="${id}"`));
     }
     const privacy = await read(`dist${localizedPath(prefix, "privacy")}index.html`);
-    assert.match(privacy, /<time datetime="2026-11-07">2026年11月7日<\/time>/);
+    assert.match(privacy, /<time datetime="2026-11-09">2026年11月9日<\/time>/);
     assert.match(privacy, /contact@orcalogy\.com/);
     assert.match(privacy, /Orcalogy LLC/);
     assert.match(privacy, /zh-hans/);
