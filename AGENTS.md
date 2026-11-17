@@ -63,9 +63,10 @@ Keep wording parallel across paired elements and consistent within each locale
   - Write `Apple Home` in Japanese and English (`Apple 家庭` in Chinese); do not
     mix `Apple Home` with `Appleの「ホーム」`.
 - **Product and feature terms**:
-  - Brand name: `こかげ` on Japanese pages (never Latin `Kokage` in visible
-    Japanese prose) and `Kokage` on English and Chinese pages; `こかげクラウド`
-    in Japanese and `Kokage Cloud` in English and Chinese.
+  - Brand name: `こかげ` on Japanese pages (never Latin `Kokage` by itself in
+    visible Japanese prose) and `Kokage` on English and Chinese pages. The
+    service is `Kokage Cloud` in every language, with a half-width space
+    between it and Japanese or Chinese characters (`Kokage Cloud の機能`).
   - Credits and packs: `言の葉` (`Leaf` in English), `言の葉のパック`
     (`Leaf packs`, `言の葉礼包` / `言の葉禮包`).
   - Cloud features: `クラウド会話` (`cloud chat`, `云端对话` / `雲端對話`),
