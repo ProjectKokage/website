@@ -148,8 +148,8 @@ export const zhHans = {
     title: "Kokage 在你的设备上保存什么，以及云端功能发送什么",
     lede: "本页说明 Kokage 应用在你的设备上保存哪些内容、会向 Kokage Cloud 和外部服务发送哪些内容、何时发送，以及你如何管理或删除自己的数据。",
     updatedLabel: "最后更新",
-    updatedDate: "2026-11-07",
-    updatedDateDisplay: "2026年11月7日",
+    updatedDate: "2026-11-19",
+    updatedDateDisplay: "2026年11月19日",
     highlightsLabel: "政策摘要",
     highlights: [
       "回复在设备上生成时，你的对话会保留在设备上",
@@ -163,7 +163,7 @@ export const zhHans = {
         id: "scope",
         title: "适用范围",
         paragraphs: [
-          "本政策说明截至 2026年11月7日，Kokage 应用、Kokage Cloud 及本网站如何处理数据。",
+          "本政策说明截至 2026年11月19日，Kokage 应用、Kokage Cloud 及本网站如何处理数据。",
           "有关 Kokage Cloud 的部分适用于包含 Kokage Cloud 的应用版本（例如 iPhone 和 iPad 的 App Store 版本）。",
           "你从应用中连接的外部网站和下载服务器会依据其各自的隐私政策处理请求。",
         ],
@@ -337,8 +337,8 @@ export const zhHans = {
             },
           },
           {
-            title: "AI 模型提供商（OpenRouter）",
-            body: "云端对话请求和虚拟形象安全检查会通过 OpenRouter 路由到第三方 AI 模型提供商（具体由哪家提供商响应取决于模型，且可能发生变化）。Kokage Cloud 不会将云端对话请求中的文本或图像作为对话记录存储；它仅记录用量、时间戳、模型路由和言の葉扣费，以用于计费。OpenRouter 和模型提供商会依据其各自的条款和隐私政策处理请求。",
+            title: "AI 模型提供商",
+            body: "云端对话请求和虚拟形象安全检查会发送给第三方 AI 模型提供商。由哪家公司接收对话取决于模型，且可能发生变化：OpenAI、Anthropic、Google 和 DeepSeek 的模型，Kokage Cloud 会先交给该公司自己的 API，无法响应时再通过 OpenRouter 使用同一模型；其他模型则通过 OpenRouter 交给提供该模型的公司。只要还有其他公司能提供该模型，Kokage Cloud 就不会把对话发给 Cohere、StepFun 或 StreamLake，这几家公司表示会用收到的内容训练模型。Kokage Cloud 的默认对话最先由 DeepSeek 自己的服务响应，而 DeepSeek 没有说明是否会用通过 API 发送的内容训练模型。Kokage Cloud 不会将云端对话请求中的文本或图像作为对话记录存储；它仅记录用量、时间戳、模型路由和言の葉扣费，以用于计费。各公司依据各自的条款和隐私政策处理请求。",
             link: {
               href: "https://openrouter.ai/privacy",
               label: "OpenRouter 隐私政策",
