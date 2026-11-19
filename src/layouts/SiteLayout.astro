@@ -1,6 +1,7 @@
 ---
 import { translations, type SiteCopy } from "../i18n";
 import { localeNames, localizedRoutes, siteLocales } from "../i18n/routes";
+import { jsonLdText, structuredData } from "../seo/structured-data";
 import "../styles/global.css";
 
 interface Props {
@@ -32,23 +33,9 @@ const defaultAbsoluteUrl = new URL(languageUrls.en, Astro.site);
 const imageUrl = new URL("/brand/kokage-app-icon.png", Astro.site);
 const meta = page ?? copy.meta;
 const isHomePage = page === undefined;
-const schema = {
-  "@context": "https://schema.org",
-  "@type": isHomePage ? "WebSite" : "WebPage",
-  name: isHomePage ? copy.brandLabel : meta.title,
-  url: canonicalUrl.href,
-  description: meta.description,
-  inLanguage: copy.htmlLang,
-  ...(isHomePage
-    ? {}
-    : {
-        isPartOf: {
-          "@type": "WebSite",
-          name: copy.brandLabel,
-          url: new URL(homePath, Astro.site).href,
-        },
-      }),
-};
+const schema = jsonLdText(
+  structuredData(copy, page?.kind ?? "home", Astro.site!),
+);
 ---
 
 <!doctype html>
@@ -112,7 +99,7 @@ const schema = {
     <link rel="icon" type="image/png" href="/favicon.png" />
     <link rel="apple-touch-icon" href="/brand/kokage-app-icon-192.png" />
 
-    <script is:inline type="application/ld+json" set:html={JSON.stringify(schema)} />
+    <script is:inline type="application/ld+json" set:html={schema} />
     <script>
       import { initializeLanguageMenu } from "../scripts/language-menu.mjs";
       import { initializeLanguagePreference } from "../scripts/language-preference.mjs";

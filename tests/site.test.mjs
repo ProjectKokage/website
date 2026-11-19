@@ -745,6 +745,67 @@ test("sitemap and robots output point to the configured production origin", asyn
   }
 });
 
+function jsonLd(html) {
+  const text = html.match(
+    /<script type="application\/ld\+json">([^<]*)<\/script>/,
+  )?.[1];
+  assert.ok(text, "the page carries schema.org data");
+  return JSON.parse(text);
+}
+
+test("schema.org data names the app, its stores and its publisher", async () => {
+  for (const { prefix, hreflang } of localeCodes) {
+    const home = jsonLd(await read(`dist${localizedPath(prefix)}index.html`));
+    const byType = Object.fromEntries(
+      home["@graph"].map((node) => [node["@type"], node]),
+    );
+    const app = byType.MobileApplication;
+    assert.equal(byType.WebSite.url, `${siteOrigin}${localizedPath(prefix)}`);
+    assert.equal(byType.WebSite.inLanguage, hreflang);
+    assert.deepEqual(byType.WebSite.about, { "@id": app["@id"] });
+    assert.equal(app.operatingSystem, "iOS, iPadOS, Android");
+    assert.equal(app.isAccessibleForFree, true);
+    assert.deepEqual(app.installUrl, [
+      "https://apps.apple.com/app/id6792312333",
+      "https://play.google.com/store/apps/details?id=com.orcalogy.kokage",
+    ]);
+    assert.ok(app.featureList.length > 0);
+    assert.equal(byType.Organization["@id"], "https://orcalogy.com/#organization");
+    assert.equal(app.publisher["@id"], byType.Organization["@id"]);
+
+    for (const page of ["privacy", "support"]) {
+      const data = jsonLd(
+        await read(`dist${localizedPath(prefix, page)}index.html`),
+      );
+      assert.equal(data["@type"], "WebPage");
+      assert.equal(data.url, `${siteOrigin}${localizedPath(prefix, page)}`);
+      assert.equal(data.isPartOf["@id"], byType.WebSite["@id"]);
+      assert.equal(data.about["@id"], app["@id"]);
+      assert.equal(data.publisher["@id"], byType.Organization["@id"]);
+      assert.equal(data.dateModified !== undefined, page === "privacy");
+    }
+  }
+});
+
+test("llms.txt describes Kokage and lists every page in every language", async () => {
+  const llms = await read("dist/llms.txt");
+  assert.match(llms, /^# Kokage\n\n> Kokage is an app for talking with a 3D AI character/);
+  assert.match(llms, /\(https:\/\/apps\.apple\.com\/app\/id6792312333\)/);
+  assert.match(llms, /\(https:\/\/play\.google\.com\/store\/apps\/details\?id=com\.orcalogy\.kokage\)/);
+  for (const { prefix } of localeCodes) {
+    for (const page of ["", "privacy", "support"]) {
+      assert.ok(
+        llms.includes(`](${siteOrigin}${localizedPath(prefix, page)}): `),
+        `${prefix}/${page}`,
+      );
+    }
+  }
+  for (const term of retiredProductTerms) {
+    assert.doesNotMatch(llms, term);
+  }
+  assert.doesNotMatch(llms, /undefined|\[object /);
+});
+
 test("published branding stays byte-identical to Kokage source assets", async () => {
   const expected = new Map([
     [

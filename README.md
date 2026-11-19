@@ -20,6 +20,12 @@ Each language includes a home page, privacy policy (`privacy/`), and support pag
 Set `KOKAGE_SITE_URL` to the approved site origin before running a production build.
 Development uses a loopback origin, and the test runner uses a reserved non-public origin.
 
+## Search engines and AI assistants
+
+Every page's head (`src/layouts/SiteLayout.astro`) gives its canonical address, the same page in the other languages, the Open Graph card and schema.org data (`src/seo/structured-data.ts`): the home pages describe the site, the app with its two store listings, and Orcalogy LLC as publisher; the privacy and support pages are `WebPage`s of that site.
+`/sitemap-index.xml` lists every page with its languages, and `/llms.txt` ([llmstxt.org](https://llmstxt.org), `src/seo/llms.ts`) summarises the app and lists every page with its description.
+All of it is built from the copy in `src/i18n/`, so it follows any copy change.
+
 ## Content and asset boundary
 
 Product claims come from the sibling `../kokage` repository, primarily its root README, current constraints, runtime contract, trust contract, and release records; where those documents lag reality, the product owner's current statements win.

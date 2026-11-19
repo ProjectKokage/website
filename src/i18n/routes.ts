@@ -46,3 +46,11 @@ export const storeListings = {
   googlePlay:
     "https://play.google.com/store/apps/details?id=com.orcalogy.kokage",
 };
+
+// The company that publishes Kokage and runs Kokage Cloud, as its own site names it.
+export const publisher = {
+  id: "https://orcalogy.com/#organization",
+  name: "Orcalogy LLC",
+  legalName: "鯱哲工合同会社",
+  url: "https://orcalogy.com/",
+};
