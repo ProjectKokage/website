@@ -148,8 +148,8 @@ export const en = {
     title: "What Kokage keeps on your device and what its cloud features send",
     lede: "This page explains what the Kokage app saves on your device, what it sends to Kokage Cloud and external services, when that happens, and how you can manage or delete your data.",
     updatedLabel: "Last updated",
-    updatedDate: "2026-11-07",
-    updatedDateDisplay: "November 7, 2026",
+    updatedDate: "2026-11-19",
+    updatedDateDisplay: "November 19, 2026",
     highlightsLabel: "Policy summary",
     highlights: [
       "When replies are made on your device, your conversation stays on your device",
@@ -163,7 +163,7 @@ export const en = {
         id: "scope",
         title: "Scope",
         paragraphs: [
-          "This policy describes how data is handled by the Kokage app, Kokage Cloud, and this website as of November 7, 2026.",
+          "This policy describes how data is handled by the Kokage app, Kokage Cloud, and this website as of November 19, 2026.",
           "The sections about Kokage Cloud apply to versions of the app that include Kokage Cloud (such as the App Store version for iPhone and iPad).",
           "External websites and download hosts that you connect to from the app handle requests under their own privacy policies.",
         ],
@@ -337,8 +337,8 @@ export const en = {
             },
           },
           {
-            title: "AI model providers (OpenRouter)",
-            body: "Cloud chat requests and avatar safety checks are routed through OpenRouter to third-party AI model providers (which provider responds depends on the model and may change). Kokage Cloud does not store the text or images of cloud chat requests as conversation history; it records only usage amounts, timestamps, model routes, and Leaf charges for billing. OpenRouter and the model providers handle requests under their own terms and privacy policies.",
+            title: "AI model providers",
+            body: "Kokage Cloud sends cloud chat requests and avatar safety checks to third-party AI model providers. Which company receives a conversation depends on the model and may change: a model by OpenAI, Anthropic, Google or DeepSeek goes to its maker's own API first, and to the same model through OpenRouter when that fails; other models go through OpenRouter to the companies that host them. Wherever another company can serve the model, Kokage Cloud sends nothing to Cohere, StepFun or StreamLake, which say they train on what they are sent. DeepSeek, whose own service answers Kokage Cloud's default chat first, does not state whether it trains on what is sent through its API. Kokage Cloud does not store the text or images of cloud chat requests as conversation history; it records only usage amounts, timestamps, model routes, and Leaf charges for billing. Each company handles requests under its own terms and privacy policy.",
             link: {
               href: "https://openrouter.ai/privacy",
               label: "OpenRouter privacy policy",

@@ -296,7 +296,7 @@ test("privacy policy pages are localized, indexable, and linked across languages
       heading:
         "What Kokage keeps on your device and what its cloud features send",
       siteName: "Kokage",
-      date: "November 7, 2026",
+      date: "November 19, 2026",
       homePath: "/",
     },
     {
@@ -309,7 +309,7 @@ test("privacy policy pages are localized, indexable, and linked across languages
         "こかげにおける端末内の会話とクラウド会話、Kokage Cloud のモーション、声、読み上げ、アバター、会話の保存、記憶、報告、アカウント、ダウンロード、ウェブサイトのデータの扱いを説明します。",
       heading: "こかげが端末に保存するデータと、クラウド機能が送信するデータ",
       siteName: "こかげ",
-      date: "2026年11月7日",
+      date: "2026年11月19日",
       homePath: "/ja/",
     },
   ];
@@ -342,7 +342,7 @@ test("privacy policy pages are localized, indexable, and linked across languages
     assert.match(
       html,
       new RegExp(
-        `<time datetime="2026-11-07">${escapeRegExp(policy.date)}</time>`,
+        `<time datetime="2026-11-19">${escapeRegExp(policy.date)}</time>`,
       ),
     );
     assert.match(html, /"@type":"WebPage"/);
@@ -409,7 +409,8 @@ test("privacy policy pages are localized, indexable, and linked across languages
     /When replies are made on your device, your conversation stays on your device/,
   );
   assert.match(english, /Kokage Cloud is operated by Orcalogy LLC on Google Cloud/);
-  assert.match(english, /routed through OpenRouter to third-party AI model providers/);
+  assert.match(english, /own API first, and to the same model through OpenRouter when that fails/);
+  assert.match(english, /sends nothing to Cohere, StepFun or StreamLake/);
   assert.match(english, /Cloud Motion is on by default when Kokage Cloud is available/);
   assert.match(english, /Delete Kokage Cloud account/);
   assert.match(english, /Reply on this device when Leaf runs out/);
@@ -423,7 +424,8 @@ test("privacy policy pages are localized, indexable, and linked across languages
     japanese,
     /Kokage Cloud はOrcalogy LLCがGoogle Cloud上で運用しています/,
   );
-  assert.match(japanese, /OpenRouterを通じて外部のAIモデル提供事業者へ送られます/);
+  assert.match(japanese, /まずその会社自身の API に送り/);
+  assert.match(japanese, /Cohere、StepFun、StreamLake には会話を送りません/);
   assert.match(japanese, /クラウドモーションは、Kokage Cloud が使える環境では初期状態でオン/);
   assert.match(japanese, /Kokage Cloud のアカウントを削除/);
   assert.match(japanese, /言の葉が足りないときはこの端末で返事する/);
@@ -661,7 +663,7 @@ test("Chinese pages are complete, script-consistent, and free of retired terms",
       assert.match(home, new RegExp(`id="${id}"`));
     }
     const privacy = await read(`dist${localizedPath(prefix, "privacy")}index.html`);
-    assert.match(privacy, /<time datetime="2026-11-07">2026年11月7日<\/time>/);
+    assert.match(privacy, /<time datetime="2026-11-19">2026年11月19日<\/time>/);
     assert.match(privacy, /contact@orcalogy\.com/);
     assert.match(privacy, /Orcalogy LLC/);
     assert.match(privacy, /zh-hans/);
