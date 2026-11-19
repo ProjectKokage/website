@@ -47,6 +47,12 @@ export const storeListings = {
     "https://play.google.com/store/apps/details?id=com.orcalogy.kokage",
 };
 
+// Kokage's own accounts, linked from every page's footer.
+export const communityLinks = {
+  x: { handle: "@KokageApp", href: "https://x.com/KokageApp" },
+  discord: { href: "https://discord.gg/srvMM3DyGT" },
+};
+
 // The company that publishes Kokage and runs Kokage Cloud, as its own site names it.
 export const publisher = {
   id: "https://orcalogy.com/#organization",

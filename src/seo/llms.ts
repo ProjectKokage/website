@@ -2,7 +2,13 @@
 // assistants. Every line comes from the English copy and the facts in ../i18n/routes.ts,
 // so it follows any change to them.
 import { translations } from "../i18n";
-import { localeNames, localizedRoutes, publisher, siteLocales } from "../i18n/routes";
+import {
+  communityLinks,
+  localeNames,
+  localizedRoutes,
+  publisher,
+  siteLocales,
+} from "../i18n/routes";
 
 export function llmsText(site: URL): string {
   const en = translations.en;
@@ -33,6 +39,11 @@ export function llmsText(site: URL): string {
     ...en.status.platforms.map(
       (p) => `- [${p.link?.label ?? p.name}](${p.link?.href ?? url("/")}): ${p.name}. ${p.detail}`,
     ),
+    "",
+    "## Community",
+    "",
+    `- [${en.footer.xLink}](${communityLinks.x.href}): ${communityLinks.x.handle}`,
+    `- [${en.footer.discordLink}](${communityLinks.discord.href})`,
     "",
     `## ${en.features.title}`,
     "",

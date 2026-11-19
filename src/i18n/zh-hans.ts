@@ -597,6 +597,8 @@ export const zhHans = {
     statusLink: "平台",
     privacyLink: "隐私政策",
     supportLink: "支持",
+    xLink: "Kokage 的 X 账号",
+    discordLink: "Kokage Discord 服务器",
     navigationLabel: "页脚导航",
   },
 } satisfies SiteCopy;

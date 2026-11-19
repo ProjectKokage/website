@@ -19,8 +19,8 @@ Inspect the working tree, preserve unrelated work and state scope and checks.
   static site, route structure, accessibility and all four language versions.
 - Keep translations, navigation, canonical URLs, metadata, privacy and support
   pages consistent. Verify copy against its source rather than inventing claims.
-- Link only to the approved App Store and Google Play listings defined in
-  `src/i18n/routes.ts`. Do not add testimonials, usage figures, compatibility
+- Link only to the approved App Store and Google Play listings and Kokage's
+  X and Discord links defined in `src/i18n/routes.ts`. Do not add testimonials, usage figures, compatibility
   badges or unverified availability promises without approval in the owning
   release record.
 - Preserve the branding sources recorded in README. Do not add VRM renders,

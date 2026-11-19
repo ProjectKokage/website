@@ -149,6 +149,8 @@ export interface SiteCopy {
     statusLink: string;
     privacyLink: string;
     supportLink: string;
+    xLink: string;
+    discordLink: string;
     navigationLabel: string;
   };
 }

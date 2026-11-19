@@ -598,6 +598,8 @@ export const ja = {
     statusLink: "対応プラットフォーム",
     privacyLink: "プライバシーポリシー",
     supportLink: "サポート",
+    xLink: "こかげのX",
+    discordLink: "こかげのDiscordサーバー",
     navigationLabel: "フッターメニュー",
   },
 } satisfies SiteCopy;

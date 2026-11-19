@@ -597,6 +597,8 @@ export const zhHant = {
     statusLink: "平台",
     privacyLink: "隱私權政策",
     supportLink: "支援",
+    xLink: "Kokage 的 X 帳號",
+    discordLink: "Kokage Discord 伺服器",
     navigationLabel: "頁尾導覽",
   },
 } satisfies SiteCopy;

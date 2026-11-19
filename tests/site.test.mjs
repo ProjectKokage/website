@@ -770,6 +770,12 @@ test("schema.org data names the app, its stores and its publisher", async () => 
       "https://play.google.com/store/apps/details?id=com.orcalogy.kokage",
     ]);
     assert.ok(app.featureList.length > 0);
+    assert.deepEqual(app.sameAs, [
+      "https://apps.apple.com/app/id6792312333",
+      "https://play.google.com/store/apps/details?id=com.orcalogy.kokage",
+      "https://x.com/KokageApp",
+      "https://discord.gg/srvMM3DyGT",
+    ]);
     assert.equal(byType.Organization["@id"], "https://orcalogy.com/#organization");
     assert.equal(app.publisher["@id"], byType.Organization["@id"]);
 
@@ -787,8 +793,37 @@ test("schema.org data names the app, its stores and its publisher", async () => 
   }
 });
 
+test("every page's footer links Kokage's X account and Discord server", async () => {
+  const footerLabels = {
+    en: ["Kokage on X", "Kokage Discord server"],
+    ja: ["こかげのX", "こかげのDiscordサーバー"],
+    "zh-hans": ["Kokage 的 X 账号", "Kokage Discord 服务器"],
+    "zh-hant": ["Kokage 的 X 帳號", "Kokage Discord 伺服器"],
+  };
+  for (const { locale, prefix } of localeCodes) {
+    const [xLabel, discordLabel] = footerLabels[locale];
+    for (const page of ["", "privacy", "support"]) {
+      const html = await read(`dist${localizedPath(prefix, page)}index.html`);
+      const footer = html.match(/<footer[^>]*>[\s\S]*<\/footer>/)?.[0] ?? "";
+      assert.match(
+        footer,
+        new RegExp(`href="https://x\\.com/KokageApp" rel="external me" aria-label="${xLabel}"`),
+        `${locale}/${page}`,
+      );
+      assert.match(
+        footer,
+        new RegExp(`href="https://discord\\.gg/srvMM3DyGT" rel="external" aria-label="${discordLabel}"`),
+        `${locale}/${page}`,
+      );
+      assert.match(html, /<meta name="twitter:site" content="@KokageApp"/);
+    }
+  }
+});
+
 test("llms.txt describes Kokage and lists every page in every language", async () => {
   const llms = await read("dist/llms.txt");
+  assert.match(llms, /^- \[Kokage on X\]\(https:\/\/x\.com\/KokageApp\): @KokageApp$/m);
+  assert.match(llms, /^- \[Kokage Discord server\]\(https:\/\/discord\.gg\/srvMM3DyGT\)$/m);
   assert.match(llms, /^# Kokage\n\n> Kokage is an app for talking with a 3D AI character/);
   assert.match(llms, /\(https:\/\/apps\.apple\.com\/app\/id6792312333\)/);
   assert.match(llms, /\(https:\/\/play\.google\.com\/store\/apps\/details\?id=com\.orcalogy\.kokage\)/);
