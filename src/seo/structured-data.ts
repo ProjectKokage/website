@@ -1,7 +1,13 @@
 // schema.org data for each page, which search engines and AI assistants read beside the
 // page. Every value comes from the page's own copy or the facts in ../i18n/routes.ts.
 import type { SiteCopy } from "../i18n";
-import { localizedRoutes, publisher, siteLocales, storeListings } from "../i18n/routes";
+import {
+  communityLinks,
+  localizedRoutes,
+  publisher,
+  siteLocales,
+  storeListings,
+} from "../i18n/routes";
 import { translations } from "../i18n";
 
 export type PageKind = "home" | "privacy" | "support";
@@ -47,7 +53,12 @@ export function structuredData(copy: SiteCopy, kind: PageKind, site: URL): JsonL
           featureList: copy.features.items.map((item) => item.title),
           isAccessibleForFree: true,
           installUrl: [storeListings.appStore, storeListings.googlePlay],
-          sameAs: [storeListings.appStore, storeListings.googlePlay],
+          sameAs: [
+            storeListings.appStore,
+            storeListings.googlePlay,
+            communityLinks.x.href,
+            communityLinks.discord.href,
+          ],
           publisher: { "@id": publisher.id },
         },
         organization,

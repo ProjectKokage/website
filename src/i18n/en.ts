@@ -597,6 +597,8 @@ export const en = {
     statusLink: "Platforms",
     privacyLink: "Privacy policy",
     supportLink: "Support",
+    xLink: "Kokage on X",
+    discordLink: "Kokage Discord server",
     navigationLabel: "Footer navigation",
   },
 } satisfies SiteCopy;
