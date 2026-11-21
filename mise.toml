@@ -1,0 +1,85 @@
+[tools]
+node = "24"
+lefthook = "2"
+
+[tasks.setup]
+description = "Install npm dependencies and Git hooks"
+run = """
+#!/usr/bin/env bash
+set -euo pipefail
+npm ci
+lefthook install
+"""
+
+[tasks.doctor]
+description = "Check local toolchain versions"
+run = """
+#!/usr/bin/env bash
+set -euo pipefail
+echo "node:     $(node -v)"
+echo "npm:      $(npm -v)"
+echo "lefthook: $(lefthook version)"
+"""
+
+[tasks.check]
+description = "Run Astro typecheck"
+run = "npm run check"
+
+[tasks."test:static"]
+description = "Run static site tests"
+run = "npm run test:static"
+
+[tasks.test]
+description = "Run full build and static tests via scripts/test.mjs"
+run = "npm test"
+
+[tasks."verify:docs"]
+description = "Verification gate for prose-only repository guides"
+run = """
+#!/usr/bin/env bash
+set -euo pipefail
+git diff --check
+"""
+
+[tasks.verify]
+description = "Full verification gate (diff check, astro check, build, static tests)"
+run = """
+#!/usr/bin/env bash
+set -euo pipefail
+git diff --check
+npm test
+"""
+
+[tasks."wt:new"]
+description = "Create a fresh worktree from origin/main (usage: mise run wt:new -- <branch>)"
+run = """
+#!/usr/bin/env bash
+set -euo pipefail
+branch="${1:-}"
+if [[ -z "$branch" ]]; then
+	echo "usage: mise run wt:new -- <branch-name>" >&2
+	exit 2
+fi
+if printf '%s' "$branch" | grep -qiE '^codex'; then
+	echo "error: branch name '$branch' must not start with 'codex'" >&2
+	exit 2
+fi
+common_dir="$(git rev-parse --path-format=absolute --git-common-dir)"
+primary_root="$(dirname "$common_dir")"
+wt_base="$(dirname "$primary_root")/kokage_website-worktrees"
+mkdir -p "$wt_base"
+target="${wt_base}/${branch//\\//-}"
+git fetch origin main
+git worktree add -b "$branch" "$target" origin/main
+mise trust "$target/mise.toml" >/dev/null 2>&1 || true
+echo "created worktree: $target"
+"""
+
+[tasks."wt:prune"]
+description = "List worktrees and prune stale git worktree metadata"
+run = """
+#!/usr/bin/env bash
+set -euo pipefail
+git worktree prune -v
+git worktree list
+"""
