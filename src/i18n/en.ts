@@ -63,7 +63,7 @@ export const en = {
     ],
     leafLabel: "Leaf (言の葉)",
     leafBody:
-      "Kokage Cloud features use Leaf so you only pay for what you use. Leaf packs never expire, and nothing is charged if a request fails before finishing. The wallet in Settings shows your balance and history and lets you buy Leaf packs; on iPhone and iPad, you can also redeem an App Store offer code there. Sign in with Apple (on iPhone and iPad) or Google to use the same Leaf on all your devices, and get free Leaf the first time you sign in.",
+      "Kokage Cloud features use Leaf so you only pay for what you use. Leaf packs never expire, and nothing is charged if a request fails before finishing. The wallet in Settings shows your balance and history and lets you buy Leaf packs; on iPhone and iPad, you can also redeem an App Store offer code there. Sign in with Apple (on iPhone and iPad) or Google to use the same Leaf on all your devices, and get free Leaf the first time you sign in with an Apple or Google account that is new to Kokage Cloud.",
     policyLink: "How Kokage Cloud handles your data",
   },
   flow: {
@@ -178,7 +178,7 @@ export const en = {
         paragraphs: [
           "Kokage lets you chat using a model on your device or, on supported versions, Kokage Cloud. When replies are made on your device, what you type or say stays on your device.",
           "Before your first cloud reply, the app explains that conversation text, character settings, recent history, conversation summaries, attached photos, and relevant memories or notes are sent to Kokage Cloud and its AI model providers. In-chat hints, character chat invitations, and memory extraction also use the selected cloud service and may spend Leaf from your balance.",
-          "When both Kokage Cloud and an on-device model are set up, 'Reply on this device when Leaf runs out' (on by default) automatically switches to your on-device model if your Leaf balance cannot cover a reply. Replies made on your device are not sent to the cloud.",
+          "When both Kokage Cloud and an on-device model are set up, 'Chat with the downloaded model when Leaf runs out' (on by default) automatically switches to your on-device model when you have no Leaf to spend. A cloud reply can cost more than the Leaf you have left; the difference is repaid from the next Leaf you receive, and Kokage Cloud features wait until then. Replies made on your device are not sent to the cloud.",
           "Automatic cloud summary updates have a separate switch in Settings (off by default) and their own explanation, because summarizing older messages sends prior conversation turns to the cloud model and can use more Leaf than a single reply.",
         ],
         items: [
@@ -371,7 +371,8 @@ export const en = {
           "When you delete your account, any remaining Leaf is forfeited without refund, and past store purchases are not refunded. Your device removes the cloud account info, selected cloud voice setting, and cached balance, while keeping your characters, conversations, memories, notes, and avatars already applied to your characters on your device. If you use Kokage Cloud again later, a new empty account is created.",
           "After account deletion, Kokage Cloud retains only administrative records that contain no conversation, voice, or image content: the closed account ID, Leaf balance and usage history, store purchase records, voice consent records, safety-check records for refused or failed avatar requests, and audit logs. These are kept for accounting, fraud prevention, and legal obligations and have no fixed deletion date.",
           "If you signed in with Apple or Google, Kokage Cloud also keeps a one-way code made from your ID at Apple or Google, recording that this Apple or Google account has had the Welcome Leaf given at first sign-in. It contains neither the ID itself nor your email address. Because it is kept after deletion, signing in again with the same Apple or Google account starts a new account without Welcome Leaf.",
-          "Data held by AI model providers, the App Store, RevenueCat, and submitted reports follows each service's own retention rules.",
+          "If you signed in with Apple or Google, Kokage Cloud also keeps a record of each day your account received daily free Leaf and the time of that day's first request. So that daily free Leaf is given only once a day, it also keeps a one-way code made from your Apple or Google ID until that day ends.",
+          "Data held by AI model providers, the App Store, Google Play, RevenueCat, and submitted reports follows each service's own retention rules.",
         ],
       },
       {

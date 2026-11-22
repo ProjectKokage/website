@@ -420,7 +420,7 @@ test("privacy policy pages are localized, indexable, and linked across languages
   assert.match(english, /sends nothing to Cohere, StepFun or StreamLake/);
   assert.match(english, /Cloud Motion is on by default when Kokage Cloud is available/);
   assert.match(english, /Delete Kokage Cloud account/);
-  assert.match(english, /Reply on this device when Leaf runs out/);
+  assert.match(english, /Chat with the downloaded model when Leaf runs out/);
   assert.match(english, /Redeem a code/);
   assert.doesNotMatch(english, /transfer code/);
   assert.match(english, /Signing in with Apple \(on iPhone and iPad\) or Google/);
@@ -438,7 +438,7 @@ test("privacy policy pages are localized, indexable, and linked across languages
   assert.match(japanese, /Cohere、StepFun、StreamLake には会話を送りません/);
   assert.match(japanese, /クラウドモーションは、Kokage Cloud が使える環境では初期状態でオン/);
   assert.match(japanese, /Kokage Cloud のアカウントを削除/);
-  assert.match(japanese, /言の葉が足りないときはこの端末で返事する/);
+  assert.match(japanese, /言の葉が足りないときはダウンロードしたモデルで会話する/);
   assert.match(japanese, /コードを使う/);
   assert.doesNotMatch(japanese, /引き継ぎコード/);
   assert.match(japanese, /Apple（iPhoneとiPad）またはGoogleでサインインすると/);
