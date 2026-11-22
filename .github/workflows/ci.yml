@@ -42,4 +42,6 @@ jobs:
         run: npm ci
 
       - name: Verify (diff check, astro check, build, static tests)
+        env:
+          VERIFY_BASE: ${{ github.event_name == 'pull_request' && format('origin/{0}', github.base_ref) || 'origin/main' }}
         run: mise run verify

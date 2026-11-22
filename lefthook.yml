@@ -49,10 +49,12 @@ pre-push:
             echo "error: pushing local 'main' is blocked. Push a task branch instead." >&2
             exit 1
           fi
-          if printf '%s\n%s\n' "$remote_branch" "$local_branch" | grep -qiE '^codex'; then
-            echo "error: branch '${remote_branch}' must not start with 'codex'." >&2
-            exit 1
-          fi
+          for b in "$remote_branch" "$local_branch"; do
+            if printf '%s' "$b" | grep -qiE '^codex'; then
+              echo "error: branch '${b}' must not start with 'codex'." >&2
+              exit 1
+            fi
+          done
           [ -n "$base" ] || continue
           if ! git diff --check "${base}...${local_oid}"; then
             echo "error: whitespace errors in the commits pushed to '${remote_branch}'." >&2
