@@ -16,15 +16,17 @@ pre-commit:
       run: git diff --cached --check
 
 pre-push:
-  # lefthook skips a pre-push command when the push changes no files, unless
-  # the command uses {files}. This file set and the reference on the first line
-  # of the script keep the guard running for every push.
+  # lefthook 2.2.2 runs a pre-push command on every push, including one that
+  # changes no files; it skips a command only when the command's glob or file
+  # filter matches nothing, and this guard has neither. The file set and the
+  # {files} reference on the first line of the script are a harmless guard
+  # against a lefthook release that skips commands with no files.
   files: git ls-files lefthook.yml
   commands:
     push-guard:
       use_stdin: true
       run: |
-        # Keeps lefthook from skipping this guard: {files}
+        # File reference for the guard described above: {files}
         # Checks exactly the commits being pushed. The full `mise run verify`
         # runs before a PR is opened (see AGENTS.md).
         zero="0000000000000000000000000000000000000000"

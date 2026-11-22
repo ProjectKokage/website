@@ -20,3 +20,4 @@ dist/
 /.apm-local/
 /.agents/skills/
 /.claude/skills/
+/.claude/worktrees/

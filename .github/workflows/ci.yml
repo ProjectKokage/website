@@ -32,6 +32,7 @@ jobs:
         with:
           # mise run verify checks whitespace against origin/main.
           fetch-depth: 0
+          persist-credentials: false
 
       - name: Setup mise (Node 24)
         uses: jdx/mise-action@v2
