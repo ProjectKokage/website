@@ -1,0 +1,37 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(mise run doctor*)",
+      "Bash(mise run whitespace*)",
+      "Bash(mise run check*)",
+      "Bash(mise run test*)",
+      "Bash(mise run verify*)",
+      "Bash(npm test*)",
+      "Bash(npm run check*)",
+      "Bash(npm run test:static*)",
+      "Bash(git status*)",
+      "Bash(git diff*)",
+      "Bash(git log*)",
+      "Bash(git branch --show-current*)",
+      "Bash(git branch -l*)",
+      "Bash(git branch -a*)",
+      "Bash(gh pr view*)",
+      "Bash(gh pr checks*)",
+      "Bash(gh pr list*)",
+      "Bash(gh run view*)"
+    ],
+    "deny": [
+      "Bash(git*reset --hard*)",
+      "Bash(git*clean -*f*)",
+      "Bash(git*clean --force*)",
+      "Bash(git*push*--force*)",
+      "Bash(git*push* -f*)",
+      "Bash(git*push* main)",
+      "Bash(git*push* main *)",
+      "Bash(git*push*:main)",
+      "Bash(git*push*:main *)",
+      "Bash(git*push*refs/heads/main)",
+      "Bash(git*push*refs/heads/main *)"
+    ]
+  }
+}

@@ -13,3 +13,11 @@ dist/
 # editor and OS files
 .DS_Store
 *.swp
+
+# local agent tooling
+.claude/settings.local.json
+/apm_modules/
+/.apm-local/
+/.agents/skills/
+/.claude/skills/
+/.claude/worktrees/

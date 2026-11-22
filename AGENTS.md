@@ -100,29 +100,37 @@ Keep wording parallel across paired elements and consistent within each locale
 
 ## Commands and verification
 
-From the repository root, install with `npm ci` when dependencies are needed.
-For site source, content or configuration changes, run:
+All checks run through `mise.toml` (pins Node 24 and `lefthook`):
 
 ```sh
-npm test
+mise run setup        # npm ci && lefthook install
+mise run verify       # whitespace && npm test (astro check, build, static tests)
+mise run verify:docs  # fast gate for prose-only repository guides
+mise run wt:new -- <branch>  # create a fresh worktree from origin/main
 ```
 
+From the repository root without `mise`, install with `npm ci` and run `npm test`.
 The test runner owns static tests and the build checks. Use `npm run dev` for
 local inspection. For page/layout changes, also inspect the affected localized
 routes at narrow and wide widths, including keyboard navigation. A successful
 build does not establish visual correctness.
 
 For prose-only repository guides or agent instructions, check relative links,
-referenced commands and `git diff --check`; rebuilding the site is unnecessary.
-Report the checks run and any missing visual or browser evidence.
+referenced commands and `mise run verify:docs` (whitespace); rebuilding
+the site is unnecessary. Report the checks run and any missing visual or browser
+evidence.
 
 ## Delivery
 
 Branch names must not begin with `codex` (case-insensitive), including
 `codex/` and `codex-`. Rename tool-generated defaults before committing or
-pushing; use a descriptive name such as `docs-agent-guides`.
+pushing; use a descriptive name such as `docs-agent-guides`. Base every PR on
+`main`.
 
-Use a task branch and review the diff. Commit only task files; push, merge and
-publish only when authorized for that action. Make routine fixes within the
-requested scope; obtain approval before changing product, privacy or release
-policy. Update the owning documentation for lasting behavior changes.
+Follow [docs/pr-review.md](docs/pr-review.md): run `mise run verify` (or
+`mise run verify:docs` for prose-only guides) and both review passes on
+`git diff origin/main...HEAD`, then push only the task files on the task branch
+and open a draft PR. Mark it ready for review once verify passes and no blocker
+is open. Merging and publishing each happen when the owner asks for them; a PR
+that needs a product, privacy or release-policy change says so instead of
+making it. Update the owning documentation for lasting behavior changes.

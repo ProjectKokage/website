@@ -1,0 +1,65 @@
+pre-commit:
+  parallel: true
+  commands:
+    branch-guard:
+      run: |
+        branch="$(git symbolic-ref --short HEAD 2>/dev/null || git rev-parse --abbrev-ref HEAD)"
+        if printf '%s' "$branch" | grep -qiE '^codex'; then
+          echo "error: branch '$branch' must not start with 'codex'. Rename it first." >&2
+          exit 1
+        fi
+        if [ "$branch" = "main" ] && git rev-parse --verify --quiet origin/main >/dev/null; then
+          echo "error: direct commits on 'main' are blocked. Create a task branch first." >&2
+          exit 1
+        fi
+    diff-check:
+      run: git diff --cached --check
+
+pre-push:
+  # lefthook 2.2.2 runs a pre-push command on every push, including one that
+  # changes no files; it skips a command only when the command's glob or file
+  # filter matches nothing, and this guard has neither. The file set and the
+  # {files} reference on the first line of the script are a harmless guard
+  # against a lefthook release that skips commands with no files.
+  files: git ls-files lefthook.yml
+  commands:
+    push-guard:
+      use_stdin: true
+      run: |
+        # File reference for the guard described above: {files}
+        # Checks exactly the commits being pushed. The full `mise run verify`
+        # runs before a PR is opened (see AGENTS.md).
+        zero="0000000000000000000000000000000000000000"
+        base=""
+        if git rev-parse --verify --quiet origin/main >/dev/null; then
+          base="origin/main"
+        fi
+        while read -r local_ref local_oid remote_ref remote_oid; do
+          [ -n "${remote_ref:-}" ] || continue
+          remote_branch="${remote_ref#refs/heads/}"
+          local_branch="${local_ref#refs/heads/}"
+          if [ "$remote_ref" = "refs/heads/main" ]; then
+            if [ "$local_oid" = "$zero" ]; then
+              echo "error: deleting remote 'main' is blocked." >&2
+            else
+              echo "error: direct push to 'main' is blocked. Open a PR from a task branch." >&2
+            fi
+            exit 1
+          fi
+          [ "$local_oid" != "$zero" ] || continue
+          if [ "$local_ref" = "refs/heads/main" ]; then
+            echo "error: pushing local 'main' is blocked. Push a task branch instead." >&2
+            exit 1
+          fi
+          for b in "$remote_branch" "$local_branch"; do
+            if printf '%s' "$b" | grep -qiE '^codex'; then
+              echo "error: branch '${b}' must not start with 'codex'." >&2
+              exit 1
+            fi
+          done
+          [ -n "$base" ] || continue
+          if ! git diff --check "${base}...${local_oid}"; then
+            echo "error: whitespace errors in the commits pushed to '${remote_branch}'." >&2
+            exit 1
+          fi
+        done
