@@ -33,12 +33,26 @@ run = "npm run test:static"
 description = "Run full build and static tests via scripts/test.mjs"
 run = "npm test"
 
+[tasks.whitespace]
+description = "Check whitespace in commits since origin/main (or VERIFY_BASE) and in uncommitted edits"
+run = '''
+#!/usr/bin/env bash
+set -euo pipefail
+base="${VERIFY_BASE:-origin/main}"
+if ! git rev-parse --verify --quiet "${base}^{commit}" >/dev/null; then
+	echo "error: base '${base}' not found; run git fetch origin or set VERIFY_BASE" >&2
+	exit 1
+fi
+git diff --check "${base}...HEAD"
+git diff --check HEAD
+'''
+
 [tasks."verify:docs"]
 description = "Verification gate for prose-only repository guides"
 run = """
 #!/usr/bin/env bash
 set -euo pipefail
-git diff --check
+mise run whitespace
 """
 
 [tasks.verify]
@@ -46,7 +60,7 @@ description = "Full verification gate (diff check, astro check, build, static te
 run = """
 #!/usr/bin/env bash
 set -euo pipefail
-git diff --check
+mise run whitespace
 npm test
 """
 
@@ -70,7 +84,7 @@ wt_base="$(dirname "$primary_root")/kokage_website-worktrees"
 mkdir -p "$wt_base"
 target="${wt_base}/${branch//\\//-}"
 git fetch origin main
-git worktree add -b "$branch" "$target" origin/main
+git worktree add --no-track -b "$branch" "$target" origin/main
 mise trust "$target/mise.toml" >/dev/null 2>&1 || true
 echo "created worktree: $target"
 """

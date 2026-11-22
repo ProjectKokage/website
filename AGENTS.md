@@ -104,7 +104,7 @@ All checks run through `mise.toml` (pins Node 24 and `lefthook`):
 
 ```sh
 mise run setup        # npm ci && lefthook install
-mise run verify       # git diff --check && npm test (astro check, build, static tests)
+mise run verify       # whitespace && npm test (astro check, build, static tests)
 mise run verify:docs  # fast gate for prose-only repository guides
 mise run wt:new -- <branch>  # create a fresh worktree from origin/main
 ```
@@ -116,7 +116,7 @@ routes at narrow and wide widths, including keyboard navigation. A successful
 build does not establish visual correctness.
 
 For prose-only repository guides or agent instructions, check relative links,
-referenced commands and `mise run verify:docs` (`git diff --check`); rebuilding
+referenced commands and `mise run verify:docs` (whitespace); rebuilding
 the site is unnecessary. Report the checks run and any missing visual or browser
 evidence.
 
@@ -127,11 +127,10 @@ Branch names must not begin with `codex` (case-insensitive), including
 pushing; use a descriptive name such as `docs-agent-guides`. Base every PR on
 `main`.
 
-Before opening a PR, run `mise run verify` (or `mise run verify:docs` for
-prose-only guides) and two fresh-context reviews on `git diff origin/main...HEAD`
-(`pr-review-contract` for 4-locale parity, terminology/orthography, and
-cross-repo claims; `pr-review-adversarial` for edge cases and evidence). Push
-only task files, open a **Draft PR**, monitor CI (max 2 fix cycles), and mark
-**Ready for Review** once checks pass. Obtain explicit owner approval before
-merging to `main`, publishing, or changing product, privacy, or release policy.
-Update the owning documentation for lasting behavior changes.
+Follow [docs/pr-review.md](docs/pr-review.md): run `mise run verify` (or
+`mise run verify:docs` for prose-only guides) and both review passes on
+`git diff origin/main...HEAD`, then push only the task files on the task branch
+and open a draft PR. Mark it ready for review once verify passes and no blocker
+is open. Merging and publishing each happen when the owner asks for them; a PR
+that needs a product, privacy or release-policy change says so instead of
+making it. Update the owning documentation for lasting behavior changes.

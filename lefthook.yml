@@ -16,58 +16,46 @@ pre-commit:
       run: git diff --cached --check
 
 pre-push:
+  # lefthook skips a pre-push command when the push changes no files, unless
+  # the command uses {files}. This file set and the reference on the first line
+  # of the script keep the guard running for every push.
   files: git ls-files lefthook.yml
   commands:
-    branch-guard-and-verify:
+    push-guard:
       use_stdin: true
       run: |
-        # {files} forces lefthook to always run pre-push guards even when HEAD == @{push}
+        # Keeps lefthook from skipping this guard: {files}
+        # Checks exactly the commits being pushed. The full `mise run verify`
+        # runs before a PR is opened (see AGENTS.md).
         zero="0000000000000000000000000000000000000000"
-        has_non_delete=0
-        saw_stdin=0
+        base=""
+        if git rev-parse --verify --quiet origin/main >/dev/null; then
+          base="origin/main"
+        fi
         while read -r local_ref local_oid remote_ref remote_oid; do
           [ -n "${remote_ref:-}" ] || continue
-          saw_stdin=1
           remote_branch="${remote_ref#refs/heads/}"
           local_branch="${local_ref#refs/heads/}"
-          if [ "$local_oid" = "$zero" ]; then
-            if [ "$remote_ref" = "refs/heads/main" ]; then
+          if [ "$remote_ref" = "refs/heads/main" ]; then
+            if [ "$local_oid" = "$zero" ]; then
               echo "error: deleting remote 'main' is blocked." >&2
-              exit 1
+            else
+              echo "error: direct push to 'main' is blocked. Open a PR from a task branch." >&2
             fi
-            continue
-          fi
-          has_non_delete=1
-          if [ "$remote_ref" = "refs/heads/main" ] || [ "$local_ref" = "refs/heads/main" ]; then
-            echo "error: direct push to 'main' is blocked. Open a PR from a task branch." >&2
             exit 1
           fi
-          if printf '%s' "$remote_branch" | grep -qiE '^codex' || printf '%s' "$local_branch" | grep -qiE '^codex'; then
-            echo "error: pushing branch '${remote_branch}' is forbidden (must not start with 'codex')." >&2
+          [ "$local_oid" != "$zero" ] || continue
+          if [ "$local_ref" = "refs/heads/main" ]; then
+            echo "error: pushing local 'main' is blocked. Push a task branch instead." >&2
+            exit 1
+          fi
+          if printf '%s\n%s\n' "$remote_branch" "$local_branch" | grep -qiE '^codex'; then
+            echo "error: branch '${remote_branch}' must not start with 'codex'." >&2
+            exit 1
+          fi
+          [ -n "$base" ] || continue
+          if ! git diff --check "${base}...${local_oid}"; then
+            echo "error: whitespace errors in the commits pushed to '${remote_branch}'." >&2
             exit 1
           fi
         done
-
-        if [ "$saw_stdin" -eq 0 ]; then
-          branch="$(git symbolic-ref --short HEAD 2>/dev/null || git rev-parse --abbrev-ref HEAD)"
-          if printf '%s' "$branch" | grep -qiE '^codex'; then
-            echo "error: pushing branch '$branch' is forbidden (must not start with 'codex')." >&2
-            exit 1
-          fi
-          if [ "$branch" = "main" ]; then
-            echo "error: direct pushes from 'main' are blocked. Open a PR from a task branch." >&2
-            exit 1
-          fi
-          has_non_delete=1
-        fi
-
-        [ "$has_non_delete" -eq 1 ] || exit 0
-
-        if git rev-parse --verify --quiet origin/main >/dev/null; then
-          changed="$(git diff --name-only origin/main...HEAD)"
-          if [ -n "$changed" ] && ! printf '%s\n' "$changed" | grep -qvE '\.md$'; then
-            mise run verify:docs
-            exit 0
-          fi
-        fi
-        mise run verify

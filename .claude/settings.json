@@ -1,7 +1,11 @@
 {
   "permissions": {
     "allow": [
-      "Bash(mise run *)",
+      "Bash(mise run doctor*)",
+      "Bash(mise run whitespace*)",
+      "Bash(mise run check*)",
+      "Bash(mise run test*)",
+      "Bash(mise run verify*)",
       "Bash(npm test*)",
       "Bash(npm run check*)",
       "Bash(npm run test:static*)",

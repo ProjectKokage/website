@@ -29,6 +29,9 @@ jobs:
 
       - name: Checkout
         uses: actions/checkout@v4
+        with:
+          # mise run verify checks whitespace against origin/main.
+          fetch-depth: 0
 
       - name: Setup mise (Node 24)
         uses: jdx/mise-action@v2
