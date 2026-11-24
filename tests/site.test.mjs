@@ -303,7 +303,7 @@ test("privacy policy pages are localized, indexable, and linked across languages
       heading:
         "What Kokage keeps on your device and what its cloud features send",
       siteName: "Kokage",
-      date: "November 22, 2026",
+      date: "November 24, 2026",
       homePath: "/",
     },
     {
@@ -316,7 +316,7 @@ test("privacy policy pages are localized, indexable, and linked across languages
         "こかげにおける端末内の会話とクラウド会話、Kokage Cloud のモーション、声、読み上げ、アバター、会話の保存、記憶、報告、アカウント、ダウンロード、ウェブサイトのデータの扱いを説明します。",
       heading: "こかげが端末に保存するデータと、クラウド機能が送信するデータ",
       siteName: "こかげ",
-      date: "2026年11月22日",
+      date: "2026年11月24日",
       homePath: "/ja/",
     },
   ];
@@ -349,7 +349,7 @@ test("privacy policy pages are localized, indexable, and linked across languages
     assert.match(
       html,
       new RegExp(
-        `<time datetime="2026-11-22">${escapeRegExp(policy.date)}</time>`,
+        `<time datetime="2026-11-24">${escapeRegExp(policy.date)}</time>`,
       ),
     );
     assert.match(html, /"@type":"WebPage"/);
@@ -680,7 +680,7 @@ test("Chinese pages are complete, script-consistent, and free of retired terms",
       assert.match(home, new RegExp(`id="${id}"`));
     }
     const privacy = await read(`dist${localizedPath(prefix, "privacy")}index.html`);
-    assert.match(privacy, /<time datetime="2026-11-22">2026年11月22日<\/time>/);
+    assert.match(privacy, /<time datetime="2026-11-24">2026年11月24日<\/time>/);
     assert.match(privacy, /contact@orcalogy\.com/);
     assert.match(privacy, /Orcalogy LLC/);
     assert.match(privacy, /zh-hans/);

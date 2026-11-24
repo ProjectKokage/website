@@ -152,8 +152,8 @@ export const en = {
     title: "What Kokage keeps on your device and what its cloud features send",
     lede: "This page explains what the Kokage app saves on your device, what it sends to Kokage Cloud and external services, when that happens, and how you can manage or delete your data.",
     updatedLabel: "Last updated",
-    updatedDate: "2026-11-22",
-    updatedDateDisplay: "November 22, 2026",
+    updatedDate: "2026-11-24",
+    updatedDateDisplay: "November 24, 2026",
     highlightsLabel: "Policy summary",
     highlights: [
       "When replies are made on your device, your conversation stays on your device",
@@ -167,7 +167,7 @@ export const en = {
         id: "scope",
         title: "Scope",
         paragraphs: [
-          "This policy describes how data is handled by the Kokage app, Kokage Cloud, and this website as of November 22, 2026.",
+          "This policy describes how data is handled by the Kokage app, Kokage Cloud, and this website as of November 24, 2026.",
           "The sections about Kokage Cloud apply to versions of the app that include Kokage Cloud: the App Store version for iPhone and iPad and the Google Play version for Android.",
           "External websites and download hosts that you connect to from the app handle requests under their own privacy policies.",
         ],
@@ -367,7 +367,7 @@ export const en = {
         id: "retention",
         title: "Account deletion and data retention",
         paragraphs: [
-          "You can delete your cloud account at any time from 'Delete Kokage Cloud account' in Settings. Confirming deletion immediately signs the account out on all devices and erases your saved cloud voices, created avatars, and uploaded voice clips and pictures from the server. If you used the same account on minori.study, your answers, reports, reasoning checks, and practice sets there are deleted too.",
+          "You can delete your cloud account at any time from 'Delete Kokage Cloud account' in Settings. Confirming deletion immediately signs the account out on all devices and erases your saved cloud voices, created avatars, and uploaded voice clips and pictures from the server. If you used the same account on minori.study, the study data minori.study keeps under it, such as your answers and reports, is deleted too, in minori's next daily run.",
           "When you delete your account, any remaining Leaf is forfeited without refund, and past store purchases are not refunded. Your device removes the cloud account info, selected cloud voice setting, and cached balance, while keeping your characters, conversations, memories, notes, and avatars already applied to your characters on your device. If you use Kokage Cloud again later, a new empty account is created.",
           "After account deletion, Kokage Cloud retains only administrative records that contain no conversation, voice, or image content: the closed account ID, Leaf balance and usage history, store purchase records, voice consent records, safety-check records for refused or failed avatar requests, and audit logs. These are kept for accounting, fraud prevention, and legal obligations and have no fixed deletion date.",
           "If you signed in with Apple or Google, Kokage Cloud also keeps a one-way code made from your ID at Apple or Google, recording that this Apple or Google account has had the Welcome Leaf given at first sign-in. It contains neither the ID itself nor your email address. Because it is kept after deletion, signing in again with the same Apple or Google account starts a new account without Welcome Leaf.",
