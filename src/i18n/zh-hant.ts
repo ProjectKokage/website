@@ -152,8 +152,8 @@ export const zhHant = {
     title: "Kokage 在你的裝置上儲存什麼，以及雲端功能傳送什麼",
     lede: "本頁說明 Kokage App 會在你的裝置上儲存哪些內容、會向 Kokage Cloud 和外部服務傳送哪些內容、何時傳送，以及你如何管理或刪除自己的資料。",
     updatedLabel: "最後更新",
-    updatedDate: "2026-11-25",
-    updatedDateDisplay: "2026年11月25日",
+    updatedDate: "2026-11-26",
+    updatedDateDisplay: "2026年11月26日",
     highlightsLabel: "政策摘要",
     highlights: [
       "回覆在裝置上產生時，你的對話會留在裝置上",
@@ -167,7 +167,7 @@ export const zhHant = {
         id: "scope",
         title: "適用範圍",
         paragraphs: [
-          "本政策說明截至 2026年11月25日，Kokage App、Kokage Cloud 及本網站如何處理資料。",
+          "本政策說明截至 2026年11月26日，Kokage App、Kokage Cloud 及本網站如何處理資料。",
           "與 Kokage Cloud 相關的段落適用於包含 Kokage Cloud 的 App 版本：iPhone 和 iPad 的 App Store 版本，以及 Android 的 Google Play 版本。",
           "與當機報告和意見回饋相關的段落適用於包含這些功能的 App 版本。",
           "你從 App 連線的外部網站和下載伺服器，會依據其各自的隱私權政策處理請求。",
@@ -429,7 +429,7 @@ export const zhHant = {
         title: "當機報告（選用）",
         paragraphs: [
           "在包含當機報告功能的 App 版本中，Kokage 會在首次啟動時詢問「要把當機報告傳送給 Sentry 嗎？」；如果你已經在使用 App，則會在啟動開始時詢問。「傳送當機報告」和「不傳送」兩個回答的按鈕大小和樣式相同，不會替你預先選好任何一個。在你選擇「傳送當機報告」之前，App 不會傳送任何內容，也不會啟動回報軟體。",
-          "Sentry 是一項代管的錯誤回報服務，代 Orcalogy LLC 處理這些報告，並將其儲存在歐盟境內。傳送的內容不包含你的對話、記憶、筆記、聲音、圖片、檔案路徑、網址或帳戶識別碼。",
+          "Sentry 是一項代管的錯誤回報服務，代 Orcalogy LLC 處理這些報告，並將其儲存在歐盟境內。我們在 Sentry 中查看報告時，Sentry 可能會把報告交給 AI 模型進行摘要，這個模型可能在歐盟以外執行。傳送的內容不包含你的對話、記憶、筆記、聲音、圖片、檔案路徑、網址或帳戶識別碼。",
         ],
         items: [
           {
@@ -478,8 +478,8 @@ export const zhHant = {
             body: "意見回饋不帶安裝 ID 或帳戶識別碼，也不包含你的對話、記憶、筆記、聲音或圖片。訊息不會儲存在裝置上，傳送失敗後也不會自動重試。在傳送過程中離開頁面，App 會停止等待；如果意見回饋已經送達 Sentry，它會保留在那裡。和任何伺服器一樣，Sentry 看得到意見回饋來源的 IP 位址。",
           },
           {
-            title: "Sentry 的 AI 分類",
-            body: "Sentry 只會把你的訊息（不含其他資訊）交給一個 AI 模型，用來篩出垃圾訊息、為訊息產生標題並依話題分類。這個模型可能在歐盟以外執行，Sentry 不會用你的訊息訓練 AI 模型。",
+            title: "Sentry 的 AI 處理",
+            body: "Sentry 只會把你的訊息（不含其他資訊）交給 AI 模型，用來判斷是否為垃圾訊息、為訊息產生標題並依話題分類。我們在 Sentry 中查看意見回饋時，它也可能把近期的多筆訊息一起交給 AI 模型進行彙整和分組。這些模型可能在歐盟以外執行。Sentry 表示，除非我們允許，否則不會用你的訊息訓練生成式 AI 模型，而我們沒有允許。",
           },
           {
             title: "參考編號與刪除",

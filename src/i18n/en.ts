@@ -152,8 +152,8 @@ export const en = {
     title: "What Kokage keeps on your device and what its cloud features send",
     lede: "This page explains what the Kokage app saves on your device, what it sends to Kokage Cloud and external services, when that happens, and how you can manage or delete your data.",
     updatedLabel: "Last updated",
-    updatedDate: "2026-11-25",
-    updatedDateDisplay: "November 25, 2026",
+    updatedDate: "2026-11-26",
+    updatedDateDisplay: "November 26, 2026",
     highlightsLabel: "Policy summary",
     highlights: [
       "When replies are made on your device, your conversation stays on your device",
@@ -167,7 +167,7 @@ export const en = {
         id: "scope",
         title: "Scope",
         paragraphs: [
-          "This policy describes how data is handled by the Kokage app, Kokage Cloud, and this website as of November 25, 2026.",
+          "This policy describes how data is handled by the Kokage app, Kokage Cloud, and this website as of November 26, 2026.",
           "The sections about Kokage Cloud apply to versions of the app that include Kokage Cloud: the App Store version for iPhone and iPad and the Google Play version for Android.",
           "The sections about crash reports and feedback apply to versions of the app that include them.",
           "External websites and download hosts that you connect to from the app handle requests under their own privacy policies.",
@@ -429,7 +429,7 @@ export const en = {
         title: "Crash reports (optional)",
         paragraphs: [
           "In versions of the app that include crash reports, Kokage asks 'Send crash reports to Sentry?' on first run, or at the start of a launch if you already have the app. The two answers, 'Send crash reports' and 'Don't send', are shown as equals and neither is chosen for you. Until you choose 'Send crash reports', nothing is sent and the reporting software is not started.",
-          "Sentry is a hosted error-reporting service that processes these reports for Orcalogy LLC and stores them in the European Union. Nothing sent includes your chats, memories, notes, voice, pictures, file paths, URLs, or account identifier.",
+          "Sentry is a hosted error-reporting service that processes these reports for Orcalogy LLC and stores them in the European Union. When we look into a report in Sentry, Sentry may pass it to an AI model, which may run outside the European Union, to sum it up. Nothing sent includes your chats, memories, notes, voice, pictures, file paths, URLs, or account identifier.",
         ],
         items: [
           {
@@ -478,8 +478,8 @@ export const en = {
             body: "Feedback carries no installation ID or account identifier, and none of your chats, memories, notes, voice, or pictures. The message is not saved on your device, and a send that fails is not retried automatically. Leaving the page while it sends stops the app waiting; if the feedback already reached Sentry, it stays there. Like any server, Sentry sees the IP address the feedback comes from.",
           },
           {
-            title: "AI sorting at Sentry",
-            body: "Sentry passes your message, without the other facts, to an AI model that sorts out spam, gives the message a title and labels its topic. That model may run outside the EU, and Sentry does not use your message to train AI models.",
+            title: "AI at Sentry",
+            body: "Sentry passes your message, without the other facts, to AI models that mark spam, give the message a title and label its topic. When we read feedback in Sentry, it may also pass recent messages together to an AI model to sum them up and group them. These models may run outside the European Union. Sentry says it does not use your message to train generative AI models unless we allow it, and we have not.",
           },
           {
             title: "Reference ID and deletion",

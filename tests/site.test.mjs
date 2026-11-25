@@ -312,7 +312,7 @@ test("privacy policy pages are localized, indexable, and linked across languages
       heading:
         "What Kokage keeps on your device and what its cloud features send",
       siteName: "Kokage",
-      date: "November 25, 2026",
+      date: "November 26, 2026",
       homePath: "/",
     },
     {
@@ -325,7 +325,7 @@ test("privacy policy pages are localized, indexable, and linked across languages
         "こかげにおける端末内の会話とクラウド会話、Kokage Cloud のモーション、声、読み上げ、アバター、会話の保存、記憶、報告、クラッシュレポート、フィードバック、アカウント、ダウンロード、ウェブサイトのデータの扱いを説明します。",
       heading: "こかげが端末に保存するデータと、クラウド機能が送信するデータ",
       siteName: "こかげ",
-      date: "2026年11月25日",
+      date: "2026年11月26日",
       homePath: "/ja/",
     },
   ];
@@ -358,7 +358,7 @@ test("privacy policy pages are localized, indexable, and linked across languages
     assert.match(
       html,
       new RegExp(
-        `<time datetime="2026-11-25">${escapeRegExp(policy.date)}</time>`,
+        `<time datetime="2026-11-26">${escapeRegExp(policy.date)}</time>`,
       ),
     );
     assert.match(html, /"@type":"WebPage"/);
@@ -488,9 +488,15 @@ test("privacy policy pages are localized, indexable, and linked across languages
   assert.doesNotMatch(english, /not yet set/);
   assert.match(english, /Reports already sent stay with Sentry/);
   assert.match(english, /Feedback carries no installation ID or account identifier/);
-  assert.match(english, /to an AI model that sorts out spam/);
-  assert.match(english, /That model may run outside the EU/);
-  assert.match(japanese, /このAIモデルはEUの外で動く場合があり/);
+  assert.match(english, /without the other facts, to AI models that mark spam/);
+  assert.match(english, /pass recent messages together to an AI model to sum them up/);
+  assert.match(english, /These models may run outside the European Union/);
+  assert.match(english, /does not use your message to train generative AI models unless we allow it, and we have not/);
+  assert.match(english, /Sentry may pass it to an AI model, which may run outside the European Union, to sum it up/);
+  assert.match(japanese, /メッセージだけを、ほかの情報を付けずにAIモデルに渡し/);
+  assert.match(japanese, /これらのAIモデルはEUの外で動く場合があります/);
+  assert.match(japanese, /運営が許可しない限りメッセージを生成AIモデルの学習に使わない/);
+  assert.match(japanese, /SentryがレポートをAIモデルに渡して要約する場合があります/);
   assert.doesNotMatch(
     english,
     /automatic crash reporting|no advertising, analytics|does not measure how you use/,
@@ -748,7 +754,7 @@ test("Chinese pages are complete, script-consistent, and free of retired terms",
       /广告或分析|廣告或分析工具|不统计你如何使用|不統計你如何使用/,
     );
     const privacy = await read(`dist${localizedPath(prefix, "privacy")}index.html`);
-    assert.match(privacy, /<time datetime="2026-11-25">2026年11月25日<\/time>/);
+    assert.match(privacy, /<time datetime="2026-11-26">2026年11月26日<\/time>/);
     for (const id of ["crash-reports", "feedback"]) {
       assert.match(privacy, new RegExp(`href="#${id}"`));
       assert.match(privacy, new RegExp(`id="${id}"`));
@@ -759,7 +765,11 @@ test("Chinese pages are complete, script-consistent, and free of retired terms",
     }
     assert.match(privacy, /参考编号发送至 user_support@orcalogy\.com|參考編號寄至 user_support@orcalogy\.com/);
     assert.match(privacy, /存储在欧盟境内|儲存在歐盟境內/);
-    assert.match(privacy, /该模型可能在欧盟以外运行|這個模型可能在歐盟以外執行/);
+    assert.match(privacy, /不含其他信息|不含其他資訊/);
+    assert.match(privacy, /这些模型可能在欧盟以外运行|這些模型可能在歐盟以外執行/);
+    assert.match(privacy, /汇总和分组|彙整和分組/);
+    assert.match(privacy, /不会用你的消息训练生成式 AI 模型|不會用你的訊息訓練生成式 AI 模型/);
+    assert.match(privacy, /把报告交给 AI 模型进行总结|把報告交給 AI 模型進行摘要/);
     assert.match(privacy, /30 天后删除|30 天後刪除/);
     assert.match(privacy, /更早删除你的崩溃报告|更早刪除你的當機報告/);
     assert.match(privacy, /数据保留期限页面没有列出|資料保留期限頁面沒有列出/);
