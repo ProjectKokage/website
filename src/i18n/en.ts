@@ -478,6 +478,10 @@ export const en = {
             body: "Feedback carries no installation ID or account identifier, and none of your chats, memories, notes, voice, or pictures. The message is not saved on your device, and a send that fails is not retried automatically. Leaving the page while it sends stops the app waiting; if the feedback already reached Sentry, it stays there. Like any server, Sentry sees the IP address the feedback comes from.",
           },
           {
+            title: "AI sorting at Sentry",
+            body: "Sentry passes your message, without the other facts, to an AI model that sorts out spam, gives the message a title and labels its topic. That model may run outside the EU, and Sentry does not use your message to train AI models.",
+          },
+          {
             title: "Reference ID and deletion",
             body: "The app shows a Reference ID for each item sent. To have an item deleted, email user_support@orcalogy.com with its Reference ID, and we will delete it at Sentry. Otherwise Sentry deletes feedback, with the layout sent with it, after 30 days.",
             link: {

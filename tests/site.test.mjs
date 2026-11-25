@@ -488,6 +488,9 @@ test("privacy policy pages are localized, indexable, and linked across languages
   assert.doesNotMatch(english, /not yet set/);
   assert.match(english, /Reports already sent stay with Sentry/);
   assert.match(english, /Feedback carries no installation ID or account identifier/);
+  assert.match(english, /to an AI model that sorts out spam/);
+  assert.match(english, /That model may run outside the EU/);
+  assert.match(japanese, /このAIモデルはEUの外で動く場合があり/);
   assert.doesNotMatch(
     english,
     /automatic crash reporting|no advertising, analytics|does not measure how you use/,
@@ -756,6 +759,7 @@ test("Chinese pages are complete, script-consistent, and free of retired terms",
     }
     assert.match(privacy, /参考编号发送至 user_support@orcalogy\.com|參考編號寄至 user_support@orcalogy\.com/);
     assert.match(privacy, /存储在欧盟境内|儲存在歐盟境內/);
+    assert.match(privacy, /该模型可能在欧盟以外运行|這個模型可能在歐盟以外執行/);
     assert.match(privacy, /30 天后删除|30 天後刪除/);
     assert.match(privacy, /更早删除你的崩溃报告|更早刪除你的當機報告/);
     assert.match(privacy, /数据保留期限页面没有列出|資料保留期限頁面沒有列出/);
