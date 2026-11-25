@@ -480,6 +480,9 @@ test("privacy policy pages are localized, indexable, and linked across languages
   assert.match(english, /Kokage reads only the photo you pick/);
   assert.match(english, /before voice input or voice-clone recording/);
   assert.match(english, /Send crash reports to Sentry\?/);
+  assert.match(english, /email user_support@orcalogy\.com with its Reference ID/);
+  assert.match(english, /deletes them after 30 days/);
+  assert.doesNotMatch(english, /not yet set/);
   assert.match(english, /Reports already sent stay with Sentry/);
   assert.match(english, /Feedback carries no installation ID or account identifier/);
   assert.doesNotMatch(
@@ -487,6 +490,8 @@ test("privacy policy pages are localized, indexable, and linked across languages
     /automatic crash reporting|no advertising, analytics|does not measure how you use/,
   );
   assert.match(japanese, /クラッシュレポートを Sentry に送りますか？/);
+  assert.match(japanese, /受付IDを添えて user_support@orcalogy\.com までメール/);
+  assert.doesNotMatch(japanese, /まだ決まっていません/);
   assert.match(japanese, /フィードバックにはインストールIDもアカウントの識別子も付かず/);
   assert.doesNotMatch(japanese, /クラッシュ情報の自動送信機能|アプリの使い方も計測しません/);
   assert.match(japanese, /アバター作成用の写真を撮るときにカメラの許可/);
@@ -741,6 +746,8 @@ test("Chinese pages are complete, script-consistent, and free of retired terms",
     for (const claim of policyClaims) {
       assert.match(privacy, claim);
     }
+    assert.match(privacy, /user_support@orcalogy\.com/);
+    assert.doesNotMatch(privacy, /尚未确定|尚未確定/);
     assert.doesNotMatch(
       privacy,
       /自动崩溃报告|自動當機回報|广告、分析或|廣告、分析工具或|不统计你如何使用|不統計你如何使用/,

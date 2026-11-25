@@ -429,7 +429,7 @@ export const en = {
         title: "Crash reports (optional)",
         paragraphs: [
           "In versions of the app that include crash reports, Kokage asks 'Send crash reports to Sentry?' on first run, or at the start of a launch if you already have the app. The two answers, 'Send crash reports' and 'Don't send', are shown as equals and neither is chosen for you. Until you choose 'Send crash reports', nothing is sent and the reporting software is not started.",
-          "Sentry is a hosted error-reporting service that processes these reports for Orcalogy LLC. Nothing sent includes your chats, memories, notes, voice, pictures, file paths, URLs, or account identifier.",
+          "Sentry is a hosted error-reporting service that processes these reports for Orcalogy LLC and stores them in the European Union. Nothing sent includes your chats, memories, notes, voice, pictures, file paths, URLs, or account identifier.",
         ],
         items: [
           {
@@ -450,7 +450,7 @@ export const en = {
           },
           {
             title: "Changing your answer",
-            body: "You can change your answer at any time with 'Crash reports' in Settings, under App. Turning it off stops reporting and deletes the unsent reports and the installation ID from your device; turning it on later makes a new ID. Reports already sent stay with Sentry.",
+            body: "You can change your answer at any time with 'Crash reports' in Settings, under App. Turning it off stops reporting and deletes the unsent reports and the installation ID from your device; turning it on later makes a new ID. Reports already sent stay with Sentry, which deletes them after 30 days. The app shows no ID for a crash report, so a single report cannot be asked for by its ID.",
             link: {
               href: "https://sentry.io/privacy/",
               label: "Sentry privacy policy",
@@ -479,7 +479,7 @@ export const en = {
           },
           {
             title: "Reference ID and deletion",
-            body: "The app shows a Reference ID for each item sent; keep it to ask for that item to be deleted. How long Sentry keeps feedback and how an item is deleted are not yet set.",
+            body: "The app shows a Reference ID for each item sent. To have an item deleted, email user_support@orcalogy.com with its Reference ID, and we will delete it at Sentry. Otherwise Sentry deletes feedback, with the layout sent with it, after 30 days.",
             link: {
               href: "https://sentry.io/privacy/",
               label: "Sentry privacy policy",
@@ -630,7 +630,7 @@ export const en = {
         paragraphs: [
           "If you have a question or run into an issue, email contact@orcalogy.com with your device model, OS version, app version, the message shown on screen (or the summary from Settings → Show details), and a brief description of what happened.",
           "To protect your privacy, please do not send private conversations, voice recordings, photos, or VRM files by email. Please note that we cannot promise a specific response time.",
-          "To report an offensive AI reply or voice misuse, use the in-app Report option. You can review what will be sent before confirming, and if you later want the report deleted, email contact@orcalogy.com with the Reference ID shown in the app.",
+          "To report an offensive AI reply or voice misuse, use the in-app Report option. You can review what will be sent before confirming, and if you later want the report deleted, email contact@orcalogy.com with the Reference ID shown in the app. To have feedback you sent from Settings deleted, email user_support@orcalogy.com with the Reference ID shown after sending.",
         ],
       },
     ],
