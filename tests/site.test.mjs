@@ -409,7 +409,7 @@ test("privacy policy pages are localized, indexable, and linked across languages
     assert.match(html, /href="https:\/\/openrouter\.ai\/privacy"/);
     assert.match(html, /href="https:\/\/www\.revenuecat\.com\/privacy"/);
     assert.match(html, /href="https:\/\/sentry\.io\/privacy\/"/);
-    assert.match(html, /contact@orcalogy\.com/);
+    assert.match(html, /user_support@orcalogy\.com/);
     assert.match(html, /Orcalogy LLC/);
     assert.doesNotMatch(html, /Lorem ipsum|TODO|placeholder|\[insert/i);
     assert.doesNotMatch(html, /href="#"/);
@@ -579,7 +579,7 @@ test("support pages are bilingual, indexable, and privacy-conscious", async () =
     );
     assert.match(
       html,
-      /href="mailto:contact@orcalogy\.com\?subject=Kokage%20support"/,
+      /href="mailto:user_support@orcalogy\.com\?subject=Kokage%20support"/,
     );
     assert.match(html, /user_support@orcalogy\.com/);
     assert.match(html, /aria-current="page">[^<]*(?:Support|サポート)/);
@@ -763,7 +763,8 @@ test("Chinese pages are complete, script-consistent, and free of retired terms",
       privacy,
       /自动崩溃报告|自動當機回報|广告、分析或|廣告、分析工具或|不统计你如何使用|不統計你如何使用/,
     );
-    assert.match(privacy, /contact@orcalogy\.com/);
+    assert.match(privacy, /user_support@orcalogy\.com/);
+    assert.doesNotMatch(privacy, /contact@orcalogy\.com/);
     assert.match(privacy, /Orcalogy LLC/);
     assert.match(privacy, /zh-hans/);
   }

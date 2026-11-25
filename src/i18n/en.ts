@@ -120,7 +120,7 @@ export const en = {
       },
       {
         title: "Memories and notes you can review and edit",
-        body: "Your character remembers useful details from your conversations and shows an Undo notice whenever a new memory is saved. Open the Memory page anytime to view, edit, or delete entries, or add shared notes that all of your characters can reference.",
+        body: "Your character remembers useful details from your conversations and shows a notice whenever a new memory is saved, with Undo for the latest one. Open the Memory page anytime to view, edit, or delete entries, or add shared notes that all of your characters can reference.",
       },
       {
         title: "Mouth and body movement in sync with speech",
@@ -280,11 +280,11 @@ export const en = {
         items: [
           {
             title: "What memory saves",
-            body: "From messages you send, Memory can save up to one useful detail per turn—such as preferences, plans, people, or places. The model is instructed not to save passwords, PINs, API keys, account recovery codes, or anything you ask it not to remember, though automated selection cannot guarantee that unwanted details will never be saved.",
+            body: "Memory can save the useful facts you state in a message—such as preferences, plans, people, or places. The model is instructed not to save passwords, PINs, API keys, account recovery codes, or anything you ask it not to remember, though automated selection cannot guarantee that unwanted details will never be saved.",
           },
           {
             title: "Viewing, editing, and deleting memories",
-            body: "Whenever a memory is saved, a notice appears with an Undo button so you can remove it right away. You can also open the Memory page anytime to view, edit, delete single entries, clear all entries, or turn Memory off. Turning it off stops new memories from being saved or looked up while keeping existing entries editable. Memories are created only from words you submit yourself, never automatically from photos or notes.",
+            body: "Whenever a memory is saved, a notice appears, and the most recent one has an Undo button so you can remove it right away. You can also open the Memory page anytime to view, edit, delete single entries, clear all entries, or turn Memory off. Turning it off stops new memories from being saved or looked up while keeping existing entries editable. Memories are created only from words you submit yourself, never automatically from photos or notes.",
           },
           {
             title: "Notes (Local Knowledge)",
@@ -416,7 +416,7 @@ export const en = {
         items: [
           {
             title: "Report storage and deletion requests",
-            body: "Submitted reports are kept in Formspark and our support mailbox until we delete them; there is no fixed retention period, and uninstalling the app does not remove a submitted report. To request deletion, email contact@orcalogy.com with the Reference ID shown in the app, and we will delete the report from Formspark and our mailbox (copies in provider backups follow each provider's backup schedule).",
+            body: "Submitted reports are kept in Formspark and our support mailbox until we delete them; there is no fixed retention period, and uninstalling the app does not remove a submitted report. To request deletion, email user_support@orcalogy.com with the Reference ID shown in the app, and we will delete the report from Formspark and our mailbox (copies in provider backups follow each provider's backup schedule).",
             link: {
               href: "https://formspark.io/legal/privacy-policy/",
               label: "Formspark privacy policy",
@@ -529,7 +529,7 @@ export const en = {
         title: "Updates and contact",
         paragraphs: [
           "If our data practices change, we will update this page and the last-updated date above.",
-          "Contact: contact@orcalogy.com.",
+          "Contact: user_support@orcalogy.com.",
         ],
       },
     ],
@@ -628,14 +628,14 @@ export const en = {
         id: "contact",
         title: "Contact us",
         paragraphs: [
-          "If you have a question or run into an issue, email contact@orcalogy.com with your device model, OS version, app version, the message shown on screen (or the summary from Settings → Show details), and a brief description of what happened.",
+          "If you have a question or run into an issue, email user_support@orcalogy.com with your device model, OS version, app version, the message shown on screen (or the summary from Settings → Show details), and a brief description of what happened.",
           "To protect your privacy, please do not send private conversations, voice recordings, photos, or VRM files by email. Please note that we cannot promise a specific response time.",
-          "To report an offensive AI reply or voice misuse, use the in-app Report option. You can review what will be sent before confirming, and if you later want the report deleted, email contact@orcalogy.com with the Reference ID shown in the app. To have feedback you sent from Settings deleted, email user_support@orcalogy.com with the Reference ID shown after sending.",
+          "To report an offensive AI reply or voice misuse, use the in-app Report option. You can review what will be sent before confirming, and if you later want the report deleted, email user_support@orcalogy.com with the Reference ID shown in the app. To have feedback you sent from Settings deleted, email the same address with the Reference ID shown after sending.",
         ],
       },
     ],
     contactLabel: "Email Kokage support",
-    contactEmail: "contact@orcalogy.com",
+    contactEmail: "user_support@orcalogy.com",
     privacyLinkLabel: "Read the privacy policy",
     backHomeLabel: "Back to Kokage",
   },
