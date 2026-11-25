@@ -120,7 +120,7 @@ export const en = {
       },
       {
         title: "Memories and notes you can review and edit",
-        body: "Your character remembers useful details from your conversations and shows an Undo notice whenever a new memory is saved. Open the Memory page anytime to view, edit, or delete entries, or add shared notes that all of your characters can reference.",
+        body: "Your character remembers useful details from your conversations and shows a notice whenever a new memory is saved, with Undo for the latest one. Open the Memory page anytime to view, edit, or delete entries, or add shared notes that all of your characters can reference.",
       },
       {
         title: "Mouth and body movement in sync with speech",
@@ -279,11 +279,11 @@ export const en = {
         items: [
           {
             title: "What memory saves",
-            body: "From messages you send, Memory can save up to one useful detail per turn—such as preferences, plans, people, or places. The model is instructed not to save passwords, PINs, API keys, account recovery codes, or anything you ask it not to remember, though automated selection cannot guarantee that unwanted details will never be saved.",
+            body: "Memory can save the useful facts you state in a message—such as preferences, plans, people, or places. The model is instructed not to save passwords, PINs, API keys, account recovery codes, or anything you ask it not to remember, though automated selection cannot guarantee that unwanted details will never be saved.",
           },
           {
             title: "Viewing, editing, and deleting memories",
-            body: "Whenever a memory is saved, a notice appears with an Undo button so you can remove it right away. You can also open the Memory page anytime to view, edit, delete single entries, clear all entries, or turn Memory off. Turning it off stops new memories from being saved or looked up while keeping existing entries editable. Memories are created only from words you submit yourself, never automatically from photos or notes.",
+            body: "Whenever a memory is saved, a notice appears, and the most recent one has an Undo button so you can remove it right away. You can also open the Memory page anytime to view, edit, delete single entries, clear all entries, or turn Memory off. Turning it off stops new memories from being saved or looked up while keeping existing entries editable. Memories are created only from words you submit yourself, never automatically from photos or notes.",
           },
           {
             title: "Notes (Local Knowledge)",
