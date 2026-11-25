@@ -727,7 +727,10 @@ test("Chinese pages are complete, script-consistent, and free of retired terms",
     for (const claim of homeClaims) {
       assert.match(home, claim);
     }
-    assert.doesNotMatch(home, /广告或分析|廣告或分析工具/);
+    assert.doesNotMatch(
+      home,
+      /广告或分析|廣告或分析工具|不统计你如何使用|不統計你如何使用/,
+    );
     const privacy = await read(`dist${localizedPath(prefix, "privacy")}index.html`);
     assert.match(privacy, /<time datetime="2026-11-25">2026年11月25日<\/time>/);
     for (const id of ["crash-reports", "feedback"]) {

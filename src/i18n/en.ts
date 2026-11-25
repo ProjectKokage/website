@@ -381,7 +381,7 @@ export const en = {
         title: "Model downloads and external connections",
         paragraphs: [
           "When you download a model or check a public model, the download host receives the requested file path and standard connection information such as your IP address, with no conversation or media content. Canceling a download deletes any partial files.",
-          "The app includes no advertising and records no screens, taps, or feature counts. The one thing it sends about use is the per-launch record of crash reporting, and only after you say yes. Crash reports and feedback go to Sentry only as the 'Crash reports (optional)' and 'Sending feedback' sections describe.",
+          "The app includes no advertising and records no screens, taps, or feature counts. Crash reports and feedback go to Sentry only as the 'Crash reports (optional)' and 'Sending feedback' sections describe.",
         ],
         items: [
           {
