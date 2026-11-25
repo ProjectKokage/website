@@ -139,7 +139,7 @@ export const en = {
   privacy: {
     eyebrow: "Privacy",
     title: "Built to keep your conversations in your hands",
-    lede: "When replies are made on your device, your conversations stay on your device. Voice input is transcribed on your device, so your everyday spoken audio is never uploaded. The app contains no advertising and does not measure how you use it: no screens, taps, or feature counts. Crash reports are sent only if you choose to send them. When you use Kokage Cloud, the app explains what is sent beforehand, and you can manage or delete your memories, notes, and cloud account at any time.",
+    lede: "When replies are made on your device, your conversations stay on your device. Voice input is transcribed on your device, so your everyday spoken audio is never uploaded. The app contains no advertising and records no screens, taps, or feature counts. Crash reports, with one short record per launch, are sent only if you choose to send them. When you use Kokage Cloud, the app explains what is sent beforehand, and you can manage or delete your memories, notes, and cloud account at any time.",
     policyLink: "Read the privacy policy",
   },
   privacyPolicy: {
@@ -159,7 +159,7 @@ export const en = {
       "When replies are made on your device, your conversation stays on your device",
       "When you use Kokage Cloud, it sends only the data described in this policy, and the app explains cloud chat before you start using it",
       "Speech recognition runs on your device; conversation audio is never logged or uploaded",
-      "The app includes no advertising and does not measure how you use it (no screens, taps, or feature counts); crash reports are sent only if you choose to send them",
+      "The app includes no advertising and records no screens, taps, or feature counts; crash reports, with one short record per launch, are sent only if you choose to send them",
     ],
     contentsLabel: "On this page",
     sections: [
@@ -381,7 +381,7 @@ export const en = {
         title: "Model downloads and external connections",
         paragraphs: [
           "When you download a model or check a public model, the download host receives the requested file path and standard connection information such as your IP address, with no conversation or media content. Canceling a download deletes any partial files.",
-          "The app includes no advertising and does not measure how you use it: no screens, taps, or feature counts. Crash reports and feedback go to Sentry only as the 'Crash reports (optional)' and 'Sending feedback' sections describe.",
+          "The app includes no advertising and records no screens, taps, or feature counts. The one thing it sends about use is the per-launch record of crash reporting, and only after you say yes. Crash reports and feedback go to Sentry only as the 'Crash reports (optional)' and 'Sending feedback' sections describe.",
         ],
         items: [
           {

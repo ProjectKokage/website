@@ -253,8 +253,12 @@ test("English and Japanese pages emit localized metadata and complete navigation
   assert.match(english, /A place of its own/);
   assert.match(english, /automatically switches to on-device replies/);
   assert.match(english, /explains what is sent beforehand/);
-  assert.match(english, /no advertising and does not measure how you use it: no screens, taps, or feature counts/);
-  assert.match(english, /Crash reports are sent only if you choose to send them/);
+  assert.match(english, /no advertising and records no screens, taps, or feature counts/);
+  assert.match(
+    english,
+    /Crash reports, with one short record per launch, are sent only if you choose to send them/,
+  );
+  assert.doesNotMatch(english, /does not measure how you use/);
   assert.doesNotMatch(english, /analytics/);
   assert.doesNotMatch(
     english,
@@ -269,8 +273,9 @@ test("English and Japanese pages emit localized metadata and complete navigation
   assert.match(japanese, /キャラクターだけの場所/);
   assert.match(japanese, /言の葉がなくなったときも自動で端末内の返事に切り替わります/);
   assert.match(japanese, /何が送信されるかを事前にわかりやすく案内し/);
-  assert.match(japanese, /アプリに広告はなく、画面の表示、タップ、機能の利用回数といったアプリの使い方も計測しません/);
-  assert.match(japanese, /クラッシュレポートは、送ると答えた場合にだけ送ります/);
+  assert.match(japanese, /アプリに広告はなく、画面の表示、タップ、機能の利用回数は記録しません/);
+  assert.match(japanese, /クラッシュレポートと起動ごとの短い記録は、送ると答えた場合にだけ送ります/);
+  assert.doesNotMatch(japanese, /アプリの使い方も計測しません/);
   assert.doesNotMatch(japanese, /アクセス解析/);
   assert.doesNotMatch(
     japanese,
@@ -477,10 +482,13 @@ test("privacy policy pages are localized, indexable, and linked across languages
   assert.match(english, /Send crash reports to Sentry\?/);
   assert.match(english, /Reports already sent stay with Sentry/);
   assert.match(english, /Feedback carries no installation ID or account identifier/);
-  assert.doesNotMatch(english, /automatic crash reporting|no advertising, analytics/);
+  assert.doesNotMatch(
+    english,
+    /automatic crash reporting|no advertising, analytics|does not measure how you use/,
+  );
   assert.match(japanese, /クラッシュレポートを Sentry に送りますか？/);
   assert.match(japanese, /フィードバックにはインストールIDもアカウントの識別子も付かず/);
-  assert.doesNotMatch(japanese, /クラッシュ情報の自動送信機能/);
+  assert.doesNotMatch(japanese, /クラッシュ情報の自動送信機能|アプリの使い方も計測しません/);
   assert.match(japanese, /アバター作成用の写真を撮るときにカメラの許可/);
   assert.match(japanese, /声の複製のための録音を始める前にマイクの許可/);
 
@@ -630,7 +638,10 @@ test("Chinese pages are complete, script-consistent, and free of retired terms",
       prefix: "/zh-hans",
       // Characters that only appear in the other script.
       otherScript: /[這為們說時會發應頁設備帳戶隱關對話聲雲記憶]/,
-      homeClaims: [/也不统计你如何使用应用/, /才会发送崩溃报告/],
+      homeClaims: [
+        /也不记录你打开了哪些界面、点了什么或各功能用了多少次/,
+        /才会发送崩溃报告和每次启动的一条简短记录/,
+      ],
       policyClaims: [
         /要把崩溃报告发送给 Sentry 吗？/,
         /反馈不带安装 ID 或账户标识符/,
@@ -641,7 +652,10 @@ test("Chinese pages are complete, script-consistent, and free of retired terms",
       lang: "zh-Hant",
       prefix: "/zh-hant",
       otherScript: /[这为们说时会发应页设备账户隐关对话声云记忆]/,
-      homeClaims: [/也不統計你如何使用 App/, /才會傳送當機報告/],
+      homeClaims: [
+        /也不記錄你開啟了哪些畫面、點了什麼或各功能用了多少次/,
+        /才會傳送當機報告和每次啟動的一筆簡短紀錄/,
+      ],
       policyClaims: [
         /要把當機報告傳送給 Sentry 嗎？/,
         /意見回饋不帶安裝 ID 或帳戶識別碼/,
@@ -724,7 +738,10 @@ test("Chinese pages are complete, script-consistent, and free of retired terms",
     for (const claim of policyClaims) {
       assert.match(privacy, claim);
     }
-    assert.doesNotMatch(privacy, /自动崩溃报告|自動當機回報|广告、分析或|廣告、分析工具或/);
+    assert.doesNotMatch(
+      privacy,
+      /自动崩溃报告|自動當機回報|广告、分析或|廣告、分析工具或|不统计你如何使用|不統計你如何使用/,
+    );
     assert.match(privacy, /contact@orcalogy\.com/);
     assert.match(privacy, /Orcalogy LLC/);
     assert.match(privacy, /zh-hans/);
