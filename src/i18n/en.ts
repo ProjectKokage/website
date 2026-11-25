@@ -450,7 +450,7 @@ export const en = {
           },
           {
             title: "Changing your answer",
-            body: "You can change your answer at any time with 'Crash reports' in Settings, under App. Turning it off stops reporting and deletes the unsent reports and the installation ID from your device; turning it on later makes a new ID. Reports already sent stay with Sentry, which deletes them after 30 days. The app shows no ID for a crash report, so a single report cannot be asked for by its ID.",
+            body: "You can change your answer at any time with 'Crash reports' in Settings, under App. Turning it off stops reporting and deletes the unsent reports and the installation ID from your device; turning it on later makes a new ID. Reports already sent stay with Sentry, which deletes them after 30 days. The app shows no ID for a crash report, so a deletion request cannot name a single report. Sentry publishes no retention period for the per-launch records.",
             link: {
               href: "https://sentry.io/privacy/",
               label: "Sentry privacy policy",

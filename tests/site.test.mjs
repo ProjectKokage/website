@@ -482,6 +482,7 @@ test("privacy policy pages are localized, indexable, and linked across languages
   assert.match(english, /Send crash reports to Sentry\?/);
   assert.match(english, /email user_support@orcalogy\.com with its Reference ID/);
   assert.match(english, /deletes them after 30 days/);
+  assert.match(english, /stores them in the European Union/);
   assert.doesNotMatch(english, /not yet set/);
   assert.match(english, /Reports already sent stay with Sentry/);
   assert.match(english, /Feedback carries no installation ID or account identifier/);
@@ -491,6 +492,8 @@ test("privacy policy pages are localized, indexable, and linked across languages
   );
   assert.match(japanese, /クラッシュレポートを Sentry に送りますか？/);
   assert.match(japanese, /受付IDを添えて user_support@orcalogy\.com までメール/);
+  assert.match(japanese, /レポートはEU内に保存されます/);
+  assert.match(japanese, /30日後に削除されます/);
   assert.doesNotMatch(japanese, /まだ決まっていません/);
   assert.match(japanese, /フィードバックにはインストールIDもアカウントの識別子も付かず/);
   assert.doesNotMatch(japanese, /クラッシュ情報の自動送信機能|アプリの使い方も計測しません/);
@@ -576,6 +579,7 @@ test("support pages are bilingual, indexable, and privacy-conscious", async () =
       html,
       /href="mailto:contact@orcalogy\.com\?subject=Kokage%20support"/,
     );
+    assert.match(html, /user_support@orcalogy\.com/);
     assert.match(html, /aria-current="page">[^<]*(?:Support|サポート)/);
 
     for (const id of [
@@ -746,7 +750,9 @@ test("Chinese pages are complete, script-consistent, and free of retired terms",
     for (const claim of policyClaims) {
       assert.match(privacy, claim);
     }
-    assert.match(privacy, /user_support@orcalogy\.com/);
+    assert.match(privacy, /参考编号发送至 user_support@orcalogy\.com|參考編號寄至 user_support@orcalogy\.com/);
+    assert.match(privacy, /存储在欧盟境内|儲存在歐盟境內/);
+    assert.match(privacy, /30 天后删除|30 天後刪除/);
     assert.doesNotMatch(privacy, /尚未确定|尚未確定/);
     assert.doesNotMatch(
       privacy,
