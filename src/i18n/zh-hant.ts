@@ -415,7 +415,7 @@ export const zhHant = {
         items: [
           {
             title: "檢舉的儲存與刪除要求",
-            body: "已送出的檢舉會保存在 Formspark 和我們的支援信箱中，直到我們將其刪除；沒有固定的保留期限，解除安裝 App 也不會移除已送出的檢舉。如需要求刪除，請將 App 中顯示的參考編號寄至 contact@orcalogy.com，我們會從 Formspark 和我們的信箱中刪除該檢舉（服務供應商備份中的副本依循各供應商的備份週期）。",
+            body: "已送出的檢舉會保存在 Formspark 和我們的支援信箱中，直到我們將其刪除；沒有固定的保留期限，解除安裝 App 也不會移除已送出的檢舉。如需要求刪除，請將 App 中顯示的參考編號寄至 user_support@orcalogy.com，我們會從 Formspark 和我們的信箱中刪除該檢舉（服務供應商備份中的副本依循各供應商的備份週期）。",
             link: {
               href: "https://formspark.io/legal/privacy-policy/",
               label: "Formspark 隱私權政策",
@@ -465,7 +465,7 @@ export const zhHant = {
         title: "更新與聯絡方式",
         paragraphs: [
           "如果我們的資料處理方式有所變更，我們將更新本頁及上方的最後更新日期。",
-          "聯絡方式：contact@orcalogy.com。",
+          "聯絡方式：user_support@orcalogy.com。",
         ],
       },
     ],
@@ -564,14 +564,14 @@ export const zhHant = {
         id: "contact",
         title: "聯絡我們",
         paragraphs: [
-          "如果你有疑問或遇到問題，請寄送電子郵件至 contact@orcalogy.com，並註明你的裝置型號、作業系統版本、App 版本、畫面上顯示的訊息（或在「設定」→「顯示詳細資訊」中看到的摘要），以及發生情況的簡要描述。",
+          "如果你有疑問或遇到問題，請寄送電子郵件至 user_support@orcalogy.com，並註明你的裝置型號、作業系統版本、App 版本、畫面上顯示的訊息（或在「設定」→「顯示詳細資訊」中看到的摘要），以及發生情況的簡要描述。",
           "為了保護你的隱私，請不要透過電子郵件傳送私人對話、錄音、照片或 VRM 檔案。請注意，我們無法承諾特定的回覆時間。",
-          "如需檢舉冒犯性的 AI 回覆或聲音濫用，請使用 App 內的「檢舉」選項。確認前你可以查看將要傳送的內容；如果之後想刪除該檢舉，請將 App 中顯示的參考編號寄至 contact@orcalogy.com。",
+          "如需檢舉冒犯性的 AI 回覆或聲音濫用，請使用 App 內的「檢舉」選項。確認前你可以查看將要傳送的內容；如果之後想刪除該檢舉，請將 App 中顯示的參考編號寄至 user_support@orcalogy.com。",
         ],
       },
     ],
     contactLabel: "寄送電子郵件給 Kokage 支援",
-    contactEmail: "contact@orcalogy.com",
+    contactEmail: "user_support@orcalogy.com",
     privacyLinkLabel: "閱讀隱私權政策",
     backHomeLabel: "返回 Kokage",
   },

@@ -415,7 +415,7 @@ export const en = {
         items: [
           {
             title: "Report storage and deletion requests",
-            body: "Submitted reports are kept in Formspark and our support mailbox until we delete them; there is no fixed retention period, and uninstalling the app does not remove a submitted report. To request deletion, email contact@orcalogy.com with the Reference ID shown in the app, and we will delete the report from Formspark and our mailbox (copies in provider backups follow each provider's backup schedule).",
+            body: "Submitted reports are kept in Formspark and our support mailbox until we delete them; there is no fixed retention period, and uninstalling the app does not remove a submitted report. To request deletion, email user_support@orcalogy.com with the Reference ID shown in the app, and we will delete the report from Formspark and our mailbox (copies in provider backups follow each provider's backup schedule).",
             link: {
               href: "https://formspark.io/legal/privacy-policy/",
               label: "Formspark privacy policy",
@@ -465,7 +465,7 @@ export const en = {
         title: "Updates and contact",
         paragraphs: [
           "If our data practices change, we will update this page and the last-updated date above.",
-          "Contact: contact@orcalogy.com.",
+          "Contact: user_support@orcalogy.com.",
         ],
       },
     ],
@@ -564,14 +564,14 @@ export const en = {
         id: "contact",
         title: "Contact us",
         paragraphs: [
-          "If you have a question or run into an issue, email contact@orcalogy.com with your device model, OS version, app version, the message shown on screen (or the summary from Settings → Show details), and a brief description of what happened.",
+          "If you have a question or run into an issue, email user_support@orcalogy.com with your device model, OS version, app version, the message shown on screen (or the summary from Settings → Show details), and a brief description of what happened.",
           "To protect your privacy, please do not send private conversations, voice recordings, photos, or VRM files by email. Please note that we cannot promise a specific response time.",
-          "To report an offensive AI reply or voice misuse, use the in-app Report option. You can review what will be sent before confirming, and if you later want the report deleted, email contact@orcalogy.com with the Reference ID shown in the app.",
+          "To report an offensive AI reply or voice misuse, use the in-app Report option. You can review what will be sent before confirming, and if you later want the report deleted, email user_support@orcalogy.com with the Reference ID shown in the app.",
         ],
       },
     ],
     contactLabel: "Email Kokage support",
-    contactEmail: "contact@orcalogy.com",
+    contactEmail: "user_support@orcalogy.com",
     privacyLinkLabel: "Read the privacy policy",
     backHomeLabel: "Back to Kokage",
   },

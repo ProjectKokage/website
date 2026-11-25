@@ -397,7 +397,7 @@ test("privacy policy pages are localized, indexable, and linked across languages
     assert.match(html, /https:\/\/formspark\.io\/legal\/privacy-policy\//);
     assert.match(html, /href="https:\/\/openrouter\.ai\/privacy"/);
     assert.match(html, /href="https:\/\/www\.revenuecat\.com\/privacy"/);
-    assert.match(html, /contact@orcalogy\.com/);
+    assert.match(html, /user_support@orcalogy\.com/);
     assert.match(html, /Orcalogy LLC/);
     assert.doesNotMatch(html, /Lorem ipsum|TODO|placeholder|\[insert/i);
     assert.doesNotMatch(html, /href="#"/);
@@ -547,7 +547,7 @@ test("support pages are bilingual, indexable, and privacy-conscious", async () =
     );
     assert.match(
       html,
-      /href="mailto:contact@orcalogy\.com\?subject=Kokage%20support"/,
+      /href="mailto:user_support@orcalogy\.com\?subject=Kokage%20support"/,
     );
     assert.match(html, /aria-current="page">[^<]*(?:Support|サポート)/);
 
@@ -681,7 +681,7 @@ test("Chinese pages are complete, script-consistent, and free of retired terms",
     }
     const privacy = await read(`dist${localizedPath(prefix, "privacy")}index.html`);
     assert.match(privacy, /<time datetime="2026-11-22">2026年11月22日<\/time>/);
-    assert.match(privacy, /contact@orcalogy\.com/);
+    assert.match(privacy, /user_support@orcalogy\.com/);
     assert.match(privacy, /Orcalogy LLC/);
     assert.match(privacy, /zh-hans/);
   }
