@@ -429,7 +429,7 @@ export const en = {
         title: "Crash reports (optional)",
         paragraphs: [
           "In versions of the app that include crash reports, Kokage asks 'Send crash reports to Sentry?' on first run, or at the start of a launch if you already have the app. The two answers, 'Send crash reports' and 'Don't send', are shown as equals and neither is chosen for you. Until you choose 'Send crash reports', nothing is sent and the reporting software is not started.",
-          "Sentry is a hosted error-reporting service that processes these reports for Orcalogy LLC and stores them in the European Union. When we look into a report in Sentry, Sentry may pass it to an AI model, which may run outside the European Union, to sum it up. Nothing sent includes your chats, memories, notes, voice, pictures, file paths, URLs, or account identifier.",
+          "Sentry is a hosted error-reporting service that processes these reports for Orcalogy LLC and stores them in the European Union. When a report arrives, or when we look into it in Sentry, Sentry may pass it to AI models to group it with similar crashes, sum it up and look for its cause. These models may run outside the European Union. Nothing sent includes your chats, memories, notes, voice, pictures, file paths, URLs, or account identifier.",
         ],
         items: [
           {

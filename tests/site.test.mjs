@@ -488,15 +488,14 @@ test("privacy policy pages are localized, indexable, and linked across languages
   assert.doesNotMatch(english, /not yet set/);
   assert.match(english, /Reports already sent stay with Sentry/);
   assert.match(english, /Feedback carries no installation ID or account identifier/);
-  assert.match(english, /without the other facts, to AI models that mark spam/);
-  assert.match(english, /pass recent messages together to an AI model to sum them up/);
-  assert.match(english, /These models may run outside the European Union/);
-  assert.match(english, /does not use your message to train generative AI models unless we allow it, and we have not/);
-  assert.match(english, /Sentry may pass it to an AI model, which may run outside the European Union, to sum it up/);
-  assert.match(japanese, /メッセージだけを、ほかの情報を付けずにAIモデルに渡し/);
-  assert.match(japanese, /これらのAIモデルはEUの外で動く場合があります/);
-  assert.match(japanese, /運営が許可しない限りメッセージを生成AIモデルの学習に使わない/);
-  assert.match(japanese, /SentryがレポートをAIモデルに渡して要約する場合があります/);
+  assert.match(english, /Sentry passes your message, without the other facts, to AI models that mark spam, give the message a title and label its topic\./);
+  assert.match(english, /When we read feedback in Sentry, it may also pass recent messages together to an AI model to sum them up and group them\. These models may run outside the European Union\./);
+  assert.match(english, /Sentry says it does not use your message to train generative AI models unless we allow it, and we have not\./);
+  assert.match(english, /When a report arrives, or when we look into it in Sentry, Sentry may pass it to AI models to group it with similar crashes, sum it up and look for its cause\. These models may run outside the European Union\./);
+  assert.match(japanese, /Sentryはメッセージだけを、ほかの情報を付けずにAIモデルに渡し、迷惑な投稿かどうかの判定、件名づけ、話題ごとの分類を行います。/);
+  assert.match(japanese, /最近のメッセージをまとめてAIモデルに渡し、要約やグループ分けをすることもあります。これらのAIモデルはEUの外で動く場合があります。/);
+  assert.match(japanese, /運営が許可しない限りメッセージを生成AIモデルの学習に使わないとしており、運営は許可していません。/);
+  assert.match(japanese, /レポートが届いたときや、運営がSentryでレポートを調べるときに、SentryがレポートをAIモデルに渡し、似たクラッシュとのまとめ、要約、原因の調査を行う場合があります。これらのAIモデルはEUの外で動く場合があります。/);
   assert.doesNotMatch(
     english,
     /automatic crash reporting|no advertising, analytics|does not measure how you use/,
@@ -765,11 +764,22 @@ test("Chinese pages are complete, script-consistent, and free of retired terms",
     }
     assert.match(privacy, /参考编号发送至 user_support@orcalogy\.com|參考編號寄至 user_support@orcalogy\.com/);
     assert.match(privacy, /存储在欧盟境内|儲存在歐盟境內/);
-    assert.match(privacy, /不含其他信息|不含其他資訊/);
-    assert.match(privacy, /这些模型可能在欧盟以外运行|這些模型可能在歐盟以外執行/);
-    assert.match(privacy, /汇总和分组|彙整和分組/);
-    assert.match(privacy, /不会用你的消息训练生成式 AI 模型|不會用你的訊息訓練生成式 AI 模型/);
-    assert.match(privacy, /把报告交给 AI 模型进行总结|把報告交給 AI 模型進行摘要/);
+    const aiClaims = locale === "zh-hans"
+      ? [
+          /Sentry 只会把你的消息（不含其他信息）交给 AI 模型，用来判断是否为垃圾信息、为消息生成标题并按话题分类。/,
+          /它还可能把近期的多条消息一起交给 AI 模型进行汇总和分组。这些模型可能在欧盟以外运行。/,
+          /除非我们允许，它不会用你的消息训练生成式 AI 模型，而我们没有允许。/,
+          /报告到达时，或我们在 Sentry 中查看报告时，Sentry 可能会把报告交给 AI 模型，用来与类似的崩溃归为一组、进行汇总并查找原因。这些模型可能在欧盟以外运行。/,
+        ]
+      : [
+          /Sentry 只會把你的訊息（不含其他資訊）交給 AI 模型，用來判斷是否為垃圾訊息、為訊息產生標題並依話題分類。/,
+          /它也可能把近期的多筆訊息一起交給 AI 模型進行彙整和分組。這些模型可能在歐盟以外執行。/,
+          /除非我們允許，否則不會用你的訊息訓練生成式 AI 模型，而我們沒有允許。/,
+          /報告送達時，或我們在 Sentry 中查看報告時，Sentry 可能會把報告交給 AI 模型，用來與類似的當機歸為一組、進行彙整並查找原因。這些模型可能在歐盟以外執行。/,
+        ];
+    for (const claim of aiClaims) {
+      assert.match(privacy, claim, locale);
+    }
     assert.match(privacy, /30 天后删除|30 天後刪除/);
     assert.match(privacy, /更早删除你的崩溃报告|更早刪除你的當機報告/);
     assert.match(privacy, /数据保留期限页面没有列出|資料保留期限頁面沒有列出/);
