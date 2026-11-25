@@ -482,6 +482,7 @@ test("privacy policy pages are localized, indexable, and linked across languages
   assert.match(english, /Send crash reports to Sentry\?/);
   assert.match(english, /email user_support@orcalogy\.com with its Reference ID/);
   assert.match(english, /deletes them after 30 days/);
+  assert.match(english, /To ask for your crash reports to be deleted sooner, email user_support@orcalogy\.com/);
   assert.match(english, /stores them in the European Union/);
   assert.match(english, /retention page lists no period for the per-launch records/);
   assert.doesNotMatch(english, /not yet set/);
@@ -495,6 +496,7 @@ test("privacy policy pages are localized, indexable, and linked across languages
   assert.match(japanese, /受付IDを添えて user_support@orcalogy\.com までメール/);
   assert.match(japanese, /レポートはEU内に保存されます/);
   assert.match(japanese, /30日後に削除されます/);
+  assert.match(japanese, /レポートを特定できる情報をお知らせいただいた場合に限り対応できます/);
   assert.match(japanese, /起動ごとの記録の保存期間は、Sentryの保存期間のページに記載がありません/);
   assert.doesNotMatch(japanese, /まだ決まっていません/);
   assert.match(japanese, /フィードバックにはインストールIDもアカウントの識別子も付かず/);
@@ -755,6 +757,7 @@ test("Chinese pages are complete, script-consistent, and free of retired terms",
     assert.match(privacy, /参考编号发送至 user_support@orcalogy\.com|參考編號寄至 user_support@orcalogy\.com/);
     assert.match(privacy, /存储在欧盟境内|儲存在歐盟境內/);
     assert.match(privacy, /30 天后删除|30 天後刪除/);
+    assert.match(privacy, /更早删除你的崩溃报告|更早刪除你的當機報告/);
     assert.match(privacy, /数据保留期限页面没有列出|資料保留期限頁面沒有列出/);
     const support = await read(`dist${localizedPath(prefix, "support")}index.html`);
     assert.match(support, /user_support@orcalogy\.com/);

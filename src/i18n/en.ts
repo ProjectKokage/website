@@ -450,7 +450,7 @@ export const en = {
           },
           {
             title: "Changing your answer",
-            body: "You can change your answer at any time with 'Crash reports' in Settings, under App. Turning it off stops reporting and deletes the unsent reports and the installation ID from your device; turning it on later makes a new ID. Reports already sent stay with Sentry, which deletes them after 30 days. The app shows no ID for a crash report, so a deletion request cannot name a single report. Sentry's retention page lists no period for the per-launch records.",
+            body: "You can change your answer at any time with 'Crash reports' in Settings, under App. Turning it off stops reporting and deletes the unsent reports and the installation ID from your device; turning it on later makes a new ID. Reports already sent stay with Sentry, which deletes them after 30 days. To ask for your crash reports to be deleted sooner, email user_support@orcalogy.com. The app shows no ID for a crash report, so we can act only if you can tell us something that identifies your reports, such as the device model and roughly when the app stopped. Sentry's retention page lists no period for the per-launch records.",
             link: {
               href: "https://sentry.io/privacy/",
               label: "Sentry privacy policy",
