@@ -373,7 +373,7 @@ export const en = {
           "After account deletion, Kokage Cloud retains only administrative records that contain no conversation, voice, or image content: the closed account ID, Leaf balance and usage history, store purchase records, voice consent records, safety-check records for refused or failed avatar requests, and audit logs. These are kept for accounting, fraud prevention, and legal obligations and have no fixed deletion date.",
           "If you signed in with Apple or Google, Kokage Cloud also keeps a one-way code made from your ID at Apple or Google, recording that this Apple or Google account has had the Welcome Leaf given at first sign-in. It contains neither the ID itself nor your email address. Because it is kept after deletion, signing in again with the same Apple or Google account starts a new account without Welcome Leaf.",
           "If you signed in with Apple or Google, Kokage Cloud also keeps a record of each day your account received daily free Leaf and the time of that day's first request. So that daily free Leaf is given only once a day, it also keeps a one-way code made from your Apple or Google ID until that day ends.",
-          "Data held by AI model providers, the App Store, Google Play, and RevenueCat, submitted reports, and crash reports and feedback sent to Sentry each follow that service's own retention rules.",
+          "Data held by AI model providers, the App Store, Google Play, and RevenueCat follows each service's own retention rules, as do submitted reports and the crash reports and feedback sent to Sentry.",
         ],
       },
       {

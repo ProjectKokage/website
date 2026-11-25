@@ -630,17 +630,34 @@ test("Chinese pages are complete, script-consistent, and free of retired terms",
       prefix: "/zh-hans",
       // Characters that only appear in the other script.
       otherScript: /[這為們說時會發應頁設備帳戶隱關對話聲雲記憶]/,
+      homeClaims: [/也不统计你如何使用应用/, /才会发送崩溃报告/],
+      policyClaims: [
+        /要把崩溃报告发送给 Sentry 吗？/,
+        /反馈不带安装 ID 或账户标识符/,
+      ],
     },
     {
       locale: "zh-hant",
       lang: "zh-Hant",
       prefix: "/zh-hant",
       otherScript: /[这为们说时会发应页设备账户隐关对话声云记忆]/,
+      homeClaims: [/也不統計你如何使用 App/, /才會傳送當機報告/],
+      policyClaims: [
+        /要把當機報告傳送給 Sentry 嗎？/,
+        /意見回饋不帶安裝 ID 或帳戶識別碼/,
+      ],
     },
   ];
   const retiredChineseTerms = /伙伴|夥伴|陪伴|同伴|伴侣|伴侶|companion/i;
 
-  for (const { locale, lang, prefix, otherScript } of chineseLocales) {
+  for (const {
+    locale,
+    lang,
+    prefix,
+    otherScript,
+    homeClaims,
+    policyClaims,
+  } of chineseLocales) {
     for (const page of ["", "privacy", "support"]) {
       const html = await read(`dist${localizedPath(prefix, page)}index.html`);
       const label = `${locale} ${page || "home"}`;
@@ -693,8 +710,9 @@ test("Chinese pages are complete, script-consistent, and free of retired terms",
       assert.match(home, new RegExp(`href="#${id}"`));
       assert.match(home, new RegExp(`id="${id}"`));
     }
-    assert.match(home, /也不统计你如何使用应用|也不統計你如何使用 App/);
-    assert.match(home, /才会发送崩溃报告|才會傳送當機報告/);
+    for (const claim of homeClaims) {
+      assert.match(home, claim);
+    }
     assert.doesNotMatch(home, /广告或分析|廣告或分析工具/);
     const privacy = await read(`dist${localizedPath(prefix, "privacy")}index.html`);
     assert.match(privacy, /<time datetime="2026-11-25">2026年11月25日<\/time>/);
@@ -703,8 +721,9 @@ test("Chinese pages are complete, script-consistent, and free of retired terms",
       assert.match(privacy, new RegExp(`id="${id}"`));
     }
     assert.match(privacy, /href="https:\/\/sentry\.io\/privacy\/"/);
-    assert.match(privacy, /要把崩溃报告发送给 Sentry 吗？|要把當機報告傳送給 Sentry 嗎？/);
-    assert.match(privacy, /反馈不带安装 ID 或账户标识符|意見回饋不帶安裝 ID 或帳戶識別碼/);
+    for (const claim of policyClaims) {
+      assert.match(privacy, claim);
+    }
     assert.doesNotMatch(privacy, /自动崩溃报告|自動當機回報|广告、分析或|廣告、分析工具或/);
     assert.match(privacy, /contact@orcalogy\.com/);
     assert.match(privacy, /Orcalogy LLC/);
