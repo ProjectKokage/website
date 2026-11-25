@@ -253,7 +253,9 @@ test("English and Japanese pages emit localized metadata and complete navigation
   assert.match(english, /A place of its own/);
   assert.match(english, /automatically switches to on-device replies/);
   assert.match(english, /explains what is sent beforehand/);
-  assert.match(english, /no advertising and does not measure how you use it/);
+  assert.match(english, /no advertising and does not measure how you use it: no screens, taps, or feature counts/);
+  assert.match(english, /Crash reports are sent only if you choose to send them/);
+  assert.doesNotMatch(english, /analytics/);
   assert.doesNotMatch(
     english,
     /remote inference|telemetry|unavailable in this release|persistent history|remains unavailable|Conversation processing stays on your device/,
@@ -267,7 +269,9 @@ test("English and Japanese pages emit localized metadata and complete navigation
   assert.match(japanese, /キャラクターだけの場所/);
   assert.match(japanese, /言の葉がなくなったときも自動で端末内の返事に切り替わります/);
   assert.match(japanese, /何が送信されるかを事前にわかりやすく案内し/);
-  assert.match(japanese, /アプリに広告はなく、アプリの使い方を計測することもありません/);
+  assert.match(japanese, /アプリに広告はなく、画面の表示、タップ、機能の利用回数といったアプリの使い方も計測しません/);
+  assert.match(japanese, /クラッシュレポートは、送ると答えた場合にだけ送ります/);
+  assert.doesNotMatch(japanese, /アクセス解析/);
   assert.doesNotMatch(
     japanese,
     /外部推論|テレメトリー|このリリースでは利用できません|端末内だけに残り|会話履歴にも残しません|報告機能は利用できません|会話の処理は端末の中で/,
@@ -689,6 +693,9 @@ test("Chinese pages are complete, script-consistent, and free of retired terms",
       assert.match(home, new RegExp(`href="#${id}"`));
       assert.match(home, new RegExp(`id="${id}"`));
     }
+    assert.match(home, /也不统计你如何使用应用|也不統計你如何使用 App/);
+    assert.match(home, /才会发送崩溃报告|才會傳送當機報告/);
+    assert.doesNotMatch(home, /广告或分析|廣告或分析工具/);
     const privacy = await read(`dist${localizedPath(prefix, "privacy")}index.html`);
     assert.match(privacy, /<time datetime="2026-11-25">2026年11月25日<\/time>/);
     for (const id of ["crash-reports", "feedback"]) {
@@ -696,7 +703,9 @@ test("Chinese pages are complete, script-consistent, and free of retired terms",
       assert.match(privacy, new RegExp(`id="${id}"`));
     }
     assert.match(privacy, /href="https:\/\/sentry\.io\/privacy\/"/);
-    assert.doesNotMatch(privacy, /自动崩溃报告|自動當機回報/);
+    assert.match(privacy, /要把崩溃报告发送给 Sentry 吗？|要把當機報告傳送給 Sentry 嗎？/);
+    assert.match(privacy, /反馈不带安装 ID 或账户标识符|意見回饋不帶安裝 ID 或帳戶識別碼/);
+    assert.doesNotMatch(privacy, /自动崩溃报告|自動當機回報|广告、分析或|廣告、分析工具或/);
     assert.match(privacy, /contact@orcalogy\.com/);
     assert.match(privacy, /Orcalogy LLC/);
     assert.match(privacy, /zh-hans/);

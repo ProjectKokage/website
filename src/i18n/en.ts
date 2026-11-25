@@ -139,7 +139,7 @@ export const en = {
   privacy: {
     eyebrow: "Privacy",
     title: "Built to keep your conversations in your hands",
-    lede: "When replies are made on your device, your conversations stay on your device. Voice input is transcribed on your device, so your everyday spoken audio is never uploaded. The app contains no advertising and does not measure how you use it. When you use Kokage Cloud, the app explains what is sent beforehand, and you can manage or delete your memories, notes, and cloud account at any time.",
+    lede: "When replies are made on your device, your conversations stay on your device. Voice input is transcribed on your device, so your everyday spoken audio is never uploaded. The app contains no advertising and does not measure how you use it: no screens, taps, or feature counts. Crash reports are sent only if you choose to send them. When you use Kokage Cloud, the app explains what is sent beforehand, and you can manage or delete your memories, notes, and cloud account at any time.",
     policyLink: "Read the privacy policy",
   },
   privacyPolicy: {
@@ -159,7 +159,7 @@ export const en = {
       "When replies are made on your device, your conversation stays on your device",
       "When you use Kokage Cloud, it sends only the data described in this policy, and the app explains cloud chat before you start using it",
       "Speech recognition runs on your device; conversation audio is never logged or uploaded",
-      "The app includes no advertising and does not measure how you use it; crash reports are sent only if you choose to send them",
+      "The app includes no advertising and does not measure how you use it (no screens, taps, or feature counts); crash reports are sent only if you choose to send them",
     ],
     contentsLabel: "On this page",
     sections: [
@@ -373,7 +373,7 @@ export const en = {
           "After account deletion, Kokage Cloud retains only administrative records that contain no conversation, voice, or image content: the closed account ID, Leaf balance and usage history, store purchase records, voice consent records, safety-check records for refused or failed avatar requests, and audit logs. These are kept for accounting, fraud prevention, and legal obligations and have no fixed deletion date.",
           "If you signed in with Apple or Google, Kokage Cloud also keeps a one-way code made from your ID at Apple or Google, recording that this Apple or Google account has had the Welcome Leaf given at first sign-in. It contains neither the ID itself nor your email address. Because it is kept after deletion, signing in again with the same Apple or Google account starts a new account without Welcome Leaf.",
           "If you signed in with Apple or Google, Kokage Cloud also keeps a record of each day your account received daily free Leaf and the time of that day's first request. So that daily free Leaf is given only once a day, it also keeps a one-way code made from your Apple or Google ID until that day ends.",
-          "Data held by AI model providers, the App Store, Google Play, RevenueCat, and submitted reports follows each service's own retention rules.",
+          "Data held by AI model providers, the App Store, Google Play, and RevenueCat, submitted reports, and crash reports and feedback sent to Sentry each follow that service's own retention rules.",
         ],
       },
       {
@@ -381,7 +381,7 @@ export const en = {
         title: "Model downloads and external connections",
         paragraphs: [
           "When you download a model or check a public model, the download host receives the requested file path and standard connection information such as your IP address, with no conversation or media content. Canceling a download deletes any partial files.",
-          "The app includes no advertising and does not measure how you use it: no screens, taps, or feature counts. Crash reports and feedback go to Sentry only as the Crash reports and Sending feedback sections describe.",
+          "The app includes no advertising and does not measure how you use it: no screens, taps, or feature counts. Crash reports and feedback go to Sentry only as the 'Crash reports (optional)' and 'Sending feedback' sections describe.",
         ],
         items: [
           {
@@ -442,7 +442,7 @@ export const en = {
           },
           {
             title: "The record sent at each launch",
-            body: "Each launch also sends one short record: when the launch started, how long it ran, whether it ended in a crash, a count of errors, and the app version. It lets crashes be counted per version.",
+            body: "Each launch also sends one short record: when the launch started, how long it ran, whether it ended in a crash, a count of errors, and the app version. It lets crashes be counted per version, and it shows how often and how long the app ran on an install that said yes.",
           },
           {
             title: "Installation ID",
@@ -467,7 +467,7 @@ export const en = {
         items: [
           {
             title: "What is sent with your message",
-            body: "Your message, an email address only if you typed one for a reply, and facts that help read it: the app version and language, the operating system and its version, the device model, its memory rounded to whole gigabytes, whether replies are made on your device or by Kokage Cloud, the catalog ID of each AI model with whether it is loaded and what it runs on, whether Cloud Motion and 'Show details' are on, whether the character is the one first setup made, and the kind of the last problem the chat showed. A model you added yourself appears only as a fixed word. The page shows this list before you send.",
+            body: "Your message, an email address only if you typed one for a reply, and facts that help read it: the app version and language, the operating system and its version, the device model, its RAM rounded to whole gigabytes, whether replies are made on your device or by Kokage Cloud, the catalog ID of each AI model with whether it is loaded and what it runs on, whether Cloud Motion and 'Show details' are on, whether the character is the one first setup made, and the kind of the last problem the chat showed. A model you added yourself appears only as a fixed word. The page shows this list before you send.",
           },
           {
             title: "The layout of the chat screen",
@@ -475,7 +475,7 @@ export const en = {
           },
           {
             title: "What feedback leaves out and does not keep",
-            body: "Feedback carries no installation ID or account identifier, and none of your chats, memories, notes, voice, or pictures. The message is not saved on your device, and a send that fails is not tried again. Leaving the page while it sends stops the app waiting; if the feedback already reached Sentry, it stays there. Like any server, Sentry sees the IP address the feedback comes from.",
+            body: "Feedback carries no installation ID or account identifier, and none of your chats, memories, notes, voice, or pictures. The message is not saved on your device, and a send that fails is not retried automatically. Leaving the page while it sends stops the app waiting; if the feedback already reached Sentry, it stays there. Like any server, Sentry sees the IP address the feedback comes from.",
           },
           {
             title: "Reference ID and deletion",
