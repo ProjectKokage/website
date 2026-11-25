@@ -279,7 +279,7 @@ export const en = {
         items: [
           {
             title: "What memory saves",
-            body: "From messages you send, Memory can save up to one useful detail per turn—such as preferences, plans, people, or places. The model is instructed not to save passwords, PINs, API keys, account recovery codes, or anything you ask it not to remember, though automated selection cannot guarantee that unwanted details will never be saved.",
+            body: "From messages you send, Memory can save the useful facts you state—such as preferences, plans, people, or places. The model is instructed not to save passwords, PINs, API keys, account recovery codes, or anything you ask it not to remember, though automated selection cannot guarantee that unwanted details will never be saved.",
           },
           {
             title: "Viewing, editing, and deleting memories",
