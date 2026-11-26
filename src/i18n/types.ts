@@ -59,6 +59,7 @@ export interface SupportPageCopy {
   sections: SupportPageSection[];
   contactLabel: string;
   contactEmail: string;
+  cloudLinkLabel: string;
   privacyLinkLabel: string;
   backHomeLabel: string;
 }
@@ -92,6 +93,26 @@ export interface SiteCopy {
     cloudAction: string;
     notice: string;
     imageAlt: string;
+    showcase: {
+      ariaLabel: string;
+      characterName: string;
+      statusLabel: string;
+      previewAlt: string;
+      userMessage: string;
+      replyMessage: string;
+      voiceTag: string;
+      motionTag: string;
+      modeTag: string;
+    };
+  };
+  features: {
+    eyebrow: string;
+    title: string;
+    lede: string;
+    items: Array<{
+      title: string;
+      body: string;
+    }>;
   };
   cloud: {
     eyebrow: string;
@@ -104,31 +125,17 @@ export interface SiteCopy {
     }>;
     leafLabel: string;
     leafBody: string;
+    accountLink: string;
     policyLink: string;
-  };
-  flow: {
-    eyebrow: string;
-    title: string;
-    lede: string;
-    stages: Array<{
-      label: string;
-      title: string;
-      detail: string;
-    }>;
-  };
-  features: {
-    eyebrow: string;
-    title: string;
-    lede: string;
-    items: Array<{
-      title: string;
-      body: string;
-    }>;
   };
   privacy: {
     eyebrow: string;
     title: string;
     lede: string;
+    pillars: Array<{
+      title: string;
+      body: string;
+    }>;
     policyLink: string;
   };
   privacyPolicy: PrivacyPolicyCopy;
@@ -147,6 +154,7 @@ export interface SiteCopy {
   footer: {
     descriptor: string;
     statusLink: string;
+    cloudLink: string;
     privacyLink: string;
     supportLink: string;
     xLink: string;

@@ -18,128 +18,119 @@ export const zhHant = {
     items: [
       { href: "#features", label: "功能" },
       { href: "#cloud", label: "Kokage Cloud" },
-      { href: "#how", label: "運作方式" },
       { href: "#privacy", label: "隱私權" },
+      { href: "#status", label: "平台" },
     ],
     languageLabel: "語言",
   },
   hero: {
-    eyebrow: "AI 角色聊天",
+    eyebrow: "3D AI 角色聊天",
     titleLead: "與 3D AI 角色對話",
-    titleAccentLines: ["在裝置上，或在雲端。"],
-    lede: "Kokage 是一款透過語音或文字與 3D AI 角色聊天的 App。你可以聽到朗讀出來的回覆，看著角色用表情和動作回應你。你可以在裝置上免費聊天，也可以透過 Kokage Cloud 立即開始對話。",
+    titleAccentLines: ["會聽、會說、也會動。"],
+    lede: "透過語音或文字與表情生動的 3D 角色聊天，聽它自然開口回應，並記住對你重要的事。你可以在裝置上免費本機執行，也能透過 Kokage Cloud 立即開始。",
     appStoreAction: "在 App Store 下載",
     googlePlayAction: "在 Google Play 下載",
     cloudAction: "了解 Kokage Cloud",
     notice:
-      "免費下載，裝置端聊天永遠免費。你還可以使用言の葉來使用 Kokage Cloud 功能。",
+      "可在 iPhone、iPad 和 Android 上免費下載。裝置端聊天永遠免費，按需使用言の葉即可體驗 Kokage Cloud 功能。",
     imageAlt: "Kokage App 圖示：一個薄荷色的對話框，搭配兩片葉子",
+    showcase: {
+      ariaLabel: "Kokage 與 Kokochan 的對話預覽",
+      characterName: "Kokochan",
+      statusLabel: "3D VRM",
+      previewAlt: "Kokage 內建 3D 角色 Kokochan 的肖像",
+      userMessage: "今天天氣怎麼樣？",
+      replyMessage: "今天萬里無雲！要不要出去散散步？",
+      voiceTag: "語音回覆",
+      motionTag: "生動動作",
+      modeTag: "本機或雲端",
+    },
+  },
+  features: {
+    eyebrow: "功能",
+    title: "為自然、專屬的對話而設計",
+    lede: "每個角色都擁有獨立的聊天紀錄、記憶、聲音和 3D 形象。",
+    items: [
+      {
+        title: "語音、文字與照片互動",
+        body: "對著麥克風說話會在裝置端直接轉成文字，並可用日語、英語或中文朗讀回覆。使用支援圖片的模型時還能分享照片，切換到後置鏡頭時角色也會跟著轉身。",
+      },
+      {
+        title: "3D 表情、動作與專屬場景",
+        body: "角色在聆聽、思考和說話時嘴型與姿態自然同步。自由搭配天空、地面和擺飾，讓天空隨時間變化，或用自己的圖片當作背景。",
+      },
+      {
+        title: "由你掌控的記憶與筆記",
+        body: "角色會記住對話中有用的細節，儲存新記憶時顯示提示並支援一鍵復原。你可隨時查看、編輯或刪除記憶，也能加入所有角色共用的筆記。",
+      },
+      {
+        title: "多角色管理與 VRM 虛擬形象",
+        body: "可註冊任意數量的角色，自訂個性、語氣與人名讀音標記。可從內建角色或自有 VRM 檔案開始，並支援匯入與匯出角色卡。",
+      },
+      {
+        title: "裝置端免費暢聊，或雲端即刻開始",
+        body: "下載推薦模型或相容的 Hugging Face 公開模型，離線也能免費聊天；也可以先用 Kokage Cloud 馬上開聊，之後再加入本機模型。",
+      },
+      {
+        title: "聊天邀請與 Apple 家庭",
+        body: "開啟選用的聊天邀請，接收每日問候或久違的關心。在 iPhone 和 iPad 上還可連接 Apple 家庭，讓角色依你的要求查看並操作裝置。",
+      },
+    ],
   },
   cloud: {
     eyebrow: "Kokage Cloud",
-    title: "Kokage Cloud 能做什麼",
-    lede: "使用 Kokage Cloud，不必下載模型就能開始聊天、設計自訂聲音、製作新的 3D 虛擬形象，或產生即時的肢體動作。即使回覆是在裝置上產生，雲端聲音、新形象和雲端動作也同樣可以使用。",
+    title: "按需開啟雲端對話、自訂聲音、形象與動作",
+    lede: "選用的線上功能，既可獨立使用，也可與免費的裝置端回覆搭配使用。",
     items: [
       {
         label: "雲端對話",
-        title: "不必下載就能開始對話",
-        body: "安裝 App 後就能馬上開始聊天，不必等待模型下載。之後你可以隨時加入免費的裝置端模型，甚至在對話中也能加入。兩者都設定好後，當言の葉用完時，Kokage 會自動改由裝置產生回覆。",
+        title: "不必下載模型，安裝即可開聊",
+        body: "安裝 App 後就能馬上對話，不必等待模型下載。若同時安裝了本機模型，言の葉用完時 Kokage 會自動切換為裝置端回覆。",
       },
       {
         label: "雲端聲音",
-        title: "打造適合角色的聲音",
-        body: "描述你想要的聲音，試聽三個候選聲音；也可以用你自己或已取得同意者的錄音來複製聲音。儲存的聲音可以說日語、英語或中文，並能以開心、耳語、睏倦等富有表現力的語氣朗讀。",
+        title: "設計或複製契合角色的聲音",
+        body: "用文字描述理想音色並試聽三個候選，或用已獲同意的錄音複製聲音。支援日語、英語與中文，並能以開心、耳語、睏倦等語氣朗讀。",
       },
       {
         label: "製作新形象",
-        title: "用文字或圖片製作 3D 虛擬形象",
-        body: "在角色頁面中，描述角色的外貌、加入一張圖片，或兩者並用，就能製作出表情生動的 3D VRM 虛擬形象。你可以預覽結果、套用到角色上，或下載 VRM 檔案。",
+        title: "用文字或圖片產生 3D VRM 虛擬形象",
+        body: "輸入外貌描述、上傳圖片或兩者並用，就能建立表情生動的 3D VRM 形象。可隨時預覽、套用到角色上，或下載 VRM 檔案。",
       },
       {
         label: "雲端動作",
-        title: "與對話相呼應的動作",
-        body: "除了內建的動畫和手勢之外，雲端動作還會依照角色在對話中的行為產生相應的肢體動作。它同時適用於裝置端回覆和雲端回覆，並可隨時開啟或關閉。",
+        title: "呼應當下語境的即時肢體動作",
+        body: "在內建動畫與手勢之外，依據角色在對話中的行為即時產生動作。裝置端與雲端回覆都可使用，隨時可以開啟或關閉。",
       },
     ],
     leafLabel: "言の葉",
     leafBody:
-      "Kokage Cloud 功能以言の葉計費，用多少付多少。言の葉禮包永不過期，請求若在完成前失敗則不會扣費。設定中的錢包會顯示你的餘額和紀錄，你可以在這裡購買言の葉禮包；在 iPhone 和 iPad 上，還可以在這裡兌換 App Store 優惠代碼。使用 Apple（iPhone 和 iPad）或 Google 登入後，你在所有裝置上都能使用同樣的言の葉，如果是第一次在 Kokage Cloud 使用的 Apple 或 Google 帳號，首次登入時還能免費獲得言の葉。",
+      "Kokage Cloud 功能以言の葉依量計費。言の葉禮包永不過期，未完成的失敗請求不會扣費。使用 Apple（iPhone 和 iPad）或 Google 登入即可在多台裝置間共用餘額，首次登入的新帳號還能免費獲得言の葉。",
+    accountLink: "管理 Kokage Cloud 帳戶",
     policyLink: "Kokage Cloud 如何處理你的資料",
-  },
-  flow: {
-    eyebrow: "運作方式",
-    title: "從你的訊息到角色的回覆",
-    lede: "說話或輸入一則訊息，你的角色就會用聲音和動作回應。",
-    stages: [
-      {
-        label: "傳送",
-        title: "輸入文字、說話或分享照片",
-        detail:
-          "輸入訊息或對著麥克風說話。使用支援圖片的模型時，你還可以拍一張照片，或從相簿中選擇一張。",
-      },
-      {
-        label: "思考",
-        title: "在裝置上或在雲端",
-        detail:
-          "裝置上的模型會免費產生回覆，或由 Kokage Cloud 根據你最近的對話和已儲存的記憶來回答。",
-      },
-      {
-        label: "說話",
-        title: "聽它朗讀出來",
-        detail:
-          "裝置端聲音或自訂的雲端聲音會朗讀回覆，並自然地念出人名、日期、時間和數字。",
-      },
-      {
-        label: "動作",
-        title: "用表情和手勢回應",
-        detail:
-          "角色的嘴巴會隨著聲音同步開合，動畫、手勢和雲端動作則與它所說的內容相呼應。",
-      },
-    ],
-  },
-  features: {
-    eyebrow: "功能",
-    title: "會說、會聽、會記、會動的 3D 角色",
-    lede: "每個角色都有各自的對話紀錄、記憶、聲音和 3D 外觀。",
-    items: [
-      {
-        title: "在裝置上免費使用，或透過 Kokage Cloud 立即開始",
-        body: "只要下載一次語言模型，就能在裝置上免費聊天，離線也能使用。Kokage 會推薦適合你裝置的模型，你也可以加入相容的 Hugging Face 公開模型。你還可以先從 Kokage Cloud 開始，之後再下載免費的裝置端模型。",
-      },
-      {
-        title: "擁有多個角色",
-        body: "你可以註冊任意數量的角色，每個角色都有自己的聊天紀錄、記憶、聲音和 3D 虛擬形象。你可以從內建角色或自己的 VRM 檔案開始，從檔案或連結匯入角色卡，也可以匯出你建立的角色卡，用來分享或在其他裝置上使用。",
-      },
-      {
-        title: "自訂個性、風格和語言",
-        body: "你可以調整角色的個性、語氣、回覆長度、主動開啟話題的頻率，以及聲音的表現力。角色可以用日語、英語或中文（簡體或繁體）交談，也可以跟隨你最新訊息的語言，並支援讀音標記，讓人名的讀音正確。",
-      },
-      {
-        title: "語音對話，分享照片",
-        body: "你對著麥克風說的話會直接在裝置上轉成文字。你可以選擇裝置端聲音（日語或英語）或雲端聲音（日語、英語或中文）來朗讀回覆。使用支援圖片的模型時，可以拍一張照片或從相簿中選擇一張來分享；切換到後置鏡頭時，角色也會跟著轉身。",
-      },
-      {
-        title: "可查看和編輯的記憶與筆記",
-        body: "角色會記住對話中有用的細節，每次儲存新記憶時都會顯示提示，最新的一則可以「復原」。你可以隨時開啟「記憶」頁面查看、編輯或刪除項目，也可以加入所有角色都能參考的共用筆記。",
-      },
-      {
-        title: "嘴巴與肢體動作和語音同步",
-        body: "角色在聆聽、思考和說話時會改變姿勢，嘴巴隨聲音同步開合。它會點頭、搖頭、鞠躬或歡呼；開啟雲端動作後，還會加入與行為相符的即時動作。",
-      },
-      {
-        title: "角色專屬的場景",
-        body: "選擇角色所在的場景：晴天、陰天、日落或夜晚的天空；草地、沙地、木地板或舞台；還有長椅、路燈、樹或石頭。你可以讓天空跟隨一天的時間變化，也可以用自己的圖片當作天空、放在角色身後，或作為整個背景。",
-      },
-      {
-        title: "聊天邀請與 Apple 家庭",
-        body: "開啟聊天邀請後，你可以每天收到問候，或在一段時間沒有使用後收到訊息。在 iPhone 和 iPad 上，你還可以連接 Apple 家庭，讓角色在你要求時查看裝置狀態並進行操作。",
-      },
-    ],
   },
   privacy: {
     eyebrow: "隱私權",
-    title: "讓你的對話掌握在自己手中",
-    lede: "回覆在裝置上產生時，你的對話會留在裝置上。語音輸入在裝置上轉成文字，因此你日常說話的音訊絕不會被上傳，App 中也沒有任何廣告或分析工具。使用 Kokage Cloud 時，App 會事先說明將傳送哪些內容，你也可以隨時管理或刪除你的記憶、筆記和雲端帳戶。",
+    title: "讓對話始終掌握在自己手中",
+    lede: "預設留在你的裝置上，使用雲端功能時事前清楚告知並隨時可控。",
+    pillars: [
+      {
+        title: "預設保留在裝置端",
+        body: "在裝置上產生回覆時，你的對話、記憶與角色資料絕不會離開你的手機或平板。",
+      },
+      {
+        title: "語音輸入在本機轉成文字",
+        body: "語音辨識完全在裝置端執行，日常說話的音訊會立即捨棄，絕不上傳或記錄。",
+      },
+      {
+        title: "無廣告，無追蹤分析",
+        body: "App 內不包含任何廣告、行為分析統計或自動當機回報。",
+      },
+      {
+        title: "雲端功能透明且可控",
+        body: "開啟雲端對話前會明確說明傳送的內容，你也可以隨時編輯或刪除記憶、筆記和雲端帳戶。",
+      },
+    ],
     policyLink: "閱讀隱私權政策",
   },
   privacyPolicy: {
@@ -341,8 +332,8 @@ export const zhHant = {
             title: "Kokage Cloud 的營運方式",
             body: "Kokage Cloud 由 Orcalogy LLC 在 Google Cloud 上營運。其閘道和資料庫在東京運作，而聲音、動作和虛擬形象的處理，以及已儲存聲音和虛擬形象的私人儲存空間，則在新加坡運作。",
             link: {
-              href: "https://kokage.cloud/zh/privacy/",
-              label: "Kokage Cloud 帳戶隱私政策",
+              href: "https://kokage.cloud/zh-hant/privacy/",
+              label: "Kokage Cloud 帳戶隱私權政策",
             },
           },
           {
@@ -572,6 +563,7 @@ export const zhHant = {
     ],
     contactLabel: "寄送電子郵件給 Kokage 支援",
     contactEmail: "user_support@orcalogy.com",
+    cloudLinkLabel: "Kokage Cloud 帳戶",
     privacyLinkLabel: "閱讀隱私權政策",
     backHomeLabel: "返回 Kokage",
   },
@@ -584,7 +576,7 @@ export const zhHant = {
         name: "iPhone 和 iPad",
         state: "已在 App Store 上架",
         detail:
-          "包含免費的裝置端聊天和所有選用的 Kokage Cloud 功能（雲端對話、雲端聲音、3D 虛擬形象製作和雲端動作），以及語音輸入與朗讀、照片分享、每日問候和 Apple 家庭支援。",
+          "支援完整的裝置端免費聊天與選用 Kokage Cloud 功能，以及語音輸入與朗讀、照片分享、每日問候、3D VRM 角色和 Apple 家庭支援。",
         link: {
           href: storeListings.appStore,
           label: "在 App Store 查看",
@@ -594,7 +586,7 @@ export const zhHant = {
         name: "Android",
         state: "已在 Google Play 上架",
         detail:
-          "包含免費的裝置端聊天和所有選用的 Kokage Cloud 功能（雲端對話、雲端聲音、3D 虛擬形象製作和雲端動作），以及語音輸入與朗讀、照片分享、每日問候和 3D VRM 角色。",
+          "支援完整的裝置端免費聊天與選用 Kokage Cloud 功能，以及語音輸入與朗讀、照片分享、每日問候和 3D VRM 角色。",
         link: {
           href: storeListings.googlePlay,
           label: "在 Google Play 查看",
@@ -603,8 +595,9 @@ export const zhHant = {
     ],
   },
   footer: {
-    descriptor: "AI 角色聊天",
+    descriptor: "3D AI 角色聊天",
     statusLink: "平台",
+    cloudLink: "Kokage Cloud",
     privacyLink: "隱私權政策",
     supportLink: "支援",
     xLink: "Kokage 的 X 帳號",

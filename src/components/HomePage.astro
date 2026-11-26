@@ -1,6 +1,10 @@
 ---
 import type { SiteCopy } from "../i18n";
-import { localizedRoutes, storeListings } from "../i18n/routes";
+import {
+  kokageCloudUrls,
+  localizedRoutes,
+  storeListings,
+} from "../i18n/routes";
 import SiteLayout from "../layouts/SiteLayout.astro";
 
 interface Props {
@@ -9,6 +13,8 @@ interface Props {
 
 const { copy } = Astro.props;
 const privacyPolicyPath = localizedRoutes[copy.locale].privacy;
+const cloudAccountUrl = kokageCloudUrls[copy.locale];
+const { showcase } = copy.hero;
 ---
 
 <SiteLayout copy={copy}>
@@ -54,24 +60,59 @@ const privacyPolicyPath = localizedRoutes[copy.locale].privacy;
         </div>
 
         <div class="hero-visual reveal reveal--three">
-          <div class="brand-stage">
+          <div class="app-stage" role="region" aria-label={showcase.ariaLabel}>
             <img
-              class="brand-stage__leaves"
+              class="app-stage__leaves"
               src="/brand/kokage-leaves.svg"
               alt=""
               width="370"
               height="263"
               aria-hidden="true"
             />
-            <div class="brand-stage__icon">
-              <img
-                src="/brand/kokage-app-icon.png"
-                alt={copy.hero.imageAlt}
-                width={320}
-                height={320}
-                loading="eager"
-                fetchpriority="high"
-              />
+            <div class="phone-frame">
+              <div class="phone-bar">
+                <div class="phone-character">
+                  <img
+                    class="phone-character__icon"
+                    src="/brand/kokage-app-icon.png"
+                    alt=""
+                    width="28"
+                    height="28"
+                    aria-hidden="true"
+                  />
+                  <span>{showcase.characterName}</span>
+                </div>
+                <span class="phone-status">
+                  <span class="phone-status__dot" aria-hidden="true"></span>
+                  {showcase.statusLabel}
+                </span>
+              </div>
+
+              <div class="phone-portrait">
+                <img
+                  src="/brand/kokochan-preview.png"
+                  alt={showcase.previewAlt}
+                  width="640"
+                  height="640"
+                  loading="eager"
+                  fetchpriority="high"
+                />
+              </div>
+
+              <div class="phone-chat" aria-hidden="true">
+                <p class="chat-bubble chat-bubble--user">
+                  {showcase.userMessage}
+                </p>
+                <p class="chat-bubble chat-bubble--reply">
+                  {showcase.replyMessage}
+                </p>
+              </div>
+
+              <ul class="phone-indicators" role="list">
+                <li>{showcase.voiceTag}</li>
+                <li>{showcase.motionTag}</li>
+                <li>{showcase.modeTag}</li>
+              </ul>
             </div>
           </div>
         </div>
@@ -83,33 +124,24 @@ const privacyPolicyPath = localizedRoutes[copy.locale].privacy;
       class="section section--features"
       aria-labelledby="features-title"
     >
-      <div class="page-shell editorial-grid">
-        <div class="editorial-intro">
-          <p class="eyebrow">{copy.features.eyebrow}</p>
-          <h2 id="features-title">{copy.features.title}</h2>
+      <div class="page-shell">
+        <div class="section-heading section-heading--split">
+          <div>
+            <p class="eyebrow">{copy.features.eyebrow}</p>
+            <h2 id="features-title">{copy.features.title}</h2>
+          </div>
           <p>{copy.features.lede}</p>
-          <img
-            class="editorial-leaf"
-            src="/brand/kokage-large-leaf.svg"
-            alt=""
-            width="239"
-            height="263"
-            loading="lazy"
-            aria-hidden="true"
-          />
         </div>
 
-        <ul class="feature-list" role="list">
+        <ul class="feature-grid" role="list">
           {
             copy.features.items.map((item, index) => (
-              <li>
+              <li class="feature-card">
                 <span class="feature-number" aria-hidden="true">
                   {String(index + 1).padStart(2, "0")}
                 </span>
-                <div>
-                  <h3>{item.title}</h3>
-                  <p>{item.body}</p>
-                </div>
+                <h3>{item.title}</h3>
+                <p>{item.body}</p>
               </li>
             ))
           }
@@ -117,9 +149,13 @@ const privacyPolicyPath = localizedRoutes[copy.locale].privacy;
       </div>
     </section>
 
-    <section id="cloud" class="section section--cloud" aria-labelledby="cloud-title">
+    <section
+      id="cloud"
+      class="section section--cloud"
+      aria-labelledby="cloud-title"
+    >
       <div class="page-shell">
-        <div class="section-heading section-heading--split section-heading--dark">
+        <div class="section-heading section-heading--split">
           <div>
             <p class="eyebrow">{copy.cloud.eyebrow}</p>
             <h2 id="cloud-title">{copy.cloud.title}</h2>
@@ -130,7 +166,7 @@ const privacyPolicyPath = localizedRoutes[copy.locale].privacy;
         <ul class="cloud-grid" role="list">
           {
             copy.cloud.items.map((item) => (
-              <li>
+              <li class="cloud-card">
                 <p class="cloud-label">{item.label}</p>
                 <h3>{item.title}</h3>
                 <p>{item.body}</p>
@@ -154,37 +190,20 @@ const privacyPolicyPath = localizedRoutes[copy.locale].privacy;
           </div>
         </aside>
 
-        <a class="privacy-policy-link" href={privacyPolicyPath}>
-          {copy.cloud.policyLink}
-          <span aria-hidden="true">→</span>
-        </a>
-      </div>
-    </section>
-
-    <section id="how" class="section section--flow" aria-labelledby="flow-title">
-      <div class="page-shell">
-        <div class="section-heading section-heading--split">
-          <div>
-            <p class="eyebrow">{copy.flow.eyebrow}</p>
-            <h2 id="flow-title">{copy.flow.title}</h2>
-          </div>
-          <p>{copy.flow.lede}</p>
+        <div class="section-links">
+          <a
+            class="inline-link inline-link--accent"
+            href={cloudAccountUrl}
+            rel="external"
+          >
+            {copy.cloud.accountLink}
+            <span aria-hidden="true">↗</span>
+          </a>
+          <a class="privacy-policy-link" href={privacyPolicyPath}>
+            {copy.cloud.policyLink}
+            <span aria-hidden="true">→</span>
+          </a>
         </div>
-
-        <ol class="turn-flow" role="list">
-          {
-            copy.flow.stages.map((stage, index) => (
-              <li>
-                <span class="stage-index" aria-hidden="true">
-                  {String(index + 1).padStart(2, "0")}
-                </span>
-                <p class="stage-label">{stage.label}</p>
-                <h3>{stage.title}</h3>
-                <p>{stage.detail}</p>
-              </li>
-            ))
-          }
-        </ol>
       </div>
     </section>
 
@@ -193,10 +212,8 @@ const privacyPolicyPath = localizedRoutes[copy.locale].privacy;
       class="section section--privacy"
       aria-labelledby="privacy-title"
     >
-      <div class="privacy-leaf privacy-leaf--one" aria-hidden="true"></div>
-      <div class="privacy-leaf privacy-leaf--two" aria-hidden="true"></div>
-      <div class="page-shell privacy-shell">
-        <div class="section-heading section-heading--split section-heading--dark">
+      <div class="page-shell">
+        <div class="section-heading section-heading--split">
           <div>
             <p class="eyebrow">{copy.privacy.eyebrow}</p>
             <h2 id="privacy-title">{copy.privacy.title}</h2>
@@ -204,14 +221,36 @@ const privacyPolicyPath = localizedRoutes[copy.locale].privacy;
           <p>{copy.privacy.lede}</p>
         </div>
 
-        <a class="privacy-policy-link" href={privacyPolicyPath}>
-          {copy.privacy.policyLink}
-          <span aria-hidden="true">→</span>
-        </a>
+        <ul class="privacy-pillars" role="list">
+          {
+            copy.privacy.pillars.map((pillar, index) => (
+              <li class="privacy-pillar">
+                <span class="privacy-pillar__index" aria-hidden="true">
+                  {String(index + 1).padStart(2, "0")}
+                </span>
+                <div>
+                  <h3>{pillar.title}</h3>
+                  <p>{pillar.body}</p>
+                </div>
+              </li>
+            ))
+          }
+        </ul>
+
+        <div class="section-links">
+          <a class="privacy-policy-link" href={privacyPolicyPath}>
+            {copy.privacy.policyLink}
+            <span aria-hidden="true">→</span>
+          </a>
+        </div>
       </div>
     </section>
 
-    <section id="status" class="section section--status" aria-labelledby="status-title">
+    <section
+      id="status"
+      class="section section--status"
+      aria-labelledby="status-title"
+    >
       <div class="page-shell">
         <div class="section-heading section-heading--split">
           <div>
@@ -224,12 +263,12 @@ const privacyPolicyPath = localizedRoutes[copy.locale].privacy;
         <div class="platform-grid">
           {
             copy.status.platforms.map((platform) => (
-              <article>
+              <article class="platform-card">
                 <div class="platform-heading">
                   <h3>{platform.name}</h3>
-                  <p>{platform.state}</p>
+                  <p class="platform-badge">{platform.state}</p>
                 </div>
-                <p>{platform.detail}</p>
+                <p class="platform-detail">{platform.detail}</p>
                 {platform.link && (
                   <a
                     class="platform-link"
@@ -244,9 +283,7 @@ const privacyPolicyPath = localizedRoutes[copy.locale].privacy;
             ))
           }
         </div>
-
       </div>
     </section>
-
   </main>
 </SiteLayout>

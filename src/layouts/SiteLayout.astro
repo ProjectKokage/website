@@ -2,6 +2,7 @@
 import { translations, type SiteCopy } from "../i18n";
 import {
   communityLinks,
+  kokageCloudUrls,
   localeNames,
   localizedRoutes,
   siteLocales,
@@ -33,11 +34,13 @@ const canonicalPath = languageUrls[copy.locale];
 const homePath = localizedRoutes[copy.locale].home;
 const privacyPath = localizedRoutes[copy.locale].privacy;
 const supportPath = localizedRoutes[copy.locale].support;
+const cloudAccountUrl = kokageCloudUrls[copy.locale];
 const canonicalUrl = new URL(canonicalPath, Astro.site);
 const defaultAbsoluteUrl = new URL(languageUrls.en, Astro.site);
 const imageUrl = new URL("/brand/kokage-app-icon.png", Astro.site);
 const meta = page ?? copy.meta;
 const isHomePage = page === undefined;
+const loadZenMaruGothic = copy.locale === "en" || copy.locale === "ja";
 const schema = jsonLdText(
   structuredData(copy, page?.kind ?? "home", Astro.site!),
 );
@@ -58,12 +61,18 @@ const schema = jsonLdText(
     <meta name="color-scheme" content="dark light" />
     <meta name="robots" content="index, follow" />
 
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic&amp;display=swap"
-    />
+    {
+      loadZenMaruGothic && (
+        <>
+          <link rel="preconnect" href="https://fonts.googleapis.com" />
+          <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+          <link
+            rel="stylesheet"
+            href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@400;500;700&amp;display=swap"
+          />
+        </>
+      )
+    }
 
     <title>{meta.title}</title>
     <meta name="description" content={meta.description} />
@@ -128,8 +137,8 @@ const schema = jsonLdText(
             class="brand__mark"
             src="/brand/kokage-app-icon.svg"
             alt=""
-            width="40"
-            height="40"
+            width="36"
+            height="36"
           />
           <span class="brand__name">{copy.brandLabel}</span>
         </a>
@@ -204,8 +213,8 @@ const schema = jsonLdText(
             class="brand__mark"
             src="/brand/kokage-app-icon.svg"
             alt=""
-            width="40"
-            height="40"
+            width="34"
+            height="34"
             loading="lazy"
           />
           <span class="brand__name">{copy.brandLabel}</span>
@@ -214,6 +223,9 @@ const schema = jsonLdText(
         <nav class="footer-nav" aria-label={copy.footer.navigationLabel}>
           <a href={isHomePage ? "#status" : `${homePath}#status`}>
             {copy.footer.statusLink}
+          </a>
+          <a href={cloudAccountUrl} rel="external">
+            {copy.footer.cloudLink}
           </a>
           <a
             href={privacyPath}

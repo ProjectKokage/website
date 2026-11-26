@@ -1,6 +1,6 @@
 ---
 import type { SiteCopy } from "../i18n";
-import { localizedRoutes } from "../i18n/routes";
+import { kokageCloudUrls, localizedRoutes } from "../i18n/routes";
 import SiteLayout from "../layouts/SiteLayout.astro";
 
 interface Props {
@@ -11,6 +11,7 @@ const { copy } = Astro.props;
 const support = copy.support;
 const homePath = localizedRoutes[copy.locale].home;
 const privacyPath = localizedRoutes[copy.locale].privacy;
+const cloudAccountUrl = kokageCloudUrls[copy.locale];
 const contactHref = `mailto:${support.contactEmail}?subject=${encodeURIComponent("Kokage support")}`;
 ---
 
@@ -22,14 +23,32 @@ const contactHref = `mailto:${support.contactEmail}?subject=${encodeURIComponent
     description: support.meta.description,
   }}
 >
-  <main id="main" class="policy-page support-page">
-    <header class="policy-hero">
-      <div class="page-shell policy-hero__inner">
+  <main id="main" class="support-page">
+    <header class="support-hero">
+      <div class="page-shell support-hero__inner">
+        <p class="eyebrow">{support.eyebrow}</p>
         <h1 id="support-title">{support.title}</h1>
-        <p class="policy-hero__lede">{support.lede}</p>
+        <p class="support-hero__lede">{support.lede}</p>
+
+        <nav class="support-quick-nav" aria-label={support.contentsLabel}>
+          <ol>
+            {
+              support.sections.map((section, index) => (
+                <li>
+                  <a href={`#${section.id}`}>
+                    <span aria-hidden="true">
+                      {String(index + 1).padStart(2, "0")}
+                    </span>
+                    {section.title}
+                  </a>
+                </li>
+              ))
+            }
+          </ol>
+        </nav>
 
         <section
-          class="policy-highlights"
+          class="support-highlights"
           aria-labelledby="support-highlights-title"
         >
           <h2 id="support-highlights-title" class="visually-hidden">
@@ -51,70 +70,145 @@ const contactHref = `mailto:${support.contactEmail}?subject=${encodeURIComponent
       </div>
     </header>
 
-    <div class="page-shell policy-layout">
-      <nav class="policy-contents" aria-label={support.contentsLabel}>
-        <p>{support.contentsLabel}</p>
-        <ol>
-          {
-            support.sections.map((section, index) => (
-              <li>
-                <a href={`#${section.id}`}>
-                  <span aria-hidden="true">
-                    {String(index + 1).padStart(2, "0")}
-                  </span>
-                  {section.title}
-                </a>
-              </li>
-            ))
-          }
-        </ol>
-      </nav>
+    <div class="page-shell support-body">
+      {
+        support.sections.map((section, index) => {
+          const isAvailability = section.id === "availability";
+          const isTroubleshooting = section.id === "troubleshooting";
+          const isCloud = section.id === "kokage-cloud";
+          const isContact = section.id === "contact";
 
-      <article class="policy-document" aria-labelledby="support-title">
-        {
-          support.sections.map((section, index) => (
-            <section id={section.id} aria-labelledby={`${section.id}-title`}>
-              <div class="policy-section-heading">
-                <span aria-hidden="true">
+          return (
+            <section
+              id={section.id}
+              class:list={[
+                "support-section",
+                isContact && "support-section--contact",
+              ]}
+              aria-labelledby={`${section.id}-title`}
+            >
+              <div class="support-section__header">
+                <span class="support-section__index" aria-hidden="true">
                   {String(index + 1).padStart(2, "0")}
                 </span>
                 <h2 id={`${section.id}-title`}>{section.title}</h2>
               </div>
 
-              {section.paragraphs.map((paragraph) => (
-                <p>{paragraph}</p>
-              ))}
+              <div class="support-section__content">
+                {section.paragraphs.map((paragraph) => (
+                  <p>{paragraph}</p>
+                ))}
 
-              {section.items && (
-                <ul class="policy-item-list" role="list">
-                  {section.items.map((item) => (
-                    <li>
-                      <h3>{item.title}</h3>
-                      <p>{item.body}</p>
-                      {item.link && (
-                        <a href={item.link.href} rel="external">
-                          {item.link.label}
-                          <span aria-hidden="true">↗</span>
-                        </a>
-                      )}
-                    </li>
-                  ))}
-                </ul>
-              )}
+                {isAvailability && section.items && (
+                  <div class="support-store-grid">
+                    {section.items.map((item) => (
+                      <article class="support-store-card">
+                        <h3>{item.title}</h3>
+                        <p>{item.body}</p>
+                        {item.link && (
+                          <a
+                            class="button button--primary"
+                            href={item.link.href}
+                            rel="external"
+                          >
+                            {item.link.label}
+                            <span aria-hidden="true">↗</span>
+                          </a>
+                        )}
+                      </article>
+                    ))}
+                  </div>
+                )}
+
+                {isTroubleshooting && section.items && (
+                  <div class="support-faq-list">
+                    {section.items.map((item, itemIndex) => (
+                      <details class="support-faq" open={itemIndex === 0}>
+                        <summary>
+                          <span>{item.title}</span>
+                          <svg
+                            class="support-faq__chevron"
+                            viewBox="0 0 12 12"
+                            width="12"
+                            height="12"
+                            aria-hidden="true"
+                          >
+                            <path d="m2.5 4.5 3.5 3.5 3.5-3.5" />
+                          </svg>
+                        </summary>
+                        <div class="support-faq__body">
+                          <p>{item.body}</p>
+                        </div>
+                      </details>
+                    ))}
+                  </div>
+                )}
+
+                {!isAvailability && !isTroubleshooting && section.items && (
+                  <ul class="support-item-list" role="list">
+                    {section.items.map((item) => (
+                      <li>
+                        <h3>{item.title}</h3>
+                        <p>{item.body}</p>
+                        {item.link && (
+                          <a href={item.link.href} rel="external">
+                            {item.link.label}
+                            <span aria-hidden="true">↗</span>
+                          </a>
+                        )}
+                      </li>
+                    ))}
+                  </ul>
+                )}
+
+                {isCloud && (
+                  <div class="support-inline-links">
+                    <a
+                      class="inline-link inline-link--accent"
+                      href={cloudAccountUrl}
+                      rel="external"
+                    >
+                      {support.cloudLinkLabel}
+                      <span aria-hidden="true">↗</span>
+                    </a>
+                  </div>
+                )}
+
+                {isContact && (
+                  <nav
+                    class="support-contact-actions"
+                    aria-label={support.contactLabel}
+                  >
+                    <a class="button button--primary" href={contactHref}>
+                      {support.contactLabel}
+                      <span aria-hidden="true">↗</span>
+                    </a>
+                    <a
+                      class="button button--secondary"
+                      href={cloudAccountUrl}
+                      rel="external"
+                    >
+                      {support.cloudLinkLabel}
+                      <span aria-hidden="true">↗</span>
+                    </a>
+                    <a class="button button--secondary" href={privacyPath}>
+                      {support.privacyLinkLabel}
+                      <span aria-hidden="true">→</span>
+                    </a>
+                  </nav>
+                )}
+              </div>
             </section>
-          ))
-        }
+          );
+        })
+      }
 
-        <nav class="support-actions" aria-label={support.contactLabel}>
-          <a href={contactHref}>{support.contactLabel}</a>
-          <a href={privacyPath}>{support.privacyLinkLabel}</a>
-        </nav>
-
-        <a class="policy-back-link" href={homePath}>
+      <div class="support-footer-link">
+        <a class="inline-link" href={homePath}>
           <span aria-hidden="true">←</span>
           {support.backHomeLabel}
         </a>
-      </article>
+      </div>
     </div>
   </main>
 </SiteLayout>

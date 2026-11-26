@@ -29,7 +29,7 @@ All of it is built from the copy in `src/i18n/`, so it follows any copy change.
 ## Content and asset boundary
 
 Product claims come from the sibling `../kokage` repository, primarily its root README, current constraints, runtime contract, trust contract, and release records; where those documents lag reality, the product owner's current statements win.
-Kokage is published on the App Store (iPhone and iPad, with Kokage Cloud) and on Google Play (Android, without Kokage Cloud); the site links to those two listings, whose URLs live in `src/i18n/routes.ts`. Every page's footer also links Kokage's X account (@KokageApp) and Discord server; those addresses live in the same file. Check the live listings before changing what the site says about a platform. The site must not add testimonials, usage figures, compatibility badges, or unverified platform promises.
+Kokage is published on the App Store (iPhone and iPad) and on Google Play (Android), with free on-device chat and optional Kokage Cloud features on both platforms; the site links to those two listings and to `kokage.cloud`, whose URLs live in `src/i18n/routes.ts`. Every page's footer also links Kokage's X account (@KokageApp) and Discord server; those addresses live in the same file. Check the live listings before changing what the site says about a platform. The site must not add testimonials, usage figures, compatibility badges, or unverified platform promises.
 
-The icon and leaf artwork under `public/brand/` and `src/assets/brand/` are copied from Kokage's current canonical branding assets.
-No VRM render, application screenshot, generated motion, model weight, voice, or other restricted product asset belongs in this repository.
+The icon and leaf artwork under `public/brand/` are copied from Kokage's current canonical branding assets.
+`public/brand/kokochan-preview.png` is the owner-approved character portrait thumbnail extracted from Kokage's bundled `kokochan.vrm` asset (`../kokage/assets/characters/kokochan.vrm`) and resized for web display; the `.vrm` binary itself, generated motion, model weights, voices, and other restricted product assets do not belong in this repository.

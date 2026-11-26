@@ -4,6 +4,7 @@
 import { translations } from "../i18n";
 import {
   communityLinks,
+  kokageCloudUrls,
   localeNames,
   localizedRoutes,
   publisher,
@@ -55,10 +56,13 @@ export function llmsText(site: URL): string {
     "",
     ...en.cloud.items.map((item) => `- ${item.label}: ${item.body}`),
     `- ${en.cloud.leafLabel}: ${en.cloud.leafBody}`,
+    `- [${en.cloud.accountLink}](${kokageCloudUrls.en})`,
     "",
     `## ${en.privacy.eyebrow}`,
     "",
     en.privacy.lede,
+    "",
+    ...en.privacy.pillars.map((pillar) => `- ${pillar.title}: ${pillar.body}`),
     "",
     "## Pages",
     "",

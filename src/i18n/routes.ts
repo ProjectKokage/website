@@ -47,6 +47,14 @@ export const storeListings = {
     "https://play.google.com/store/apps/details?id=com.orcalogy.kokage",
 };
 
+// Kokage Cloud account site (serves en, ja, zh, and zh-hant).
+export const kokageCloudUrls = {
+  en: "https://kokage.cloud/",
+  ja: "https://kokage.cloud/ja/",
+  "zh-hans": "https://kokage.cloud/zh/",
+  "zh-hant": "https://kokage.cloud/zh-hant/",
+} satisfies Record<SiteLocale, string>;
+
 // Kokage's own accounts, linked from every page's footer.
 export const communityLinks = {
   x: { handle: "@KokageApp", href: "https://x.com/KokageApp" },

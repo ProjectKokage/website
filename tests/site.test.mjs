@@ -148,24 +148,23 @@ function assertPage(
   )?.[0];
   assert.ok(primaryNavigation);
   assert.equal((primaryNavigation.match(/<a /g) ?? []).length, 4);
-  assert.doesNotMatch(primaryNavigation, /href="#status"/);
 
-  assert.match(html, /<ol class="turn-flow" role="list">/);
-  assert.match(html, /<ul class="feature-list" role="list">/);
+  assert.match(html, /<ul class="feature-grid" role="list">/);
   assert.match(
     html,
-    /<div class="brand-stage__icon"><img src="\/brand\/kokage-app-icon\.png"/,
+    /<div class="phone-portrait"><img src="\/brand\/kokochan-preview\.png"/,
   );
   assert.doesNotMatch(html, /\/_image\//);
   assert.ok(html.indexOf('id="features"') < html.indexOf('id="cloud"'));
-  assert.ok(html.indexOf('id="cloud"') < html.indexOf('id="how"'));
+  assert.ok(html.indexOf('id="cloud"') < html.indexOf('id="privacy"'));
   assert.match(html, /<ul class="cloud-grid" role="list">/);
+  assert.match(html, /<ul class="privacy-pillars" role="list">/);
   assert.match(html, /<aside class="leaf-note" aria-labelledby="leaf-note-title">/);
   for (const link of storeLinks) {
     assert.equal((html.match(new RegExp(link, "g")) ?? []).length, 2);
   }
 
-  for (const id of ["how", "features", "cloud", "privacy", "status"]) {
+  for (const id of ["features", "cloud", "privacy", "status"]) {
     assert.match(html, new RegExp(`href="#${id}"`));
     assert.match(html, new RegExp(`id="${id}"`));
   }
@@ -206,7 +205,7 @@ test("English and Japanese pages emit localized metadata and complete navigation
   );
   assert.match(
     japanese.replaceAll(/<[^>]+>/g, ""),
-    /3DのAIキャラクターと話す。端末でも、クラウドでも。/,
+    /話して、動いて、覚えている。3DのAIキャラクターといつでもおしゃべり。/,
   );
   assert.match(japanese, /App Storeからダウンロード/);
   assert.match(japanese, /Google Playからダウンロード/);
@@ -225,10 +224,10 @@ test("English and Japanese pages emit localized metadata and complete navigation
   assert.doesNotMatch(japanese, /テスト配信を始め|テスターに配信しています/);
   assert.match(english, /Japanese, English, or Chinese/);
   assert.match(english, /public Hugging Face model/);
-  assert.match(english, /import character cards/);
-  assert.match(japanese, /日本語、英語、中国語（簡体字・繁体字）/);
+  assert.match(english, /import and export character cards/);
+  assert.match(japanese, /日本語・英語・中国語/);
   assert.match(japanese, /公開されているHugging Faceのモデル/);
-  assert.match(japanese, /キャラクターカードをファイルやリンクから読み込んだり/);
+  assert.match(japanese, /キャラクターカードの読み込み・書き出し/);
   assert.doesNotMatch(
     `${english}\n${japanese}`,
     /current dependency graph|ONNX Runtime|API 36|署名済み配布|sherpa_onnx|Silero|SenseVoice|fllamer|flvtterm|misakid|fonix|Irodori-TTS|VoxCPM2|NVIDIA ARDY|TRELLIS|FLUX/,
@@ -245,29 +244,30 @@ test("English and Japanese pages emit localized metadata and complete navigation
     assert.match(english, new RegExp(`<p class="cloud-label">${name}</p>`));
   }
   assert.match(english, /Kokage Cloud features use Leaf/);
+  assert.match(english, /href="https:\/\/kokage\.cloud\/" rel="external"/);
   assert.doesNotMatch(english, /does not include Kokage Cloud/);
   assert.match(
     english,
     /plus voice input and speech, photo sharing, daily greetings, and 3D VRM characters/,
   );
-  assert.match(english, /A place of its own/);
   assert.match(english, /automatically switches to on-device replies/);
   assert.match(english, /explains what is sent beforehand/);
-  assert.match(english, /no advertising or analytics/);
+  assert.match(english, /no advertising, no tracking analytics/);
   assert.doesNotMatch(
     english,
     /remote inference|telemetry|unavailable in this release|persistent history|remains unavailable|Conversation processing stays on your device/,
   );
-  for (const name of ["クラウドで会話する", "クラウドの声", "新しい見た目を作る", "クラウドモーション"]) {
+  for (const name of ["クラウド会話", "クラウドの声", "新しい見た目を作る", "クラウドモーション"]) {
     assert.match(japanese, new RegExp(`<p class="cloud-label">${name}</p>`));
   }
   assert.match(japanese, /Kokage Cloud の機能は、アプリ内の「言の葉」を使って/);
+  assert.match(japanese, /href="https:\/\/kokage\.cloud\/ja\/" rel="external"/);
   assert.doesNotMatch(japanese, /Kokage Cloud は含まれません/);
   assert.match(japanese, /写真の共有、チャットへのお誘い、3DのVRMキャラクターとのおしゃべりに対応しています/);
   assert.match(japanese, /キャラクターだけの場所/);
   assert.match(japanese, /言の葉がなくなったときも自動で端末内の返事に切り替わります/);
   assert.match(japanese, /何が送信されるかを事前にわかりやすく案内し/);
-  assert.match(japanese, /アプリに広告やアクセス解析もありません/);
+  assert.match(japanese, /アプリに広告、アクセス解析、クラッシュ情報の自動送信機能は含まれていません/);
   assert.doesNotMatch(
     japanese,
     /外部推論|テレメトリー|このリリースでは利用できません|端末内だけに残り|会話履歴にも残しません|報告機能は利用できません|会話の処理は端末の中で/,
@@ -533,7 +533,8 @@ test("support pages are bilingual, indexable, and privacy-conscious", async () =
         `<meta name="description" content="${escapeRegExp(support.description)}">`,
       ),
     );
-    assert.match(html, /<main id="main" class="policy-page support-page">/);
+    assert.match(html, /<main id="main" class="support-page">/);
+    assert.match(html, /<details class="support-faq"/);
     assert.equal((html.match(/<h1[ >]/g) ?? []).length, 1);
     assert.match(
       html,
@@ -675,10 +676,18 @@ test("Chinese pages are complete, script-consistent, and free of retired terms",
     }
 
     const home = await read(`dist${localizedPath(prefix)}index.html`);
-    for (const id of ["how", "features", "cloud", "privacy", "status"]) {
+    for (const id of ["features", "cloud", "privacy", "status"]) {
       assert.match(home, new RegExp(`href="#${id}"`));
       assert.match(home, new RegExp(`id="${id}"`));
     }
+    const expectedCloudUrl =
+      locale === "zh-hant"
+        ? "https://kokage.cloud/zh-hant/"
+        : "https://kokage.cloud/zh/";
+    assert.match(
+      home,
+      new RegExp(`href="${escapeRegExp(expectedCloudUrl)}" rel="external"`),
+    );
     const privacy = await read(`dist${localizedPath(prefix, "privacy")}index.html`);
     assert.match(privacy, /<time datetime="2026-11-22">2026年11月22日<\/time>/);
     assert.match(privacy, /user_support@orcalogy\.com/);
