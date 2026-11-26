@@ -781,7 +781,7 @@ test("Chinese pages are complete, script-consistent, and free of retired terms",
           /報告送達時，或我們在 Sentry 中查看報告時，Sentry 可能會把報告交給 AI 模型，用來與類似的當機歸為一組、進行彙整並查找原因。這些模型可能在歐盟以外執行。/,
         ];
     aiClaims.push(
-      locale === "zh-hans" ? /（由 Kokage Cloud 生成时，还包括所用的预设）/ : /（由 Kokage Cloud 產生時，還包括所用的預設）/,
+      locale === "zh-hans" ? /（由 Kokage Cloud 生成时，还包括所选的预设）/ : /（由 Kokage Cloud 產生時，還包括所選的預設）/,
     );
     for (const claim of aiClaims) {
       assert.match(privacy, claim, locale);
