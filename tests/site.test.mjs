@@ -150,11 +150,8 @@ function assertPage(
   assert.equal((primaryNavigation.match(/<a /g) ?? []).length, 2);
   assert.match(html, /data-theme-toggle/);
 
-  assert.match(html, /class="vrm-stage"/);
-  assert.match(
-    html,
-    /class="vrm-stage__poster" src="\/brand\/kokochan-hero\.png"/,
-  );
+  assert.match(html, /class="hero__inner page-shell"/);
+  assert.doesNotMatch(html, /class="vrm-stage"/);
   assert.match(html, /src="\/brand\/kokochan-speaking\.png"/);
   assert.match(html, /src="\/brand\/kokochan-motion\.png"/);
   assert.match(html, /data-sky-stage/);
