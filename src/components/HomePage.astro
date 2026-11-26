@@ -21,59 +21,32 @@ const cloudAccountUrl = kokageCloudUrls[copy.locale];
     <section class="hero" aria-labelledby="hero-title">
       <div class="hero__grid page-shell">
         <div class="hero__copy">
-          <h1 id="hero-title" class="hero__title">
+          <h1 id="hero-title" class="hero__title reveal reveal--one">
             {copy.hero.title}
           </h1>
-          <p class="hero__lede">{copy.hero.lede}</p>
-          <div class="hero__actions">
+          <p class="hero__lede reveal reveal--two">{copy.hero.lede}</p>
+          <div class="hero__actions reveal reveal--three">
             <a
-              class="button button--store"
+              class="button button--primary"
               href={storeListings.appStore}
               rel="external"
             >
-              <svg
-                class="button__icon"
-                viewBox="0 0 24 24"
-                width="17"
-                height="17"
-                aria-hidden="true"
-              >
-                <path d="M16.365 1.43c0 1.14-.493 2.27-1.177 3.08-.744.9-1.99 1.57-2.987 1.57-.12 0-.23-.02-.3-.03-.01-.06-.04-.22-.04-.39 0-1.15.572-2.27 1.206-2.98.804-.94 2.142-1.64 3.248-1.68.03.13.05.28.05.43Zm4.565 15.71c-.03.07-.463 1.58-1.518 3.12-.945 1.34-1.94 2.71-3.43 2.71-1.517 0-1.9-.88-3.63-.88-1.698 0-2.302.91-3.67.91-1.377 0-2.332-1.26-3.428-2.8-1.287-1.82-2.323-4.63-2.323-7.28 0-4.28 2.797-6.55 5.552-6.55 1.448 0 2.675.95 3.6.95.865 0 2.222-1.01 3.902-1.01.613 0 2.886.06 4.374 2.19-.13.09-2.383 1.37-2.383 4.19 0 3.26 2.854 4.42 2.955 4.45Z" />
-              </svg>
-              <span>{copy.hero.appStoreAction}</span>
-              <span class="button__arrow" aria-hidden="true">↗</span>
+              {copy.hero.appStoreAction}
+              <span aria-hidden="true">↗</span>
             </a>
             <a
-              class="button button--store"
+              class="button button--secondary"
               href={storeListings.googlePlay}
               rel="external"
             >
-              <svg
-                class="button__icon"
-                viewBox="0 0 24 24"
-                width="16"
-                height="16"
-                aria-hidden="true"
-              >
-                <path d="M3.609 1.814 13.792 12 3.61 22.186a1.72 1.72 0 0 1-.61-1.318V3.132c0-.517.232-.982.609-1.318Zm11.244 11.244 2.79 2.79-11.2 6.388 8.41-9.178Zm3.748-2.138 2.41 1.374c.99.565.99 1.99 0 2.555l-2.41 1.374-3.04-3.04 3.04-2.263Zm-3.748-1.106-8.41-9.178 11.2 6.388-2.79 2.79Z" />
-              </svg>
-              <span>{copy.hero.googlePlayAction}</span>
-              <span class="button__arrow" aria-hidden="true">↗</span>
+              {copy.hero.googlePlayAction}
+              <span aria-hidden="true">↗</span>
             </a>
           </div>
         </div>
 
-        <div class="hero-arch">
+        <div class="hero-portrait reveal reveal--two">
           <img
-            class="hero-arch__leaves"
-            src="/brand/kokage-leaves.svg"
-            alt=""
-            width="370"
-            height="263"
-            aria-hidden="true"
-          />
-          <img
-            class="hero-arch__character"
             src="/brand/kokochan-preview.png"
             alt={copy.hero.portraitAlt}
             width="640"
@@ -168,7 +141,7 @@ const cloudAccountUrl = kokageCloudUrls[copy.locale];
 
         <div class="section-links">
           <a
-            class="inline-link inline-link--on-dark"
+            class="inline-link inline-link--accent"
             href={cloudAccountUrl}
             rel="external"
           >
@@ -209,36 +182,15 @@ const cloudAccountUrl = kokageCloudUrls[copy.locale];
         <h2 id="status-title" class="section-title">{copy.status.title}</h2>
         <div class="closing-links">
           {
-            copy.status.platforms.map((platform, idx) => (
+            copy.status.platforms.map((platform) => (
               <div class="closing-platform">
                 <span class="closing-platform__name">{platform.name}</span>
                 <a
-                  class="inline-link"
+                  class="inline-link inline-link--accent"
                   href={platform.link.href}
                   rel="external"
                 >
-                  {idx === 0 ? (
-                    <svg
-                      class="inline-link__icon"
-                      viewBox="0 0 24 24"
-                      width="15"
-                      height="15"
-                      aria-hidden="true"
-                    >
-                      <path d="M16.365 1.43c0 1.14-.493 2.27-1.177 3.08-.744.9-1.99 1.57-2.987 1.57-.12 0-.23-.02-.3-.03-.01-.06-.04-.22-.04-.39 0-1.15.572-2.27 1.206-2.98.804-.94 2.142-1.64 3.248-1.68.03.13.05.28.05.43Zm4.565 15.71c-.03.07-.463 1.58-1.518 3.12-.945 1.34-1.94 2.71-3.43 2.71-1.517 0-1.9-.88-3.63-.88-1.698 0-2.302.91-3.67.91-1.377 0-2.332-1.26-3.428-2.8-1.287-1.82-2.323-4.63-2.323-7.28 0-4.28 2.797-6.55 5.552-6.55 1.448 0 2.675.95 3.6.95.865 0 2.222-1.01 3.902-1.01.613 0 2.886.06 4.374 2.19-.13.09-2.383 1.37-2.383 4.19 0 3.26 2.854 4.42 2.955 4.45Z" />
-                    </svg>
-                  ) : (
-                    <svg
-                      class="inline-link__icon"
-                      viewBox="0 0 24 24"
-                      width="14"
-                      height="14"
-                      aria-hidden="true"
-                    >
-                      <path d="M3.609 1.814 13.792 12 3.61 22.186a1.72 1.72 0 0 1-.61-1.318V3.132c0-.517.232-.982.609-1.318Zm11.244 11.244 2.79 2.79-11.2 6.388 8.41-9.178Zm3.748-2.138 2.41 1.374c.99.565.99 1.99 0 2.555l-2.41 1.374-3.04-3.04 3.04-2.263Zm-3.748-1.106-8.41-9.178 11.2 6.388-2.79 2.79Z" />
-                    </svg>
-                  )}
-                  <span>{platform.link.label}</span>
+                  {platform.link.label}
                   <span aria-hidden="true">↗</span>
                 </a>
               </div>

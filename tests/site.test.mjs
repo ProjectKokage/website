@@ -152,7 +152,7 @@ function assertPage(
   assert.match(html, /<ul class="feature-list" role="list">/);
   assert.match(
     html,
-    /<img class="hero-arch__character" src="\/brand\/kokochan-preview\.png"/,
+    /<div class="hero-portrait reveal reveal--two"><img src="\/brand\/kokochan-preview\.png"/,
   );
   assert.doesNotMatch(html, /\/_image\//);
   assert.ok(html.indexOf('id="features"') < html.indexOf('id="cloud"'));
