@@ -147,24 +147,27 @@ function assertPage(
     /<nav class="site-nav"[\s\S]*?<\/nav>/,
   )?.[0];
   assert.ok(primaryNavigation);
-  assert.equal((primaryNavigation.match(/<a /g) ?? []).length, 4);
+  assert.equal((primaryNavigation.match(/<a /g) ?? []).length, 2);
+  assert.match(html, /data-theme-toggle/);
 
-  assert.match(html, /<ul class="feature-list" role="list">/);
+  assert.match(html, /data-vrm-stage/);
   assert.match(
     html,
-    /<div class="hero-portrait reveal reveal--two"><img src="\/brand\/kokochan-preview\.png"/,
+    /class="vrm-stage__poster" data-vrm-poster src="\/brand\/kokochan-hero\.png"/,
   );
+  assert.match(html, /src="\/brand\/kokochan-speaking\.png"/);
+  assert.match(html, /src="\/brand\/kokochan-motion\.png"/);
+  assert.match(html, /data-sky-stage/);
   assert.doesNotMatch(html, /\/_image\//);
   assert.ok(html.indexOf('id="features"') < html.indexOf('id="cloud"'));
   assert.ok(html.indexOf('id="cloud"') < html.indexOf('id="privacy"'));
-  assert.match(html, /<ul class="cloud-list" role="list">/);
+  assert.match(html, /<ul class="editorial-list" role="list">/);
   assert.match(html, /<ul class="privacy-points" role="list">/);
   for (const link of storeLinks) {
     assert.equal((html.match(new RegExp(link, "g")) ?? []).length, 2);
   }
 
   for (const id of ["features", "cloud", "privacy", "status"]) {
-    assert.match(html, new RegExp(`href="#${id}"`));
     assert.match(html, new RegExp(`id="${id}"`));
   }
 }
@@ -243,8 +246,8 @@ test("English and Japanese pages emit localized metadata and complete navigation
   assert.match(english, /Optional pay-as-you-go Leaf/);
   assert.match(english, /href="https:\/\/kokage\.cloud\/" rel="external"/);
   assert.doesNotMatch(english, /does not include Kokage Cloud/);
-  assert.match(english, /On-device chats stay on your device/);
-  assert.match(english, /No ads, no analytics, no tracking/);
+  assert.match(english, /Stays on your device/);
+  assert.match(english, /No ads or tracking/);
   assert.doesNotMatch(
     english,
     /remote inference|telemetry|unavailable in this release|persistent history|remains unavailable|Conversation processing stays on your device/,
@@ -666,7 +669,6 @@ test("Chinese pages are complete, script-consistent, and free of retired terms",
 
     const home = await read(`dist${localizedPath(prefix)}index.html`);
     for (const id of ["features", "cloud", "privacy", "status"]) {
-      assert.match(home, new RegExp(`href="#${id}"`));
       assert.match(home, new RegExp(`id="${id}"`));
     }
     const expectedCloudUrl =

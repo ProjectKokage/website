@@ -15,61 +15,59 @@ export const ja = {
   navigation: {
     label: "メインメニュー",
     homeLabel: "ホーム",
-    items: [
-      { href: "#features", label: "できること" },
-      { href: "#cloud", label: "Kokage Cloud" },
-      { href: "#privacy", label: "プライバシー" },
-      { href: "#status", label: "プラットフォーム" },
-    ],
+    supportLabel: "サポート",
+    cloudLabel: "Kokage Cloud",
+    themeToggleLight: "ライトモードに切り替え",
+    themeToggleDark: "ダークモードに切り替え",
     languageLabel: "表示言語",
   },
   hero: {
     title: "3DのAIキャラクターと、話そう。",
-    lede: "声と動きと記憶を、端末でもクラウドでも。",
+    lede: "声と動きと記憶を、端末内で無料でも、クラウドでも。",
     appStoreAction: "App Storeからダウンロード",
     googlePlayAction: "Google Playからダウンロード",
     imageAlt:
       "果実のようなミント色の吹き出しに、2枚の葉を添えたこかげのアプリアイコン",
     portraitAlt: "こかげに収録されている3Dキャラクター「ここちゃん」",
+    motions: {
+      label: "キャラクターの動き",
+      idle: "待機",
+      speak: "話す",
+      nod: "うなずく",
+    },
   },
   features: {
-    title: "自然な会話のために",
+    title: "声で話して、覚えていてくれる。",
+    lede: "声、記憶、見た目をキャラクターごとに持てます。",
+    imageAlt: "表情豊かに話しかける3Dキャラクター「ここちゃん」",
+    replyCue: "きれいな晴れだよ！少しお散歩しようか？",
+    memoryCue: "記憶を保存しました",
+    memoryUndo: "取り消す",
     items: [
       {
-        kind: "voice",
-        title: "声と写真",
-        body: "日本語・英語・中国語の声で会話できます。",
+        title: "声・文字・写真で話す",
+        body: "端末内で音声認識し、日本語・英語・中国語の声で返答。写真も見せられます。",
       },
       {
-        kind: "scene",
-        title: "3Dの動きと場所",
-        body: "声に合う表情・仕草と、選べる背景。",
+        title: "確認・編集できる記憶",
+        body: "大切なことを覚え、いつでも見直したり取り消したりできます。",
       },
       {
-        kind: "memory",
-        title: "編集できる記憶",
-        body: "大切なことを覚え、いつでも見直せます。",
-      },
-      {
-        kind: "characters",
-        title: "自由なVRMアバター",
-        body: "複数キャラクターや手持ちのVRMに対応。",
-      },
-      {
-        kind: "modes",
-        title: "端末でもクラウドでも",
-        body: "無料の端末内モデルか、すぐ話せる Kokage Cloud。",
-      },
-      {
-        kind: "home",
-        title: "お誘いとApple Home",
-        body: "毎日の挨拶通知やApple Home連携に対応。",
+        title: "VRMアバターとApple Home",
+        body: "複数キャラクターやVRM、カードに対応。iPhoneとiPadではApple Home連携も。",
       },
     ],
   },
   cloud: {
     title: "Kokage Cloud",
     lede: "使う分だけの言の葉。有効期限なし。",
+    imageAlt: "時刻に合わせて空が変わる場所に立つ3Dキャラクター「ここちゃん」",
+    skies: {
+      label: "背景の空",
+      morning: "朝",
+      dusk: "夕焼け",
+      night: "夜",
+    },
     items: [
       {
         title: "クラウド会話",

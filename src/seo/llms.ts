@@ -47,6 +47,8 @@ export function llmsText(site: URL): string {
     "",
     `## ${en.features.title}`,
     "",
+    en.features.lede,
+    "",
     ...en.features.items.map((item) => `- ${item.title}: ${item.body}`),
     "",
     `## ${en.cloud.title}`,

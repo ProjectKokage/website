@@ -64,14 +64,6 @@ export interface SupportPageCopy {
   backHomeLabel: string;
 }
 
-export type FeatureKind =
-  | "voice"
-  | "scene"
-  | "memory"
-  | "characters"
-  | "modes"
-  | "home";
-
 export interface SiteCopy {
   locale: SiteLocale;
   htmlLang: string;
@@ -85,10 +77,10 @@ export interface SiteCopy {
   navigation: {
     label: string;
     homeLabel: string;
-    items: Array<{
-      href: string;
-      label: string;
-    }>;
+    supportLabel: string;
+    cloudLabel: string;
+    themeToggleLight: string;
+    themeToggleDark: string;
     languageLabel: string;
   };
   hero: {
@@ -98,11 +90,21 @@ export interface SiteCopy {
     googlePlayAction: string;
     imageAlt: string;
     portraitAlt: string;
+    motions: {
+      label: string;
+      idle: string;
+      speak: string;
+      nod: string;
+    };
   };
   features: {
     title: string;
+    lede: string;
+    imageAlt: string;
+    replyCue: string;
+    memoryCue: string;
+    memoryUndo: string;
     items: Array<{
-      kind: FeatureKind;
       title: string;
       body: string;
     }>;
@@ -110,6 +112,13 @@ export interface SiteCopy {
   cloud: {
     title: string;
     lede: string;
+    imageAlt: string;
+    skies: {
+      label: string;
+      morning: string;
+      dusk: string;
+      night: string;
+    };
     items: Array<{
       title: string;
       body: string;
