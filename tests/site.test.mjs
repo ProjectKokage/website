@@ -253,7 +253,13 @@ test("English and Japanese pages emit localized metadata and complete navigation
   assert.match(english, /A place of its own/);
   assert.match(english, /automatically switches to on-device replies/);
   assert.match(english, /explains what is sent beforehand/);
-  assert.match(english, /no advertising or analytics/);
+  assert.match(english, /no advertising and records no screens, taps, or feature counts/);
+  assert.match(
+    english,
+    /Crash reports, with one short record per launch, are sent only if you choose to send them/,
+  );
+  assert.doesNotMatch(english, /does not measure how you use/);
+  assert.doesNotMatch(english, /analytics/);
   assert.doesNotMatch(
     english,
     /remote inference|telemetry|unavailable in this release|persistent history|remains unavailable|Conversation processing stays on your device/,
@@ -267,7 +273,10 @@ test("English and Japanese pages emit localized metadata and complete navigation
   assert.match(japanese, /キャラクターだけの場所/);
   assert.match(japanese, /言の葉がなくなったときも自動で端末内の返事に切り替わります/);
   assert.match(japanese, /何が送信されるかを事前にわかりやすく案内し/);
-  assert.match(japanese, /アプリに広告やアクセス解析もありません/);
+  assert.match(japanese, /アプリに広告はなく、画面の表示、タップ、機能の利用回数は記録しません/);
+  assert.match(japanese, /クラッシュレポートと起動ごとの短い記録は、送ると答えた場合にだけ送ります/);
+  assert.doesNotMatch(japanese, /アプリの使い方も計測しません/);
+  assert.doesNotMatch(japanese, /アクセス解析/);
   assert.doesNotMatch(
     japanese,
     /外部推論|テレメトリー|このリリースでは利用できません|端末内だけに残り|会話履歴にも残しません|報告機能は利用できません|会話の処理は端末の中で/,
@@ -299,11 +308,11 @@ test("privacy policy pages are localized, indexable, and linked across languages
       canonical: `${siteOrigin}/privacy/`,
       title: "Privacy Policy | Kokage",
       description:
-        "How Kokage handles on-device and cloud chat, Kokage Cloud motion, voices, speech and avatars, saved conversations, memory, reports, accounts, downloads, and website data.",
+        "How Kokage handles on-device and cloud chat, Kokage Cloud motion, voices, speech and avatars, saved conversations, memory, reports, crash reports, feedback, accounts, downloads, and website data.",
       heading:
         "What Kokage keeps on your device and what its cloud features send",
       siteName: "Kokage",
-      date: "November 22, 2026",
+      date: "November 26, 2026",
       homePath: "/",
     },
     {
@@ -313,10 +322,10 @@ test("privacy policy pages are localized, indexable, and linked across languages
       canonical: `${siteOrigin}/ja/privacy/`,
       title: "プライバシーポリシー | こかげ",
       description:
-        "こかげにおける端末内の会話とクラウド会話、Kokage Cloud のモーション、声、読み上げ、アバター、会話の保存、記憶、報告、アカウント、ダウンロード、ウェブサイトのデータの扱いを説明します。",
+        "こかげにおける端末内の会話とクラウド会話、Kokage Cloud のモーション、声、読み上げ、アバター、会話の保存、記憶、報告、クラッシュレポート、フィードバック、アカウント、ダウンロード、ウェブサイトのデータの扱いを説明します。",
       heading: "こかげが端末に保存するデータと、クラウド機能が送信するデータ",
       siteName: "こかげ",
-      date: "2026年11月22日",
+      date: "2026年11月26日",
       homePath: "/ja/",
     },
   ];
@@ -349,7 +358,7 @@ test("privacy policy pages are localized, indexable, and linked across languages
     assert.match(
       html,
       new RegExp(
-        `<time datetime="2026-11-22">${escapeRegExp(policy.date)}</time>`,
+        `<time datetime="2026-11-26">${escapeRegExp(policy.date)}</time>`,
       ),
     );
     assert.match(html, /"@type":"WebPage"/);
@@ -380,6 +389,8 @@ test("privacy policy pages are localized, indexable, and linked across languages
       "retention",
       "network",
       "reports",
+      "crash-reports",
+      "feedback",
       "permissions",
       "website",
       "changes",
@@ -397,6 +408,7 @@ test("privacy policy pages are localized, indexable, and linked across languages
     assert.match(html, /https:\/\/formspark\.io\/legal\/privacy-policy\//);
     assert.match(html, /href="https:\/\/openrouter\.ai\/privacy"/);
     assert.match(html, /href="https:\/\/www\.revenuecat\.com\/privacy"/);
+    assert.match(html, /href="https:\/\/sentry\.io\/privacy\/"/);
     assert.match(html, /user_support@orcalogy\.com/);
     assert.match(html, /Orcalogy LLC/);
     assert.doesNotMatch(html, /Lorem ipsum|TODO|placeholder|\[insert/i);
@@ -467,6 +479,39 @@ test("privacy policy pages are localized, indexable, and linked across languages
   assert.match(english, /when you take a photo for a message or a new avatar/);
   assert.match(english, /Kokage reads only the photo you pick/);
   assert.match(english, /before voice input or voice-clone recording/);
+  assert.match(english, /Send crash reports to Sentry\?/);
+  assert.match(english, /email user_support@orcalogy\.com with its Reference ID/);
+  assert.match(english, /deletes them after 30 days/);
+  assert.match(english, /To ask for your crash reports to be deleted sooner, email user_support@orcalogy\.com/);
+  assert.match(english, /stores them in the European Union/);
+  assert.match(english, /retention page lists no period for the per-launch records/);
+  assert.doesNotMatch(english, /not yet set/);
+  assert.match(english, /Reports already sent stay with Sentry/);
+  assert.match(english, /Feedback carries no installation ID or account identifier/);
+  assert.match(english, /with Kokage Cloud, which of its presets makes them/);
+  assert.match(english, /A model or Kokage Cloud preset you added yourself appears only as a fixed word/);
+  assert.match(japanese, /（Kokage Cloud の場合は使っているプリセット）/);
+  assert.match(english, /Sentry passes your message, without the other facts, to AI models that mark spam, give the message a title and label its topic\./);
+  assert.match(english, /When we read feedback in Sentry, it may also pass recent messages together to an AI model to sum them up and group them\. These models may run outside the European Union\./);
+  assert.match(english, /Sentry says it does not use your message to train generative AI models unless we allow it, and we have not\./);
+  assert.match(english, /When a report arrives, or when we look into it in Sentry, Sentry may pass it to AI models to group it with similar crashes, sum it up and look for its cause\. These models may run outside the European Union\./);
+  assert.match(japanese, /Sentryはメッセージだけを、ほかの情報を付けずにAIモデルに渡し、迷惑な投稿かどうかの判定、件名づけ、話題ごとの分類を行います。/);
+  assert.match(japanese, /最近のメッセージをまとめてAIモデルに渡し、要約やグループ分けをすることもあります。これらのAIモデルはEUの外で動く場合があります。/);
+  assert.match(japanese, /運営が許可しない限りメッセージを生成AIモデルの学習に使わないとしており、運営は許可していません。/);
+  assert.match(japanese, /レポートが届いたときや、運営がSentryでレポートを調べるときに、SentryがレポートをAIモデルに渡し、似たクラッシュとのまとめ、要約、原因の調査を行う場合があります。これらのAIモデルはEUの外で動く場合があります。/);
+  assert.doesNotMatch(
+    english,
+    /automatic crash reporting|no advertising, analytics|does not measure how you use/,
+  );
+  assert.match(japanese, /クラッシュレポートを Sentry に送りますか？/);
+  assert.match(japanese, /受付IDを添えて user_support@orcalogy\.com までメール/);
+  assert.match(japanese, /レポートはEU内に保存されます/);
+  assert.match(japanese, /30日後に削除されます/);
+  assert.match(japanese, /レポートを特定できる情報をお知らせいただいた場合に限り対応できます/);
+  assert.match(japanese, /起動ごとの記録の保存期間は、Sentryの保存期間のページに記載がありません/);
+  assert.doesNotMatch(japanese, /まだ決まっていません/);
+  assert.match(japanese, /フィードバックにはインストールIDもアカウントの識別子も付かず/);
+  assert.doesNotMatch(japanese, /クラッシュ情報の自動送信機能|アプリの使い方も計測しません/);
   assert.match(japanese, /アバター作成用の写真を撮るときにカメラの許可/);
   assert.match(japanese, /声の複製のための録音を始める前にマイクの許可/);
 
@@ -549,6 +594,7 @@ test("support pages are bilingual, indexable, and privacy-conscious", async () =
       html,
       /href="mailto:user_support@orcalogy\.com\?subject=Kokage%20support"/,
     );
+    assert.match(html, /user_support@orcalogy\.com/);
     assert.match(html, /aria-current="page">[^<]*(?:Support|サポート)/);
 
     for (const id of [
@@ -616,17 +662,40 @@ test("Chinese pages are complete, script-consistent, and free of retired terms",
       prefix: "/zh-hans",
       // Characters that only appear in the other script.
       otherScript: /[這為們說時會發應頁設備帳戶隱關對話聲雲記憶]/,
+      homeClaims: [
+        /也不记录你打开了哪些界面、点了什么或各功能用了多少次/,
+        /才会发送崩溃报告和每次启动的一条简短记录/,
+      ],
+      policyClaims: [
+        /要把崩溃报告发送给 Sentry 吗？/,
+        /反馈不带安装 ID 或账户标识符/,
+      ],
     },
     {
       locale: "zh-hant",
       lang: "zh-Hant",
       prefix: "/zh-hant",
       otherScript: /[这为们说时会发应页设备账户隐关对话声云记忆]/,
+      homeClaims: [
+        /也不記錄你開啟了哪些畫面、點了什麼或各功能用了多少次/,
+        /才會傳送當機報告和每次啟動的一筆簡短紀錄/,
+      ],
+      policyClaims: [
+        /要把當機報告傳送給 Sentry 嗎？/,
+        /意見回饋不帶安裝 ID 或帳戶識別碼/,
+      ],
     },
   ];
   const retiredChineseTerms = /伙伴|夥伴|陪伴|同伴|伴侣|伴侶|companion/i;
 
-  for (const { locale, lang, prefix, otherScript } of chineseLocales) {
+  for (const {
+    locale,
+    lang,
+    prefix,
+    otherScript,
+    homeClaims,
+    policyClaims,
+  } of chineseLocales) {
     for (const page of ["", "privacy", "support"]) {
       const html = await read(`dist${localizedPath(prefix, page)}index.html`);
       const label = `${locale} ${page || "home"}`;
@@ -679,9 +748,56 @@ test("Chinese pages are complete, script-consistent, and free of retired terms",
       assert.match(home, new RegExp(`href="#${id}"`));
       assert.match(home, new RegExp(`id="${id}"`));
     }
+    for (const claim of homeClaims) {
+      assert.match(home, claim);
+    }
+    assert.doesNotMatch(
+      home,
+      /广告或分析|廣告或分析工具|不统计你如何使用|不統計你如何使用/,
+    );
     const privacy = await read(`dist${localizedPath(prefix, "privacy")}index.html`);
-    assert.match(privacy, /<time datetime="2026-11-22">2026年11月22日<\/time>/);
+    assert.match(privacy, /<time datetime="2026-11-26">2026年11月26日<\/time>/);
+    for (const id of ["crash-reports", "feedback"]) {
+      assert.match(privacy, new RegExp(`href="#${id}"`));
+      assert.match(privacy, new RegExp(`id="${id}"`));
+    }
+    assert.match(privacy, /href="https:\/\/sentry\.io\/privacy\/"/);
+    for (const claim of policyClaims) {
+      assert.match(privacy, claim);
+    }
+    assert.match(privacy, /参考编号发送至 user_support@orcalogy\.com|參考編號寄至 user_support@orcalogy\.com/);
+    assert.match(privacy, /存储在欧盟境内|儲存在歐盟境內/);
+    const aiClaims = locale === "zh-hans"
+      ? [
+          /Sentry 只会把你的消息（不含其他信息）交给 AI 模型，用来判断是否为垃圾信息、为消息生成标题并按话题分类。/,
+          /它还可能把近期的多条消息一起交给 AI 模型进行汇总和分组。这些模型可能在欧盟以外运行。/,
+          /除非我们允许，它不会用你的消息训练生成式 AI 模型，而我们没有允许。/,
+          /报告到达时，或我们在 Sentry 中查看报告时，Sentry 可能会把报告交给 AI 模型，用来与类似的崩溃归为一组、进行汇总并查找原因。这些模型可能在欧盟以外运行。/,
+        ]
+      : [
+          /Sentry 只會把你的訊息（不含其他資訊）交給 AI 模型，用來判斷是否為垃圾訊息、為訊息產生標題並依話題分類。/,
+          /它也可能把近期的多筆訊息一起交給 AI 模型進行彙整和分組。這些模型可能在歐盟以外執行。/,
+          /除非我們允許，否則不會用你的訊息訓練生成式 AI 模型，而我們沒有允許。/,
+          /報告送達時，或我們在 Sentry 中查看報告時，Sentry 可能會把報告交給 AI 模型，用來與類似的當機歸為一組、進行彙整並查找原因。這些模型可能在歐盟以外執行。/,
+        ];
+    aiClaims.push(
+      locale === "zh-hans" ? /（由 Kokage Cloud 生成时，还包括所选的预设）/ : /（由 Kokage Cloud 產生時，還包括所選的預設）/,
+    );
+    for (const claim of aiClaims) {
+      assert.match(privacy, claim, locale);
+    }
+    assert.match(privacy, /30 天后删除|30 天後刪除/);
+    assert.match(privacy, /更早删除你的崩溃报告|更早刪除你的當機報告/);
+    assert.match(privacy, /数据保留期限页面没有列出|資料保留期限頁面沒有列出/);
+    const support = await read(`dist${localizedPath(prefix, "support")}index.html`);
+    assert.match(support, /user_support@orcalogy\.com/);
+    assert.doesNotMatch(privacy, /尚未确定|尚未確定/);
+    assert.doesNotMatch(
+      privacy,
+      /自动崩溃报告|自動當機回報|广告、分析或|廣告、分析工具或|不统计你如何使用|不統計你如何使用/,
+    );
     assert.match(privacy, /user_support@orcalogy\.com/);
+    assert.doesNotMatch(privacy, /contact@orcalogy\.com/);
     assert.match(privacy, /Orcalogy LLC/);
     assert.match(privacy, /zh-hans/);
   }

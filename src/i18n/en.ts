@@ -139,27 +139,27 @@ export const en = {
   privacy: {
     eyebrow: "Privacy",
     title: "Built to keep your conversations in your hands",
-    lede: "When replies are made on your device, your conversations stay on your device. Voice input is transcribed on your device, so your everyday spoken audio is never uploaded, and the app contains no advertising or analytics. When you use Kokage Cloud, the app explains what is sent beforehand, and you can manage or delete your memories, notes, and cloud account at any time.",
+    lede: "When replies are made on your device, your conversations stay on your device. Voice input is transcribed on your device, so your everyday spoken audio is never uploaded. The app contains no advertising and records no screens, taps, or feature counts. Crash reports, with one short record per launch, are sent only if you choose to send them. When you use Kokage Cloud, the app explains what is sent beforehand, and you can manage or delete your memories, notes, and cloud account at any time.",
     policyLink: "Read the privacy policy",
   },
   privacyPolicy: {
     meta: {
       title: "Privacy Policy | Kokage",
       description:
-        "How Kokage handles on-device and cloud chat, Kokage Cloud motion, voices, speech and avatars, saved conversations, memory, reports, accounts, downloads, and website data.",
+        "How Kokage handles on-device and cloud chat, Kokage Cloud motion, voices, speech and avatars, saved conversations, memory, reports, crash reports, feedback, accounts, downloads, and website data.",
     },
     eyebrow: "Kokage privacy policy",
     title: "What Kokage keeps on your device and what its cloud features send",
     lede: "This page explains what the Kokage app saves on your device, what it sends to Kokage Cloud and external services, when that happens, and how you can manage or delete your data.",
     updatedLabel: "Last updated",
-    updatedDate: "2026-11-22",
-    updatedDateDisplay: "November 22, 2026",
+    updatedDate: "2026-11-26",
+    updatedDateDisplay: "November 26, 2026",
     highlightsLabel: "Policy summary",
     highlights: [
       "When replies are made on your device, your conversation stays on your device",
       "When you use Kokage Cloud, it sends only the data described in this policy, and the app explains cloud chat before you start using it",
       "Speech recognition runs on your device; conversation audio is never logged or uploaded",
-      "The app includes no advertising, analytics, or automatic crash reporting",
+      "The app includes no advertising and records no screens, taps, or feature counts; crash reports, with one short record per launch, are sent only if you choose to send them",
     ],
     contentsLabel: "On this page",
     sections: [
@@ -167,8 +167,9 @@ export const en = {
         id: "scope",
         title: "Scope",
         paragraphs: [
-          "This policy describes how data is handled by the Kokage app, Kokage Cloud, and this website as of November 22, 2026.",
+          "This policy describes how data is handled by the Kokage app, Kokage Cloud, and this website as of November 26, 2026.",
           "The sections about Kokage Cloud apply to versions of the app that include Kokage Cloud: the App Store version for iPhone and iPad and the Google Play version for Android.",
+          "The sections about crash reports and feedback apply to versions of the app that include them.",
           "External websites and download hosts that you connect to from the app handle requests under their own privacy policies.",
         ],
       },
@@ -372,7 +373,7 @@ export const en = {
           "After account deletion, Kokage Cloud retains only administrative records that contain no conversation, voice, or image content: the closed account ID, Leaf balance and usage history, store purchase records, voice consent records, safety-check records for refused or failed avatar requests, and audit logs. These are kept for accounting, fraud prevention, and legal obligations and have no fixed deletion date.",
           "If you signed in with Apple or Google, Kokage Cloud also keeps a one-way code made from your ID at Apple or Google, recording that this Apple or Google account has had the Welcome Leaf given at first sign-in. It contains neither the ID itself nor your email address. Because it is kept after deletion, signing in again with the same Apple or Google account starts a new account without Welcome Leaf.",
           "If you signed in with Apple or Google, Kokage Cloud also keeps a record of each day your account received daily free Leaf and the time of that day's first request. So that daily free Leaf is given only once a day, it also keeps a one-way code made from your Apple or Google ID until that day ends.",
-          "Data held by AI model providers, the App Store, Google Play, RevenueCat, and submitted reports follows each service's own retention rules.",
+          "Data held by AI model providers, the App Store, Google Play, and RevenueCat follows each service's own retention rules, as do submitted reports and the crash reports and feedback sent to Sentry.",
         ],
       },
       {
@@ -380,7 +381,7 @@ export const en = {
         title: "Model downloads and external connections",
         paragraphs: [
           "When you download a model or check a public model, the download host receives the requested file path and standard connection information such as your IP address, with no conversation or media content. Canceling a download deletes any partial files.",
-          "The app includes no advertising, analytics, or automatic crash reporting.",
+          "The app includes no advertising and records no screens, taps, or feature counts. Crash reports and feedback go to Sentry only as the 'Crash reports (optional)' and 'Sending feedback' sections describe.",
         ],
         items: [
           {
@@ -419,6 +420,73 @@ export const en = {
             link: {
               href: "https://formspark.io/legal/privacy-policy/",
               label: "Formspark privacy policy",
+            },
+          },
+        ],
+      },
+      {
+        id: "crash-reports",
+        title: "Crash reports (optional)",
+        paragraphs: [
+          "In versions of the app that include crash reports, Kokage asks 'Send crash reports to Sentry?' on first run, or at the start of a launch if you already have the app. The two answers, 'Send crash reports' and 'Don't send', are shown as equals and neither is chosen for you. Until you choose 'Send crash reports', nothing is sent and the reporting software is not started.",
+          "Sentry is a hosted error-reporting service that processes these reports for Orcalogy LLC and stores them in the European Union. When a report arrives, or when we look into it in Sentry, Sentry may pass it to AI models to group it with similar crashes, sum it up and look for its cause. These models may run outside the European Union. Nothing sent includes your chats, memories, notes, voice, pictures, file paths, URLs, or account identifier.",
+        ],
+        items: [
+          {
+            title: "What a report holds",
+            body: "If you say yes, a crash or an error the app could not handle sends a report that says where in the app's code it stopped. It holds the error's type and the list of functions involved, the app's code modules by file name, the app version, the operating system and its version, the device model, whether replies were being made on your device or by Kokage Cloud, the chat model's catalog ID, and what the model was running on (Metal, Vulkan, or CPU). A model you added yourself appears only as a fixed word for a custom model, never by its name. The text of an error message is never sent, only its type.",
+          },
+          {
+            title: "Technical details needed to read a report",
+            body: "A report also carries the technical details needed to read it: which signal or exception stopped the app, the memory addresses of the code involved, the reporting software's name and version, and the name of the build's environment. On Apple devices the system adds its language list to every request.",
+          },
+          {
+            title: "The record sent at each launch",
+            body: "Each launch also sends one short record: when the launch started, how long it ran, whether it ended in a crash, a count of errors, and the app version. It lets crashes be counted per version, and it shows how often and how long the app ran on an install that said yes.",
+          },
+          {
+            title: "Installation ID",
+            body: "That record carries an installation ID, a random value made on your device once for this install. A report is sent with or right beside such a record, so Sentry can tell which install a report came from. The ID is not tied to your Kokage Cloud account or to any other identifier. Like any server, Sentry sees the IP address a report comes from; the app adds no IP address to the report.",
+          },
+          {
+            title: "Changing your answer",
+            body: "You can change your answer at any time with 'Crash reports' in Settings, under App. Turning it off stops reporting and deletes the unsent reports and the installation ID from your device; turning it on later makes a new ID. Reports already sent stay with Sentry, which deletes them after 30 days. To ask for your crash reports to be deleted sooner, email user_support@orcalogy.com. The app shows no ID for a crash report, so we can act only if you can tell us something that identifies your reports, such as the device model and roughly when the app stopped. Sentry's retention page lists no period for the per-launch records.",
+            link: {
+              href: "https://sentry.io/privacy/",
+              label: "Sentry privacy policy",
+            },
+          },
+        ],
+      },
+      {
+        id: "feedback",
+        title: "Sending feedback",
+        paragraphs: [
+          "In the same versions, Settings has 'Send feedback', whatever you answered about crash reports. Nothing is sent until you write a message and tap 'Send'. Kokage then sends one item to Sentry, which processes it for Orcalogy LLC.",
+        ],
+        items: [
+          {
+            title: "What is sent with your message",
+            body: "Your message, an email address only if you typed one for a reply, and facts that help read it: the app version and language, the operating system and its version, the device model, its RAM rounded to whole gigabytes, whether replies are made on your device or by Kokage Cloud and, with Kokage Cloud, which of its presets makes them, the catalog ID of each AI model with whether it is loaded and what it runs on, whether Cloud Motion and 'Show details' are on, whether the character is the one first setup made, and the kind of the last problem the chat showed. A model or Kokage Cloud preset you added yourself appears only as a fixed word. The page shows this list before you send.",
+          },
+          {
+            title: "The layout of the chat screen",
+            body: "Feedback also carries the layout of the chat screen: the names of its parts and where they are, without any text or picture. The sizes in the layout show how long the texts on the screen are, not what they say.",
+          },
+          {
+            title: "What feedback leaves out and does not keep",
+            body: "Feedback carries no installation ID or account identifier, and none of your chats, memories, notes, voice, or pictures. The message is not saved on your device, and a send that fails is not retried automatically. Leaving the page while it sends stops the app waiting; if the feedback already reached Sentry, it stays there. Like any server, Sentry sees the IP address the feedback comes from.",
+          },
+          {
+            title: "AI at Sentry",
+            body: "Sentry passes your message, without the other facts, to AI models that mark spam, give the message a title and label its topic. When we read feedback in Sentry, it may also pass recent messages together to an AI model to sum them up and group them. These models may run outside the European Union. Sentry says it does not use your message to train generative AI models unless we allow it, and we have not.",
+          },
+          {
+            title: "Reference ID and deletion",
+            body: "The app shows a Reference ID for each item sent. To have an item deleted, email user_support@orcalogy.com with its Reference ID, and we will delete it at Sentry. Otherwise Sentry deletes feedback, with the layout sent with it, after 30 days.",
+            link: {
+              href: "https://sentry.io/privacy/",
+              label: "Sentry privacy policy",
             },
           },
         ],
@@ -566,7 +634,7 @@ export const en = {
         paragraphs: [
           "If you have a question or run into an issue, email user_support@orcalogy.com with your device model, OS version, app version, the message shown on screen (or the summary from Settings → Show details), and a brief description of what happened.",
           "To protect your privacy, please do not send private conversations, voice recordings, photos, or VRM files by email. Please note that we cannot promise a specific response time.",
-          "To report an offensive AI reply or voice misuse, use the in-app Report option. You can review what will be sent before confirming, and if you later want the report deleted, email user_support@orcalogy.com with the Reference ID shown in the app.",
+          "To report an offensive AI reply or voice misuse, use the in-app Report option. You can review what will be sent before confirming, and if you later want the report deleted, email user_support@orcalogy.com with the Reference ID shown in the app. To have feedback you sent from Settings deleted, email the same address with the Reference ID shown after sending.",
         ],
       },
     ],
