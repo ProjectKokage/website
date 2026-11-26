@@ -467,7 +467,7 @@ export const en = {
         items: [
           {
             title: "What is sent with your message",
-            body: "Your message, an email address only if you typed one for a reply, and facts that help read it: the app version and language, the operating system and its version, the device model, its RAM rounded to whole gigabytes, whether replies are made on your device or by Kokage Cloud, the catalog ID of each AI model with whether it is loaded and what it runs on, whether Cloud Motion and 'Show details' are on, whether the character is the one first setup made, and the kind of the last problem the chat showed. A model you added yourself appears only as a fixed word. The page shows this list before you send.",
+            body: "Your message, an email address only if you typed one for a reply, and facts that help read it: the app version and language, the operating system and its version, the device model, its RAM rounded to whole gigabytes, whether replies are made on your device or by Kokage Cloud and, with Kokage Cloud, which of its presets makes them, the catalog ID of each AI model with whether it is loaded and what it runs on, whether Cloud Motion and 'Show details' are on, whether the character is the one first setup made, and the kind of the last problem the chat showed. A model or Kokage Cloud preset you added yourself appears only as a fixed word. The page shows this list before you send.",
           },
           {
             title: "The layout of the chat screen",

@@ -488,6 +488,9 @@ test("privacy policy pages are localized, indexable, and linked across languages
   assert.doesNotMatch(english, /not yet set/);
   assert.match(english, /Reports already sent stay with Sentry/);
   assert.match(english, /Feedback carries no installation ID or account identifier/);
+  assert.match(english, /with Kokage Cloud, which of its presets makes them/);
+  assert.match(english, /A model or Kokage Cloud preset you added yourself appears only as a fixed word/);
+  assert.match(japanese, /（Kokage Cloud の場合は使っているプリセット）/);
   assert.match(english, /Sentry passes your message, without the other facts, to AI models that mark spam, give the message a title and label its topic\./);
   assert.match(english, /When we read feedback in Sentry, it may also pass recent messages together to an AI model to sum them up and group them\. These models may run outside the European Union\./);
   assert.match(english, /Sentry says it does not use your message to train generative AI models unless we allow it, and we have not\./);
@@ -777,6 +780,9 @@ test("Chinese pages are complete, script-consistent, and free of retired terms",
           /除非我們允許，否則不會用你的訊息訓練生成式 AI 模型，而我們沒有允許。/,
           /報告送達時，或我們在 Sentry 中查看報告時，Sentry 可能會把報告交給 AI 模型，用來與類似的當機歸為一組、進行彙整並查找原因。這些模型可能在歐盟以外執行。/,
         ];
+    aiClaims.push(
+      locale === "zh-hans" ? /（由 Kokage Cloud 生成时，还包括所用的预设）/ : /（由 Kokage Cloud 產生時，還包括所用的預設）/,
+    );
     for (const claim of aiClaims) {
       assert.match(privacy, claim, locale);
     }
