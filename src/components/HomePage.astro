@@ -64,11 +64,10 @@ const cloudAccountUrl = kokageCloudUrls[copy.locale];
           </div>
         </div>
 
-        <div class="vrm-stage" data-vrm-stage>
+        <div class="vrm-stage">
           <div class="vrm-stage__glow" aria-hidden="true"></div>
           <img
             class="vrm-stage__poster"
-            data-vrm-poster
             src="/brand/kokochan-hero.png"
             alt={copy.hero.portraitAlt}
             width="960"
@@ -76,89 +75,6 @@ const cloudAccountUrl = kokageCloudUrls[copy.locale];
             loading="eager"
             fetchpriority="high"
           />
-          <div
-            class="vrm-stage__canvas"
-            data-vrm-canvas
-            aria-hidden="true"
-          ></div>
-
-          <div
-            class="stage-sky-bar"
-            role="group"
-            aria-label={copy.hero.skies.label}
-          >
-            <button
-              type="button"
-              class="stage-icon-btn"
-              data-vrm-sky="day"
-              aria-pressed="false"
-              aria-label={copy.hero.skies.day}
-              title={copy.hero.skies.day}
-            >
-              <svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true">
-                <circle cx="12" cy="12" r="4" />
-                <path d="M12 2v2m0 16v2M4.93 4.93l1.41 1.41m11.32 11.32 1.41 1.41M2 12h2m16 0h2M4.93 19.07l1.41-1.41m11.32-11.32 1.41-1.41" />
-              </svg>
-            </button>
-            <button
-              type="button"
-              class="stage-icon-btn"
-              data-vrm-sky="dusk"
-              aria-pressed="false"
-              aria-label={copy.hero.skies.dusk}
-              title={copy.hero.skies.dusk}
-            >
-              <svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true">
-                <path d="M12 4v2M5.6 8.6l1.4 1.4M18.4 8.6 17 10M4 16h16M7 16a5 5 0 0 1 10 0M6 20h12" />
-              </svg>
-            </button>
-            <button
-              type="button"
-              class="stage-icon-btn"
-              data-vrm-sky="night"
-              aria-pressed="true"
-              aria-label={copy.hero.skies.night}
-              title={copy.hero.skies.night}
-            >
-              <svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true">
-                <path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8Z" />
-              </svg>
-            </button>
-          </div>
-
-          <div class="stage-bottom">
-            <p class="stage-hint" aria-hidden="true">{copy.hero.stageHint}</p>
-            <div
-              class="stage-bar"
-              role="group"
-              aria-label={copy.hero.motions.label}
-            >
-              <button
-                type="button"
-                class="stage-pill"
-                data-vrm-motion="idle"
-                aria-pressed="true"
-              >
-                {copy.hero.motions.idle}
-              </button>
-              <button
-                type="button"
-                class="stage-pill"
-                data-vrm-motion="speaking"
-                aria-pressed="false"
-              >
-                {copy.hero.motions.speak}
-              </button>
-              <button
-                type="button"
-                class="stage-pill"
-                data-vrm-motion="turn"
-                aria-pressed="false"
-              >
-                {copy.hero.motions.turn}
-              </button>
-            </div>
-          </div>
         </div>
       </div>
     </section>
@@ -376,10 +292,8 @@ const cloudAccountUrl = kokageCloudUrls[copy.locale];
   </main>
 
   <script>
-    import { initializeKokochanStage } from "../scripts/kokochan-stage.mjs";
     import { initializeSkyStage } from "../scripts/sky-stage.mjs";
 
-    initializeKokochanStage();
     initializeSkyStage();
   </script>
 </SiteLayout>

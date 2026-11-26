@@ -601,13 +601,6 @@
       var(--stage-bottom) 100%
     );
     box-shadow: var(--shadow-stage);
-    cursor: grab;
-    touch-action: pan-y;
-    user-select: none;
-  }
-
-  .vrm-stage[data-vrm-dragging="true"] {
-    cursor: grabbing;
   }
 
   .vrm-stage__glow {
