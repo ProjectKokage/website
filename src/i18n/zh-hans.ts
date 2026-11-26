@@ -28,11 +28,18 @@ export const zhHans = {
     googlePlayAction: "在 Google Play 下载",
     imageAlt: "Kokage 应用图标：一个薄荷色的对话气泡，配有两片叶子",
     portraitAlt: "Kokage 内置 3D 角色 Kokochan 的渲染图",
+    stageHint: "拖动旋转 · 轻点互动",
+    skies: {
+      label: "场景光线",
+      day: "白天",
+      dusk: "黄昏",
+      night: "夜晚",
+    },
     motions: {
       label: "角色动作",
       idle: "待机",
       speak: "说话",
-      nod: "点头",
+      turn: "转身",
     },
   },
   features: {

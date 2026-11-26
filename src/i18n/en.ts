@@ -28,11 +28,18 @@ export const en = {
     googlePlayAction: "Download on Google Play",
     imageAlt: "Kokage app icon, a mint speech bubble with two leaves",
     portraitAlt: "3D render of Kokochan, Kokage's included AI character",
+    stageHint: "Drag to rotate · Tap Kokochan",
+    skies: {
+      label: "Scene lighting",
+      day: "Daylight",
+      dusk: "Dusk",
+      night: "Night",
+    },
     motions: {
       label: "Character motion",
       idle: "Idle",
       speak: "Speak",
-      nod: "Nod",
+      turn: "Turn",
     },
   },
   features: {

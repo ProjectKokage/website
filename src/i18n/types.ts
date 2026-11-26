@@ -90,11 +90,18 @@ export interface SiteCopy {
     googlePlayAction: string;
     imageAlt: string;
     portraitAlt: string;
+    stageHint: string;
+    skies: {
+      label: string;
+      day: string;
+      dusk: string;
+      night: string;
+    };
     motions: {
       label: string;
       idle: string;
       speak: string;
-      nod: string;
+      turn: string;
     };
   };
   features: {

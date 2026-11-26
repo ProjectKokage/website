@@ -29,11 +29,18 @@ export const ja = {
     imageAlt:
       "果実のようなミント色の吹き出しに、2枚の葉を添えたこかげのアプリアイコン",
     portraitAlt: "こかげに収録されている3Dキャラクター「ここちゃん」",
+    stageHint: "ドラッグで回転・タップで反応",
+    skies: {
+      label: "背景の照明",
+      day: "昼",
+      dusk: "夕焼け",
+      night: "夜",
+    },
     motions: {
       label: "キャラクターの動き",
       idle: "待機",
       speak: "話す",
-      nod: "うなずく",
+      turn: "ふり向く",
     },
   },
   features: {
