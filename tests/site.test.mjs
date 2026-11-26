@@ -149,7 +149,7 @@ function assertPage(
   assert.ok(primaryNavigation);
   assert.equal((primaryNavigation.match(/<a /g) ?? []).length, 4);
 
-  assert.match(html, /<ul class="feature-grid" role="list">/);
+  assert.match(html, /<ul class="bento-grid" role="list">/);
   assert.match(
     html,
     /<div class="phone-portrait"><img src="\/brand\/kokochan-preview\.png"/,
@@ -158,7 +158,7 @@ function assertPage(
   assert.ok(html.indexOf('id="features"') < html.indexOf('id="cloud"'));
   assert.ok(html.indexOf('id="cloud"') < html.indexOf('id="privacy"'));
   assert.match(html, /<ul class="cloud-grid" role="list">/);
-  assert.match(html, /<ul class="privacy-pillars" role="list">/);
+  assert.match(html, /<div class="privacy-arch">/);
   assert.match(html, /<aside class="leaf-note" aria-labelledby="leaf-note-title">/);
   for (const link of storeLinks) {
     assert.equal((html.match(new RegExp(link, "g")) ?? []).length, 2);
@@ -251,8 +251,8 @@ test("English and Japanese pages emit localized metadata and complete navigation
     /Free on-device chat, Kokage Cloud, 3D VRM, and voice/,
   );
   assert.match(english, /automatic fallback to your on-device model/);
-  assert.match(english, /explains what is sent beforehand/);
-  assert.match(english, /No advertising, tracking analytics/);
+  assert.match(english, /Explains what is sent beforehand/);
+  assert.match(english, /No advertising · No analytics/);
   assert.doesNotMatch(
     english,
     /remote inference|telemetry|unavailable in this release|persistent history|remains unavailable|Conversation processing stays on your device/,
@@ -266,8 +266,8 @@ test("English and Japanese pages emit localized metadata and complete navigation
   assert.match(japanese, /無料の端末内会話、Kokage Cloud、3D VRM、音声に対応/);
   assert.match(japanese, /キャラクターだけの場所/);
   assert.match(japanese, /言の葉が切れても自動で端末内に切り替わります/);
-  assert.match(japanese, /送信内容を事前に案内し/);
-  assert.match(japanese, /広告、アクセス解析、クラッシュ自動送信はありません/);
+  assert.match(japanese, /送信内容を事前に案内/);
+  assert.match(japanese, /広告なし・アクセス解析なし・クラッシュ自動送信なし/);
   assert.doesNotMatch(
     japanese,
     /外部推論|テレメトリー|このリリースでは利用できません|端末内だけに残り|会話履歴にも残しません|報告機能は利用できません|会話の処理は端末の中で/,

@@ -51,30 +51,53 @@ export const zhHans = {
     lede: "每个角色都有专属声音、记忆与 3D 形象。",
     items: [
       {
+        kind: "voice",
         title: "语音、文字与照片",
         body: "本地转写语音，支持日语、英语和中文朗读，还可分享照片互动。",
       },
       {
+        kind: "scene",
         title: "3D 动作与专属场景",
         body: "口型与姿态同步语音，可自由搭配天空、摆件或自定义照片背景。",
       },
       {
+        kind: "memory",
         title: "由你掌控的记忆",
         body: "自动记住关键细节，随时查看、编辑、撤销或添加共享笔记。",
       },
       {
+        kind: "characters",
         title: "多角色与 VRM 形象",
         body: "可创建任意数量角色，加载自有 VRM 文件，并导入或导出角色卡。",
       },
       {
+        kind: "modes",
         title: "本地免费或云端即开",
         body: "下载推荐或 Hugging Face 公开模型免费离线聊，也可先用云端开聊。",
       },
       {
+        kind: "home",
         title: "问候与 Apple 家庭",
         body: "可选每日问候通知，iPhone 和 iPad 还支持连接 Apple 家庭。",
       },
     ],
+    visuals: {
+      voiceMic: "本地语音",
+      voicePhoto: "照片",
+      voiceLangs: "中文 · EN · 日语",
+      sceneMoods: ["微笑", "点头", "思考"],
+      memoryToast: "已保存：喜欢雨天散步",
+      memoryUndo: "撤销",
+      characterCount: "无限角色",
+      modeLocalTitle: "设备端",
+      modeLocalTag: "免费 · 离线",
+      modeCloudTitle: "Kokage Cloud",
+      modeCloudTag: "即刻开聊",
+      greetingApp: "Kokage",
+      greetingText: "早安！今天过得怎么样？",
+      homeLabel: "Apple 家庭",
+      homeState: "台灯已开",
+    },
   },
   cloud: {
     eyebrow: "Kokage Cloud",
@@ -82,27 +105,40 @@ export const zhHans = {
     lede: "可选的在线能力，也能与免费本地回复配合使用。",
     items: [
       {
+        kind: "chat",
         label: "云端对话",
         title: "免下载即刻开聊",
         body: "安装后即可对话，言の葉用完时自动切换为本地模型回复。",
       },
       {
+        kind: "voices",
         label: "云端声音",
         title: "设计或克隆专属音色",
         body: "用文字描述或授权录音，生成支持日语、英语与中文的生动声音。",
       },
       {
+        kind: "avatar",
         label: "制作新形象",
         title: "快速生成 3D VRM 形象",
         body: "用文字或图片生成表情丰富的 3D VRM 虚拟形象，支持应用或下载。",
       },
       {
+        kind: "motion",
         label: "云端动作",
         title: "契合语境的实时动作",
         body: "随对话实时生成肢体动作，本地与云端回复均可使用。",
       },
     ],
+    visuals: {
+      chatBubble: "装好就能马上开聊！",
+      chatZeroMb: "0 MB 下载",
+      chatFallback: "自动切换本地",
+      avatarInput: "文字 / 图片",
+      avatarOutput: "3D VRM",
+      motionPoses: ["挥手", "点头", "伸懒腰"],
+    },
     leafLabel: "言の葉",
+    leafPills: ["永不过期", "失败不扣费", "首次登录赠礼"],
     leafBody:
       "按需使用的言の葉礼包永不过期，失败请求不扣费，新账号首次登录即赠免费言の葉。",
     accountLink: "管理 Kokage Cloud 账户",
@@ -112,24 +148,18 @@ export const zhHans = {
     eyebrow: "隐私",
     title: "对话始终掌握在你手中",
     lede: "默认保留在本地，使用云端时透明可控。",
-    pillars: [
-      {
-        title: "默认留在设备端",
-        body: "本地回复、记忆与角色数据绝不离开你的设备。",
-      },
-      {
-        title: "语音本地转写",
-        body: "语音识别在设备端完成，音频立即丢弃且不上传。",
-      },
-      {
-        title: "无广告无分析",
-        body: "不含广告、行为统计或自动崩溃上报。",
-      },
-      {
-        title: "云端透明可控",
-        body: "发送内容事前说明，记忆与云端账户随时可删。",
-      },
-    ],
+    local: {
+      badge: "默认",
+      title: "留在你的设备上",
+      chips: ["对话与记录", "记忆与笔记", "本地语音转写", "VRM 虚拟形象"],
+      footer: "无广告 · 无行为分析 · 无自动崩溃上报",
+    },
+    cloud: {
+      badge: "可选",
+      title: "Kokage Cloud",
+      chips: ["云端对话", "云端声音", "3D 虚拟形象制作", "云端动作"],
+      footer: "使用前透明说明 · 随时可删除",
+    },
     policyLink: "阅读隐私政策",
   },
   privacyPolicy: {
@@ -568,6 +598,7 @@ export const zhHans = {
     lede: "免费支持 iPhone、iPad 和 Android。",
     platforms: [
       {
+        kind: "apple",
         name: "iPhone 和 iPad",
         state: "已在 App Store 上架",
         detail: "免费本地聊天、Kokage Cloud、3D VRM、语音与 Apple 家庭。",
@@ -577,6 +608,7 @@ export const zhHans = {
         },
       },
       {
+        kind: "android",
         name: "Android",
         state: "已在 Google Play 上架",
         detail: "免费本地聊天、Kokage Cloud、3D VRM 与语音。",

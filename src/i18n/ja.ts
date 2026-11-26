@@ -52,30 +52,53 @@ export const ja = {
     lede: "声、記憶、見た目をキャラクターごとに持てます。",
     items: [
       {
+        kind: "voice",
         title: "声・文字・写真で話す",
         body: "端末内で音声認識し、日本語・英語・中国語の声で返答。写真も見せられます。",
       },
       {
+        kind: "scene",
         title: "3Dの動きとキャラクターだけの場所",
         body: "声に合う口パクと仕草に加え、空・小物や自分の写真で背景を作れます。",
       },
       {
+        kind: "memory",
         title: "編集できる記憶とメモ",
         body: "好みや予定を自動で記憶。通知からの取り消し、編集、共通メモに対応します。",
       },
       {
+        kind: "characters",
         title: "複数キャラクターとVRM",
         body: "何人でも登録でき、手持ちのVRMやキャラクターカードの読み書きに対応します。",
       },
       {
+        kind: "modes",
         title: "端末内で無料、クラウドですぐ",
         body: "おすすめや公開Hugging Faceモデルでオフライン無料会話、またはクラウドですぐ開始。",
       },
       {
+        kind: "home",
         title: "お誘いとApple Home",
         body: "毎日の挨拶通知に加え、iPhoneとiPadではApple Home連携に対応します。",
       },
     ],
+    visuals: {
+      voiceMic: "端末内音声",
+      voicePhoto: "写真",
+      voiceLangs: "日本語 · EN · 中文",
+      sceneMoods: ["笑顔", "うなずく", "考える"],
+      memoryToast: "記憶を保存：雨の日の散歩が好き",
+      memoryUndo: "取り消す",
+      characterCount: "何人でも",
+      modeLocalTitle: "端末内",
+      modeLocalTag: "無料・オフライン",
+      modeCloudTitle: "Kokage Cloud",
+      modeCloudTag: "すぐ開始",
+      greetingApp: "こかげ",
+      greetingText: "おはよう！今日も少し話そうか？",
+      homeLabel: "Apple Home",
+      homeState: "照明 オン",
+    },
   },
   cloud: {
     eyebrow: "Kokage Cloud",
@@ -83,27 +106,40 @@ export const ja = {
     lede: "端末内の無料会話とも組み合わせて使えます。",
     items: [
       {
+        kind: "chat",
         label: "クラウド会話",
         title: "ダウンロードなしですぐ開始",
         body: "インストールしてすぐ会話でき、言の葉が切れても自動で端末内に切り替わります。",
       },
       {
+        kind: "voices",
         label: "クラウドの声",
         title: "似合う声をデザイン・複製",
         body: "言葉や許可を得た録音から、日本語・英語・中国語の表情豊かな声を作れます。",
       },
       {
+        kind: "avatar",
         label: "新しい見た目を作る",
         title: "言葉や画像から3Dアバター",
         body: "説明文や画像から表情の動く3D VRMアバターを生成し、適用・保存できます。",
       },
       {
+        kind: "motion",
         label: "クラウドモーション",
         title: "場面に合わせた自然な動き",
         body: "会話の内容に合う体の動きを生成。端末内・クラウドどちらの返事でも使えます。",
       },
     ],
+    visuals: {
+      chatBubble: "入れてすぐにおしゃべりできるよ！",
+      chatZeroMb: "0 MB ダウンロード",
+      chatFallback: "端末内へ自動切替",
+      avatarInput: "言葉 / 画像",
+      avatarOutput: "3D VRM",
+      motionPoses: ["手を振る", "うなずく", "背伸び"],
+    },
     leafLabel: "言の葉",
+    leafPills: ["有効期限なし", "失敗時は消費なし", "初回サインイン特典"],
     leafBody:
       "使う分だけ消費する「言の葉」は有効期限なし。失敗時は減らず、初回サインイン特典もあります。",
     accountLink: "Kokage Cloud アカウントを管理",
@@ -113,24 +149,18 @@ export const ja = {
     eyebrow: "プライバシー",
     title: "会話のデータを手元に残す設計",
     lede: "端末内が基本。クラウドも事前案内で安心です。",
-    pillars: [
-      {
-        title: "端末内の会話は外へ出ない",
-        body: "端末内モデルでの会話や記憶は外へ送信されません。",
-      },
-      {
-        title: "音声入力は端末内で処理",
-        body: "会話の声はその場で文字変換され、保存も送信もされません。",
-      },
-      {
-        title: "広告・アクセス解析なし",
-        body: "広告、アクセス解析、クラッシュ自動送信はありません。",
-      },
-      {
-        title: "クラウドは事前案内と管理",
-        body: "送信内容を事前に案内し、記憶やアカウントはいつでも削除できます。",
-      },
-    ],
+    local: {
+      badge: "標準",
+      title: "端末の中だけ",
+      chips: ["会話と履歴", "記憶とメモ", "音声の文字変換", "VRMアバター"],
+      footer: "広告なし・アクセス解析なし・クラッシュ自動送信なし",
+    },
+    cloud: {
+      badge: "任意",
+      title: "Kokage Cloud",
+      chips: ["クラウド会話", "クラウドの声", "3Dアバター作成", "クラウドモーション"],
+      footer: "送信内容を事前に案内・いつでも削除可能",
+    },
     policyLink: "プライバシーポリシーを読む",
   },
   privacyPolicy: {
@@ -569,6 +599,7 @@ export const ja = {
     lede: "iPhoneとiPad、Androidで無料ダウンロード。",
     platforms: [
       {
+        kind: "apple",
         name: "iPhoneとiPad",
         state: "App Storeで配信中",
         detail:
@@ -579,6 +610,7 @@ export const ja = {
         },
       },
       {
+        kind: "android",
         name: "Android",
         state: "Google Playで配信中",
         detail: "無料の端末内会話、Kokage Cloud、3D VRM、音声に対応。",

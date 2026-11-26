@@ -64,6 +64,16 @@ export interface SupportPageCopy {
   backHomeLabel: string;
 }
 
+export type FeatureKind =
+  | "voice"
+  | "scene"
+  | "memory"
+  | "characters"
+  | "modes"
+  | "home";
+
+export type CloudKind = "chat" | "voices" | "avatar" | "motion";
+
 export interface SiteCopy {
   locale: SiteLocale;
   htmlLang: string;
@@ -110,20 +120,48 @@ export interface SiteCopy {
     title: string;
     lede: string;
     items: Array<{
+      kind: FeatureKind;
       title: string;
       body: string;
     }>;
+    visuals: {
+      voiceMic: string;
+      voicePhoto: string;
+      voiceLangs: string;
+      sceneMoods: [string, string, string];
+      memoryToast: string;
+      memoryUndo: string;
+      characterCount: string;
+      modeLocalTitle: string;
+      modeLocalTag: string;
+      modeCloudTitle: string;
+      modeCloudTag: string;
+      greetingApp: string;
+      greetingText: string;
+      homeLabel: string;
+      homeState: string;
+    };
   };
   cloud: {
     eyebrow: string;
     title: string;
     lede: string;
     items: Array<{
+      kind: CloudKind;
       label: string;
       title: string;
       body: string;
     }>;
+    visuals: {
+      chatBubble: string;
+      chatZeroMb: string;
+      chatFallback: string;
+      avatarInput: string;
+      avatarOutput: string;
+      motionPoses: [string, string, string];
+    };
     leafLabel: string;
+    leafPills: [string, string, string];
     leafBody: string;
     accountLink: string;
     policyLink: string;
@@ -132,10 +170,18 @@ export interface SiteCopy {
     eyebrow: string;
     title: string;
     lede: string;
-    pillars: Array<{
+    local: {
+      badge: string;
       title: string;
-      body: string;
-    }>;
+      chips: [string, string, string, string];
+      footer: string;
+    };
+    cloud: {
+      badge: string;
+      title: string;
+      chips: [string, string, string, string];
+      footer: string;
+    };
     policyLink: string;
   };
   privacyPolicy: PrivacyPolicyCopy;
@@ -145,6 +191,7 @@ export interface SiteCopy {
     title: string;
     lede: string;
     platforms: Array<{
+      kind: "apple" | "android";
       name: string;
       state: string;
       detail: string;

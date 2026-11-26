@@ -51,30 +51,53 @@ export const en = {
     lede: "Each character has its own voice, memory, and 3D look.",
     items: [
       {
+        kind: "voice",
         title: "Voice, text, and photos",
         body: "Speak with local transcription, hear replies in Japanese, English, or Chinese, and share photos.",
       },
       {
+        kind: "scene",
         title: "3D motion and scenes",
         body: "Lip-synced speech, live gestures, and customizable skies, props, or photo backgrounds.",
       },
       {
+        kind: "memory",
         title: "Memories you control",
         body: "Characters remember key details—review, edit, undo, or share notes anytime.",
       },
       {
+        kind: "characters",
         title: "Multiple characters and VRM",
         body: "Create unlimited characters, load VRM avatars, and import or export character cards.",
       },
       {
+        kind: "modes",
         title: "On-device or instant cloud",
         body: "Chat offline for free with a recommended or public Hugging Face model, or start in the cloud.",
       },
       {
+        kind: "home",
         title: "Greetings and Apple Home",
         body: "Optional daily check-ins, plus Apple Home control on iPhone and iPad.",
       },
     ],
+    visuals: {
+      voiceMic: "Local voice",
+      voicePhoto: "Photo",
+      voiceLangs: "JA · EN · ZH",
+      sceneMoods: ["Smile", "Nod", "Think"],
+      memoryToast: "Saved: Likes rainy walks",
+      memoryUndo: "Undo",
+      characterCount: "Unlimited",
+      modeLocalTitle: "On-device",
+      modeLocalTag: "Free · Offline",
+      modeCloudTitle: "Kokage Cloud",
+      modeCloudTag: "Instant",
+      greetingApp: "Kokage",
+      greetingText: "Good morning! Ready for today?",
+      homeLabel: "Apple Home",
+      homeState: "Lamp On",
+    },
   },
   cloud: {
     eyebrow: "Kokage Cloud",
@@ -82,27 +105,40 @@ export const en = {
     lede: "Optional cloud features that pair with free on-device replies.",
     items: [
       {
+        kind: "chat",
         label: "Cloud chat",
         title: "Start without a download",
         body: "Chat right away, with automatic fallback to your on-device model if Leaf runs out.",
       },
       {
+        kind: "voices",
         label: "Cloud voices",
         title: "Design or clone a voice",
         body: "Generate expressive Japanese, English, or Chinese voices from text or an authorized recording.",
       },
       {
+        kind: "avatar",
         label: "Create a new look",
         title: "3D VRM avatars in minutes",
         body: "Turn words or a picture into an expressive 3D VRM avatar you can apply or download.",
       },
       {
+        kind: "motion",
         label: "Cloud Motion",
         title: "Movement matched to the moment",
         body: "Live body movement synced to conversation—works with on-device or cloud replies.",
       },
     ],
+    visuals: {
+      chatBubble: "Ready to chat right away!",
+      chatZeroMb: "0 MB download",
+      chatFallback: "On-device fallback",
+      avatarInput: "Text / Photo",
+      avatarOutput: "3D VRM",
+      motionPoses: ["Wave", "Nod", "Stretch"],
+    },
     leafLabel: "Leaf (言の葉)",
+    leafPills: ["Never expires", "Failed requests free", "Free on first sign-in"],
     leafBody:
       "Pay-as-you-go Leaf packs never expire, failed requests cost nothing, and new accounts start with free Leaf.",
     accountLink: "Manage your Kokage Cloud account",
@@ -112,24 +148,23 @@ export const en = {
     eyebrow: "Privacy",
     title: "Your conversations stay yours",
     lede: "Private on your device by default, transparent in the cloud.",
-    pillars: [
-      {
-        title: "On-device by default",
-        body: "Local replies, memories, and character data never leave your device.",
-      },
-      {
-        title: "Local voice transcription",
-        body: "Spoken audio is transcribed on-device and discarded immediately.",
-      },
-      {
-        title: "Zero ads or analytics",
-        body: "No advertising, tracking analytics, or automatic crash reporting.",
-      },
-      {
-        title: "Clear cloud opt-in",
-        body: "The app explains what is sent beforehand; delete memories or your cloud account anytime.",
-      },
-    ],
+    local: {
+      badge: "Default",
+      title: "On your device",
+      chips: [
+        "Chats & history",
+        "Memories & notes",
+        "Mic transcription",
+        "VRM avatars",
+      ],
+      footer: "No advertising · No analytics · No automatic crash tracking",
+    },
+    cloud: {
+      badge: "Opt-in",
+      title: "Kokage Cloud",
+      chips: ["Cloud chat", "Cloud voices", "3D avatars", "Cloud Motion"],
+      footer: "Explains what is sent beforehand · Delete anytime",
+    },
     policyLink: "Read the privacy policy",
   },
   privacyPolicy: {
@@ -568,6 +603,7 @@ export const en = {
     lede: "Free on iPhone, iPad, and Android.",
     platforms: [
       {
+        kind: "apple",
         name: "iPhone and iPad",
         state: "Available on the App Store",
         detail:
@@ -578,6 +614,7 @@ export const en = {
         },
       },
       {
+        kind: "android",
         name: "Android",
         state: "Available on Google Play",
         detail: "Free on-device chat, Kokage Cloud, 3D VRM, and voice.",
