@@ -14,9 +14,6 @@ interface Props {
 const { copy } = Astro.props;
 const privacyPolicyPath = localizedRoutes[copy.locale].privacy;
 const cloudAccountUrl = kokageCloudUrls[copy.locale];
-const { showcase } = copy.hero;
-const fv = copy.features.visuals;
-const cv = copy.cloud.visuals;
 ---
 
 <SiteLayout copy={copy}>
@@ -24,17 +21,11 @@ const cv = copy.cloud.visuals;
     <section class="hero" aria-labelledby="hero-title">
       <div class="hero__grid page-shell">
         <div class="hero__copy">
-          <p class="eyebrow reveal reveal--one">{copy.hero.eyebrow}</p>
-          <h1 id="hero-title" class="hero__title reveal reveal--two">
-            <span>{copy.hero.titleLead}</span>
-            {
-              copy.hero.titleAccentLines.map((line) => (
-                <span class="hero__title-accent">{line}</span>
-              ))
-            }
+          <h1 id="hero-title" class="hero__title reveal reveal--one">
+            {copy.hero.title}
           </h1>
-          <p class="hero__lede reveal reveal--three">{copy.hero.lede}</p>
-          <div class="hero__actions reveal reveal--four">
+          <p class="hero__lede reveal reveal--two">{copy.hero.lede}</p>
+          <div class="hero__actions reveal reveal--three">
             <a
               class="button button--primary"
               href={storeListings.appStore}
@@ -44,79 +35,25 @@ const cv = copy.cloud.visuals;
               <span aria-hidden="true">↗</span>
             </a>
             <a
-              class="button button--primary"
+              class="button button--secondary"
               href={storeListings.googlePlay}
               rel="external"
             >
               {copy.hero.googlePlayAction}
               <span aria-hidden="true">↗</span>
             </a>
-            <a class="button button--secondary" href="#cloud">
-              {copy.hero.cloudAction}
-              <span aria-hidden="true">↓</span>
-            </a>
           </div>
-          <p class="hero__notice reveal reveal--four">
-            {copy.hero.notice}
-          </p>
         </div>
 
-        <div class="hero-visual reveal reveal--three">
-          <div class="app-stage" role="region" aria-label={showcase.ariaLabel}>
-            <img
-              class="app-stage__leaves"
-              src="/brand/kokage-leaves.svg"
-              alt=""
-              width="370"
-              height="263"
-              aria-hidden="true"
-            />
-            <div class="phone-frame">
-              <div class="phone-bar">
-                <div class="phone-character">
-                  <img
-                    class="phone-character__icon"
-                    src="/brand/kokage-app-icon.png"
-                    alt=""
-                    width="28"
-                    height="28"
-                    aria-hidden="true"
-                  />
-                  <span>{showcase.characterName}</span>
-                </div>
-                <span class="phone-status">
-                  <span class="phone-status__dot" aria-hidden="true"></span>
-                  {showcase.statusLabel}
-                </span>
-              </div>
-
-              <div class="phone-portrait">
-                <img
-                  src="/brand/kokochan-preview.png"
-                  alt={showcase.previewAlt}
-                  width="640"
-                  height="640"
-                  loading="eager"
-                  fetchpriority="high"
-                />
-              </div>
-
-              <div class="phone-chat" aria-hidden="true">
-                <p class="chat-bubble chat-bubble--user">
-                  {showcase.userMessage}
-                </p>
-                <p class="chat-bubble chat-bubble--reply">
-                  {showcase.replyMessage}
-                </p>
-              </div>
-
-              <ul class="phone-indicators" role="list">
-                <li>{showcase.voiceTag}</li>
-                <li>{showcase.motionTag}</li>
-                <li>{showcase.modeTag}</li>
-              </ul>
-            </div>
-          </div>
+        <div class="hero-portrait reveal reveal--two">
+          <img
+            src="/brand/kokochan-preview.png"
+            alt={copy.hero.portraitAlt}
+            width="640"
+            height="640"
+            loading="eager"
+            fetchpriority="high"
+          />
         </div>
       </div>
     </section>
@@ -127,134 +64,50 @@ const cv = copy.cloud.visuals;
       aria-labelledby="features-title"
     >
       <div class="page-shell">
-        <div class="section-heading section-heading--split">
-          <div>
-            <p class="eyebrow">{copy.features.eyebrow}</p>
-            <h2 id="features-title">{copy.features.title}</h2>
-          </div>
-          <p>{copy.features.lede}</p>
-        </div>
+        <h2 id="features-title" class="section-title">{copy.features.title}</h2>
 
-        <ul class="bento-grid" role="list">
+        <ul class="feature-list" role="list">
           {
             copy.features.items.map((item) => (
-              <li class={`bento-card bento-card--${item.kind}`}>
-                <div class="bento-visual" aria-hidden="true">
+              <li class="feature-item">
+                <span class="feature-icon" aria-hidden="true">
                   {item.kind === "voice" && (
-                    <div class="mini-voice">
-                      <div class="mini-wave">
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                      </div>
-                      <div class="mini-voice__pills">
-                        <span class="mini-pill mini-pill--mint">
-                          <svg viewBox="0 0 24 24" width="13" height="13">
-                            <path d="M12 3a3 3 0 0 0-3 3v6a3 3 0 0 0 6 0V6a3 3 0 0 0-3-3Zm-6 9a6 6 0 0 0 12 0M12 18v3" />
-                          </svg>
-                          {fv.voiceMic}
-                        </span>
-                        <span class="mini-pill">
-                          <svg viewBox="0 0 24 24" width="13" height="13">
-                            <path d="M4 7h3l2-2h6l2 2h3a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V8a1 1 0 0 1 1-1Z" />
-                            <circle cx="12" cy="13" r="3" />
-                          </svg>
-                          {fv.voicePhoto}
-                        </span>
-                        <span class="mini-pill mini-pill--mono">
-                          {fv.voiceLangs}
-                        </span>
-                      </div>
-                    </div>
+                    <svg viewBox="0 0 24 24" width="20" height="20">
+                      <path d="M12 3a3 3 0 0 0-3 3v6a3 3 0 0 0 6 0V6a3 3 0 0 0-3-3Zm-6 9a6 6 0 0 0 12 0M12 18v3" />
+                    </svg>
                   )}
-
                   {item.kind === "scene" && (
-                    <div class="mini-scene">
-                      <div class="mini-scene__sun"></div>
-                      <div class="mini-scene__horizon"></div>
-                      <div class="mini-scene__chips">
-                        {fv.sceneMoods.map((mood) => (
-                          <span class="mini-pill">{mood}</span>
-                        ))}
-                      </div>
-                    </div>
+                    <svg viewBox="0 0 24 24" width="20" height="20">
+                      <path d="M12 3v3m0 12v3M3 12h3m12 0h3m-3.6-6.4-2.1 2.1m-6.6 6.6-2.1 2.1m0-10.8 2.1 2.1m6.6 6.6 2.1 2.1" />
+                      <circle cx="12" cy="12" r="3" />
+                    </svg>
                   )}
-
                   {item.kind === "memory" && (
-                    <div class="mini-memory">
-                      <div class="mini-toast">
-                        <span class="mini-toast__dot"></span>
-                        <span class="mini-toast__text">{fv.memoryToast}</span>
-                        <span class="mini-toast__undo">{fv.memoryUndo}</span>
-                      </div>
-                    </div>
+                    <svg viewBox="0 0 24 24" width="20" height="20">
+                      <path d="M5 5h14v14H5z" />
+                      <path d="M9 9h6M9 13h4" />
+                    </svg>
                   )}
-
                   {item.kind === "characters" && (
-                    <div class="mini-avatars">
-                      <div class="mini-avatars__stack">
-                        <img
-                          class="mini-avatar mini-avatar--main"
-                          src="/brand/kokochan-preview.png"
-                          alt=""
-                          width="56"
-                          height="56"
-                          loading="lazy"
-                        />
-                        <span class="mini-avatar mini-avatar--ghost mini-avatar--a"></span>
-                        <span class="mini-avatar mini-avatar--ghost mini-avatar--b"></span>
-                      </div>
-                      <div class="mini-avatars__meta">
-                        <span class="mini-pill mini-pill--mint">.vrm</span>
-                        <span class="mini-pill">{fv.characterCount}</span>
-                      </div>
-                    </div>
+                    <svg viewBox="0 0 24 24" width="20" height="20">
+                      <circle cx="9" cy="9" r="3.5" />
+                      <path d="M3 19c.6-3 3-4.5 6-4.5s5.4 1.5 6 4.5" />
+                      <circle cx="17" cy="9.5" r="2.5" />
+                      <path d="M17.5 14.5c1.8.4 3.1 1.6 3.5 3.5" />
+                    </svg>
                   )}
-
                   {item.kind === "modes" && (
-                    <div class="mini-modes">
-                      <div class="mini-mode mini-mode--active">
-                        <span class="mini-mode__dot"></span>
-                        <strong>{fv.modeLocalTitle}</strong>
-                        <span>{fv.modeLocalTag}</span>
-                      </div>
-                      <span class="mini-modes__arrow">⇄</span>
-                      <div class="mini-mode">
-                        <span class="mini-mode__dot mini-mode__dot--cloud"></span>
-                        <strong>{fv.modeCloudTitle}</strong>
-                        <span>{fv.modeCloudTag}</span>
-                      </div>
-                    </div>
+                    <svg viewBox="0 0 24 24" width="20" height="20">
+                      <rect x="6" y="3" width="12" height="18" rx="2" />
+                      <path d="M10 17h4" />
+                    </svg>
                   )}
-
                   {item.kind === "home" && (
-                    <div class="mini-home">
-                      <div class="mini-notif">
-                        <img
-                          src="/brand/kokage-app-icon.png"
-                          alt=""
-                          width="22"
-                          height="22"
-                          loading="lazy"
-                        />
-                        <div>
-                          <span class="mini-notif__app">{fv.greetingApp}</span>
-                          <span class="mini-notif__msg">{fv.greetingText}</span>
-                        </div>
-                      </div>
-                      <div class="mini-smart-chip">
-                        <span class="mini-smart-chip__bulb"></span>
-                        <span>{fv.homeLabel}</span>
-                        <span class="mini-smart-chip__state">{fv.homeState}</span>
-                      </div>
-                    </div>
+                    <svg viewBox="0 0 24 24" width="20" height="20">
+                      <path d="M4 10.5 12 4l8 6.5V20a1 1 0 0 1-1 1h-5v-6h-4v6H5a1 1 0 0 1-1-1v-9.5Z" />
+                    </svg>
                   )}
-                </div>
-
+                </span>
                 <h3>{item.title}</h3>
                 <p>{item.body}</p>
               </li>
@@ -270,116 +123,21 @@ const cv = copy.cloud.visuals;
       aria-labelledby="cloud-title"
     >
       <div class="page-shell">
-        <div class="section-heading section-heading--split">
-          <div>
-            <p class="eyebrow">{copy.cloud.eyebrow}</p>
-            <h2 id="cloud-title">{copy.cloud.title}</h2>
-          </div>
-          <p>{copy.cloud.lede}</p>
+        <div class="section-intro">
+          <h2 id="cloud-title" class="section-title">{copy.cloud.title}</h2>
+          <p class="section-subtitle">{copy.cloud.lede}</p>
         </div>
 
-        <ul class="cloud-grid" role="list">
+        <ul class="cloud-list" role="list">
           {
             copy.cloud.items.map((item) => (
-              <li class="cloud-card">
-                <div class="cloud-visual" aria-hidden="true">
-                  {item.kind === "chat" && (
-                    <div class="cv-chat">
-                      <span class="cv-chat__bubble">{cv.chatBubble}</span>
-                      <div class="cv-chat__tags">
-                        <span class="mini-pill mini-pill--mint">
-                          {cv.chatZeroMb}
-                        </span>
-                        <span class="mini-pill">{cv.chatFallback}</span>
-                      </div>
-                    </div>
-                  )}
-
-                  {item.kind === "voices" && (
-                    <div class="cv-voices">
-                      {["01", "02", "03"].map((num, idx) => (
-                        <span
-                          class:list={[
-                            "cv-voice-pill",
-                            idx === 0 && "cv-voice-pill--active",
-                          ]}
-                        >
-                          <span class="cv-voice-pill__num">{num}</span>
-                          <svg viewBox="0 0 28 14" width="28" height="14">
-                            <rect x="1" y="5" width="2.5" height="4" rx="1.2" />
-                            <rect x="6" y="2" width="2.5" height="10" rx="1.2" />
-                            <rect x="11" y="4" width="2.5" height="6" rx="1.2" />
-                            <rect x="16" y="1" width="2.5" height="12" rx="1.2" />
-                            <rect x="21" y="4" width="2.5" height="6" rx="1.2" />
-                          </svg>
-                        </span>
-                      ))}
-                    </div>
-                  )}
-
-                  {item.kind === "avatar" && (
-                    <div class="cv-avatar">
-                      <span class="mini-pill">{cv.avatarInput}</span>
-                      <span class="cv-avatar__arrow">→</span>
-                      <div class="cv-avatar__result">
-                        <img
-                          src="/brand/kokochan-preview.png"
-                          alt=""
-                          width="36"
-                          height="36"
-                          loading="lazy"
-                        />
-                        <span>{cv.avatarOutput}</span>
-                      </div>
-                    </div>
-                  )}
-
-                  {item.kind === "motion" && (
-                    <div class="cv-motion">
-                      {cv.motionPoses.map((pose, idx) => (
-                        <span
-                          class:list={[
-                            "mini-pill",
-                            idx === 1 && "mini-pill--mint",
-                          ]}
-                        >
-                          {idx === 1 && <span class="cv-motion__dot"></span>}
-                          {pose}
-                        </span>
-                      ))}
-                    </div>
-                  )}
-                </div>
-
-                <p class="cloud-label">{item.label}</p>
+              <li class="cloud-item">
                 <h3>{item.title}</h3>
                 <p>{item.body}</p>
               </li>
             ))
           }
         </ul>
-
-        <aside class="leaf-note" aria-labelledby="leaf-note-title">
-          <img
-            src="/brand/kokage-large-leaf-with-petiole.svg"
-            alt=""
-            width="288"
-            height="314"
-            loading="lazy"
-            aria-hidden="true"
-          />
-          <div class="leaf-note__body">
-            <div class="leaf-note__top">
-              <p id="leaf-note-title" class="leaf-note__label">
-                {copy.cloud.leafLabel}
-              </p>
-              <ul class="leaf-note__pills" role="list">
-                {copy.cloud.leafPills.map((pill) => <li>{pill}</li>)}
-              </ul>
-            </div>
-            <p class="leaf-note__text">{copy.cloud.leafBody}</p>
-          </div>
-        </aside>
 
         <div class="section-links">
           <a
@@ -389,10 +147,6 @@ const cv = copy.cloud.visuals;
           >
             {copy.cloud.accountLink}
             <span aria-hidden="true">↗</span>
-          </a>
-          <a class="privacy-policy-link" href={privacyPolicyPath}>
-            {copy.cloud.policyLink}
-            <span aria-hidden="true">→</span>
           </a>
         </div>
       </div>
@@ -404,64 +158,11 @@ const cv = copy.cloud.visuals;
       aria-labelledby="privacy-title"
     >
       <div class="page-shell">
-        <div class="section-heading section-heading--split">
-          <div>
-            <p class="eyebrow">{copy.privacy.eyebrow}</p>
-            <h2 id="privacy-title">{copy.privacy.title}</h2>
-          </div>
-          <p>{copy.privacy.lede}</p>
-        </div>
+        <h2 id="privacy-title" class="section-title">{copy.privacy.title}</h2>
 
-        <div class="privacy-arch">
-          <article class="privacy-zone privacy-zone--local">
-            <div class="privacy-zone__header">
-              <div class="privacy-zone__title">
-                <svg
-                  class="privacy-zone__icon"
-                  viewBox="0 0 24 24"
-                  width="20"
-                  height="20"
-                  aria-hidden="true"
-                >
-                  <rect x="5" y="11" width="14" height="10" rx="2" />
-                  <path d="M8 11V7a4 4 0 0 1 8 0v4" />
-                </svg>
-                <h3>{copy.privacy.local.title}</h3>
-              </div>
-              <span class="privacy-zone__badge privacy-zone__badge--local">
-                {copy.privacy.local.badge}
-              </span>
-            </div>
-            <ul class="privacy-chips" role="list">
-              {copy.privacy.local.chips.map((chip) => <li>{chip}</li>)}
-            </ul>
-            <p class="privacy-zone__footer">{copy.privacy.local.footer}</p>
-          </article>
-
-          <article class="privacy-zone privacy-zone--cloud">
-            <div class="privacy-zone__header">
-              <div class="privacy-zone__title">
-                <svg
-                  class="privacy-zone__icon"
-                  viewBox="0 0 24 24"
-                  width="20"
-                  height="20"
-                  aria-hidden="true"
-                >
-                  <path d="M6.5 19h11a4.5 4.5 0 0 0 .9-8.9A6 6 0 0 0 6.8 8.3 4 4 0 0 0 6.5 19Z" />
-                </svg>
-                <h3>{copy.privacy.cloud.title}</h3>
-              </div>
-              <span class="privacy-zone__badge">
-                {copy.privacy.cloud.badge}
-              </span>
-            </div>
-            <ul class="privacy-chips" role="list">
-              {copy.privacy.cloud.chips.map((chip) => <li>{chip}</li>)}
-            </ul>
-            <p class="privacy-zone__footer">{copy.privacy.cloud.footer}</p>
-          </article>
-        </div>
+        <ul class="privacy-points" role="list">
+          {copy.privacy.points.map((point) => <li>{point}</li>)}
+        </ul>
 
         <div class="section-links">
           <a class="privacy-policy-link" href={privacyPolicyPath}>
@@ -477,48 +178,22 @@ const cv = copy.cloud.visuals;
       class="section section--status"
       aria-labelledby="status-title"
     >
-      <div class="page-shell">
-        <div class="section-heading section-heading--split">
-          <div>
-            <p class="eyebrow">{copy.status.eyebrow}</p>
-            <h2 id="status-title">{copy.status.title}</h2>
-          </div>
-          <p>{copy.status.lede}</p>
-        </div>
-
-        <div class="platform-grid">
+      <div class="page-shell closing-band">
+        <h2 id="status-title" class="section-title">{copy.status.title}</h2>
+        <div class="closing-links">
           {
             copy.status.platforms.map((platform) => (
-              <article class="platform-card">
-                <div class="platform-heading">
-                  <div class="platform-title-group">
-                    <span class="platform-icon" aria-hidden="true">
-                      {platform.kind === "apple" ? (
-                        <svg viewBox="0 0 24 24" width="20" height="20">
-                          <path d="M16.365 1.43c0 1.14-.493 2.27-1.177 3.08-.744.9-1.99 1.57-2.987 1.57-.12 0-.23-.02-.3-.03-.01-.06-.04-.22-.04-.39 0-1.15.572-2.27 1.206-2.98.804-.94 2.142-1.64 3.248-1.68.03.13.05.28.05.43Zm4.565 15.71c-.03.07-.463 1.58-1.518 3.12-.945 1.34-1.94 2.71-3.43 2.71-1.517 0-1.9-.88-3.63-.88-1.698 0-2.302.91-3.67.91-1.377 0-2.332-1.26-3.428-2.8-1.287-1.82-2.323-4.63-2.323-7.28 0-4.28 2.797-6.55 5.552-6.55 1.448 0 2.675.95 3.6.95.865 0 2.222-1.01 3.902-1.01.613 0 2.886.06 4.374 2.19-.13.09-2.383 1.37-2.383 4.19 0 3.26 2.854 4.42 2.955 4.45Z" />
-                        </svg>
-                      ) : (
-                        <svg viewBox="0 0 24 24" width="20" height="20">
-                          <path d="M17.523 15.341a.999.999 0 1 1 0-1.998.999.999 0 0 1 0 1.998Zm-11.046 0a.999.999 0 1 1 0-1.998.999.999 0 0 1 0 1.998Zm11.405-6.02 1.997-3.46a.416.416 0 0 0-.152-.567.416.416 0 0 0-.568.152l-2.022 3.503C15.63 8.262 13.872 7.88 12 7.88c-1.872 0-3.63.382-5.137 1.069L4.841 5.446a.416.416 0 0 0-.568-.152.416.416 0 0 0-.152.567l1.997 3.46C2.688 11.186.343 14.658 0 18.761h24c-.343-4.103-2.688-7.575-6.118-9.44Z" />
-                        </svg>
-                      )}
-                    </span>
-                    <h3>{platform.name}</h3>
-                  </div>
-                  <p class="platform-badge">{platform.state}</p>
-                </div>
-                <p class="platform-detail">{platform.detail}</p>
-                {platform.link && (
-                  <a
-                    class="platform-link"
-                    href={platform.link.href}
-                    rel="external"
-                  >
-                    {platform.link.label}
-                    <span aria-hidden="true">↗</span>
-                  </a>
-                )}
-              </article>
+              <div class="closing-platform">
+                <span class="closing-platform__name">{platform.name}</span>
+                <a
+                  class="inline-link inline-link--accent"
+                  href={platform.link.href}
+                  rel="external"
+                >
+                  {platform.link.label}
+                  <span aria-hidden="true">↗</span>
+                </a>
+              </div>
             ))
           }
         </div>

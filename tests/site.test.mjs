@@ -149,17 +149,16 @@ function assertPage(
   assert.ok(primaryNavigation);
   assert.equal((primaryNavigation.match(/<a /g) ?? []).length, 4);
 
-  assert.match(html, /<ul class="bento-grid" role="list">/);
+  assert.match(html, /<ul class="feature-list" role="list">/);
   assert.match(
     html,
-    /<div class="phone-portrait"><img src="\/brand\/kokochan-preview\.png"/,
+    /<div class="hero-portrait reveal reveal--two"><img src="\/brand\/kokochan-preview\.png"/,
   );
   assert.doesNotMatch(html, /\/_image\//);
   assert.ok(html.indexOf('id="features"') < html.indexOf('id="cloud"'));
   assert.ok(html.indexOf('id="cloud"') < html.indexOf('id="privacy"'));
-  assert.match(html, /<ul class="cloud-grid" role="list">/);
-  assert.match(html, /<div class="privacy-arch">/);
-  assert.match(html, /<aside class="leaf-note" aria-labelledby="leaf-note-title">/);
+  assert.match(html, /<ul class="cloud-list" role="list">/);
+  assert.match(html, /<ul class="privacy-points" role="list">/);
   for (const link of storeLinks) {
     assert.equal((html.match(new RegExp(link, "g")) ?? []).length, 2);
   }
@@ -205,7 +204,7 @@ test("English and Japanese pages emit localized metadata and complete navigation
   );
   assert.match(
     japanese.replaceAll(/<[^>]+>/g, ""),
-    /話して、動いて、覚えている。3DのAIキャラクターといつでもおしゃべり。/,
+    /3DのAIキャラクターと、話そう。/,
   );
   assert.match(japanese, /App Storeからダウンロード/);
   assert.match(japanese, /Google Playからダウンロード/);
@@ -223,11 +222,9 @@ test("English and Japanese pages emit localized metadata and complete navigation
   assert.doesNotMatch(english, /reach testers|distributed to testers/);
   assert.doesNotMatch(japanese, /テスト配信を始め|テスターに配信しています/);
   assert.match(english, /Japanese, English, or Chinese/);
-  assert.match(english, /public Hugging Face model/);
-  assert.match(english, /import or export character cards/);
+  assert.match(english, /Apple Home/);
   assert.match(japanese, /日本語・英語・中国語/);
-  assert.match(japanese, /公開Hugging Faceモデル/);
-  assert.match(japanese, /キャラクターカードの読み書き/);
+  assert.match(japanese, /Apple Home/);
   assert.doesNotMatch(
     `${english}\n${japanese}`,
     /current dependency graph|ONNX Runtime|API 36|署名済み配布|sherpa_onnx|Silero|SenseVoice|fllamer|flvtterm|misakid|fonix|Irodori-TTS|VoxCPM2|NVIDIA ARDY|TRELLIS|FLUX/,
@@ -241,33 +238,25 @@ test("English and Japanese pages emit localized metadata and complete navigation
   assert.doesNotMatch(japanese, /音声入力はこのリリースでは利用できません/);
 
   for (const name of ["Cloud chat", "Cloud voices", "Create a new look", "Cloud Motion"]) {
-    assert.match(english, new RegExp(`<p class="cloud-label">${name}</p>`));
+    assert.match(english, new RegExp(`<h3>${name}</h3>`));
   }
-  assert.match(english, /Pay-as-you-go Leaf packs never expire/);
+  assert.match(english, /Optional pay-as-you-go Leaf/);
   assert.match(english, /href="https:\/\/kokage\.cloud\/" rel="external"/);
   assert.doesNotMatch(english, /does not include Kokage Cloud/);
-  assert.match(
-    english,
-    /Free on-device chat, Kokage Cloud, 3D VRM, and voice/,
-  );
-  assert.match(english, /automatic fallback to your on-device model/);
-  assert.match(english, /Explains what is sent beforehand/);
-  assert.match(english, /No advertising · No analytics/);
+  assert.match(english, /On-device chats stay on your device/);
+  assert.match(english, /No ads, no analytics, no tracking/);
   assert.doesNotMatch(
     english,
     /remote inference|telemetry|unavailable in this release|persistent history|remains unavailable|Conversation processing stays on your device/,
   );
   for (const name of ["クラウド会話", "クラウドの声", "新しい見た目を作る", "クラウドモーション"]) {
-    assert.match(japanese, new RegExp(`<p class="cloud-label">${name}</p>`));
+    assert.match(japanese, new RegExp(`<h3>${name}</h3>`));
   }
-  assert.match(japanese, /使う分だけ消費する「言の葉」は有効期限なし/);
+  assert.match(japanese, /使う分だけの言の葉/);
   assert.match(japanese, /href="https:\/\/kokage\.cloud\/ja\/" rel="external"/);
   assert.doesNotMatch(japanese, /Kokage Cloud は含まれません/);
-  assert.match(japanese, /無料の端末内会話、Kokage Cloud、3D VRM、音声に対応/);
-  assert.match(japanese, /キャラクターだけの場所/);
-  assert.match(japanese, /言の葉が切れても自動で端末内に切り替わります/);
-  assert.match(japanese, /送信内容を事前に案内/);
-  assert.match(japanese, /広告なし・アクセス解析なし・クラッシュ自動送信なし/);
+  assert.match(japanese, /端末内の会話は外へ送信されません/);
+  assert.match(japanese, /広告もアクセス解析もありません/);
   assert.doesNotMatch(
     japanese,
     /外部推論|テレメトリー|このリリースでは利用できません|端末内だけに残り|会話履歴にも残しません|報告機能は利用できません|会話の処理は端末の中で/,
