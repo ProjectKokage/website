@@ -27,12 +27,11 @@ export const zhHans = {
     eyebrow: "3D AI 角色聊天",
     titleLead: "与 3D AI 角色对话",
     titleAccentLines: ["会听、会说、也会动。"],
-    lede: "通过语音或文字与表情生动的 3D 角色聊天，听它自然开口回应，并记住对你重要的事。你可以免费在设备上本地运行，也可以通过 Kokage Cloud 立即开始。",
+    lede: "与表情生动的 3D 角色语音或文字聊天——设备端免费运行，或用 Kokage Cloud 即刻开始。",
     appStoreAction: "在 App Store 下载",
     googlePlayAction: "在 Google Play 下载",
     cloudAction: "了解 Kokage Cloud",
-    notice:
-      "可在 iPhone、iPad 和 Android 上免费下载。设备端聊天永久免费，按需使用言の葉即可体验 Kokage Cloud 功能。",
+    notice: "免费支持 iPhone、iPad 和 Android。可选云端功能使用言の葉。",
     imageAlt: "Kokage 应用图标：一个薄荷色的对话气泡，配有两片叶子",
     showcase: {
       ariaLabel: "Kokage 与 Kokochan 的对话预览",
@@ -48,87 +47,87 @@ export const zhHans = {
   },
   features: {
     eyebrow: "功能",
-    title: "为自然、专属的对话而设计",
-    lede: "每个角色都拥有独立的聊天记录、记忆、声音和 3D 形象。",
+    title: "为自然对话而设计",
+    lede: "每个角色都有专属声音、记忆与 3D 形象。",
     items: [
       {
-        title: "语音、文字与照片互动",
-        body: "对着麦克风说话会在设备端直接转写为文字，并可用日语、英语或中文朗读回复。使用支持图像的模型时还能分享照片，切换到后置摄像头时角色也会跟着转身。",
+        title: "语音、文字与照片",
+        body: "本地转写语音，支持日语、英语和中文朗读，还可分享照片互动。",
       },
       {
-        title: "3D 表情、动作与专属场景",
-        body: "角色在聆听、思考和说话时口型与姿态自然同步。自由搭配天空、地面和摆件，让天空随时间变化，或用自己的图片作为背景。",
+        title: "3D 动作与专属场景",
+        body: "口型与姿态同步语音，可自由搭配天空、摆件或自定义照片背景。",
       },
       {
-        title: "由你掌控的记忆与笔记",
-        body: "角色会记住对话中有用的细节，保存新记忆时显示提示并支持一键撤销。你可随时查看、编辑或删除记忆，也能添加所有角色共享的笔记。",
+        title: "由你掌控的记忆",
+        body: "自动记住关键细节，随时查看、编辑、撤销或添加共享笔记。",
       },
       {
-        title: "多角色管理与 VRM 虚拟形象",
-        body: "可注册任意数量的角色，自定义性格、语气与人名注音。可从内置角色或自有 VRM 文件开始，并支持导入与导出角色卡。",
+        title: "多角色与 VRM 形象",
+        body: "可创建任意数量角色，加载自有 VRM 文件，并导入或导出角色卡。",
       },
       {
-        title: "设备端免费畅聊，或云端即刻开启",
-        body: "下载推荐模型或兼容的 Hugging Face 公开模型，离线也能免费聊天；也可以先用 Kokage Cloud 马上开聊，之后再添加本地模型。",
+        title: "本地免费或云端即开",
+        body: "下载推荐或 Hugging Face 公开模型免费离线聊，也可先用云端开聊。",
       },
       {
-        title: "聊天邀请与 Apple 家庭",
-        body: "开启可选的聊天邀请，接收每日问候或久违的关心。在 iPhone 和 iPad 上还可连接 Apple 家庭，让角色按你的要求查看并操作设备。",
+        title: "问候与 Apple 家庭",
+        body: "可选每日问候通知，iPhone 和 iPad 还支持连接 Apple 家庭。",
       },
     ],
   },
   cloud: {
     eyebrow: "Kokage Cloud",
-    title: "按需开启云端对话、自定义声音、形象与动作",
-    lede: "可选的在线功能，既可独立使用，也可与免费的设备端回复配合使用。",
+    title: "即刻开聊、定制声音、形象与动作",
+    lede: "可选的在线能力，也能与免费本地回复配合使用。",
     items: [
       {
         label: "云端对话",
-        title: "无需下载模型，安装即可开聊",
-        body: "安装应用后即可马上对话，不必等待模型下载。若同时安装了本地模型，言の葉用完时 Kokage 会自动切换为设备端回复。",
+        title: "免下载即刻开聊",
+        body: "安装后即可对话，言の葉用完时自动切换为本地模型回复。",
       },
       {
         label: "云端声音",
-        title: "设计或克隆契合角色的声音",
-        body: "用文字描述理想音色并试听三个候选，或用已获许可的录音克隆声音。支持日语、英语与中文，并能以开心、耳语、困倦等语气朗读。",
+        title: "设计或克隆专属音色",
+        body: "用文字描述或授权录音，生成支持日语、英语与中文的生动声音。",
       },
       {
         label: "制作新形象",
-        title: "用文字或图片生成 3D VRM 虚拟形象",
-        body: "输入外貌描述、上传图片或两者结合，即可生成表情丰富的 3D VRM 形象。可随时预览、应用到角色上，或下载 VRM 文件。",
+        title: "快速生成 3D VRM 形象",
+        body: "用文字或图片生成表情丰富的 3D VRM 虚拟形象，支持应用或下载。",
       },
       {
         label: "云端动作",
-        title: "契合当下语境的实时肢体动作",
-        body: "在内置动画与手势之外，根据角色在对话中的行为实时生成动作。设备端与云端回复均可使用，随时可以开启或关闭。",
+        title: "契合语境的实时动作",
+        body: "随对话实时生成肢体动作，本地与云端回复均可使用。",
       },
     ],
     leafLabel: "言の葉",
     leafBody:
-      "Kokage Cloud 功能使用言の葉按量计费。言の葉礼包永不过期，未完成的失败请求不扣费。使用 Apple（iPhone 和 iPad）或 Google 登录即可在多台设备间共享余额，首次登录的新账号还可获赠免费言の葉。",
+      "按需使用的言の葉礼包永不过期，失败请求不扣费，新账号首次登录即赠免费言の葉。",
     accountLink: "管理 Kokage Cloud 账户",
     policyLink: "Kokage Cloud 如何处理你的数据",
   },
   privacy: {
     eyebrow: "隐私",
-    title: "让对话始终掌握在自己手中",
-    lede: "默认留在你的设备上，使用云端功能时事前透明告知并随时可控。",
+    title: "对话始终掌握在你手中",
+    lede: "默认保留在本地，使用云端时透明可控。",
     pillars: [
       {
-        title: "默认保留在设备端",
-        body: "在设备上生成回复时，你的对话、记忆与角色资料绝不会离开你的手机或平板。",
+        title: "默认留在设备端",
+        body: "本地回复、记忆与角色数据绝不离开你的设备。",
       },
       {
-        title: "语音输入在本地转写",
-        body: "语音识别完全在设备端运行，日常说话的音频会立即丢弃，绝不上传或记录。",
+        title: "语音本地转写",
+        body: "语音识别在设备端完成，音频立即丢弃且不上传。",
       },
       {
-        title: "无广告，无追踪分析",
-        body: "应用内不包含任何广告、行为分析统计或自动崩溃上报。",
+        title: "无广告无分析",
+        body: "不含广告、行为统计或自动崩溃上报。",
       },
       {
-        title: "云端功能透明且可控",
-        body: "开启云端对话前会明确说明发送的内容，你也可以随时编辑或删除记忆、笔记和云端账户。",
+        title: "云端透明可控",
+        body: "发送内容事前说明，记忆与云端账户随时可删。",
       },
     ],
     policyLink: "阅读隐私政策",
@@ -470,13 +469,13 @@ export const zhHans = {
     },
     eyebrow: "Kokage 支持",
     title: "Kokage 支持",
-    lede: "在这里可以找到下载链接、遇到问题时的简单提示，以及安全联系我们的方式。",
+    lede: "下载链接、常见问题排查与联系我们。",
     highlightsLabel: "快速指南",
     highlights: [
-      "可在 App Store 免费下载 iPhone 和 iPad 版 Kokage，或在 Google Play 免费下载 Android 版",
-      "即使语音、相机、3D 显示或云端功能不可用，你也始终可以通过输入文字继续聊天",
-      "给支持团队发送邮件时，请不要附上私人对话、录音、照片或 VRM 文件",
-      "我们的支持团队无法远程查看、恢复或清除存储在你设备上的对话或记忆",
+      "App Store（iPhone 和 iPad）与 Google Play（Android）免费下载",
+      "语音、相机或云端不可用时，仍可随时输入文字聊天",
+      "发送邮件时请勿附上私人对话、录音、照片或 VRM 文件",
+      "支持团队无法远程查看、恢复或删除你设备上的数据",
     ],
     contentsLabel: "本页内容",
     sections: [
@@ -484,13 +483,12 @@ export const zhHans = {
         id: "availability",
         title: "下载 Kokage",
         paragraphs: [
-          "Kokage 可从官方应用商店免费下载。我们不在本网站提供直接的文件下载。",
-          "iPhone 和 iPad 的 App Store 版本与 Android 的 Google Play 版本都包含免费的设备端聊天，以及可选的 Kokage Cloud 功能和言の葉礼包。",
+          "请从官方应用商店免费下载。App Store 版（iPhone 和 iPad）与 Google Play 版（Android）均支持免费设备端聊天与可选 Kokage Cloud 功能。",
         ],
         items: [
           {
             title: "iPhone 和 iPad",
-            body: "从 App Store 下载 Kokage。",
+            body: "在 App Store 免费下载。",
             link: {
               href: storeListings.appStore,
               label: "在 App Store 查看",
@@ -498,7 +496,7 @@ export const zhHans = {
           },
           {
             title: "Android",
-            body: "从 Google Play 下载 Kokage。",
+            body: "在 Google Play 免费下载。",
             link: {
               href: storeListings.googlePlay,
               label: "在 Google Play 查看",
@@ -508,22 +506,22 @@ export const zhHans = {
       },
       {
         id: "troubleshooting",
-        title: "遇到问题时",
+        title: "常见问题排查",
         paragraphs: [
-          "如果聊天过程中出现问题，Kokage 会在消息输入框上方显示简短提示，并保留你正在输入的内容，方便你立即重新发送。对于设备端回复，请确认初始模型和声音已下载完成，并且设备有足够的可用存储空间。",
+          "聊天出错时，输入框上方会显示简短提示，并保留你正在输入的草稿。",
         ],
         items: [
           {
             title: "设备端模型无法启动",
-            body: "请查看应用中显示的消息，并在设置中确认模型已下载完成。如果设备内存不足，切换到为你的设备推荐的模型有助于流畅运行。",
+            body: "请在设置中确认模型下载完成并有足够存储空间；内存紧张时切换为推荐模型。",
           },
           {
             title: "语音、相机或 3D 显示不可用",
-            body: "当语音、相机或 3D 显示暂时不可用时，你可以继续通过输入文字聊天。请重试语音输入，或在设备的系统设置中确认已为 Kokage 开启麦克风和相机权限。",
+            body: "随时可以继续文字聊天。请重试语音输入，或在系统设置中确认已开启麦克风与相机权限。",
           },
           {
-            title: "Kokage Cloud 功能暂停或需要稍等",
-            body: "请检查你的网络连接，以及设置中钱包里的言の葉余额。你可以在钱包中添加言の葉礼包；在 iPhone 和 iPad 上，还可以在这里轻点“兑换代码”。如果在已安装设备端模型的情况下言の葉用完，Kokage 会自动切换为设备端回复。云端声音和动作服务器在空闲时也会休眠，因此一段时间未使用后的首次请求可能需要约一分钟预热，期间你可以继续通过文字聊天。如果虚拟形象或声音未能制作完成，不会消耗言の葉。",
+            title: "Kokage Cloud 暂停或正在预热",
+            body: "请检查网络与设置中的言の葉余额。空闲后的首次语音或动作请求可能需约 1 分钟预热，失败的制作不扣费。",
           },
         ],
       },
@@ -531,33 +529,30 @@ export const zhHans = {
         id: "kokage-cloud",
         title: "Kokage Cloud 账户与言の葉",
         paragraphs: [
-          "Kokage Cloud 会自动为你创建账户，无需提供电子邮件地址或密码。你保存的云端声音、制作的虚拟形象和言の葉余额都保存在该账户中。如果想在其他设备上使用它们，或在丢失这台设备时保留它们，请在“设置 → Kokage Cloud”中通过 Apple（iPhone 和 iPad）或 Google 登录，然后在另一台设备上登录同一个账户。如果你从未登录，该账户只保存在这台设备上，设备丢失后将无法恢复。",
-          "如果你想删除云端账户，请使用设置中的“删除 Kokage Cloud 账户”。删除账户后，剩余的言の葉将被作废且不予退款，但你设备上的角色、对话、记忆、笔记以及正在使用的虚拟形象都会保留。",
+          "在“设置 → Kokage Cloud”中使用 Apple（iPhone 和 iPad）或 Google 登录，即可跨设备同步言の葉、声音和虚拟形象。",
+          "如需注销，可在设置中选择“删除 Kokage Cloud 账户”；剩余言の葉将作废，本地角色与对话保持不变。",
         ],
       },
       {
         id: "permissions",
-        title: "相机和麦克风设置",
+        title: "相机和麦克风权限",
         paragraphs: [
-          "Kokage 仅在你为消息或新形象拍照时请求相机权限，并在语音输入或克隆声音之前请求麦克风权限。如果你不想授予这些权限，仍然可以享受文字对话。",
-          "如果权限请求不再出现，请在重新安装应用之前，先在设备的系统设置中检查 Kokage 的权限。",
+          "仅在拍照时请求相机权限，仅在语音输入或克隆声音前请求麦克风权限。若不再弹出提示，请先在系统设置中检查权限。",
         ],
       },
       {
         id: "local-data",
         title: "你的数据与隐私",
         paragraphs: [
-          "你的设备端对话、记忆、笔记、角色以及已下载的模型或 VRM 文件都保留在你的设备上，云端功能只会发送隐私政策中所述的内容。支持团队无法远程查看、恢复或删除存储在你设备上的数据。",
-          "你可以随时直接在应用内查看、编辑或删除记忆和笔记，以及将角色从人物库移除。卸载 Kokage 会从你的设备上移除所有剩余的应用数据。",
+          "本地对话、记忆、角色和 VRM 文件保留在设备上，云端功能仅发送隐私政策所述内容。应用内可随时删除，卸载即可清除全部本地数据。",
         ],
       },
       {
         id: "contact",
         title: "联系我们",
         paragraphs: [
-          "如果你有疑问或遇到问题，请发送邮件至 user_support@orcalogy.com，并注明你的设备型号、操作系统版本、应用版本、屏幕上显示的消息（或在“设置”→“显示详细信息”中看到的摘要），以及对所发生情况的简要描述。",
-          "为保护你的隐私，请不要通过电子邮件发送私人对话、录音、照片或 VRM 文件。请注意，我们无法承诺具体的回复时间。",
-          "如需举报冒犯性的 AI 回复或声音滥用，请使用应用内的“举报”选项。确认前你可以查看将要发送的内容；如果之后想删除该举报，请将应用中显示的参考编号发送至 user_support@orcalogy.com。",
+          "请发邮件至 user_support@orcalogy.com，注明设备、系统、应用版本及简要说明（可在“设置 → 显示详细信息”复制）。请勿附带私人对话、音频、照片或 VRM 文件；我们无法承诺具体回复时间。",
+          "举报不当回复或声音滥用请使用应用内“举报”功能；如需删除举报，请将参考编号发至上述邮箱。",
         ],
       },
     ],
@@ -570,13 +565,12 @@ export const zhHans = {
   status: {
     eyebrow: "平台",
     title: "获取 Kokage",
-    lede: "可在 App Store 免费下载 iPhone 和 iPad 版 Kokage，或在 Google Play 免费下载 Android 版。",
+    lede: "免费支持 iPhone、iPad 和 Android。",
     platforms: [
       {
         name: "iPhone 和 iPad",
         state: "已在 App Store 上架",
-        detail:
-          "支持完整的设备端免费聊天与可选 Kokage Cloud 功能，以及语音输入与朗读、照片分享、每日问候、3D VRM 角色和 Apple 家庭支持。",
+        detail: "免费本地聊天、Kokage Cloud、3D VRM、语音与 Apple 家庭。",
         link: {
           href: storeListings.appStore,
           label: "在 App Store 查看",
@@ -585,8 +579,7 @@ export const zhHans = {
       {
         name: "Android",
         state: "已在 Google Play 上架",
-        detail:
-          "支持完整的设备端免费聊天与可选 Kokage Cloud 功能，以及语音输入与朗读、照片分享、每日问候和 3D VRM 角色。",
+        detail: "免费本地聊天、Kokage Cloud、3D VRM 与语音。",
         link: {
           href: storeListings.googlePlay,
           label: "在 Google Play 查看",

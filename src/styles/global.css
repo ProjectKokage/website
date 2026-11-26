@@ -164,12 +164,12 @@
 
   .section {
     position: relative;
-    padding-block: 104px;
+    padding-block: 84px;
     scroll-margin-top: var(--header-height);
   }
 
   .section-heading {
-    margin-bottom: 52px;
+    margin-bottom: 40px;
   }
 
   .section-heading--split {

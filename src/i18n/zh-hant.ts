@@ -27,12 +27,11 @@ export const zhHant = {
     eyebrow: "3D AI 角色聊天",
     titleLead: "與 3D AI 角色對話",
     titleAccentLines: ["會聽、會說、也會動。"],
-    lede: "透過語音或文字與表情生動的 3D 角色聊天，聽它自然開口回應，並記住對你重要的事。你可以在裝置上免費本機執行，也能透過 Kokage Cloud 立即開始。",
+    lede: "與表情生動的 3D 角色語音或文字聊天——裝置端免費執行，或用 Kokage Cloud 立即開始。",
     appStoreAction: "在 App Store 下載",
     googlePlayAction: "在 Google Play 下載",
     cloudAction: "了解 Kokage Cloud",
-    notice:
-      "可在 iPhone、iPad 和 Android 上免費下載。裝置端聊天永遠免費，按需使用言の葉即可體驗 Kokage Cloud 功能。",
+    notice: "免費支援 iPhone、iPad 和 Android。選用雲端功能使用言の葉。",
     imageAlt: "Kokage App 圖示：一個薄荷色的對話框，搭配兩片葉子",
     showcase: {
       ariaLabel: "Kokage 與 Kokochan 的對話預覽",
@@ -48,87 +47,87 @@ export const zhHant = {
   },
   features: {
     eyebrow: "功能",
-    title: "為自然、專屬的對話而設計",
-    lede: "每個角色都擁有獨立的聊天紀錄、記憶、聲音和 3D 形象。",
+    title: "為自然對話而設計",
+    lede: "每個角色都有專屬聲音、記憶與 3D 形象。",
     items: [
       {
-        title: "語音、文字與照片互動",
-        body: "對著麥克風說話會在裝置端直接轉成文字，並可用日語、英語或中文朗讀回覆。使用支援圖片的模型時還能分享照片，切換到後置鏡頭時角色也會跟著轉身。",
+        title: "語音、文字與照片",
+        body: "本機轉寫語音，支援日語、英語和中文朗讀，也能分享照片互動。",
       },
       {
-        title: "3D 表情、動作與專屬場景",
-        body: "角色在聆聽、思考和說話時嘴型與姿態自然同步。自由搭配天空、地面和擺飾，讓天空隨時間變化，或用自己的圖片當作背景。",
+        title: "3D 動作與專屬場景",
+        body: "嘴型與姿態同步語音，可自由搭配天空、擺飾或自訂照片背景。",
       },
       {
-        title: "由你掌控的記憶與筆記",
-        body: "角色會記住對話中有用的細節，儲存新記憶時顯示提示並支援一鍵復原。你可隨時查看、編輯或刪除記憶，也能加入所有角色共用的筆記。",
+        title: "由你掌控的記憶",
+        body: "自動記住關鍵細節，隨時查看、編輯、復原或加入共用筆記。",
       },
       {
-        title: "多角色管理與 VRM 虛擬形象",
-        body: "可註冊任意數量的角色，自訂個性、語氣與人名讀音標記。可從內建角色或自有 VRM 檔案開始，並支援匯入與匯出角色卡。",
+        title: "多角色與 VRM 形象",
+        body: "可建立任意數量角色，載入自有 VRM 檔案，並匯入或匯出角色卡。",
       },
       {
-        title: "裝置端免費暢聊，或雲端即刻開始",
-        body: "下載推薦模型或相容的 Hugging Face 公開模型，離線也能免費聊天；也可以先用 Kokage Cloud 馬上開聊，之後再加入本機模型。",
+        title: "本機免費或雲端即開",
+        body: "下載推薦或 Hugging Face 公開模型免費離線聊，也可先用雲端開聊。",
       },
       {
-        title: "聊天邀請與 Apple 家庭",
-        body: "開啟選用的聊天邀請，接收每日問候或久違的關心。在 iPhone 和 iPad 上還可連接 Apple 家庭，讓角色依你的要求查看並操作裝置。",
+        title: "問候與 Apple 家庭",
+        body: "選用每日問候通知，iPhone 和 iPad 還支援連接 Apple 家庭。",
       },
     ],
   },
   cloud: {
     eyebrow: "Kokage Cloud",
-    title: "按需開啟雲端對話、自訂聲音、形象與動作",
-    lede: "選用的線上功能，既可獨立使用，也可與免費的裝置端回覆搭配使用。",
+    title: "立即開聊、自訂聲音、形象與動作",
+    lede: "選用的線上能力，也能與免費本機回覆搭配使用。",
     items: [
       {
         label: "雲端對話",
-        title: "不必下載模型，安裝即可開聊",
-        body: "安裝 App 後就能馬上對話，不必等待模型下載。若同時安裝了本機模型，言の葉用完時 Kokage 會自動切換為裝置端回覆。",
+        title: "免下載立即開聊",
+        body: "安裝後即可對話，言の葉用完時自動切換為本機模型回覆。",
       },
       {
         label: "雲端聲音",
-        title: "設計或複製契合角色的聲音",
-        body: "用文字描述理想音色並試聽三個候選，或用已獲同意的錄音複製聲音。支援日語、英語與中文，並能以開心、耳語、睏倦等語氣朗讀。",
+        title: "設計或複製專屬音色",
+        body: "用文字描述或授權錄音，產生支援日語、英語與中文的生動聲音。",
       },
       {
         label: "製作新形象",
-        title: "用文字或圖片產生 3D VRM 虛擬形象",
-        body: "輸入外貌描述、上傳圖片或兩者並用，就能建立表情生動的 3D VRM 形象。可隨時預覽、套用到角色上，或下載 VRM 檔案。",
+        title: "快速產生 3D VRM 形象",
+        body: "用文字或圖片建立表情豐富的 3D VRM 虛擬形象，支援套用或下載。",
       },
       {
         label: "雲端動作",
-        title: "呼應當下語境的即時肢體動作",
-        body: "在內建動畫與手勢之外，依據角色在對話中的行為即時產生動作。裝置端與雲端回覆都可使用，隨時可以開啟或關閉。",
+        title: "呼應語境的即時動作",
+        body: "隨對話即時產生肢體動作，本機與雲端回覆皆可使用。",
       },
     ],
     leafLabel: "言の葉",
     leafBody:
-      "Kokage Cloud 功能以言の葉依量計費。言の葉禮包永不過期，未完成的失敗請求不會扣費。使用 Apple（iPhone 和 iPad）或 Google 登入即可在多台裝置間共用餘額，首次登入的新帳號還能免費獲得言の葉。",
+      "依需使用的言の葉禮包永不過期，失敗請求不扣費，新帳號首次登入即贈免費言の葉。",
     accountLink: "管理 Kokage Cloud 帳戶",
     policyLink: "Kokage Cloud 如何處理你的資料",
   },
   privacy: {
     eyebrow: "隱私權",
-    title: "讓對話始終掌握在自己手中",
-    lede: "預設留在你的裝置上，使用雲端功能時事前清楚告知並隨時可控。",
+    title: "對話始終掌握在你手中",
+    lede: "預設保留在本機，使用雲端時透明可控。",
     pillars: [
       {
-        title: "預設保留在裝置端",
-        body: "在裝置上產生回覆時，你的對話、記憶與角色資料絕不會離開你的手機或平板。",
+        title: "預設留在裝置端",
+        body: "本機回覆、記憶與角色資料絕不離開你的裝置。",
       },
       {
-        title: "語音輸入在本機轉成文字",
-        body: "語音辨識完全在裝置端執行，日常說話的音訊會立即捨棄，絕不上傳或記錄。",
+        title: "語音本機轉寫",
+        body: "語音辨識在裝置端完成，音訊立即捨棄且不上傳。",
       },
       {
-        title: "無廣告，無追蹤分析",
-        body: "App 內不包含任何廣告、行為分析統計或自動當機回報。",
+        title: "無廣告無分析",
+        body: "不含廣告、行為統計或自動當機回報。",
       },
       {
-        title: "雲端功能透明且可控",
-        body: "開啟雲端對話前會明確說明傳送的內容，你也可以隨時編輯或刪除記憶、筆記和雲端帳戶。",
+        title: "雲端透明可控",
+        body: "傳送內容事前說明，記憶與雲端帳戶隨時可刪。",
       },
     ],
     policyLink: "閱讀隱私權政策",
@@ -470,13 +469,13 @@ export const zhHant = {
     },
     eyebrow: "Kokage 支援",
     title: "Kokage 支援",
-    lede: "在這裡可以找到下載連結、遇到問題時的簡單提示，以及安全地與我們聯絡的方式。",
+    lede: "下載連結、常見問題排解與聯絡我們。",
     highlightsLabel: "快速指南",
     highlights: [
-      "可在 App Store 免費下載 iPhone 和 iPad 版 Kokage，或在 Google Play 免費下載 Android 版",
-      "即使語音、相機、3D 顯示或雲端功能無法使用，你也隨時可以輸入文字繼續聊天",
-      "寄送電子郵件給支援團隊時，請不要附上私人對話、錄音、照片或 VRM 檔案",
-      "我們的支援團隊無法從遠端查看、還原或清除儲存在你裝置上的對話或記憶",
+      "App Store（iPhone 和 iPad）與 Google Play（Android）免費下載",
+      "語音、相機或雲端無法使用時，仍可隨時輸入文字聊天",
+      "寄送郵件時請勿附上私人對話、錄音、照片或 VRM 檔案",
+      "支援團隊無法遠端查看、還原或刪除你裝置上的資料",
     ],
     contentsLabel: "本頁內容",
     sections: [
@@ -484,13 +483,12 @@ export const zhHant = {
         id: "availability",
         title: "下載 Kokage",
         paragraphs: [
-          "Kokage 可從官方 App 商店免費下載。我們不在本網站提供直接的檔案下載。",
-          "iPhone 和 iPad 的 App Store 版本與 Android 的 Google Play 版本都包含免費的裝置端聊天，以及搭配言の葉禮包使用的選用 Kokage Cloud 功能。",
+          "請從官方 App 商店免費下載。App Store 版（iPhone 和 iPad）與 Google Play 版（Android）皆支援免費裝置端聊天與選用 Kokage Cloud 功能。",
         ],
         items: [
           {
             title: "iPhone 和 iPad",
-            body: "從 App Store 下載 Kokage。",
+            body: "在 App Store 免費下載。",
             link: {
               href: storeListings.appStore,
               label: "在 App Store 查看",
@@ -498,7 +496,7 @@ export const zhHant = {
           },
           {
             title: "Android",
-            body: "從 Google Play 下載 Kokage。",
+            body: "在 Google Play 免費下載。",
             link: {
               href: storeListings.googlePlay,
               label: "在 Google Play 查看",
@@ -508,22 +506,22 @@ export const zhHant = {
       },
       {
         id: "troubleshooting",
-        title: "遇到問題時",
+        title: "常見問題排解",
         paragraphs: [
-          "如果聊天過程中發生問題，Kokage 會在訊息輸入框上方顯示簡短提示，並保留你正在輸入的內容，方便你立即重新傳送。若使用裝置端回覆，請確認初始模型和聲音已下載完成，且裝置有足夠的可用儲存空間。",
+          "聊天發生問題時，輸入框上方會顯示簡短提示，並保留你正在輸入的草稿。",
         ],
         items: [
           {
             title: "裝置端模型無法啟動",
-            body: "請查看 App 中顯示的訊息，並在設定中確認模型已下載完成。如果裝置的記憶體不足，切換到為你的裝置推薦的模型有助於順暢執行。",
+            body: "請在設定中確認模型下載完成且有足夠儲存空間；記憶體吃緊時切換為推薦模型。",
           },
           {
             title: "語音、相機或 3D 顯示無法使用",
-            body: "當語音、相機或 3D 顯示暫時無法使用時，你可以繼續輸入文字聊天。請重試語音輸入，或在裝置的系統設定中確認已為 Kokage 開啟麥克風和相機權限。",
+            body: "隨時可以繼續文字聊天。請重試語音輸入，或在系統設定中確認已開啟麥克風與相機權限。",
           },
           {
-            title: "Kokage Cloud 功能暫停或需要稍候",
-            body: "請檢查你的網路連線，以及設定中錢包裡的言の葉餘額。你可以在錢包中加購言の葉禮包；在 iPhone 和 iPad 上，還可以在那裡點一下「兌換代碼」。如果在已安裝裝置端模型的情況下言の葉用完，Kokage 會自動改用裝置端回覆。雲端聲音和動作伺服器在閒置時也會進入休眠，因此一段時間未使用後的第一個請求可能需要約一分鐘暖機，期間你可以繼續用文字聊天。如果虛擬形象或聲音未能製作完成，不會消耗言の葉。",
+            title: "Kokage Cloud 暫停或正在暖機",
+            body: "請檢查網路與設定中的言の葉餘額。閒置後的首筆語音或動作請求可能需約 1 分鐘暖機，失敗的製作不扣費。",
           },
         ],
       },
@@ -531,33 +529,30 @@ export const zhHant = {
         id: "kokage-cloud",
         title: "Kokage Cloud 帳戶與言の葉",
         paragraphs: [
-          "Kokage Cloud 會自動為你建立帳戶，不需要提供電子郵件地址或密碼。你儲存的雲端聲音、製作的虛擬形象和言の葉餘額都保存在這個帳戶中。若要在其他裝置上使用它們，或在遺失這台裝置時保留它們，請在「設定 → Kokage Cloud」中使用 Apple（iPhone 和 iPad）或 Google 登入，然後在另一台裝置上以同一個帳戶登入。如果你從未登入，帳戶只會留在這台裝置上，裝置遺失時便無法復原。",
-          "如果你想刪除雲端帳戶，請使用設定中的「刪除 Kokage Cloud 帳戶」。刪除帳戶後，剩餘的言の葉將作廢且不予退款，但你裝置上的角色、對話、記憶、筆記以及正在使用的虛擬形象都會保留。",
+          "在「設定 → Kokage Cloud」中使用 Apple（iPhone 和 iPad）或 Google 登入，即可跨裝置同步言の葉、聲音和虛擬形象。",
+          "如需刪除，可在設定中選擇「刪除 Kokage Cloud 帳戶」；剩餘言の葉將作廢，本機角色與對話維持不變。",
         ],
       },
       {
         id: "permissions",
-        title: "相機和麥克風設定",
+        title: "相機和麥克風權限",
         paragraphs: [
-          "Kokage 只會在你為訊息或新形象拍照時要求相機權限，並在語音輸入或複製聲音之前要求麥克風權限。如果你不想授予這些權限，仍然可以享受文字對話。",
-          "如果權限要求不再出現，請在重新安裝 App 之前，先到裝置的系統設定中檢查 Kokage 的權限。",
+          "僅在拍照時要求相機權限，僅在語音輸入或複製聲音前要求麥克風權限。若不再出現提示，請先在系統設定中檢查權限。",
         ],
       },
       {
         id: "local-data",
         title: "你的資料與隱私權",
         paragraphs: [
-          "你的裝置端對話、記憶、筆記、角色以及已下載的模型或 VRM 檔案都會留在你的裝置上，雲端功能只會傳送隱私權政策中所述的內容。支援團隊無法從遠端查看、還原或刪除儲存在你裝置上的資料。",
-          "你可以隨時直接在 App 內查看、編輯或刪除記憶和筆記，也可以將角色從人物庫移除。解除安裝 Kokage 會從你的裝置上移除所有剩餘的 App 資料。",
+          "本機對話、記憶、角色和 VRM 檔案留在裝置上，雲端功能僅傳送隱私權政策所述內容。App 內可隨時刪除，解除安裝即可清除所有本機資料。",
         ],
       },
       {
         id: "contact",
         title: "聯絡我們",
         paragraphs: [
-          "如果你有疑問或遇到問題，請寄送電子郵件至 user_support@orcalogy.com，並註明你的裝置型號、作業系統版本、App 版本、畫面上顯示的訊息（或在「設定」→「顯示詳細資訊」中看到的摘要），以及發生情況的簡要描述。",
-          "為了保護你的隱私，請不要透過電子郵件傳送私人對話、錄音、照片或 VRM 檔案。請注意，我們無法承諾特定的回覆時間。",
-          "如需檢舉冒犯性的 AI 回覆或聲音濫用，請使用 App 內的「檢舉」選項。確認前你可以查看將要傳送的內容；如果之後想刪除該檢舉，請將 App 中顯示的參考編號寄至 user_support@orcalogy.com。",
+          "請寄信至 user_support@orcalogy.com，註明裝置、系統、App 版本及簡要說明（可在「設定 → 顯示詳細資訊」複製）。請勿附加私人對話、音訊、照片或 VRM 檔案；我們無法承諾特定回覆時間。",
+          "檢舉不當回覆或聲音濫用請使用 App 內「檢舉」功能；如需刪除檢舉，請將參考編號寄至上述信箱。",
         ],
       },
     ],
@@ -570,13 +565,12 @@ export const zhHant = {
   status: {
     eyebrow: "平台",
     title: "取得 Kokage",
-    lede: "可在 App Store 免費下載 iPhone 和 iPad 版 Kokage，或在 Google Play 免費下載 Android 版。",
+    lede: "免費支援 iPhone、iPad 和 Android。",
     platforms: [
       {
         name: "iPhone 和 iPad",
         state: "已在 App Store 上架",
-        detail:
-          "支援完整的裝置端免費聊天與選用 Kokage Cloud 功能，以及語音輸入與朗讀、照片分享、每日問候、3D VRM 角色和 Apple 家庭支援。",
+        detail: "免費本機聊天、Kokage Cloud、3D VRM、語音與 Apple 家庭。",
         link: {
           href: storeListings.appStore,
           label: "在 App Store 查看",
@@ -585,8 +579,7 @@ export const zhHant = {
       {
         name: "Android",
         state: "已在 Google Play 上架",
-        detail:
-          "支援完整的裝置端免費聊天與選用 Kokage Cloud 功能，以及語音輸入與朗讀、照片分享、每日問候和 3D VRM 角色。",
+        detail: "免費本機聊天、Kokage Cloud、3D VRM 與語音。",
         link: {
           href: storeListings.googlePlay,
           label: "在 Google Play 查看",

@@ -224,10 +224,10 @@ test("English and Japanese pages emit localized metadata and complete navigation
   assert.doesNotMatch(japanese, /テスト配信を始め|テスターに配信しています/);
   assert.match(english, /Japanese, English, or Chinese/);
   assert.match(english, /public Hugging Face model/);
-  assert.match(english, /import and export character cards/);
+  assert.match(english, /import or export character cards/);
   assert.match(japanese, /日本語・英語・中国語/);
-  assert.match(japanese, /公開されているHugging Faceのモデル/);
-  assert.match(japanese, /キャラクターカードの読み込み・書き出し/);
+  assert.match(japanese, /公開Hugging Faceモデル/);
+  assert.match(japanese, /キャラクターカードの読み書き/);
   assert.doesNotMatch(
     `${english}\n${japanese}`,
     /current dependency graph|ONNX Runtime|API 36|署名済み配布|sherpa_onnx|Silero|SenseVoice|fllamer|flvtterm|misakid|fonix|Irodori-TTS|VoxCPM2|NVIDIA ARDY|TRELLIS|FLUX/,
@@ -243,16 +243,16 @@ test("English and Japanese pages emit localized metadata and complete navigation
   for (const name of ["Cloud chat", "Cloud voices", "Create a new look", "Cloud Motion"]) {
     assert.match(english, new RegExp(`<p class="cloud-label">${name}</p>`));
   }
-  assert.match(english, /Kokage Cloud features use Leaf/);
+  assert.match(english, /Pay-as-you-go Leaf packs never expire/);
   assert.match(english, /href="https:\/\/kokage\.cloud\/" rel="external"/);
   assert.doesNotMatch(english, /does not include Kokage Cloud/);
   assert.match(
     english,
-    /plus voice input and speech, photo sharing, daily greetings, and 3D VRM characters/,
+    /Free on-device chat, Kokage Cloud, 3D VRM, and voice/,
   );
-  assert.match(english, /automatically switches to on-device replies/);
+  assert.match(english, /automatic fallback to your on-device model/);
   assert.match(english, /explains what is sent beforehand/);
-  assert.match(english, /no advertising, no tracking analytics/);
+  assert.match(english, /No advertising, tracking analytics/);
   assert.doesNotMatch(
     english,
     /remote inference|telemetry|unavailable in this release|persistent history|remains unavailable|Conversation processing stays on your device/,
@@ -260,14 +260,14 @@ test("English and Japanese pages emit localized metadata and complete navigation
   for (const name of ["クラウド会話", "クラウドの声", "新しい見た目を作る", "クラウドモーション"]) {
     assert.match(japanese, new RegExp(`<p class="cloud-label">${name}</p>`));
   }
-  assert.match(japanese, /Kokage Cloud の機能は、アプリ内の「言の葉」を使って/);
+  assert.match(japanese, /使う分だけ消費する「言の葉」は有効期限なし/);
   assert.match(japanese, /href="https:\/\/kokage\.cloud\/ja\/" rel="external"/);
   assert.doesNotMatch(japanese, /Kokage Cloud は含まれません/);
-  assert.match(japanese, /写真の共有、チャットへのお誘い、3DのVRMキャラクターとのおしゃべりに対応しています/);
+  assert.match(japanese, /無料の端末内会話、Kokage Cloud、3D VRM、音声に対応/);
   assert.match(japanese, /キャラクターだけの場所/);
-  assert.match(japanese, /言の葉がなくなったときも自動で端末内の返事に切り替わります/);
-  assert.match(japanese, /何が送信されるかを事前にわかりやすく案内し/);
-  assert.match(japanese, /アプリに広告、アクセス解析、クラッシュ情報の自動送信機能は含まれていません/);
+  assert.match(japanese, /言の葉が切れても自動で端末内に切り替わります/);
+  assert.match(japanese, /送信内容を事前に案内し/);
+  assert.match(japanese, /広告、アクセス解析、クラッシュ自動送信はありません/);
   assert.doesNotMatch(
     japanese,
     /外部推論|テレメトリー|このリリースでは利用できません|端末内だけに残り|会話履歴にも残しません|報告機能は利用できません|会話の処理は端末の中で/,
@@ -587,11 +587,11 @@ test("support pages are bilingual, indexable, and privacy-conscious", async () =
   assert.match(japanese, /個別の返信時期についてはお約束しておりません/);
   assert.match(
     english,
-    /the Google Play version for Android include free on-device chat and the optional Kokage Cloud features/,
+    /the Google Play version for Android include free on-device chat and optional Kokage Cloud features/,
   );
   assert.doesNotMatch(english, /transfer code/);
   assert.match(english, /Delete Kokage Cloud account/);
-  assert.match(japanese, /Android向けのGoogle Play版のどちらでも、無料の端末内での会話に加えて/);
+  assert.match(japanese, /Android向けのGoogle Play版のどちらでも、無料の端末内での会話に加えて Kokage Cloud/);
   assert.match(japanese, /設定の「Kokage Cloud のアカウントを削除」から/);
   assert.match(english, /microphone access before voice input/);
   assert.match(english, /Retry voice input or check that microphone/);
