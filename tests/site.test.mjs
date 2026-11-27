@@ -275,7 +275,7 @@ test("English and Japanese pages emit localized metadata and complete navigation
   assert.match(japanese, /使う分だけの言の葉/);
   assert.match(japanese, /href="https:\/\/kokage\.cloud\/ja\/" rel="external"/);
   assert.doesNotMatch(japanese, /Kokage Cloud は含まれません/);
-  assert.match(japanese, /端末内の会話は外へ送信されません/);
+  assert.match(japanese, /ローカルモデルでの会話は外へ送信されません/);
   assert.match(japanese, /広告もアクセス解析もありません/);
   assert.doesNotMatch(
     japanese,
@@ -322,7 +322,7 @@ test("privacy policy pages are localized, indexable, and linked across languages
       canonical: `${siteOrigin}/ja/privacy/`,
       title: "プライバシーポリシー | こかげ",
       description:
-        "こかげにおける端末内の会話とクラウド会話、Kokage Cloud のモーション、声、読み上げ、アバター、会話の保存、記憶、報告、アカウント、ダウンロード、ウェブサイトのデータの扱いを説明します。",
+        "こかげにおけるローカルモデルでの会話とクラウド会話、Kokage Cloud のモーション、声、読み上げ、アバター、会話の保存、記憶、報告、アカウント、ダウンロード、ウェブサイトのデータの扱いを説明します。",
       heading: "こかげが端末に保存するデータと、クラウド機能が送信するデータ",
       siteName: "こかげ",
       date: "2026年11月22日",
@@ -438,7 +438,7 @@ test("privacy policy pages are localized, indexable, and linked across languages
   assert.match(english, /have no fixed deletion date/);
   assert.match(english, /there is no fixed retention period/);
   assert.match(japanese, /対応バージョンでのクラウド会話を選べます/);
-  assert.match(japanese, /端末内のモデルで会話するとき、やり取りは端末の外へ送信されません/);
+  assert.match(japanese, /ローカルモデルで会話するとき、やり取りは端末の外へ送信されません/);
   assert.match(
     japanese,
     /Kokage Cloud はOrcalogy LLCがGoogle Cloud上で運用しています/,
@@ -462,7 +462,7 @@ test("privacy policy pages are localized, indexable, and linked across languages
     english,
     /Microphone audio and in-progress transcription drafts are discarded immediately/,
   );
-  assert.match(japanese, /音声認識は端末内で行います/);
+  assert.match(japanese, /音声認識はお使いの端末で行います/);
   assert.match(japanese, /その場限りで破棄され、保存・ログ記録・アップロードは一切行いません/);
 
   // The report reference and the permission prompts are named as the app
@@ -600,7 +600,7 @@ test("support pages are bilingual, indexable, and privacy-conscious", async () =
   );
   assert.doesNotMatch(english, /transfer code/);
   assert.match(english, /Delete Kokage Cloud account/);
-  assert.match(japanese, /Android向けのGoogle Play版のどちらでも、無料の端末内での会話に加えて Kokage Cloud/);
+  assert.match(japanese, /Android向けのGoogle Play版のどちらでも、無料のオフライン会話に加えて Kokage Cloud/);
   assert.match(japanese, /設定の「Kokage Cloud のアカウントを削除」から/);
   assert.match(english, /microphone access before voice input/);
   assert.match(english, /Retry voice input or check that microphone/);
