@@ -62,8 +62,11 @@ export const en = {
     title: "Kokage Cloud",
     lede: "Optional pay-as-you-go Leaf. Packs never expire.",
     switcherLabel: "Kokage Cloud screens",
+    motionTab: "Cloud Motion",
     voiceTab: "Cloud voices",
     newlookTab: "Create a new look",
+    motionAlt:
+      "In-app iPhone video of Kokage Cloud Motion animating a character peering across a sunny meadow",
     voiceAlt: "Kokage iPhone screenshot of creating a custom Cloud voice",
     newlookAlt:
       "Kokage iPhone screenshot of creating a new 3D VRM look with Kokage Cloud",

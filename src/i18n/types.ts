@@ -111,8 +111,10 @@ export interface SiteCopy {
     title: string;
     lede: string;
     switcherLabel: string;
+    motionTab: string;
     voiceTab: string;
     newlookTab: string;
+    motionAlt: string;
     voiceAlt: string;
     newlookAlt: string;
     items: Array<{
