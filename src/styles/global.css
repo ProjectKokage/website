@@ -638,11 +638,6 @@
     transition: opacity 320ms var(--ease-out);
   }
 
-  .device-screen--video {
-    display: block;
-    object-fit: cover;
-  }
-
   /* Theme-synced Hero Screen Cross-Fade */
   .device-screen--dark {
     opacity: 1;

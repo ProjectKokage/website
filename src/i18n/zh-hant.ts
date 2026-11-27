@@ -59,10 +59,8 @@ export const zhHant = {
     title: "Kokage Cloud",
     lede: "依需使用言の葉，禮包永不過期。",
     switcherLabel: "Kokage Cloud 畫面切換",
-    motionTab: "雲端動作",
     voiceTab: "雲端聲音",
     newlookTab: "製作新形象",
-    motionAlt: "Kokage 展示即時雲端動作的 iPhone 影片",
     voiceAlt: "Kokage 製作雲端聲音的 iPhone 截圖",
     newlookAlt: "Kokage 透過 Kokage Cloud 製作新 3D 形象的 iPhone 截圖",
     items: [

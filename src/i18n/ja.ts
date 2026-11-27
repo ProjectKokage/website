@@ -60,10 +60,8 @@ export const ja = {
     title: "Kokage Cloud",
     lede: "使う分だけの言の葉。有効期限なし。",
     switcherLabel: "Kokage Cloud の画面切り替え",
-    motionTab: "クラウドモーション",
     voiceTab: "クラウドの声",
     newlookTab: "新しい見た目を作る",
-    motionAlt: "会話に合わせて動くクラウドモーションのこかげiPhone動画",
     voiceAlt: "クラウドの声を作成するこかげのiPhone画面",
     newlookAlt: "新しい見た目を作る画面で3Dアバターを生成するこかげのiPhone画面",
     items: [

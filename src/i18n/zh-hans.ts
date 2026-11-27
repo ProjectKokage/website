@@ -59,10 +59,8 @@ export const zhHans = {
     title: "Kokage Cloud",
     lede: "按需使用言の葉，礼包永不过期。",
     switcherLabel: "Kokage Cloud 界面切换",
-    motionTab: "云端动作",
     voiceTab: "云端声音",
     newlookTab: "制作新形象",
-    motionAlt: "Kokage 展示实时云端动作的 iPhone 视频",
     voiceAlt: "Kokage 制作云端声音的 iPhone 截图",
     newlookAlt: "Kokage 通过 Kokage Cloud 制作新 3D 形象的 iPhone 截图",
     items: [
