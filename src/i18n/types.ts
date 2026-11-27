@@ -59,6 +59,7 @@ export interface SupportPageCopy {
   sections: SupportPageSection[];
   contactLabel: string;
   contactEmail: string;
+  cloudLinkLabel: string;
   privacyLinkLabel: string;
   backHomeLabel: string;
 }
@@ -76,77 +77,72 @@ export interface SiteCopy {
   navigation: {
     label: string;
     homeLabel: string;
-    items: Array<{
-      href: string;
-      label: string;
-    }>;
+    supportLabel: string;
+    cloudLabel: string;
+    themeToggleLight: string;
+    themeToggleDark: string;
     languageLabel: string;
   };
   hero: {
-    eyebrow: string;
-    titleLead: string;
-    titleAccentLines: string[];
+    title: string;
     lede: string;
     appStoreAction: string;
     googlePlayAction: string;
-    cloudAction: string;
-    notice: string;
     imageAlt: string;
-  };
-  cloud: {
-    eyebrow: string;
-    title: string;
-    lede: string;
-    items: Array<{
-      label: string;
-      title: string;
-      body: string;
-    }>;
-    leafLabel: string;
-    leafBody: string;
-    policyLink: string;
-  };
-  flow: {
-    eyebrow: string;
-    title: string;
-    lede: string;
-    stages: Array<{
-      label: string;
-      title: string;
-      detail: string;
-    }>;
+    chatDayAlt: string;
+    chatNightAlt: string;
   };
   features: {
-    eyebrow: string;
     title: string;
     lede: string;
+    switcherLabel: string;
+    photoTab: string;
+    personalityTab: string;
+    charactersTab: string;
+    photoAlt: string;
+    personalityAlt: string;
+    charactersAlt: string;
     items: Array<{
       title: string;
       body: string;
     }>;
   };
-  privacy: {
-    eyebrow: string;
+  cloud: {
     title: string;
     lede: string;
+    switcherLabel: string;
+    motionTab: string;
+    voiceTab: string;
+    newlookTab: string;
+    motionAlt: string;
+    motionPauseLabel: string;
+    motionPlayLabel: string;
+    voiceAlt: string;
+    newlookAlt: string;
+    items: Array<{
+      title: string;
+      body: string;
+    }>;
+    accountLink: string;
+  };
+  privacy: {
+    title: string;
+    points: [string, string, string];
     policyLink: string;
   };
   privacyPolicy: PrivacyPolicyCopy;
   support: SupportPageCopy;
   status: {
-    eyebrow: string;
     title: string;
-    lede: string;
     platforms: Array<{
       name: string;
-      state: string;
-      detail: string;
-      link?: ExternalLink;
+      link: ExternalLink;
     }>;
   };
   footer: {
     descriptor: string;
     statusLink: string;
+    cloudLink: string;
     privacyLink: string;
     supportLink: string;
     xLink: string;

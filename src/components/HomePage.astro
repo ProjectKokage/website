@@ -1,6 +1,10 @@
 ---
 import type { SiteCopy } from "../i18n";
-import { localizedRoutes, storeListings } from "../i18n/routes";
+import {
+  kokageCloudUrls,
+  localizedRoutes,
+  storeListings,
+} from "../i18n/routes";
 import SiteLayout from "../layouts/SiteLayout.astro";
 
 interface Props {
@@ -9,66 +13,76 @@ interface Props {
 
 const { copy } = Astro.props;
 const privacyPolicyPath = localizedRoutes[copy.locale].privacy;
+const cloudAccountUrl = kokageCloudUrls[copy.locale];
+const shotBase = `/screenshots/${copy.locale}`;
 ---
 
 <SiteLayout copy={copy}>
   <main id="main">
+    <!-- Act 1: Real-App Split Hero -->
     <section class="hero" aria-labelledby="hero-title">
       <div class="hero__grid page-shell">
         <div class="hero__copy">
-          <p class="eyebrow reveal reveal--one">{copy.hero.eyebrow}</p>
-          <h1 id="hero-title" class="hero__title reveal reveal--two">
-            <span>{copy.hero.titleLead}</span>
-            {
-              copy.hero.titleAccentLines.map((line) => (
-                <span class="hero__title-accent">{line}</span>
-              ))
-            }
+          <h1 id="hero-title" class="hero__title">
+            {copy.hero.title}
           </h1>
-          <p class="hero__lede reveal reveal--three">{copy.hero.lede}</p>
-          <div class="hero__actions reveal reveal--four">
+          <p class="hero__lede">{copy.hero.lede}</p>
+          <div class="hero__actions">
             <a
-              class="button button--primary"
+              class="button button--store"
               href={storeListings.appStore}
               rel="external"
             >
-              {copy.hero.appStoreAction}
-              <span aria-hidden="true">↗</span>
+              <svg
+                class="button__icon"
+                viewBox="0 0 24 24"
+                width="17"
+                height="17"
+                aria-hidden="true"
+              >
+                <path d="M16.365 1.43c0 1.14-.493 2.27-1.177 3.08-.744.9-1.99 1.57-2.987 1.57-.12 0-.23-.02-.3-.03-.01-.06-.04-.22-.04-.39 0-1.15.572-2.27 1.206-2.98.804-.94 2.142-1.64 3.248-1.68.03.13.05.28.05.43Zm4.565 15.71c-.03.07-.463 1.58-1.518 3.12-.945 1.34-1.94 2.71-3.43 2.71-1.517 0-1.9-.88-3.63-.88-1.698 0-2.302.91-3.67.91-1.377 0-2.332-1.26-3.428-2.8-1.287-1.82-2.323-4.63-2.323-7.28 0-4.28 2.797-6.55 5.552-6.55 1.448 0 2.675.95 3.6.95.865 0 2.222-1.01 3.902-1.01.613 0 2.886.06 4.374 2.19-.13.09-2.383 1.37-2.383 4.19 0 3.26 2.854 4.42 2.955 4.45Z" />
+              </svg>
+              <span>{copy.hero.appStoreAction}</span>
+              <span class="button__arrow" aria-hidden="true">↗</span>
             </a>
             <a
-              class="button button--primary"
+              class="button button--store"
               href={storeListings.googlePlay}
               rel="external"
             >
-              {copy.hero.googlePlayAction}
-              <span aria-hidden="true">↗</span>
-            </a>
-            <a class="button button--secondary" href="#cloud">
-              {copy.hero.cloudAction}
-              <span aria-hidden="true">↓</span>
+              <svg
+                class="button__icon"
+                viewBox="0 0 24 24"
+                width="16"
+                height="16"
+                aria-hidden="true"
+              >
+                <path d="M3.609 1.814 13.792 12 3.61 22.186a1.72 1.72 0 0 1-.61-1.318V3.132c0-.517.232-.982.609-1.318Zm11.244 11.244 2.79 2.79-11.2 6.388 8.41-9.178Zm3.748-2.138 2.41 1.374c.99.565.99 1.99 0 2.555l-2.41 1.374-3.04-3.04 3.04-2.263Zm-3.748-1.106-8.41-9.178 11.2 6.388-2.79 2.79Z" />
+              </svg>
+              <span>{copy.hero.googlePlayAction}</span>
+              <span class="button__arrow" aria-hidden="true">↗</span>
             </a>
           </div>
-          <p class="hero__notice reveal reveal--four">
-            {copy.hero.notice}
-          </p>
         </div>
 
-        <div class="hero-visual reveal reveal--three">
-          <div class="brand-stage">
-            <img
-              class="brand-stage__leaves"
-              src="/brand/kokage-leaves.svg"
-              alt=""
-              width="370"
-              height="263"
-              aria-hidden="true"
-            />
-            <div class="brand-stage__icon">
+        <div class="showcase-col">
+          <div class="device-frame">
+            <div class="device-frame__screen">
               <img
-                src="/brand/kokage-app-icon.png"
-                alt={copy.hero.imageAlt}
-                width={320}
-                height={320}
+                class="device-screen device-screen--dark"
+                src={`${shotBase}/chat-night.webp`}
+                alt={copy.hero.chatNightAlt}
+                width="600"
+                height="1304"
+                loading="eager"
+                fetchpriority="high"
+              />
+              <img
+                class="device-screen device-screen--light"
+                src={`${shotBase}/chat-day.webp`}
+                alt={copy.hero.chatDayAlt}
+                width="600"
+                height="1304"
                 loading="eager"
                 fetchpriority="high"
               />
@@ -78,175 +92,392 @@ const privacyPolicyPath = localizedRoutes[copy.locale].privacy;
       </div>
     </section>
 
+    <!-- Act 2: Conversation & Personality -->
     <section
       id="features"
-      class="section section--features"
+      class="section section--subtle"
       aria-labelledby="features-title"
     >
-      <div class="page-shell editorial-grid">
-        <div class="editorial-intro">
-          <p class="eyebrow">{copy.features.eyebrow}</p>
-          <h2 id="features-title">{copy.features.title}</h2>
-          <p>{copy.features.lede}</p>
-          <img
-            class="editorial-leaf"
-            src="/brand/kokage-large-leaf.svg"
-            alt=""
-            width="239"
-            height="263"
-            loading="lazy"
-            aria-hidden="true"
-          />
+      <div class="page-shell split-showcase">
+        <div class="showcase-col" data-screen-switcher>
+          <div class="device-frame">
+            <div class="device-frame__screen">
+              <div
+                id="panel-features-photo"
+                class="device-screen device-screen--switchable"
+                role="tabpanel"
+                aria-labelledby="tab-features-photo"
+                data-screen-panel="photo"
+                data-active="true"
+              >
+                <img
+                  class="device-screen__media"
+                  src={`${shotBase}/photo.webp`}
+                  alt={copy.features.photoAlt}
+                  width="600"
+                  height="1304"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </div>
+              <div
+                id="panel-features-personality"
+                class="device-screen device-screen--switchable"
+                role="tabpanel"
+                aria-labelledby="tab-features-personality"
+                data-screen-panel="personality"
+                data-active="false"
+              >
+                <img
+                  class="device-screen__media"
+                  src={`${shotBase}/personality.webp`}
+                  alt={copy.features.personalityAlt}
+                  width="600"
+                  height="1304"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </div>
+              <div
+                id="panel-features-characters"
+                class="device-screen device-screen--switchable"
+                role="tabpanel"
+                aria-labelledby="tab-features-characters"
+                data-screen-panel="characters"
+                data-active="false"
+              >
+                <img
+                  class="device-screen__media"
+                  src={`${shotBase}/characters.webp`}
+                  alt={copy.features.charactersAlt}
+                  width="600"
+                  height="1304"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="screen-tabs"
+            role="tablist"
+            aria-label={copy.features.switcherLabel}
+          >
+            <button
+              id="tab-features-photo"
+              type="button"
+              class="screen-tab"
+              role="tab"
+              aria-selected="true"
+              aria-controls="panel-features-photo"
+              tabindex="0"
+              data-screen-tab="photo"
+            >
+              {copy.features.photoTab}
+            </button>
+            <button
+              id="tab-features-personality"
+              type="button"
+              class="screen-tab"
+              role="tab"
+              aria-selected="false"
+              aria-controls="panel-features-personality"
+              tabindex="-1"
+              data-screen-tab="personality"
+            >
+              {copy.features.personalityTab}
+            </button>
+            <button
+              id="tab-features-characters"
+              type="button"
+              class="screen-tab"
+              role="tab"
+              aria-selected="false"
+              aria-controls="panel-features-characters"
+              tabindex="-1"
+              data-screen-tab="characters"
+            >
+              {copy.features.charactersTab}
+            </button>
+          </div>
         </div>
 
-        <ul class="feature-list" role="list">
-          {
-            copy.features.items.map((item, index) => (
-              <li>
-                <span class="feature-number" aria-hidden="true">
-                  {String(index + 1).padStart(2, "0")}
-                </span>
-                <div>
+        <div class="split-showcase__copy">
+          <h2 id="features-title" class="section-title">
+            {copy.features.title}
+          </h2>
+          <p class="section-subtitle">{copy.features.lede}</p>
+
+          <ul class="editorial-list" role="list">
+            {
+              copy.features.items.map((item) => (
+                <li>
                   <h3>{item.title}</h3>
                   <p>{item.body}</p>
-                </div>
-              </li>
-            ))
-          }
-        </ul>
+                </li>
+              ))
+            }
+          </ul>
+        </div>
       </div>
     </section>
 
-    <section id="cloud" class="section section--cloud" aria-labelledby="cloud-title">
-      <div class="page-shell">
-        <div class="section-heading section-heading--split section-heading--dark">
-          <div>
-            <p class="eyebrow">{copy.cloud.eyebrow}</p>
-            <h2 id="cloud-title">{copy.cloud.title}</h2>
+    <!-- Act 3: Kokage Cloud -->
+    <section
+      id="cloud"
+      class="section section--base"
+      aria-labelledby="cloud-title"
+    >
+      <div class="page-shell split-showcase split-showcase--reverse">
+        <div class="split-showcase__copy">
+          <h2 id="cloud-title" class="section-title">{copy.cloud.title}</h2>
+          <p class="section-subtitle">{copy.cloud.lede}</p>
+
+          <ul class="editorial-list" role="list">
+            {
+              copy.cloud.items.map((item) => (
+                <li>
+                  <h3>{item.title}</h3>
+                  <p>{item.body}</p>
+                </li>
+              ))
+            }
+          </ul>
+
+          <div class="section-links">
+            <a class="inline-link" href={cloudAccountUrl} rel="external">
+              {copy.cloud.accountLink}
+              <span aria-hidden="true">↗</span>
+            </a>
           </div>
-          <p>{copy.cloud.lede}</p>
         </div>
 
-        <ul class="cloud-grid" role="list">
-          {
-            copy.cloud.items.map((item) => (
-              <li>
-                <p class="cloud-label">{item.label}</p>
-                <h3>{item.title}</h3>
-                <p>{item.body}</p>
-              </li>
-            ))
-          }
-        </ul>
-
-        <aside class="leaf-note" aria-labelledby="leaf-note-title">
-          <img
-            src="/brand/kokage-large-leaf-with-petiole.svg"
-            alt=""
-            width="288"
-            height="314"
-            loading="lazy"
-            aria-hidden="true"
-          />
-          <div>
-            <p id="leaf-note-title">{copy.cloud.leafLabel}</p>
-            <p>{copy.cloud.leafBody}</p>
+        <div class="showcase-col" data-screen-switcher>
+          <div class="device-frame">
+            <div class="device-frame__screen">
+              <div
+                id="panel-cloud-motion"
+                class="device-screen device-screen--switchable device-screen--motion"
+                role="tabpanel"
+                aria-labelledby="tab-cloud-motion"
+                data-screen-panel="motion"
+                data-active="true"
+              >
+                <video
+                  class="device-screen__video"
+                  loop
+                  muted
+                  playsinline
+                  preload="metadata"
+                  poster="/media/cloud-motion-poster.webp"
+                  width="600"
+                  height="1304"
+                  aria-label={copy.cloud.motionAlt}
+                >
+                  <source src="/media/cloud-motion.mp4" type="video/mp4" />
+                  <source src="/media/cloud-motion.webm" type="video/webm" />
+                </video>
+                <button
+                  type="button"
+                  class="motion-toggle"
+                  data-motion-toggle
+                  data-paused="false"
+                  data-label-pause={copy.cloud.motionPauseLabel}
+                  data-label-play={copy.cloud.motionPlayLabel}
+                  aria-label={copy.cloud.motionPauseLabel}
+                  title={copy.cloud.motionPauseLabel}
+                >
+                  <svg
+                    class="motion-toggle__pause"
+                    viewBox="0 0 24 24"
+                    width="14"
+                    height="14"
+                    aria-hidden="true"
+                  >
+                    <rect x="6" y="4" width="4" height="16" rx="1" />
+                    <rect x="14" y="4" width="4" height="16" rx="1" />
+                  </svg>
+                  <svg
+                    class="motion-toggle__play"
+                    viewBox="0 0 24 24"
+                    width="14"
+                    height="14"
+                    aria-hidden="true"
+                  >
+                    <path d="M7 5.2v13.6a1 1 0 0 0 1.52.85l10.6-6.8a1 1 0 0 0 0-1.7L8.52 4.35A1 1 0 0 0 7 5.2Z" />
+                  </svg>
+                </button>
+              </div>
+              <div
+                id="panel-cloud-voice"
+                class="device-screen device-screen--switchable"
+                role="tabpanel"
+                aria-labelledby="tab-cloud-voice"
+                data-screen-panel="voice"
+                data-active="false"
+              >
+                <img
+                  class="device-screen__media"
+                  src={`${shotBase}/voice.webp`}
+                  alt={copy.cloud.voiceAlt}
+                  width="600"
+                  height="1304"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </div>
+              <div
+                id="panel-cloud-newlook"
+                class="device-screen device-screen--switchable"
+                role="tabpanel"
+                aria-labelledby="tab-cloud-newlook"
+                data-screen-panel="newlook"
+                data-active="false"
+              >
+                <img
+                  class="device-screen__media"
+                  src={`${shotBase}/newlook.webp`}
+                  alt={copy.cloud.newlookAlt}
+                  width="600"
+                  height="1304"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </div>
+            </div>
           </div>
-        </aside>
 
-        <a class="privacy-policy-link" href={privacyPolicyPath}>
-          {copy.cloud.policyLink}
-          <span aria-hidden="true">→</span>
-        </a>
-      </div>
-    </section>
-
-    <section id="how" class="section section--flow" aria-labelledby="flow-title">
-      <div class="page-shell">
-        <div class="section-heading section-heading--split">
-          <div>
-            <p class="eyebrow">{copy.flow.eyebrow}</p>
-            <h2 id="flow-title">{copy.flow.title}</h2>
+          <div
+            class="screen-tabs"
+            role="tablist"
+            aria-label={copy.cloud.switcherLabel}
+          >
+            <button
+              id="tab-cloud-motion"
+              type="button"
+              class="screen-tab"
+              role="tab"
+              aria-selected="true"
+              aria-controls="panel-cloud-motion"
+              tabindex="0"
+              data-screen-tab="motion"
+            >
+              {copy.cloud.motionTab}
+            </button>
+            <button
+              id="tab-cloud-voice"
+              type="button"
+              class="screen-tab"
+              role="tab"
+              aria-selected="false"
+              aria-controls="panel-cloud-voice"
+              tabindex="-1"
+              data-screen-tab="voice"
+            >
+              {copy.cloud.voiceTab}
+            </button>
+            <button
+              id="tab-cloud-newlook"
+              type="button"
+              class="screen-tab"
+              role="tab"
+              aria-selected="false"
+              aria-controls="panel-cloud-newlook"
+              tabindex="-1"
+              data-screen-tab="newlook"
+            >
+              {copy.cloud.newlookTab}
+            </button>
           </div>
-          <p>{copy.flow.lede}</p>
         </div>
-
-        <ol class="turn-flow" role="list">
-          {
-            copy.flow.stages.map((stage, index) => (
-              <li>
-                <span class="stage-index" aria-hidden="true">
-                  {String(index + 1).padStart(2, "0")}
-                </span>
-                <p class="stage-label">{stage.label}</p>
-                <h3>{stage.title}</h3>
-                <p>{stage.detail}</p>
-              </li>
-            ))
-          }
-        </ol>
       </div>
     </section>
 
+    <!-- Act 4: Privacy -->
     <section
       id="privacy"
-      class="section section--privacy"
+      class="section section--subtle"
       aria-labelledby="privacy-title"
     >
-      <div class="privacy-leaf privacy-leaf--one" aria-hidden="true"></div>
-      <div class="privacy-leaf privacy-leaf--two" aria-hidden="true"></div>
-      <div class="page-shell privacy-shell">
-        <div class="section-heading section-heading--split section-heading--dark">
-          <div>
-            <p class="eyebrow">{copy.privacy.eyebrow}</p>
-            <h2 id="privacy-title">{copy.privacy.title}</h2>
-          </div>
-          <p>{copy.privacy.lede}</p>
-        </div>
+      <div class="page-shell">
+        <h2 id="privacy-title" class="section-title">{copy.privacy.title}</h2>
 
-        <a class="privacy-policy-link" href={privacyPolicyPath}>
-          {copy.privacy.policyLink}
-          <span aria-hidden="true">→</span>
-        </a>
+        <ul class="privacy-points" role="list">
+          {copy.privacy.points.map((point) => <li>{point}</li>)}
+        </ul>
+
+        <div class="section-links">
+          <a class="privacy-policy-link" href={privacyPolicyPath}>
+            {copy.privacy.policyLink}
+            <span aria-hidden="true">→</span>
+          </a>
+        </div>
       </div>
     </section>
 
-    <section id="status" class="section section--status" aria-labelledby="status-title">
-      <div class="page-shell">
-        <div class="section-heading section-heading--split">
-          <div>
-            <p class="eyebrow">{copy.status.eyebrow}</p>
-            <h2 id="status-title">{copy.status.title}</h2>
-          </div>
-          <p>{copy.status.lede}</p>
-        </div>
-
-        <div class="platform-grid">
+    <!-- Act 4: Closing Download Finale -->
+    <section
+      id="status"
+      class="section section--base closing"
+      aria-labelledby="status-title"
+    >
+      <div class="page-shell closing__inner">
+        <img
+          class="closing__emblem"
+          src="/brand/kokage-app-icon.svg"
+          alt=""
+          width="52"
+          height="52"
+          loading="lazy"
+          aria-hidden="true"
+        />
+        <h2 id="status-title" class="section-title">{copy.status.title}</h2>
+        <div class="closing__actions">
           {
-            copy.status.platforms.map((platform) => (
-              <article>
-                <div class="platform-heading">
-                  <h3>{platform.name}</h3>
-                  <p>{platform.state}</p>
-                </div>
-                <p>{platform.detail}</p>
-                {platform.link && (
-                  <a
-                    class="platform-link"
-                    href={platform.link.href}
-                    rel="external"
-                  >
-                    {platform.link.label}
-                    <span aria-hidden="true">↗</span>
-                  </a>
-                )}
-              </article>
+            copy.status.platforms.map((platform, idx) => (
+              <div class="closing__platform">
+                <a
+                  class="button button--store"
+                  href={platform.link.href}
+                  rel="external"
+                >
+                  {idx === 0 ? (
+                    <svg
+                      class="button__icon"
+                      viewBox="0 0 24 24"
+                      width="17"
+                      height="17"
+                      aria-hidden="true"
+                    >
+                      <path d="M16.365 1.43c0 1.14-.493 2.27-1.177 3.08-.744.9-1.99 1.57-2.987 1.57-.12 0-.23-.02-.3-.03-.01-.06-.04-.22-.04-.39 0-1.15.572-2.27 1.206-2.98.804-.94 2.142-1.64 3.248-1.68.03.13.05.28.05.43Zm4.565 15.71c-.03.07-.463 1.58-1.518 3.12-.945 1.34-1.94 2.71-3.43 2.71-1.517 0-1.9-.88-3.63-.88-1.698 0-2.302.91-3.67.91-1.377 0-2.332-1.26-3.428-2.8-1.287-1.82-2.323-4.63-2.323-7.28 0-4.28 2.797-6.55 5.552-6.55 1.448 0 2.675.95 3.6.95.865 0 2.222-1.01 3.902-1.01.613 0 2.886.06 4.374 2.19-.13.09-2.383 1.37-2.383 4.19 0 3.26 2.854 4.42 2.955 4.45Z" />
+                    </svg>
+                  ) : (
+                    <svg
+                      class="button__icon"
+                      viewBox="0 0 24 24"
+                      width="16"
+                      height="16"
+                      aria-hidden="true"
+                    >
+                      <path d="M3.609 1.814 13.792 12 3.61 22.186a1.72 1.72 0 0 1-.61-1.318V3.132c0-.517.232-.982.609-1.318Zm11.244 11.244 2.79 2.79-11.2 6.388 8.41-9.178Zm3.748-2.138 2.41 1.374c.99.565.99 1.99 0 2.555l-2.41 1.374-3.04-3.04 3.04-2.263Zm-3.748-1.106-8.41-9.178 11.2 6.388-2.79 2.79Z" />
+                    </svg>
+                  )}
+                  <span>{platform.link.label}</span>
+                  <span class="button__arrow" aria-hidden="true">↗</span>
+                </a>
+                <span class="closing__platform-name">{platform.name}</span>
+              </div>
             ))
           }
         </div>
-
       </div>
     </section>
-
   </main>
+
+  <script>
+    import { initializeScreenSwitchers } from "../scripts/screen-tabs.mjs";
+
+    initializeScreenSwitchers();
+  </script>
 </SiteLayout>

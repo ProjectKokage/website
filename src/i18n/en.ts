@@ -15,131 +15,90 @@ export const en = {
   navigation: {
     label: "Main navigation",
     homeLabel: "home",
-    items: [
-      { href: "#features", label: "Features" },
-      { href: "#cloud", label: "Kokage Cloud" },
-      { href: "#how", label: "How it works" },
-      { href: "#privacy", label: "Privacy" },
-    ],
+    supportLabel: "Support",
+    cloudLabel: "Kokage Cloud",
+    themeToggleLight: "Switch to light mode",
+    themeToggleDark: "Switch to dark mode",
     languageLabel: "Language",
   },
   hero: {
-    eyebrow: "AI character chat",
-    titleLead: "Talk with a 3D AI character",
-    titleAccentLines: ["on your device or in the cloud."],
-    lede: "Kokage is an app for chatting with a 3D AI character by voice or text. Hear replies spoken aloud and watch your character respond with expressions and gestures. You can chat for free on your device, or start talking right away with Kokage Cloud.",
+    title: "Talk with a 3D AI character.",
+    lede: "Voice, live motion, and 3D avatars—free on your device or instant with Kokage Cloud.",
     appStoreAction: "Download on the App Store",
     googlePlayAction: "Download on Google Play",
-    cloudAction: "Explore Kokage Cloud",
-    notice:
-      "Free to download, and on-device chat is always free. You can also use Kokage Cloud features with Leaf.",
     imageAlt: "Kokage app icon, a mint speech bubble with two leaves",
-  },
-  cloud: {
-    eyebrow: "Kokage Cloud",
-    title: "What you can do with Kokage Cloud",
-    lede: "Use Kokage Cloud to start chatting without downloading a model, design a custom voice, create a new 3D avatar, or generate live body movement. Cloud voices, new looks, and Cloud Motion also work when replies are made on your device.",
-    items: [
-      {
-        label: "Cloud chat",
-        title: "Start talking without a download",
-        body: "Start chatting right after installing the app, without waiting for a model download. You can add the free on-device model later, even from an open chat. When both are set up, Kokage automatically switches to on-device replies if you run out of Leaf.",
-      },
-      {
-        label: "Cloud voices",
-        title: "Make a voice that fits your character",
-        body: "Describe the voice you have in mind and preview three candidates, or clone a voice from a recording of yourself or someone who has given permission. Saved voices speak Japanese, English, or Chinese in expressive tones such as happy, whispered, or sleepy.",
-      },
-      {
-        label: "Create a new look",
-        title: "Create a 3D avatar from words or a picture",
-        body: "From your character's page, describe how your character looks, add a picture, or combine both to make a 3D VRM avatar with an expressive face. Preview the result, apply it to your character, or download the VRM file.",
-      },
-      {
-        label: "Cloud Motion",
-        title: "Movement matched to the conversation",
-        body: "Alongside built-in animations and gestures, Cloud Motion generates body movement matched to what your character is doing in the conversation. It works with both on-device and cloud replies and can be turned on or off anytime.",
-      },
-    ],
-    leafLabel: "Leaf (言の葉)",
-    leafBody:
-      "Kokage Cloud features use Leaf so you only pay for what you use. Leaf packs never expire, and nothing is charged if a request fails before finishing. The wallet in Settings shows your balance and history and lets you buy Leaf packs; on iPhone and iPad, you can also redeem an App Store offer code there. Sign in with Apple (on iPhone and iPad) or Google to use the same Leaf on all your devices, and get free Leaf the first time you sign in with an Apple or Google account that is new to Kokage Cloud.",
-    policyLink: "How Kokage Cloud handles your data",
-  },
-  flow: {
-    eyebrow: "How it works",
-    title: "From your message to your character's reply",
-    lede: "Speak or type a message, and your character answers with voice and movement.",
-    stages: [
-      {
-        label: "Send",
-        title: "Type, speak, or share a photo",
-        detail:
-          "Type a message or speak into the microphone. With a model that supports images, you can also take a photo or choose one from your photo library.",
-      },
-      {
-        label: "Think",
-        title: "On your device or in the cloud",
-        detail:
-          "A model on your device creates a reply for free, or Kokage Cloud answers using your recent conversation and saved memories.",
-      },
-      {
-        label: "Speak",
-        title: "Hear it read aloud",
-        detail:
-          "An on-device voice or a custom cloud voice reads the reply aloud, pronouncing names, dates, times, and numbers naturally.",
-      },
-      {
-        label: "Move",
-        title: "Respond with expressions and gestures",
-        detail:
-          "Your character's mouth moves in time with the voice while animations, gestures, and Cloud Motion match what it is saying.",
-      },
-    ],
+    chatDayAlt: "Kokage iPhone screenshot of daytime 3D character conversation",
+    chatNightAlt:
+      "Kokage iPhone screenshot of starry-night 3D character conversation",
   },
   features: {
-    eyebrow: "Features",
-    title: "A 3D character who talks, listens, remembers, and moves",
-    lede: "Each character keeps its own conversation history, memories, voice, and 3D look.",
+    title: "Talk naturally.",
+    lede: "Built for responsive 3D conversation on iPhone, iPad, and Android.",
+    switcherLabel: "App screens",
+    photoTab: "Photo chat",
+    personalityTab: "Personality",
+    charactersTab: "Custom VRM",
+    photoAlt: "Kokage iPhone screenshot showing photo sharing in chat",
+    personalityAlt:
+      "Kokage iPhone screenshot showing character personality and style settings",
+    charactersAlt:
+      "Kokage iPhone screenshot showing a custom 3D VRM avatar chatting live",
     items: [
       {
-        title: "Free on your device, or instant with Kokage Cloud",
-        body: "Download a language model once to chat on your device for free, even offline. Kokage recommends a model that fits your device, or you can add a compatible public Hugging Face model. You can also start with Kokage Cloud and download the free on-device model later.",
+        title: "Voice, text & photos",
+        body: "Talk aloud in Japanese, English, or Chinese, or share a photo right in chat.",
       },
       {
-        title: "Keep multiple characters",
-        body: "Register as many characters as you like, each with its own chat history, memories, voice, and 3D avatar. Start with the included character or your own VRM file, import character cards from a file or link, and export the cards you create to share or use on another device.",
+        title: "Free on-device chat",
+        body: "Download a recommended or public Hugging Face model to chat privately offline.",
       },
       {
-        title: "Customize personality, style, and language",
-        body: "Adjust your character's personality, tone, reply length, how often it starts a conversation, and how expressive its voice sounds. Characters can talk in Japanese, English, or Chinese (Simplified or Traditional), or match the language of your latest message, with reading marks so names are pronounced properly.",
-      },
-      {
-        title: "Talk by voice and share photos",
-        body: "What you say into the microphone is transcribed right on your device. Hear replies from an on-device voice (Japanese or English) or a cloud voice (Japanese, English, or Chinese). With an image-capable model, take a photo or choose one from your library—and when you switch to the rear camera, your character turns around too.",
-      },
-      {
-        title: "Memories and notes you can review and edit",
-        body: "Your character remembers useful details from your conversations and shows a notice whenever a new memory is saved, with Undo for the latest one. Open the Memory page anytime to view, edit, or delete entries, or add shared notes that all of your characters can reference.",
-      },
-      {
-        title: "Mouth and body movement in sync with speech",
-        body: "Your character changes posture as it listens, thinks, and speaks, moving its mouth in time with the voice. It can nod, shake its head, bow, or cheer, and enabling Cloud Motion adds live movement matched to the action.",
-      },
-      {
-        title: "A place of its own",
-        body: "Choose where your character stands: a clear, overcast, sunset, or night sky; grass, sand, a wood floor, or a stage; and a bench, lamp, tree, or stones. Let the sky follow the time of day, or use your own picture as the sky, behind your character, or as the whole background.",
-      },
-      {
-        title: "Chat invitations and Apple Home",
-        body: "Turn on invitations to chat to receive a daily greeting or a message after time away. On iPhone and iPad, you can also connect Apple Home so your character can check device statuses and operate them when you ask.",
+        title: "Personality & VRM avatars",
+        body: "Shape tone and style, keep multiple characters, or load your own VRM file.",
       },
     ],
   },
+  cloud: {
+    title: "Kokage Cloud",
+    lede: "Optional pay-as-you-go Leaf. Packs never expire.",
+    switcherLabel: "Kokage Cloud screens",
+    motionTab: "Cloud Motion",
+    voiceTab: "Cloud voices",
+    newlookTab: "Create a new look",
+    motionAlt:
+      "In-app iPhone video of Kokage Cloud Motion animating a character peering across a sunny meadow",
+    motionPauseLabel: "Pause Cloud Motion video",
+    motionPlayLabel: "Play Cloud Motion video",
+    voiceAlt: "Kokage iPhone screenshot of creating a custom Cloud voice",
+    newlookAlt:
+      "Kokage iPhone screenshot of creating a new 3D VRM look with Kokage Cloud",
+    items: [
+      {
+        title: "Cloud chat",
+        body: "Start right away, no model download needed.",
+      },
+      {
+        title: "Cloud voices",
+        body: "Design or clone expressive voices.",
+      },
+      {
+        title: "Create a new look",
+        body: "Generate a 3D VRM from words or a photo.",
+      },
+      {
+        title: "Cloud Motion",
+        body: "Live movement matched to the moment.",
+      },
+    ],
+    accountLink: "Manage Kokage Cloud account",
+  },
   privacy: {
-    eyebrow: "Privacy",
-    title: "Built to keep your conversations in your hands",
-    lede: "When replies are made on your device, your conversations stay on your device. Voice input is transcribed on your device, so your everyday spoken audio is never uploaded, and the app contains no advertising or analytics. When you use Kokage Cloud, the app explains what is sent beforehand, and you can manage or delete your memories, notes, and cloud account at any time.",
+    title: "Private by default.",
+    points: [
+      "Local chats stay on your device.",
+      "Local speech recognition.",
+      "No ads or tracking.",
+    ],
     policyLink: "Read the privacy policy",
   },
   privacyPolicy: {
@@ -152,8 +111,8 @@ export const en = {
     title: "What Kokage keeps on your device and what its cloud features send",
     lede: "This page explains what the Kokage app saves on your device, what it sends to Kokage Cloud and external services, when that happens, and how you can manage or delete your data.",
     updatedLabel: "Last updated",
-    updatedDate: "2026-11-22",
-    updatedDateDisplay: "November 22, 2026",
+    updatedDate: "2026-11-27",
+    updatedDateDisplay: "November 27, 2026",
     highlightsLabel: "Policy summary",
     highlights: [
       "When replies are made on your device, your conversation stays on your device",
@@ -167,7 +126,7 @@ export const en = {
         id: "scope",
         title: "Scope",
         paragraphs: [
-          "This policy describes how data is handled by the Kokage app, Kokage Cloud, and this website as of November 22, 2026.",
+          "This policy describes how data is handled by the Kokage app, Kokage Cloud, and this website as of November 27, 2026.",
           "The sections about Kokage Cloud apply to versions of the app that include Kokage Cloud: the App Store version for iPhone and iPad and the Google Play version for Android.",
           "External websites and download hosts that you connect to from the app handle requests under their own privacy policies.",
         ],
@@ -443,8 +402,8 @@ export const en = {
         ],
         items: [
           {
-            title: "Language setting",
-            body: "On your first visit, the site checks your browser's language setting, and saves the chosen language code ('en', 'ja', 'zh-hans', or 'zh-hant') under kokage-language in local storage only if you manually switch languages. Clearing your browser's site data removes it.",
+            title: "Language and theme settings",
+            body: "On your first visit, the site checks your browser's language and color-scheme settings. It saves the chosen language code ('en', 'ja', 'zh-hans', or 'zh-hant') under kokage-language in local storage only if you manually switch languages, and saves your chosen theme ('light' or 'dark') under kokage-theme in local storage only if you manually switch between light and dark mode. Clearing your browser's site data removes both.",
           },
           {
             title: "Page delivery",
@@ -452,7 +411,7 @@ export const en = {
           },
           {
             title: "Google Fonts",
-            body: "This site loads the Zen Maru Gothic font from Google Fonts, which receives standard request data needed to serve the font.",
+            body: "English and Japanese pages load the Zen Maru Gothic font from Google Fonts, which receives standard request data needed to serve the font. Simplified and Traditional Chinese pages use system fonts and do not load Google Fonts.",
             link: {
               href: "https://developers.google.com/fonts/faq/privacy",
               label: "Google Fonts privacy information",
@@ -479,13 +438,13 @@ export const en = {
     },
     eyebrow: "Kokage support",
     title: "Support for Kokage",
-    lede: "Find download links, simple tips when something is not working as expected, and how to reach us safely.",
+    lede: "Download links, quick troubleshooting, and how to reach us.",
     highlightsLabel: "Quick guide",
     highlights: [
-      "Download Kokage for free on the App Store for iPhone and iPad, or on Google Play for Android",
-      "You can always keep chatting by typing if voice, camera, 3D view, or cloud features are unavailable",
-      "Please do not include private conversations, recordings, photos, or VRM files when emailing support",
-      "Our support team cannot remotely view, restore, or erase conversations or memories stored on your device",
+      "Free on the App Store (iPhone and iPad) and Google Play (Android)",
+      "Keep chatting by text even if voice, camera, or cloud is unavailable",
+      "Never send private chats, recordings, photos, or VRM files by email",
+      "Support cannot view, recover, or delete data stored on your device",
     ],
     contentsLabel: "On this page",
     sections: [
@@ -493,13 +452,12 @@ export const en = {
         id: "availability",
         title: "Downloading Kokage",
         paragraphs: [
-          "Kokage is free to download from the official app stores. We do not offer direct file downloads from this website.",
-          "Both the App Store version for iPhone and iPad and the Google Play version for Android include free on-device chat and the optional Kokage Cloud features with Leaf packs.",
+          "Download Kokage for free from the official stores. Both the App Store version for iPhone and iPad and the Google Play version for Android include free on-device chat and optional Kokage Cloud features.",
         ],
         items: [
           {
             title: "iPhone and iPad",
-            body: "Download Kokage from the App Store.",
+            body: "Download from the App Store.",
             link: {
               href: storeListings.appStore,
               label: "View on the App Store",
@@ -507,7 +465,7 @@ export const en = {
           },
           {
             title: "Android",
-            body: "Download Kokage from Google Play.",
+            body: "Download from Google Play.",
             link: {
               href: storeListings.googlePlay,
               label: "View on Google Play",
@@ -517,22 +475,22 @@ export const en = {
       },
       {
         id: "troubleshooting",
-        title: "When something is not working",
+        title: "Troubleshooting",
         paragraphs: [
-          "If something goes wrong during a chat, Kokage shows a short tip above the message box and keeps what you were typing in place so you can send it again right away. For on-device replies, make sure the initial model and voice download has finished and that your device has enough free storage.",
+          "When something goes wrong, Kokage shows a tip above the input box and keeps your draft intact.",
         ],
         items: [
           {
-            title: "An on-device model does not start",
-            body: "Check the message shown in the app and make sure the model download is complete in Settings. If your device is low on memory, switching to the recommended model for your device helps it run smoothly.",
+            title: "On-device model won't start",
+            body: "Confirm the model download finished in Settings and check free storage. If memory is tight, switch to the recommended model for your device.",
           },
           {
-            title: "Voice, camera, or 3D view is unavailable",
-            body: "Whenever voice, camera, or 3D display is temporarily unavailable, you can keep chatting by typing. Retry voice input or check that microphone and camera permissions are enabled for Kokage in your device's system settings.",
+            title: "Voice, camera, or 3D view unavailable",
+            body: "You can always keep typing. Retry voice input or check that microphone and camera permissions are enabled for Kokage in system settings.",
           },
           {
-            title: "A Kokage Cloud feature pauses or takes a moment",
-            body: "Check your internet connection and your Leaf balance in the wallet in Settings. You can add Leaf packs in the wallet, and on iPhone and iPad you can also tap 'Redeem a code' there. If Leaf runs out while an on-device model is installed, Kokage automatically switches to on-device replies. Cloud voice and motion servers also rest when idle, so the first request after a quiet period can take about a minute to warm up while you continue chatting by text. If an avatar or voice creation cannot be completed, no Leaf is spent.",
+            title: "Kokage Cloud pauses or warms up",
+            body: "Check your connection and Leaf balance in Settings. Idle voice and motion servers can take about a minute to warm up on the first request; failed creations cost no Leaf.",
           },
         ],
       },
@@ -540,51 +498,44 @@ export const en = {
         id: "kokage-cloud",
         title: "Kokage Cloud account and Leaf",
         paragraphs: [
-          "Kokage Cloud creates an account for you automatically without asking for an email address or password. Your saved cloud voices, created avatars, and Leaf balance stay with that account. To use them on another device, or to keep them if you lose this one, sign in with Apple (on iPhone and iPad) or Google in Settings → Kokage Cloud, then sign in with the same account on the other device. If you never sign in, the account stays on this device and cannot be recovered if the device is lost.",
-          "If you ever wish to remove your cloud account, use 'Delete Kokage Cloud account' in Settings. Deleting the account forfeits any remaining Leaf without refund, while keeping your characters, conversations, memories, notes, and avatars already in use on your device.",
+          "Sign in with Apple (on iPhone and iPad) or Google in Settings → Kokage Cloud to sync your Leaf, voices, and avatars across devices.",
+          "To remove your cloud account, use 'Delete Kokage Cloud account' in Settings. Unused Leaf is forfeited, while local characters and chats stay on your device.",
         ],
       },
       {
         id: "permissions",
-        title: "Camera and microphone settings",
+        title: "Camera and microphone",
         paragraphs: [
-          "Kokage asks for camera access only when you take a photo for a message or a new avatar look, and asks for microphone access before voice input or voice cloning. If you prefer not to grant them, you can still enjoy typed conversation.",
-          "If a permission prompt no longer appears, check Kokage's permissions in your device's system settings before reinstalling the app.",
+          "Kokage asks for camera access only when taking a photo and microphone access before voice input or voice cloning. If a prompt stops appearing, check system settings before reinstalling.",
         ],
       },
       {
         id: "local-data",
         title: "Your data and privacy",
         paragraphs: [
-          "Your on-device conversations, memories, notes, characters, and downloaded models or VRM files stay on your device, and cloud features send only what the privacy policy describes. Support cannot remotely view, recover, or delete data stored on your device.",
-          "You can review, edit, or delete memories and notes, and remove characters from your library, right inside the app at any time. Uninstalling Kokage removes all remaining app data from your device.",
+          "Local chats, memories, characters, and VRM files stay on your device, and cloud features send only what the privacy policy describes. You can edit or delete memories and notes in the app (removing a character from your library takes it off your list without deleting its conversations), or uninstall Kokage to remove all local data including conversations.",
         ],
       },
       {
         id: "contact",
         title: "Contact us",
         paragraphs: [
-          "If you have a question or run into an issue, email user_support@orcalogy.com with your device model, OS version, app version, the message shown on screen (or the summary from Settings → Show details), and a brief description of what happened.",
-          "To protect your privacy, please do not send private conversations, voice recordings, photos, or VRM files by email. Please note that we cannot promise a specific response time.",
-          "To report an offensive AI reply or voice misuse, use the in-app Report option. You can review what will be sent before confirming, and if you later want the report deleted, email user_support@orcalogy.com with the Reference ID shown in the app.",
+          "Email user_support@orcalogy.com with your device, OS version, app version, and a brief summary (from Settings → Show details). Do not attach private chats, audio, photos, or VRM files; we cannot promise a specific response time.",
+          "To report an offensive reply or voice misuse, use the in-app Report option. To delete a report later, email user_support@orcalogy.com with its Reference ID.",
         ],
       },
     ],
     contactLabel: "Email Kokage support",
     contactEmail: "user_support@orcalogy.com",
+    cloudLinkLabel: "Kokage Cloud account",
     privacyLinkLabel: "Read the privacy policy",
     backHomeLabel: "Back to Kokage",
   },
   status: {
-    eyebrow: "Platforms",
     title: "Get Kokage",
-    lede: "Download Kokage for free on the App Store for iPhone and iPad, or on Google Play for Android.",
     platforms: [
       {
         name: "iPhone and iPad",
-        state: "Available on the App Store",
-        detail:
-          "Includes free on-device chat and all optional Kokage Cloud features (cloud chat, cloud voices, 3D avatar creation, and Cloud Motion), plus voice input and speech, photo sharing, daily greetings, and Apple Home support.",
         link: {
           href: storeListings.appStore,
           label: "View on the App Store",
@@ -592,9 +543,6 @@ export const en = {
       },
       {
         name: "Android",
-        state: "Available on Google Play",
-        detail:
-          "Includes free on-device chat and all optional Kokage Cloud features (cloud chat, cloud voices, 3D avatar creation, and Cloud Motion), plus voice input and speech, photo sharing, daily greetings, and 3D VRM characters.",
         link: {
           href: storeListings.googlePlay,
           label: "View on Google Play",
@@ -603,8 +551,9 @@ export const en = {
     ],
   },
   footer: {
-    descriptor: "AI character chat",
+    descriptor: "3D AI character chat",
     statusLink: "Platforms",
+    cloudLink: "Kokage Cloud",
     privacyLink: "Privacy policy",
     supportLink: "Support",
     xLink: "Kokage on X",
