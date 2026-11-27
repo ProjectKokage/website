@@ -115,6 +115,8 @@ export interface SiteCopy {
     voiceTab: string;
     newlookTab: string;
     motionAlt: string;
+    motionPauseLabel: string;
+    motionPlayLabel: string;
     voiceAlt: string;
     newlookAlt: string;
     items: Array<{

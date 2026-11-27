@@ -65,6 +65,8 @@ export const ja = {
     newlookTab: "新しい見た目を作る",
     motionAlt:
       "こかげのクラウドモーションでキャラクターが草原を見渡すiPhone画面の動画",
+    motionPauseLabel: "クラウドモーションの動画を停止",
+    motionPlayLabel: "クラウドモーションの動画を再生",
     voiceAlt: "クラウドの声を作成するこかげのiPhone画面",
     newlookAlt: "新しい見た目を作る画面で3Dアバターを生成するこかげのiPhone画面",
     items: [
@@ -106,8 +108,8 @@ export const ja = {
     title: "こかげが端末に保存するデータと、クラウド機能が送信するデータ",
     lede: "このページでは、こかげアプリが端末に保存するデータ、Kokage Cloud や外部サービスへ送信するデータとそのタイミング、そしてデータを自分で管理・削除する方法を説明します。",
     updatedLabel: "最終更新日",
-    updatedDate: "2026-11-22",
-    updatedDateDisplay: "2026年11月22日",
+    updatedDate: "2026-11-27",
+    updatedDateDisplay: "2026年11月27日",
     highlightsLabel: "ポリシーの要点",
     highlights: [
       "ローカルモデルで会話するとき、やり取りは端末の外へ送信されません",
@@ -121,7 +123,7 @@ export const ja = {
         id: "scope",
         title: "対象範囲",
         paragraphs: [
-          "本ポリシーは、2026年11月22日時点のこかげアプリ、Kokage Cloud、およびこのウェブサイトにおけるデータの扱いをまとめたものです。",
+          "本ポリシーは、2026年11月27日時点のこかげアプリ、Kokage Cloud、およびこのウェブサイトにおけるデータの扱いをまとめたものです。",
           "Kokage Cloud に関する説明は、Kokage Cloud に対応するバージョン（iPhoneとiPad向けのApp Store版、およびAndroid向けのGoogle Play版）に適用されます。",
           "モデルのダウンロード先や外部リンクなど、ユーザーの操作によって接続する外部サービスには、それぞれの事業者のプライバシーポリシーが適用されます。",
         ],
@@ -397,8 +399,8 @@ export const ja = {
         ],
         items: [
           {
-            title: "表示言語の記憶",
-            body: "初めて開いたときにブラウザーの言語設定を参照し、画面上の言語メニューで言語を選んだときに限って、選んだ言語のコード（「en」「ja」「zh-hans」「zh-hant」のいずれか）だけをブラウザーのローカルストレージ（kokage-language）に保存します。ブラウザーのサイトデータを消去すればいつでもリセットできます。",
+            title: "表示言語とテーマの記憶",
+            body: "初めて開いたときにブラウザーの言語設定と外観設定を参照します。言語メニューで言語を選んだときは選んだ言語コード（「en」「ja」「zh-hans」「zh-hant」のいずれか）を、ライト・ダークモードを切り替えたときは選んだテーマ（「light」または「dark」）を、それぞれブラウザーのローカルストレージ（kokage-language、kokage-theme）に保存します。ブラウザーのサイトデータを消去すればいつでもリセットできます。",
           },
           {
             title: "ページの配信",
@@ -406,7 +408,7 @@ export const ja = {
           },
           {
             title: "Google Fonts",
-            body: "画面のフォント（Zen Maru Gothic）を表示するためにGoogle Fontsを読み込んでおり、フォント配信に必要な通常の通信情報がGoogleに送られます。",
+            body: "英語および日本語のページでは、画面のフォント（Zen Maru Gothic）を表示するためにGoogle Fontsを読み込んでおり、フォント配信に必要な通常の通信情報がGoogleに送られます。簡体字・繁体字中国語のページでは端末のシステムフォントを使用し、Google Fontsは読み込みません。",
             link: {
               href: "https://developers.google.com/fonts/faq/privacy?hl=ja",
               label: "Google Fontsのプライバシー情報",
@@ -508,7 +510,7 @@ export const ja = {
         id: "local-data",
         title: "データの管理とプライバシー",
         paragraphs: [
-          "会話や記憶、VRMはお使いの端末に保存され、クラウド機能はプライバシーポリシーに記載したデータだけを送信します。アプリ内で削除できるほか、アンインストールで全消去できます。",
+          "会話や記憶、VRMはお使いの端末に保存され、クラウド機能はプライバシーポリシーに記載したデータだけを送信します。記憶やメモはアプリ内で編集・削除でき（キャラクターをライブラリから取り除いても会話は消えません）、会話を含む端末内のすべてのデータはアンインストールで消去できます。",
         ],
       },
       {

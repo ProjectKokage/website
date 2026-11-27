@@ -54,7 +54,7 @@ export const en = {
       },
       {
         title: "Personality & VRM avatars",
-        body: "Shape tone and style, keep multiple characters, or load any VRM file.",
+        body: "Shape tone and style, keep multiple characters, or load your own VRM file.",
       },
     ],
   },
@@ -67,6 +67,8 @@ export const en = {
     newlookTab: "Create a new look",
     motionAlt:
       "In-app iPhone video of Kokage Cloud Motion animating a character peering across a sunny meadow",
+    motionPauseLabel: "Pause Cloud Motion video",
+    motionPlayLabel: "Play Cloud Motion video",
     voiceAlt: "Kokage iPhone screenshot of creating a custom Cloud voice",
     newlookAlt:
       "Kokage iPhone screenshot of creating a new 3D VRM look with Kokage Cloud",
@@ -109,8 +111,8 @@ export const en = {
     title: "What Kokage keeps on your device and what its cloud features send",
     lede: "This page explains what the Kokage app saves on your device, what it sends to Kokage Cloud and external services, when that happens, and how you can manage or delete your data.",
     updatedLabel: "Last updated",
-    updatedDate: "2026-11-22",
-    updatedDateDisplay: "November 22, 2026",
+    updatedDate: "2026-11-27",
+    updatedDateDisplay: "November 27, 2026",
     highlightsLabel: "Policy summary",
     highlights: [
       "When replies are made on your device, your conversation stays on your device",
@@ -124,7 +126,7 @@ export const en = {
         id: "scope",
         title: "Scope",
         paragraphs: [
-          "This policy describes how data is handled by the Kokage app, Kokage Cloud, and this website as of November 22, 2026.",
+          "This policy describes how data is handled by the Kokage app, Kokage Cloud, and this website as of November 27, 2026.",
           "The sections about Kokage Cloud apply to versions of the app that include Kokage Cloud: the App Store version for iPhone and iPad and the Google Play version for Android.",
           "External websites and download hosts that you connect to from the app handle requests under their own privacy policies.",
         ],
@@ -400,8 +402,8 @@ export const en = {
         ],
         items: [
           {
-            title: "Language setting",
-            body: "On your first visit, the site checks your browser's language setting, and saves the chosen language code ('en', 'ja', 'zh-hans', or 'zh-hant') under kokage-language in local storage only if you manually switch languages. Clearing your browser's site data removes it.",
+            title: "Language and theme settings",
+            body: "On your first visit, the site checks your browser's language and color-scheme settings. It saves the chosen language code ('en', 'ja', 'zh-hans', or 'zh-hant') under kokage-language in local storage only if you manually switch languages, and saves your chosen theme ('light' or 'dark') under kokage-theme in local storage only if you manually switch between light and dark mode. Clearing your browser's site data removes both.",
           },
           {
             title: "Page delivery",
@@ -409,7 +411,7 @@ export const en = {
           },
           {
             title: "Google Fonts",
-            body: "This site loads the Zen Maru Gothic font from Google Fonts, which receives standard request data needed to serve the font.",
+            body: "English and Japanese pages load the Zen Maru Gothic font from Google Fonts, which receives standard request data needed to serve the font. Simplified and Traditional Chinese pages use system fonts and do not load Google Fonts.",
             link: {
               href: "https://developers.google.com/fonts/faq/privacy",
               label: "Google Fonts privacy information",
@@ -511,7 +513,7 @@ export const en = {
         id: "local-data",
         title: "Your data and privacy",
         paragraphs: [
-          "Local chats, memories, characters, and VRM files stay on your device, and cloud features send only what the privacy policy describes. Edit or delete items in the app, or uninstall to remove all local data.",
+          "Local chats, memories, characters, and VRM files stay on your device, and cloud features send only what the privacy policy describes. You can edit or delete memories and notes in the app (removing a character from your library takes it off your list without deleting its conversations), or uninstall Kokage to remove all local data including conversations.",
         ],
       },
       {

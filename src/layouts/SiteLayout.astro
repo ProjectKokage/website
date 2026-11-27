@@ -86,6 +86,29 @@ const schema = jsonLdText(
         }
       })();
     </script>
+    <noscript>
+      <style>
+        [data-theme-toggle],
+        .screen-tabs,
+        [data-motion-toggle] {
+          display: none !important;
+        }
+        [data-screen-switcher] .device-frame {
+          aspect-ratio: auto;
+        }
+        [data-screen-switcher] .device-frame__screen {
+          display: flex;
+          flex-direction: column;
+          gap: 8px;
+        }
+        [data-screen-switcher] .device-screen--switchable {
+          position: static;
+          opacity: 1;
+          visibility: visible;
+          pointer-events: auto;
+        }
+      </style>
+    </noscript>
 
     {
       loadZenMaruGothic && (

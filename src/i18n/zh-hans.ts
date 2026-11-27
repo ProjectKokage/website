@@ -51,7 +51,7 @@ export const zhHans = {
       },
       {
         title: "人物设定与 VRM 形象",
-        body: "自定义语气与风格，创建多个角色，或载入任意 VRM 文件。",
+        body: "自定义语气与风格，创建多个角色，或载入自己的 VRM 文件。",
       },
     ],
   },
@@ -63,6 +63,8 @@ export const zhHans = {
     voiceTab: "云端声音",
     newlookTab: "制作新形象",
     motionAlt: "Kokage 云端动作在 iPhone 画面中驱动角色眺望草地的实录视频",
+    motionPauseLabel: "暂停云端动作视频",
+    motionPlayLabel: "播放云端动作视频",
     voiceAlt: "Kokage 制作云端声音的 iPhone 截图",
     newlookAlt: "Kokage 通过 Kokage Cloud 制作新 3D 形象的 iPhone 截图",
     items: [
@@ -86,7 +88,7 @@ export const zhHans = {
     accountLink: "管理 Kokage Cloud 账户",
   },
   privacy: {
-    title: "对话默认留在本地。",
+    title: "隐私优先设计。",
     points: [
       "本地对话始终留在你的设备上。",
       "语音输入完全在本地转写。",
@@ -104,8 +106,8 @@ export const zhHans = {
     title: "Kokage 在你的设备上保存什么，以及云端功能发送什么",
     lede: "本页说明 Kokage 应用在你的设备上保存哪些内容、会向 Kokage Cloud 和外部服务发送哪些内容、何时发送，以及你如何管理或删除自己的数据。",
     updatedLabel: "最后更新",
-    updatedDate: "2026-11-22",
-    updatedDateDisplay: "2026年11月22日",
+    updatedDate: "2026-11-27",
+    updatedDateDisplay: "2026年11月27日",
     highlightsLabel: "政策摘要",
     highlights: [
       "使用本地模型生成回复时，你的对话会保留在设备上",
@@ -119,7 +121,7 @@ export const zhHans = {
         id: "scope",
         title: "适用范围",
         paragraphs: [
-          "本政策说明截至 2026年11月22日，Kokage 应用、Kokage Cloud 及本网站如何处理数据。",
+          "本政策说明截至 2026年11月27日，Kokage 应用、Kokage Cloud 及本网站如何处理数据。",
           "有关 Kokage Cloud 的部分适用于包含 Kokage Cloud 的应用版本：iPhone 和 iPad 的 App Store 版本，以及 Android 的 Google Play 版本。",
           "你从应用中连接的外部网站和下载服务器会依据其各自的隐私政策处理请求。",
         ],
@@ -395,8 +397,8 @@ export const zhHans = {
         ],
         items: [
           {
-            title: "语言设置",
-            body: "首次访问时，本网站会检查你浏览器的语言设置；只有当你手动切换语言时，才会在本地存储的 kokage-language 下保存所选语言代码（“en”“ja”“zh-hans”或“zh-hant”）。清除浏览器的网站数据即可将其删除。",
+            title: "语言与主题设置",
+            body: "首次访问时，本网站会检查你浏览器的语言与外观设置。只有当你手动切换语言时，才会在本地存储的 kokage-language 下保存所选语言代码（“en”“ja”“zh-hans”或“zh-hant”）；只有当你手动切换浅色或深色模式时，才会在本地存储的 kokage-theme 下保存所选主题（“light”或“dark”）。清除浏览器的网站数据即可将其全部删除。",
           },
           {
             title: "页面访问与托管",
@@ -404,7 +406,7 @@ export const zhHans = {
           },
           {
             title: "Google Fonts",
-            body: "本网站从 Google Fonts 加载 Zen Maru Gothic 字体，Google Fonts 会收到提供该字体所需的标准请求数据。",
+            body: "英语和日语页面会从 Google Fonts 加载 Zen Maru Gothic 字体，Google Fonts 会收到提供该字体所需的标准请求数据。简体中文和繁体中文页面使用系统字体，不会加载 Google Fonts。",
             link: {
               href: "https://developers.google.com/fonts/faq/privacy",
               label: "Google Fonts 隐私信息",
@@ -506,7 +508,7 @@ export const zhHans = {
         id: "local-data",
         title: "你的数据与隐私",
         paragraphs: [
-          "本地对话、记忆、角色和 VRM 文件保留在设备上，云端功能仅发送隐私政策所述内容。应用内可随时删除，卸载即可清除全部本地数据。",
+          "本地对话、记忆、角色和 VRM 文件保留在设备上，云端功能仅发送隐私政策所述内容。你可以在应用内编辑或删除记忆与笔记（将角色从人物库移除不会删除其对话），卸载 Kokage 即可清除包括对话在内的全部本地数据。",
         ],
       },
       {

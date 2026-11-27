@@ -29,7 +29,6 @@ function applyTheme(theme) {
   document.documentElement.dataset.theme = theme;
   for (const button of document.querySelectorAll("[data-theme-toggle]")) {
     const isDark = theme === "dark";
-    button.setAttribute("aria-pressed", String(isDark));
     const nextLabel = isDark
       ? button.getAttribute("data-label-light")
       : button.getAttribute("data-label-dark");

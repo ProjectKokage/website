@@ -51,7 +51,7 @@ export const zhHant = {
       },
       {
         title: "人物設定與 VRM 形象",
-        body: "自訂語氣與風格，建立多個角色，或載入任意 VRM 檔案。",
+        body: "自訂語氣與風格，建立多個角色，或載入自己的 VRM 檔案。",
       },
     ],
   },
@@ -63,6 +63,8 @@ export const zhHant = {
     voiceTab: "雲端聲音",
     newlookTab: "製作新形象",
     motionAlt: "Kokage 雲端動作在 iPhone 畫面中驅動角色眺望草地的實錄影片",
+    motionPauseLabel: "暫停雲端動作影片",
+    motionPlayLabel: "播放雲端動作影片",
     voiceAlt: "Kokage 製作雲端聲音的 iPhone 截圖",
     newlookAlt: "Kokage 透過 Kokage Cloud 製作新 3D 形象的 iPhone 截圖",
     items: [
@@ -86,7 +88,7 @@ export const zhHant = {
     accountLink: "管理 Kokage Cloud 帳戶",
   },
   privacy: {
-    title: "對話預設留在本機。",
+    title: "隱私優先設計。",
     points: [
       "本機對話始終留在你的裝置上。",
       "語音輸入完全在本機轉寫。",
@@ -104,8 +106,8 @@ export const zhHant = {
     title: "Kokage 在你的裝置上儲存什麼，以及雲端功能傳送什麼",
     lede: "本頁說明 Kokage App 會在你的裝置上儲存哪些內容、會向 Kokage Cloud 和外部服務傳送哪些內容、何時傳送，以及你如何管理或刪除自己的資料。",
     updatedLabel: "最後更新",
-    updatedDate: "2026-11-22",
-    updatedDateDisplay: "2026年11月22日",
+    updatedDate: "2026-11-27",
+    updatedDateDisplay: "2026年11月27日",
     highlightsLabel: "政策摘要",
     highlights: [
       "使用本機模型產生回覆時，你的對話會留在裝置上",
@@ -119,7 +121,7 @@ export const zhHant = {
         id: "scope",
         title: "適用範圍",
         paragraphs: [
-          "本政策說明截至 2026年11月22日，Kokage App、Kokage Cloud 及本網站如何處理資料。",
+          "本政策說明截至 2026年11月27日，Kokage App、Kokage Cloud 及本網站如何處理資料。",
           "與 Kokage Cloud 相關的段落適用於包含 Kokage Cloud 的 App 版本：iPhone 和 iPad 的 App Store 版本，以及 Android 的 Google Play 版本。",
           "你從 App 連線的外部網站和下載伺服器，會依據其各自的隱私權政策處理請求。",
         ],
@@ -395,8 +397,8 @@ export const zhHant = {
         ],
         items: [
           {
-            title: "語言設定",
-            body: "第一次造訪時，本網站會檢查你瀏覽器的語言設定；只有在你手動切換語言時，才會在本機儲存空間的 kokage-language 下儲存所選的語言代碼（「en」「ja」「zh-hans」或「zh-hant」）。清除瀏覽器的網站資料即可將其刪除。",
+            title: "語言與主題設定",
+            body: "第一次造訪時，本網站會檢查你瀏覽器的語言與外觀設定。只有在你手動切換語言時，才會在本機儲存空間的 kokage-language 下儲存所選的語言代碼（「en」「ja」「zh-hans」或「zh-hant」）；只有在你手動切換淺色或深色模式時，才會在本機儲存空間的 kokage-theme 下儲存所選主題（「light」或「dark」）。清除瀏覽器的網站資料即可將其全部刪除。",
           },
           {
             title: "網頁存取與託管",
@@ -404,7 +406,7 @@ export const zhHant = {
           },
           {
             title: "Google Fonts",
-            body: "本網站從 Google Fonts 載入 Zen Maru Gothic 字型，Google Fonts 會收到提供該字型所需的標準請求資料。",
+            body: "英語與日語頁面會從 Google Fonts 載入 Zen Maru Gothic 字型，Google Fonts 會收到提供該字型所需的標準請求資料。簡體中文與繁體中文頁面使用系統字型，不會載入 Google Fonts。",
             link: {
               href: "https://developers.google.com/fonts/faq/privacy",
               label: "Google Fonts 隱私權資訊",
@@ -506,7 +508,7 @@ export const zhHant = {
         id: "local-data",
         title: "你的資料與隱私權",
         paragraphs: [
-          "本機對話、記憶、角色和 VRM 檔案留在裝置上，雲端功能僅傳送隱私權政策所述內容。App 內可隨時刪除，解除安裝即可清除所有本機資料。",
+          "本機對話、記憶、角色和 VRM 檔案留在裝置上，雲端功能僅傳送隱私權政策所述內容。你可以在 App 內編輯或刪除記憶與筆記（將角色從人物庫移除不會刪除其對話），解除安裝 Kokage 即可清除包含對話在內的所有本機資料。",
         ],
       },
       {

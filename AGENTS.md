@@ -19,12 +19,15 @@ Inspect the working tree, preserve unrelated work and state scope and checks.
   static site, route structure, accessibility and all four language versions.
 - Keep translations, navigation, canonical URLs, metadata, privacy and support
   pages consistent. Verify copy against its source rather than inventing claims.
-- Link only to the approved App Store and Google Play listings and Kokage's
-  X and Discord links defined in `src/i18n/routes.ts`. Do not add testimonials, usage figures, compatibility
-  badges or unverified availability promises without approval in the owning
-  release record.
-- Preserve the branding sources recorded in README. Do not add VRM renders,
-  screenshots, generated motion, models, voices or restricted product assets.
+- Link only to the approved App Store and Google Play listings, `kokage.cloud`,
+  and Kokage's X and Discord links defined in `src/i18n/routes.ts`. Do not add
+  testimonials, usage figures, compatibility badges or unverified availability
+  promises without approval in the owning release record.
+- Preserve the branding sources recorded in README. Curated real in-app
+  screenshots under `public/screenshots/` and the real in-app Cloud Motion
+  screen recording under `public/media/` are permitted with owner approval; do
+  not add synthetic VRM renders, non-in-app mockups, VRM binaries, raw motion
+  data, model weights, voices or other restricted product assets.
 - Use the Node version required by package.json and the committed npm lockfile.
   Do not upgrade packages as routine setup. Keep credentials out of Git and
   client-side code.

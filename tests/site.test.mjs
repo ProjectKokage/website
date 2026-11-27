@@ -174,6 +174,11 @@ function assertPage(
   assert.match(html, /poster="\/media\/cloud-motion-poster\.webp"/);
   assert.match(html, /src="\/media\/cloud-motion\.mp4" type="video\/mp4"/);
   assert.match(html, /src="\/media\/cloud-motion\.webm" type="video\/webm"/);
+  assert.doesNotMatch(html, /<video[^>]*\bautoplay\b/);
+  assert.match(html, /data-motion-toggle/);
+  assert.match(html, /role="tablist"/);
+  assert.match(html, /role="tab"/);
+  assert.match(html, /role="tabpanel"/);
   assert.ok(html.indexOf('id="features"') < html.indexOf('id="cloud"'));
   assert.ok(html.indexOf('id="cloud"') < html.indexOf('id="privacy"'));
   assert.match(html, /<ul class="editorial-list" role="list">/);
@@ -312,7 +317,7 @@ test("privacy policy pages are localized, indexable, and linked across languages
       heading:
         "What Kokage keeps on your device and what its cloud features send",
       siteName: "Kokage",
-      date: "November 22, 2026",
+      date: "November 27, 2026",
       homePath: "/",
     },
     {
@@ -325,7 +330,7 @@ test("privacy policy pages are localized, indexable, and linked across languages
         "こかげにおけるローカルモデルでの会話とクラウド会話、Kokage Cloud のモーション、声、読み上げ、アバター、会話の保存、記憶、報告、アカウント、ダウンロード、ウェブサイトのデータの扱いを説明します。",
       heading: "こかげが端末に保存するデータと、クラウド機能が送信するデータ",
       siteName: "こかげ",
-      date: "2026年11月22日",
+      date: "2026年11月27日",
       homePath: "/ja/",
     },
   ];
@@ -358,7 +363,7 @@ test("privacy policy pages are localized, indexable, and linked across languages
     assert.match(
       html,
       new RegExp(
-        `<time datetime="2026-11-22">${escapeRegExp(policy.date)}</time>`,
+        `<time datetime="2026-11-27">${escapeRegExp(policy.date)}</time>`,
       ),
     );
     assert.match(html, /"@type":"WebPage"/);
@@ -406,6 +411,8 @@ test("privacy policy pages are localized, indexable, and linked across languages
     assert.match(html, /https:\/\/formspark\.io\/legal\/privacy-policy\//);
     assert.match(html, /href="https:\/\/openrouter\.ai\/privacy"/);
     assert.match(html, /href="https:\/\/www\.revenuecat\.com\/privacy"/);
+    assert.match(html, /kokage-language/);
+    assert.match(html, /kokage-theme/);
     assert.match(html, /user_support@orcalogy\.com/);
     assert.match(html, /Orcalogy LLC/);
     assert.doesNotMatch(html, /Lorem ipsum|TODO|placeholder|\[insert/i);
@@ -706,6 +713,11 @@ test("Chinese pages are complete, script-consistent, and free of retired terms",
     assert.match(home, /poster="\/media\/cloud-motion-poster\.webp"/);
     assert.match(home, /src="\/media\/cloud-motion\.mp4" type="video\/mp4"/);
     assert.match(home, /src="\/media\/cloud-motion\.webm" type="video\/webm"/);
+    assert.doesNotMatch(home, /<video[^>]*\bautoplay\b/);
+    assert.match(home, /data-motion-toggle/);
+    assert.match(home, /role="tablist"/);
+    assert.match(home, /role="tab"/);
+    assert.match(home, /role="tabpanel"/);
     assert.doesNotMatch(home, /kokochan-/);
     const expectedCloudUrl =
       locale === "zh-hant"
@@ -716,7 +728,9 @@ test("Chinese pages are complete, script-consistent, and free of retired terms",
       new RegExp(`href="${escapeRegExp(expectedCloudUrl)}" rel="external"`),
     );
     const privacy = await read(`dist${localizedPath(prefix, "privacy")}index.html`);
-    assert.match(privacy, /<time datetime="2026-11-22">2026年11月22日<\/time>/);
+    assert.match(privacy, /<time datetime="2026-11-27">2026年11月27日<\/time>/);
+    assert.match(privacy, /kokage-language/);
+    assert.match(privacy, /kokage-theme/);
     assert.match(privacy, /user_support@orcalogy\.com/);
     assert.match(privacy, /Orcalogy LLC/);
     assert.match(privacy, /zh-hans/);

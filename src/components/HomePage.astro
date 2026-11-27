@@ -103,7 +103,11 @@ const shotBase = `/screenshots/${copy.locale}`;
           <div class="device-frame">
             <div class="device-frame__screen">
               <img
+                id="panel-features-photo"
                 class="device-screen device-screen--switchable"
+                role="tabpanel"
+                aria-labelledby="tab-features-photo"
+                aria-hidden="false"
                 data-screen-panel="photo"
                 data-active="true"
                 src={`${shotBase}/photo.webp`}
@@ -114,7 +118,11 @@ const shotBase = `/screenshots/${copy.locale}`;
                 decoding="async"
               />
               <img
+                id="panel-features-personality"
                 class="device-screen device-screen--switchable"
+                role="tabpanel"
+                aria-labelledby="tab-features-personality"
+                aria-hidden="true"
                 data-screen-panel="personality"
                 data-active="false"
                 src={`${shotBase}/personality.webp`}
@@ -125,7 +133,11 @@ const shotBase = `/screenshots/${copy.locale}`;
                 decoding="async"
               />
               <img
+                id="panel-features-characters"
                 class="device-screen device-screen--switchable"
+                role="tabpanel"
+                aria-labelledby="tab-features-characters"
+                aria-hidden="true"
                 data-screen-panel="characters"
                 data-active="false"
                 src={`${shotBase}/characters.webp`}
@@ -140,30 +152,42 @@ const shotBase = `/screenshots/${copy.locale}`;
 
           <div
             class="screen-tabs"
-            role="group"
+            role="tablist"
             aria-label={copy.features.switcherLabel}
           >
             <button
+              id="tab-features-photo"
               type="button"
               class="screen-tab"
+              role="tab"
+              aria-selected="true"
+              aria-controls="panel-features-photo"
+              tabindex="0"
               data-screen-tab="photo"
-              aria-pressed="true"
             >
               {copy.features.photoTab}
             </button>
             <button
+              id="tab-features-personality"
               type="button"
               class="screen-tab"
+              role="tab"
+              aria-selected="false"
+              aria-controls="panel-features-personality"
+              tabindex="-1"
               data-screen-tab="personality"
-              aria-pressed="false"
             >
               {copy.features.personalityTab}
             </button>
             <button
+              id="tab-features-characters"
               type="button"
               class="screen-tab"
+              role="tab"
+              aria-selected="false"
+              aria-controls="panel-features-characters"
+              tabindex="-1"
               data-screen-tab="characters"
-              aria-pressed="false"
             >
               {copy.features.charactersTab}
             </button>
@@ -223,25 +247,66 @@ const shotBase = `/screenshots/${copy.locale}`;
         <div class="showcase-col" data-screen-switcher>
           <div class="device-frame">
             <div class="device-frame__screen">
-              <video
-                class="device-screen device-screen--switchable"
+              <div
+                id="panel-cloud-motion"
+                class="device-screen device-screen--switchable device-screen--motion"
+                role="tabpanel"
+                aria-labelledby="tab-cloud-motion"
+                aria-hidden="false"
                 data-screen-panel="motion"
                 data-active="true"
-                autoplay
-                loop
-                muted
-                playsinline
-                preload="metadata"
-                poster="/media/cloud-motion-poster.webp"
-                width="600"
-                height="1304"
-                aria-label={copy.cloud.motionAlt}
               >
-                <source src="/media/cloud-motion.mp4" type="video/mp4" />
-                <source src="/media/cloud-motion.webm" type="video/webm" />
-              </video>
+                <video
+                  class="device-screen__video"
+                  loop
+                  muted
+                  playsinline
+                  preload="metadata"
+                  poster="/media/cloud-motion-poster.webp"
+                  width="600"
+                  height="1304"
+                  aria-label={copy.cloud.motionAlt}
+                >
+                  <source src="/media/cloud-motion.mp4" type="video/mp4" />
+                  <source src="/media/cloud-motion.webm" type="video/webm" />
+                </video>
+                <button
+                  type="button"
+                  class="motion-toggle"
+                  data-motion-toggle
+                  data-paused="false"
+                  data-label-pause={copy.cloud.motionPauseLabel}
+                  data-label-play={copy.cloud.motionPlayLabel}
+                  aria-label={copy.cloud.motionPauseLabel}
+                  title={copy.cloud.motionPauseLabel}
+                >
+                  <svg
+                    class="motion-toggle__pause"
+                    viewBox="0 0 24 24"
+                    width="14"
+                    height="14"
+                    aria-hidden="true"
+                  >
+                    <rect x="6" y="4" width="4" height="16" rx="1" />
+                    <rect x="14" y="4" width="4" height="16" rx="1" />
+                  </svg>
+                  <svg
+                    class="motion-toggle__play"
+                    viewBox="0 0 24 24"
+                    width="14"
+                    height="14"
+                    aria-hidden="true"
+                  >
+                    <path d="M7 5.2v13.6a1 1 0 0 0 1.52.85l10.6-6.8a1 1 0 0 0 0-1.7L8.52 4.35A1 1 0 0 0 7 5.2Z" />
+                  </svg>
+                </button>
+              </div>
               <img
+                id="panel-cloud-voice"
                 class="device-screen device-screen--switchable"
+                role="tabpanel"
+                aria-labelledby="tab-cloud-voice"
+                aria-hidden="true"
                 data-screen-panel="voice"
                 data-active="false"
                 src={`${shotBase}/voice.webp`}
@@ -252,7 +317,11 @@ const shotBase = `/screenshots/${copy.locale}`;
                 decoding="async"
               />
               <img
+                id="panel-cloud-newlook"
                 class="device-screen device-screen--switchable"
+                role="tabpanel"
+                aria-labelledby="tab-cloud-newlook"
+                aria-hidden="true"
                 data-screen-panel="newlook"
                 data-active="false"
                 src={`${shotBase}/newlook.webp`}
@@ -267,30 +336,42 @@ const shotBase = `/screenshots/${copy.locale}`;
 
           <div
             class="screen-tabs"
-            role="group"
+            role="tablist"
             aria-label={copy.cloud.switcherLabel}
           >
             <button
+              id="tab-cloud-motion"
               type="button"
               class="screen-tab"
+              role="tab"
+              aria-selected="true"
+              aria-controls="panel-cloud-motion"
+              tabindex="0"
               data-screen-tab="motion"
-              aria-pressed="true"
             >
               {copy.cloud.motionTab}
             </button>
             <button
+              id="tab-cloud-voice"
               type="button"
               class="screen-tab"
+              role="tab"
+              aria-selected="false"
+              aria-controls="panel-cloud-voice"
+              tabindex="-1"
               data-screen-tab="voice"
-              aria-pressed="false"
             >
               {copy.cloud.voiceTab}
             </button>
             <button
+              id="tab-cloud-newlook"
               type="button"
               class="screen-tab"
+              role="tab"
+              aria-selected="false"
+              aria-controls="panel-cloud-newlook"
+              tabindex="-1"
               data-screen-tab="newlook"
-              aria-pressed="false"
             >
               {copy.cloud.newlookTab}
             </button>
