@@ -23,7 +23,7 @@ export const ja = {
   },
   hero: {
     title: "3DのAIキャラクターと、話そう。",
-    lede: "声と動きと3Dアバター。オフラインで無料でも、Kokage Cloud ですぐにでも。",
+    lede: "声と動きと3Dアバター。ローカルで無料でも、Kokage Cloud ですぐにでも。",
     appStoreAction: "App Storeからダウンロード",
     googlePlayAction: "Google Playからダウンロード",
     imageAlt:
@@ -47,8 +47,8 @@ export const ja = {
         body: "日本語・英語・中国語の声でやり取りでき、会話の中で写真も見せられます。",
       },
       {
-        title: "オフラインで無料会話",
-        body: "おすすめモデルやHugging Faceの公開モデルを入れれば、通信なしでずっと無料で話せます。",
+        title: "ローカルで無料会話",
+        body: "おすすめモデルやHugging Faceの公開モデルを入れれば、オフラインでずっと無料で話せます。",
       },
       {
         title: "人物像とVRMアバター",
