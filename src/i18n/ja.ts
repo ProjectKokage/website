@@ -28,28 +28,40 @@ export const ja = {
     googlePlayAction: "Google Playからダウンロード",
     imageAlt:
       "果実のようなミント色の吹き出しに、2枚の葉を添えたこかげのアプリアイコン",
+    chatDayAlt: "昼の背景で3Dキャラクターと会話するこかげのiPhone画面",
+    chatNightAlt: "夜空の背景で3Dキャラクターと会話するこかげのiPhone画面",
   },
   features: {
     title: "自然に話せる、3D体験。",
     lede: "iPhoneとiPad、Androidで、3Dキャラクターと心地よくおしゃべりできます。",
+    switcherLabel: "アプリ画面の切り替え",
+    photoTab: "写真で会話",
+    personalityTab: "人物像",
+    photoAlt: "写真を見せながら会話するこかげのiPhone画面",
+    personalityAlt: "キャラクターの人物像や口調を設定するこかげのiPhone画面",
     items: [
       {
-        title: "声と3Dの表現",
-        body: "日本語・英語・中国語の声に合わせて、口の動きや自然な仕草が連動します。",
+        title: "声・文字・写真で話す",
+        body: "日本語・英語・中国語の声でやり取りでき、会話の中で写真も見せられます。",
       },
       {
         title: "端末内で無料会話",
         body: "おすすめモデルや公開Hugging Faceモデルを入れて、オフラインで無料で話せます。",
       },
       {
-        title: "自由なVRMアバター",
-        body: "複数キャラクターを登録でき、手持ちのVRMやキャラクターカードの読み書きに対応します。",
+        title: "人物像とVRMアバター",
+        body: "口調や雰囲気を調整し、複数キャラクターや手持ちのVRMファイルを使えます。",
       },
     ],
   },
   cloud: {
     title: "Kokage Cloud",
     lede: "使う分だけの言の葉。有効期限なし。",
+    switcherLabel: "Kokage Cloud の画面切り替え",
+    voiceTab: "クラウドの声",
+    newlookTab: "新しい見た目を作る",
+    voiceAlt: "クラウドの声を作成するこかげのiPhone画面",
+    newlookAlt: "新しい見た目を作る画面で3Dアバターを生成するこかげのiPhone画面",
     items: [
       {
         title: "クラウド会話",

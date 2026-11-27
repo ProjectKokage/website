@@ -542,116 +542,194 @@
     opacity: 0.72;
   }
 
-  /* Act 1: Centered Hero */
+  /* Act 1: Real-App Split Hero */
   .hero {
     position: relative;
     overflow: clip;
-    background:
-      radial-gradient(
-        ellipse 60% 50% at 50% 0%,
-        var(--stage-glow),
-        transparent 72%
-      ),
-      var(--bg);
+    background: var(--bg);
   }
 
-  .hero__inner {
-    display: flex;
-    flex-direction: column;
+  .hero__grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1.15fr) minmax(260px, 0.85fr);
+    gap: clamp(40px, 6vw, 88px);
     align-items: center;
-    max-width: 780px;
-    padding-block: clamp(72px, 11vw, 136px) clamp(80px, 12vw, 140px);
-    text-align: center;
-  }
-
-  .hero__mark {
-    width: 60px;
-    height: 60px;
-    margin-bottom: 24px;
-    border: 1px solid var(--border-strong);
-    border-radius: 16px;
-    box-shadow: var(--shadow-stage);
+    padding-block: clamp(36px, 5vw, 72px) clamp(64px, 9vw, 108px);
   }
 
   .hero__title {
-    max-width: 680px;
+    max-width: 560px;
     color: var(--ink);
-    font-size: clamp(2.6rem, 5.2vw, 4.3rem);
+    font-size: clamp(2.5rem, 4.6vw, 4.1rem);
     line-height: 1.07;
     letter-spacing: -0.035em;
   }
 
   :is(:lang(ja), :lang(zh)) .hero__title {
-    font-size: clamp(2.2rem, 4.2vw, 3.55rem);
+    font-size: clamp(2.15rem, 4vw, 3.45rem);
     line-height: 1.24;
     letter-spacing: -0.025em;
   }
 
   .hero__lede {
-    max-width: 540px;
+    max-width: 500px;
     margin-top: 20px;
     color: var(--ink-secondary);
-    font-size: clamp(1.06rem, 1.4vw, 1.2rem);
+    font-size: clamp(1.04rem, 1.35vw, 1.16rem);
     line-height: 1.65;
   }
 
   .hero__actions {
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
     gap: 12px;
-    margin-top: 36px;
+    margin-top: 34px;
   }
 
-  /* Act 2: Core Capabilities — Borderless 3-Column Typographic Grid */
-  .capability-grid {
-    display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 36px 48px;
-    margin-top: 48px;
+  /* Hardware Device Frame */
+  .showcase-col {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    align-items: center;
   }
 
-  .capability-grid li {
-    padding-top: 22px;
-    border-top: 1px solid var(--border-strong);
+  .device-frame {
+    position: relative;
+    width: min(304px, 100%);
+    aspect-ratio: 600 / 1304;
+    padding: 9px;
+    border: 1px solid var(--border-strong);
+    border-radius: 46px;
+    background: linear-gradient(160deg, #252f2c 0%, #161c1a 48%, #0e1311 100%);
+    box-shadow: var(--shadow-stage);
   }
 
-  .capability-grid h3 {
-    color: var(--ink);
-    font-size: 1.08rem;
-    line-height: 1.35;
-    letter-spacing: -0.015em;
+  .device-frame::before {
+    position: absolute;
+    inset: -14%;
+    z-index: -1;
+    border-radius: 50%;
+    background: radial-gradient(
+      circle,
+      var(--stage-glow) 0%,
+      transparent 68%
+    );
+    content: "";
+    pointer-events: none;
   }
 
-  .capability-grid p {
-    margin-top: 8px;
+  .device-frame__screen {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    border-radius: 37px;
+    background: #0d1311;
+  }
+
+  .device-screen {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: opacity 320ms var(--ease-out);
+  }
+
+  /* Theme-synced Hero Screen Cross-Fade */
+  .device-screen--dark {
+    opacity: 1;
+  }
+
+  .device-screen--light {
+    opacity: 0;
+  }
+
+  [data-theme="light"] .device-screen--dark {
+    opacity: 0;
+  }
+
+  [data-theme="light"] .device-screen--light {
+    opacity: 1;
+  }
+
+  /* Interactive Tab-Switched Screens */
+  .device-screen--switchable[data-active="true"] {
+    opacity: 1;
+    z-index: 2;
+  }
+
+  .device-screen--switchable[data-active="false"] {
+    opacity: 0;
+    z-index: 1;
+    pointer-events: none;
+  }
+
+  .screen-tabs {
+    display: inline-flex;
+    gap: 4px;
+    padding: 4px;
+    border: 1px solid var(--border-strong);
+    border-radius: 999px;
+    background: var(--surface);
+  }
+
+  .screen-tab {
+    padding: 7px 16px;
+    border: 0;
+    border-radius: 999px;
+    background: transparent;
     color: var(--ink-secondary);
-    font-size: 0.94rem;
-    line-height: 1.65;
+    font-size: 0.8rem;
+    font-weight: 700;
+    white-space: nowrap;
+    cursor: pointer;
+    transition:
+      color 160ms ease,
+      background-color 160ms ease;
   }
 
-  /* Act 3: Kokage Cloud — Clean 2x2 Hairline Grid */
-  .cloud-grid {
+  .screen-tab:hover {
+    color: var(--ink);
+  }
+
+  .screen-tab[aria-pressed="true"] {
+    color: var(--on-accent);
+    background: var(--accent);
+  }
+
+  /* Act 2 & Act 3: Asymmetric Split Showcases */
+  .split-showcase {
     display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 36px 56px;
-    margin-top: 48px;
+    grid-template-columns: minmax(260px, 0.85fr) minmax(0, 1.15fr);
+    gap: clamp(40px, 6vw, 88px);
+    align-items: center;
   }
 
-  .cloud-grid li {
-    padding-top: 22px;
+  .split-showcase--reverse {
+    grid-template-columns: minmax(0, 1.15fr) minmax(260px, 0.85fr);
+  }
+
+  .editorial-list {
+    margin-top: 32px;
     border-top: 1px solid var(--border);
   }
 
-  .cloud-grid h3 {
+  .editorial-list li {
+    padding-block: 20px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .editorial-list h3 {
     color: var(--ink);
-    font-size: 1.08rem;
+    font-size: 1.06rem;
     line-height: 1.35;
     letter-spacing: -0.015em;
   }
 
-  .cloud-grid p {
-    margin-top: 8px;
+  .editorial-list p {
+    margin-top: 6px;
     color: var(--ink-secondary);
     font-size: 0.94rem;
     line-height: 1.65;
@@ -1398,15 +1476,28 @@
     }
   }
 
-  @media (max-width: 860px) {
+  @media (max-width: 900px) {
     .page-shell,
     .header-shell,
     .footer-shell {
       width: min(calc(100% - 36px), var(--page-width));
     }
 
-    .capability-grid,
-    .cloud-grid,
+    .hero__grid,
+    .split-showcase,
+    .split-showcase--reverse {
+      grid-template-columns: 1fr;
+      gap: 40px;
+    }
+
+    .split-showcase--reverse .showcase-col {
+      order: -1;
+    }
+
+    .device-frame {
+      width: min(270px, 84%);
+    }
+
     .privacy-points,
     .support-store-grid {
       grid-template-columns: 1fr;

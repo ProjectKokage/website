@@ -27,28 +27,40 @@ export const zhHant = {
     appStoreAction: "在 App Store 下載",
     googlePlayAction: "在 Google Play 下載",
     imageAlt: "Kokage App 圖示：一個薄荷色的對話框，搭配兩片葉子",
+    chatDayAlt: "Kokage 白天場景下的 3D 角色對話 iPhone 截圖",
+    chatNightAlt: "Kokage 星空場景下的 3D 角色對話 iPhone 截圖",
   },
   features: {
     title: "自然對話，栩栩如生。",
     lede: "在 iPhone、iPad 和 Android 上享受流暢的 3D 角色互動。",
+    switcherLabel: "App 畫面切換",
+    photoTab: "照片對話",
+    personalityTab: "人物設定",
+    photoAlt: "Kokage 對話中分享照片的 iPhone 截圖",
+    personalityAlt: "Kokage 調整角色個性與說話風格的 iPhone 截圖",
     items: [
       {
-        title: "語音與 3D 表現力",
-        body: "支援日語、英語與中文語音對話，嘴型與即時動作自然同步。",
+        title: "語音、文字與照片",
+        body: "支援日語、英語與中文語音對話，還能在聊天中直接分享照片。",
       },
       {
         title: "免費裝置端聊天",
         body: "下載推薦模型或 Hugging Face 公開模型，離線也能私密免費暢聊。",
       },
       {
-        title: "自由 VRM 虛擬形象",
-        body: "可建立多個角色，載入任意 VRM 檔案，並匯入或匯出角色卡。",
+        title: "人物設定與 VRM 形象",
+        body: "自訂語氣與風格，建立多個角色，或載入任意 VRM 檔案。",
       },
     ],
   },
   cloud: {
     title: "Kokage Cloud",
-    lede: "依需使用言の葉，永不過期。",
+    lede: "依需使用言の葉，禮包永不過期。",
+    switcherLabel: "Kokage Cloud 畫面切換",
+    voiceTab: "雲端聲音",
+    newlookTab: "製作新形象",
+    voiceAlt: "Kokage 製作雲端聲音的 iPhone 截圖",
+    newlookAlt: "Kokage 透過 Kokage Cloud 製作新 3D 形象的 iPhone 截圖",
     items: [
       {
         title: "雲端對話",

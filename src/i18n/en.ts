@@ -27,28 +27,43 @@ export const en = {
     appStoreAction: "Download on the App Store",
     googlePlayAction: "Download on Google Play",
     imageAlt: "Kokage app icon, a mint speech bubble with two leaves",
+    chatDayAlt: "Kokage iPhone screenshot of daytime 3D character conversation",
+    chatNightAlt:
+      "Kokage iPhone screenshot of starry-night 3D character conversation",
   },
   features: {
     title: "Talk naturally.",
     lede: "Built for responsive 3D conversation on iPhone, iPad, and Android.",
+    switcherLabel: "App screens",
+    photoTab: "Photo chat",
+    personalityTab: "Personality",
+    photoAlt: "Kokage iPhone screenshot showing photo sharing in chat",
+    personalityAlt:
+      "Kokage iPhone screenshot showing character personality and style settings",
     items: [
       {
-        title: "Voice & 3D presence",
-        body: "Speak aloud in Japanese, English, or Chinese with synced lip-sync and live movement.",
+        title: "Voice, text & photos",
+        body: "Talk aloud in Japanese, English, or Chinese, or share a photo right in chat.",
       },
       {
         title: "Free on-device chat",
         body: "Download a recommended or public Hugging Face model to chat privately offline.",
       },
       {
-        title: "Your own VRM avatars",
-        body: "Keep multiple characters, load any VRM file, or import and export character cards.",
+        title: "Personality & VRM avatars",
+        body: "Shape tone and style, keep multiple characters, or load any VRM file.",
       },
     ],
   },
   cloud: {
     title: "Kokage Cloud",
-    lede: "Optional pay-as-you-go Leaf. Never expires.",
+    lede: "Optional pay-as-you-go Leaf. Packs never expire.",
+    switcherLabel: "Kokage Cloud screens",
+    voiceTab: "Cloud voices",
+    newlookTab: "Create a new look",
+    voiceAlt: "Kokage iPhone screenshot of creating a custom Cloud voice",
+    newlookAlt:
+      "Kokage iPhone screenshot of creating a new 3D VRM look with Kokage Cloud",
     items: [
       {
         title: "Cloud chat",

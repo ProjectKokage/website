@@ -150,16 +150,29 @@ function assertPage(
   assert.equal((primaryNavigation.match(/<a /g) ?? []).length, 2);
   assert.match(html, /data-theme-toggle/);
 
-  assert.match(html, /class="hero__inner page-shell"/);
+  assert.match(html, /class="device-frame"/);
   assert.doesNotMatch(html, /class="vrm-stage"/);
   assert.doesNotMatch(html, /class="chapter-stage"/);
   assert.doesNotMatch(html, /data-sky-stage/);
   assert.doesNotMatch(html, /kokochan-/);
   assert.doesNotMatch(html, /\/_image\//);
+  for (const shot of [
+    "chat-day.webp",
+    "chat-night.webp",
+    "photo.webp",
+    "personality.webp",
+    "voice.webp",
+    "newlook.webp",
+  ]) {
+    assert.match(
+      html,
+      new RegExp(`src="/screenshots/${locale}/${shot}"`),
+      `${locale} ${shot}`,
+    );
+  }
   assert.ok(html.indexOf('id="features"') < html.indexOf('id="cloud"'));
   assert.ok(html.indexOf('id="cloud"') < html.indexOf('id="privacy"'));
-  assert.match(html, /<ul class="capability-grid" role="list">/);
-  assert.match(html, /<ul class="cloud-grid" role="list">/);
+  assert.match(html, /<ul class="editorial-list" role="list">/);
   assert.match(html, /<ul class="privacy-points" role="list">/);
   for (const link of storeLinks) {
     assert.equal((html.match(new RegExp(link, "g")) ?? []).length, 2);
@@ -671,6 +684,21 @@ test("Chinese pages are complete, script-consistent, and free of retired terms",
     for (const id of ["features", "cloud", "privacy", "status"]) {
       assert.match(home, new RegExp(`id="${id}"`));
     }
+    for (const shot of [
+      "chat-day.webp",
+      "chat-night.webp",
+      "photo.webp",
+      "personality.webp",
+      "voice.webp",
+      "newlook.webp",
+    ]) {
+      assert.match(
+        home,
+        new RegExp(`src="/screenshots/${locale}/${shot}"`),
+        `${locale} ${shot}`,
+      );
+    }
+    assert.doesNotMatch(home, /kokochan-/);
     const expectedCloudUrl =
       locale === "zh-hant"
         ? "https://kokage.cloud/zh-hant/"

@@ -89,10 +89,17 @@ export interface SiteCopy {
     appStoreAction: string;
     googlePlayAction: string;
     imageAlt: string;
+    chatDayAlt: string;
+    chatNightAlt: string;
   };
   features: {
     title: string;
     lede: string;
+    switcherLabel: string;
+    photoTab: string;
+    personalityTab: string;
+    photoAlt: string;
+    personalityAlt: string;
     items: Array<{
       title: string;
       body: string;
@@ -101,6 +108,11 @@ export interface SiteCopy {
   cloud: {
     title: string;
     lede: string;
+    switcherLabel: string;
+    voiceTab: string;
+    newlookTab: string;
+    voiceAlt: string;
+    newlookAlt: string;
     items: Array<{
       title: string;
       body: string;
