@@ -18,7 +18,7 @@ const cloudAccountUrl = kokageCloudUrls[copy.locale];
 
 <SiteLayout copy={copy}>
   <main id="main">
-    <!-- Act 1: Hero -->
+    <!-- Act 1: Centered Hero -->
     <section class="hero" aria-labelledby="hero-title">
       <div class="hero__inner page-shell">
         <img
@@ -72,138 +72,62 @@ const cloudAccountUrl = kokageCloudUrls[copy.locale];
       </div>
     </section>
 
-    <!-- Act 2, Chapter 1: Talk Naturally & Memory -->
+    <!-- Act 2: Core Capabilities -->
     <section
       id="features"
-      class="section section--subtle chapter"
+      class="section section--subtle"
       aria-labelledby="features-title"
     >
-      <div class="page-shell chapter__grid">
-        <div class="chapter-stage chapter-stage--conversation">
-          <img
-            class="chapter-stage__character"
-            src="/brand/kokochan-speaking.png"
-            alt={copy.features.imageAlt}
-            width="840"
-            height="980"
-            loading="lazy"
-          />
-          <div class="chapter-stage__cues" aria-hidden="true">
-            <p class="cue-reply">{copy.features.replyCue}</p>
-            <div class="cue-memory">
-              <span class="cue-memory__dot"></span>
-              <span class="cue-memory__text">{copy.features.memoryCue}</span>
-              <span class="cue-memory__undo">{copy.features.memoryUndo}</span>
-            </div>
-          </div>
-        </div>
+      <div class="page-shell">
+        <h2 id="features-title" class="section-title">
+          {copy.features.title}
+        </h2>
+        <p class="section-subtitle">{copy.features.lede}</p>
 
-        <div class="chapter__copy">
-          <h2 id="features-title" class="section-title">
-            {copy.features.title}
-          </h2>
-          <p class="section-subtitle">{copy.features.lede}</p>
-
-          <ul class="editorial-list" role="list">
-            {
-              copy.features.items.map((item) => (
-                <li>
-                  <h3>{item.title}</h3>
-                  <p>{item.body}</p>
-                </li>
-              ))
-            }
-          </ul>
-        </div>
+        <ul class="capability-grid" role="list">
+          {
+            copy.features.items.map((item) => (
+              <li>
+                <h3>{item.title}</h3>
+                <p>{item.body}</p>
+              </li>
+            ))
+          }
+        </ul>
       </div>
     </section>
 
-    <!-- Act 2, Chapter 2: Kokage Cloud & Interactive Time-of-Day Sky -->
+    <!-- Act 3: Kokage Cloud -->
     <section
       id="cloud"
-      class="section section--base chapter"
+      class="section section--base"
       aria-labelledby="cloud-title"
     >
-      <div class="page-shell chapter__grid chapter__grid--reverse">
-        <div class="chapter__copy">
-          <h2 id="cloud-title" class="section-title">{copy.cloud.title}</h2>
-          <p class="section-subtitle">{copy.cloud.lede}</p>
+      <div class="page-shell">
+        <h2 id="cloud-title" class="section-title">{copy.cloud.title}</h2>
+        <p class="section-subtitle">{copy.cloud.lede}</p>
 
-          <ul class="editorial-list" role="list">
-            {
-              copy.cloud.items.map((item) => (
-                <li>
-                  <h3>{item.title}</h3>
-                  <p>{item.body}</p>
-                </li>
-              ))
-            }
-          </ul>
+        <ul class="cloud-grid" role="list">
+          {
+            copy.cloud.items.map((item) => (
+              <li>
+                <h3>{item.title}</h3>
+                <p>{item.body}</p>
+              </li>
+            ))
+          }
+        </ul>
 
-          <div class="section-links">
-            <a
-              class="inline-link"
-              href={cloudAccountUrl}
-              rel="external"
-            >
-              {copy.cloud.accountLink}
-              <span aria-hidden="true">↗</span>
-            </a>
-          </div>
-        </div>
-
-        <div
-          class="chapter-stage chapter-stage--sky"
-          data-sky-stage
-          data-sky="dusk"
-        >
-          <div class="sky-backdrop" aria-hidden="true">
-            <span class="sky-orb"></span>
-            <span class="sky-stars"></span>
-          </div>
-          <img
-            class="chapter-stage__character"
-            src="/brand/kokochan-motion.png"
-            alt={copy.cloud.imageAlt}
-            width="840"
-            height="980"
-            loading="lazy"
-          />
-          <div
-            class="stage-bar"
-            role="group"
-            aria-label={copy.cloud.skies.label}
-          >
-            <button
-              type="button"
-              class="stage-pill"
-              data-sky-option="morning"
-              aria-pressed="false"
-            >
-              {copy.cloud.skies.morning}
-            </button>
-            <button
-              type="button"
-              class="stage-pill"
-              data-sky-option="dusk"
-              aria-pressed="true"
-            >
-              {copy.cloud.skies.dusk}
-            </button>
-            <button
-              type="button"
-              class="stage-pill"
-              data-sky-option="night"
-              aria-pressed="false"
-            >
-              {copy.cloud.skies.night}
-            </button>
-          </div>
+        <div class="section-links">
+          <a class="inline-link" href={cloudAccountUrl} rel="external">
+            {copy.cloud.accountLink}
+            <span aria-hidden="true">↗</span>
+          </a>
         </div>
       </div>
     </section>
 
-    <!-- Act 3: Privacy -->
+    <!-- Act 4: Privacy -->
     <section
       id="privacy"
       class="section section--subtle"
@@ -225,7 +149,7 @@ const cloudAccountUrl = kokageCloudUrls[copy.locale];
       </div>
     </section>
 
-    <!-- Act 3: Closing Download Finale -->
+    <!-- Act 4: Closing Download Finale -->
     <section
       id="status"
       class="section section--base closing"
@@ -283,10 +207,4 @@ const cloudAccountUrl = kokageCloudUrls[copy.locale];
       </div>
     </section>
   </main>
-
-  <script>
-    import { initializeSkyStage } from "../scripts/sky-stage.mjs";
-
-    initializeSkyStage();
-  </script>
 </SiteLayout>

@@ -23,57 +23,32 @@ export const zhHans = {
   },
   hero: {
     title: "与 3D AI 角色对话。",
-    lede: "语音、实时动作与记忆——设备端免费运行，或云端即刻开始。",
+    lede: "语音、实时动作与 3D 虚拟形象——设备端免费运行，或用 Kokage Cloud 即刻开始。",
     appStoreAction: "在 App Store 下载",
     googlePlayAction: "在 Google Play 下载",
     imageAlt: "Kokage 应用图标：一个薄荷色的对话气泡，配有两片叶子",
-    portraitAlt: "Kokage 内置 3D 角色 Kokochan 的渲染图",
-    stageHint: "拖动旋转 · 轻点互动",
-    skies: {
-      label: "场景光线",
-      day: "白天",
-      dusk: "黄昏",
-      night: "夜晚",
-    },
-    motions: {
-      label: "角色动作",
-      idle: "待机",
-      speak: "说话",
-      turn: "转身",
-    },
   },
   features: {
-    title: "自然交谈，牢记点滴。",
-    lede: "每个角色都有专属声音、记忆与 3D 形象。",
-    imageAlt: "正在自然对话的 3D 角色 Kokochan",
-    replyCue: "今天晴空万里！要不要出去散散步？",
-    memoryCue: "已保存记忆",
-    memoryUndo: "撤销",
+    title: "自然对话，栩栩如生。",
+    lede: "在 iPhone、iPad 和 Android 上享受流畅的 3D 角色互动。",
     items: [
       {
-        title: "语音、文字与照片",
-        body: "本地转写语音，支持日语、英语与中文朗读，还可分享照片。",
+        title: "语音与 3D 表现力",
+        body: "支持日语、英语与中文语音对话，口型与实时动作自然同步。",
       },
       {
-        title: "由你掌控的记忆",
-        body: "记住重要细节，随时查看、编辑或撤销。",
+        title: "免费设备端聊天",
+        body: "下载推荐模型或 Hugging Face 公开模型，离线也能私密免费畅聊。",
       },
       {
-        title: "VRM 形象与 Apple 家庭",
-        body: "支持多角色、VRM 文件与角色卡，iPhone 和 iPad 还可连接 Apple 家庭。",
+        title: "自由 VRM 虚拟形象",
+        body: "可创建多个角色，载入任意 VRM 文件，并导入或导出角色卡。",
       },
     ],
   },
   cloud: {
     title: "Kokage Cloud",
-    lede: "按需使用言の葉，礼包永不过期。",
-    imageAlt: "站在随时间变化的天空场景中的 3D 角色 Kokochan",
-    skies: {
-      label: "场景天空",
-      morning: "清晨",
-      dusk: "黄昏",
-      night: "夜晚",
-    },
+    lede: "按需使用言の葉，永不过期。",
     items: [
       {
         title: "云端对话",

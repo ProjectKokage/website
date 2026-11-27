@@ -23,58 +23,33 @@ export const ja = {
   },
   hero: {
     title: "3DのAIキャラクターと、話そう。",
-    lede: "声と動きと記憶を、端末内で無料でも、クラウドでも。",
+    lede: "声と動きと3Dアバターを、端末内で無料でも、Kokage Cloud でも。",
     appStoreAction: "App Storeからダウンロード",
     googlePlayAction: "Google Playからダウンロード",
     imageAlt:
       "果実のようなミント色の吹き出しに、2枚の葉を添えたこかげのアプリアイコン",
-    portraitAlt: "こかげに収録されている3Dキャラクター「ここちゃん」",
-    stageHint: "ドラッグで回転・タップで反応",
-    skies: {
-      label: "背景の照明",
-      day: "昼",
-      dusk: "夕焼け",
-      night: "夜",
-    },
-    motions: {
-      label: "キャラクターの動き",
-      idle: "待機",
-      speak: "話す",
-      turn: "ふり向く",
-    },
   },
   features: {
-    title: "声で話して、覚えていてくれる。",
-    lede: "声、記憶、見た目をキャラクターごとに持てます。",
-    imageAlt: "表情豊かに話しかける3Dキャラクター「ここちゃん」",
-    replyCue: "きれいな晴れだよ！少しお散歩しようか？",
-    memoryCue: "記憶を保存しました",
-    memoryUndo: "取り消す",
+    title: "自然に話せる、3D体験。",
+    lede: "iPhoneとiPad、Androidで、3Dキャラクターと心地よくおしゃべりできます。",
     items: [
       {
-        title: "声・文字・写真で話す",
-        body: "端末内で音声認識し、日本語・英語・中国語の声で返答。写真も見せられます。",
+        title: "声と3Dの表現",
+        body: "日本語・英語・中国語の声に合わせて、口の動きや自然な仕草が連動します。",
       },
       {
-        title: "確認・編集できる記憶",
-        body: "大切なことを覚え、いつでも見直したり取り消したりできます。",
+        title: "端末内で無料会話",
+        body: "おすすめモデルや公開Hugging Faceモデルを入れて、オフラインで無料で話せます。",
       },
       {
-        title: "VRMアバターとApple Home",
-        body: "複数キャラクターやVRM、カードに対応。iPhoneとiPadではApple Home連携も。",
+        title: "自由なVRMアバター",
+        body: "複数キャラクターを登録でき、手持ちのVRMやキャラクターカードの読み書きに対応します。",
       },
     ],
   },
   cloud: {
     title: "Kokage Cloud",
     lede: "使う分だけの言の葉。有効期限なし。",
-    imageAlt: "時刻に合わせて空が変わる場所に立つ3Dキャラクター「ここちゃん」",
-    skies: {
-      label: "背景の空",
-      morning: "朝",
-      dusk: "夕焼け",
-      night: "夜",
-    },
     items: [
       {
         title: "クラウド会話",

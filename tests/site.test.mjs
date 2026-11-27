@@ -152,13 +152,14 @@ function assertPage(
 
   assert.match(html, /class="hero__inner page-shell"/);
   assert.doesNotMatch(html, /class="vrm-stage"/);
-  assert.match(html, /src="\/brand\/kokochan-speaking\.png"/);
-  assert.match(html, /src="\/brand\/kokochan-motion\.png"/);
-  assert.match(html, /data-sky-stage/);
+  assert.doesNotMatch(html, /class="chapter-stage"/);
+  assert.doesNotMatch(html, /data-sky-stage/);
+  assert.doesNotMatch(html, /kokochan-/);
   assert.doesNotMatch(html, /\/_image\//);
   assert.ok(html.indexOf('id="features"') < html.indexOf('id="cloud"'));
   assert.ok(html.indexOf('id="cloud"') < html.indexOf('id="privacy"'));
-  assert.match(html, /<ul class="editorial-list" role="list">/);
+  assert.match(html, /<ul class="capability-grid" role="list">/);
+  assert.match(html, /<ul class="cloud-grid" role="list">/);
   assert.match(html, /<ul class="privacy-points" role="list">/);
   for (const link of storeLinks) {
     assert.equal((html.match(new RegExp(link, "g")) ?? []).length, 2);
@@ -222,9 +223,11 @@ test("English and Japanese pages emit localized metadata and complete navigation
   assert.doesNotMatch(english, /reach testers|distributed to testers/);
   assert.doesNotMatch(japanese, /テスト配信を始め|テスターに配信しています/);
   assert.match(english, /Japanese, English, or Chinese/);
-  assert.match(english, /Apple Home/);
+  assert.match(english, /Hugging Face/);
+  assert.match(english, /VRM/);
   assert.match(japanese, /日本語・英語・中国語/);
-  assert.match(japanese, /Apple Home/);
+  assert.match(japanese, /Hugging Face/);
+  assert.match(japanese, /VRM/);
   assert.doesNotMatch(
     `${english}\n${japanese}`,
     /current dependency graph|ONNX Runtime|API 36|署名済み配布|sherpa_onnx|Silero|SenseVoice|fllamer|flvtterm|misakid|fonix|Irodori-TTS|VoxCPM2|NVIDIA ARDY|TRELLIS|FLUX/,

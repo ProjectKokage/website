@@ -603,247 +603,55 @@
     margin-top: 36px;
   }
 
-  /* Frosted-Glass Floating Control Bar */
-  .stage-bar {
-    display: inline-flex;
-    gap: 4px;
-    padding: 5px;
-    border: 1px solid var(--glass-border);
-    border-radius: 999px;
-    background: var(--glass);
-    backdrop-filter: blur(16px) saturate(130%);
-    pointer-events: auto;
-  }
-
-  .chapter-stage--sky .stage-bar {
-    position: absolute;
-    z-index: 4;
-    bottom: 18px;
-    left: 50%;
-    transform: translateX(-50%);
-  }
-
-  .stage-pill {
-    padding: 7px 15px;
-    border: 0;
-    border-radius: 999px;
-    background: transparent;
-    color: var(--ink-secondary);
-    font-size: 0.78rem;
-    font-weight: 700;
-    white-space: nowrap;
-    cursor: pointer;
-    transition:
-      color 160ms ease,
-      background-color 160ms ease;
-  }
-
-  .stage-pill:hover {
-    color: var(--ink);
-  }
-
-  .stage-pill[aria-pressed="true"] {
-    color: var(--on-accent);
-    background: var(--accent);
-  }
-
-  /* Act 2: Editorial Visual Chapters */
-  .chapter__grid {
+  /* Act 2: Core Capabilities — Borderless 3-Column Typographic Grid */
+  .capability-grid {
     display: grid;
-    grid-template-columns: minmax(290px, 0.92fr) minmax(0, 1.08fr);
-    gap: clamp(36px, 5vw, 80px);
-    align-items: center;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 36px 48px;
+    margin-top: 48px;
   }
 
-  .chapter__grid--reverse {
-    grid-template-columns: minmax(0, 1.08fr) minmax(290px, 0.92fr);
+  .capability-grid li {
+    padding-top: 22px;
+    border-top: 1px solid var(--border-strong);
   }
 
-  .chapter-stage {
-    position: relative;
-    width: min(460px, 100%);
-    aspect-ratio: 4 / 4.65;
-    margin-inline: auto;
-    overflow: hidden;
-    border: 1px solid var(--border-strong);
-    border-radius: var(--radius-lg);
-    background: linear-gradient(
-      175deg,
-      var(--stage-top) 0%,
-      var(--stage-bottom) 100%
-    );
-    box-shadow: var(--shadow-stage);
-  }
-
-  .chapter-stage__character {
-    position: relative;
-    z-index: 2;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center bottom;
-  }
-
-  /* Chapter 1: 2 Frosted-Glass App Cues */
-  .chapter-stage__cues {
-    position: absolute;
-    z-index: 3;
-    right: 18px;
-    bottom: 18px;
-    left: 18px;
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-    align-items: flex-start;
-  }
-
-  .cue-reply {
-    max-width: 90%;
-    padding: 11px 16px;
-    border: 1px solid var(--glass-border);
-    border-radius: 16px 16px 16px 4px;
-    background: var(--glass);
-    backdrop-filter: blur(16px) saturate(130%);
+  .capability-grid h3 {
     color: var(--ink);
-    font-size: 0.88rem;
-    font-weight: 500;
-    line-height: 1.5;
-  }
-
-  .cue-memory {
-    display: inline-flex;
-    gap: 8px;
-    align-items: center;
-    padding: 7px 12px;
-    border: 1px solid var(--glass-border);
-    border-radius: 999px;
-    background: var(--glass);
-    backdrop-filter: blur(16px) saturate(130%);
-    font-size: 0.76rem;
-    font-weight: 500;
-  }
-
-  .cue-memory__dot {
-    width: 7px;
-    height: 7px;
-    border-radius: 50%;
-    background: var(--accent);
-  }
-
-  .cue-memory__text {
-    color: var(--ink-secondary);
-  }
-
-  .cue-memory__undo {
-    padding-left: 6px;
-    border-left: 1px solid var(--border-strong);
-    color: var(--accent);
-    font-weight: 700;
-  }
-
-  /* Chapter 2: Interactive Time-of-Day Sky Stage */
-  .sky-backdrop {
-    position: absolute;
-    inset: 0;
-    z-index: 1;
-    transition: background 520ms var(--ease-out);
-  }
-
-  .chapter-stage--sky[data-sky="morning"] .sky-backdrop {
-    background: linear-gradient(
-      180deg,
-      #8fc4d8 0%,
-      #cfe7e5 55%,
-      #f6efe0 100%
-    );
-  }
-
-  .chapter-stage--sky[data-sky="dusk"] .sky-backdrop {
-    background: linear-gradient(
-      180deg,
-      #2b3d59 0%,
-      #8b5f65 48%,
-      #e6a979 100%
-    );
-  }
-
-  .chapter-stage--sky[data-sky="night"] .sky-backdrop {
-    background: linear-gradient(
-      180deg,
-      #0a1324 0%,
-      #14253b 55%,
-      #1a312c 100%
-    );
-  }
-
-  .sky-orb {
-    position: absolute;
-    top: 14%;
-    right: 16%;
-    width: 68px;
-    height: 68px;
-    border-radius: 50%;
-    transition:
-      background 520ms var(--ease-out),
-      transform 520ms var(--ease-out),
-      box-shadow 520ms var(--ease-out);
-  }
-
-  .chapter-stage--sky[data-sky="morning"] .sky-orb {
-    background: radial-gradient(circle, #fffdf4 0%, rgb(255 253 244 / 20%) 70%);
-    box-shadow: 0 0 48px rgb(255 250 225 / 70%);
-    transform: translateY(-6px);
-  }
-
-  .chapter-stage--sky[data-sky="dusk"] .sky-orb {
-    background: radial-gradient(circle, #ffe4b5 0%, rgb(235 148 92 / 25%) 72%);
-    box-shadow: 0 0 56px rgb(245 170 110 / 65%);
-    transform: translateY(38px);
-  }
-
-  .chapter-stage--sky[data-sky="night"] .sky-orb {
-    background: radial-gradient(circle, #e8f3ee 0%, rgb(168 214 199 / 15%) 72%);
-    box-shadow: 0 0 40px rgb(192 224 212 / 42%);
-    transform: translateY(0);
-  }
-
-  .sky-stars {
-    position: absolute;
-    inset: 0;
-    opacity: 0;
-    background-image:
-      radial-gradient(1.5px 1.5px at 18% 16%, #eef5f1, transparent),
-      radial-gradient(1.5px 1.5px at 42% 24%, #d8ebe3, transparent),
-      radial-gradient(2px 2px at 66% 12%, #eef5f1, transparent),
-      radial-gradient(1.5px 1.5px at 84% 28%, #d8ebe3, transparent),
-      radial-gradient(1.5px 1.5px at 28% 36%, #eef5f1, transparent);
-    transition: opacity 520ms ease;
-  }
-
-  .chapter-stage--sky[data-sky="night"] .sky-stars {
-    opacity: 0.85;
-  }
-
-  /* Hairline-Divided Editorial List */
-  .editorial-list {
-    margin-top: 32px;
-    border-top: 1px solid var(--border);
-  }
-
-  .editorial-list li {
-    padding-block: 20px;
-    border-bottom: 1px solid var(--border);
-  }
-
-  .editorial-list h3 {
-    color: var(--ink);
-    font-size: 1.06rem;
+    font-size: 1.08rem;
     line-height: 1.35;
     letter-spacing: -0.015em;
   }
 
-  .editorial-list p {
-    margin-top: 6px;
+  .capability-grid p {
+    margin-top: 8px;
+    color: var(--ink-secondary);
+    font-size: 0.94rem;
+    line-height: 1.65;
+  }
+
+  /* Act 3: Kokage Cloud — Clean 2x2 Hairline Grid */
+  .cloud-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 36px 56px;
+    margin-top: 48px;
+  }
+
+  .cloud-grid li {
+    padding-top: 22px;
+    border-top: 1px solid var(--border);
+  }
+
+  .cloud-grid h3 {
+    color: var(--ink);
+    font-size: 1.08rem;
+    line-height: 1.35;
+    letter-spacing: -0.015em;
+  }
+
+  .cloud-grid p {
+    margin-top: 8px;
     color: var(--ink-secondary);
     font-size: 0.94rem;
     line-height: 1.65;
@@ -1597,21 +1405,8 @@
       width: min(calc(100% - 36px), var(--page-width));
     }
 
-    .hero__grid,
-    .chapter__grid,
-    .chapter__grid--reverse {
-      grid-template-columns: 1fr;
-      gap: 40px;
-    }
-
-    .chapter__grid--reverse .chapter-stage {
-      order: -1;
-    }
-
-    .chapter-stage {
-      width: min(400px, 100%);
-    }
-
+    .capability-grid,
+    .cloud-grid,
     .privacy-points,
     .support-store-grid {
       grid-template-columns: 1fr;
@@ -1760,7 +1555,6 @@
   }
 
   @media (forced-colors: active) {
-    .sky-stars,
     .policy-hero::before {
       display: none;
     }

@@ -89,28 +89,10 @@ export interface SiteCopy {
     appStoreAction: string;
     googlePlayAction: string;
     imageAlt: string;
-    portraitAlt: string;
-    stageHint: string;
-    skies: {
-      label: string;
-      day: string;
-      dusk: string;
-      night: string;
-    };
-    motions: {
-      label: string;
-      idle: string;
-      speak: string;
-      turn: string;
-    };
   };
   features: {
     title: string;
     lede: string;
-    imageAlt: string;
-    replyCue: string;
-    memoryCue: string;
-    memoryUndo: string;
     items: Array<{
       title: string;
       body: string;
@@ -119,13 +101,6 @@ export interface SiteCopy {
   cloud: {
     title: string;
     lede: string;
-    imageAlt: string;
-    skies: {
-      label: string;
-      morning: string;
-      dusk: string;
-      night: string;
-    };
     items: Array<{
       title: string;
       body: string;

@@ -23,57 +23,32 @@ export const en = {
   },
   hero: {
     title: "Talk with a 3D AI character.",
-    lede: "Voice, live motion, and memory—free on your device or instant in the cloud.",
+    lede: "Voice, live motion, and 3D avatars—free on your device or instant with Kokage Cloud.",
     appStoreAction: "Download on the App Store",
     googlePlayAction: "Download on Google Play",
     imageAlt: "Kokage app icon, a mint speech bubble with two leaves",
-    portraitAlt: "3D render of Kokochan, Kokage's included AI character",
-    stageHint: "Drag to rotate · Tap Kokochan",
-    skies: {
-      label: "Scene lighting",
-      day: "Daylight",
-      dusk: "Dusk",
-      night: "Night",
-    },
-    motions: {
-      label: "Character motion",
-      idle: "Idle",
-      speak: "Speak",
-      turn: "Turn",
-    },
   },
   features: {
-    title: "Talk naturally. She remembers.",
-    lede: "Every character keeps its own voice, memories, and 3D look.",
-    imageAlt: "3D render of Kokochan speaking with expressive posture",
-    replyCue: "Clear skies today! Want to head out for a walk?",
-    memoryCue: "Memory saved",
-    memoryUndo: "Undo",
+    title: "Talk naturally.",
+    lede: "Built for responsive 3D conversation on iPhone, iPad, and Android.",
     items: [
       {
-        title: "Voice, text & photos",
-        body: "Speak with local transcription, hear replies in Japanese, English, or Chinese, and share photos.",
+        title: "Voice & 3D presence",
+        body: "Speak aloud in Japanese, English, or Chinese with synced lip-sync and live movement.",
       },
       {
-        title: "Memory you control",
-        body: "Characters remember what matters—review, edit, or undo anytime.",
+        title: "Free on-device chat",
+        body: "Download a recommended or public Hugging Face model to chat privately offline.",
       },
       {
-        title: "Your VRM & Apple Home",
-        body: "Keep multiple characters, load VRM files or cards, and connect Apple Home on iPhone and iPad.",
+        title: "Your own VRM avatars",
+        body: "Keep multiple characters, load any VRM file, or import and export character cards.",
       },
     ],
   },
   cloud: {
     title: "Kokage Cloud",
-    lede: "Optional pay-as-you-go Leaf. Packs never expire.",
-    imageAlt: "3D render of Kokochan in a time-of-day sky scene",
-    skies: {
-      label: "Scene sky",
-      morning: "Morning",
-      dusk: "Dusk",
-      night: "Night",
-    },
+    lede: "Optional pay-as-you-go Leaf. Never expires.",
     items: [
       {
         title: "Cloud chat",
