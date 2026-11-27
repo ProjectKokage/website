@@ -102,51 +102,60 @@ const shotBase = `/screenshots/${copy.locale}`;
         <div class="showcase-col" data-screen-switcher>
           <div class="device-frame">
             <div class="device-frame__screen">
-              <img
+              <div
                 id="panel-features-photo"
                 class="device-screen device-screen--switchable"
                 role="tabpanel"
                 aria-labelledby="tab-features-photo"
-                aria-hidden="false"
                 data-screen-panel="photo"
                 data-active="true"
-                src={`${shotBase}/photo.webp`}
-                alt={copy.features.photoAlt}
-                width="600"
-                height="1304"
-                loading="lazy"
-                decoding="async"
-              />
-              <img
+              >
+                <img
+                  class="device-screen__media"
+                  src={`${shotBase}/photo.webp`}
+                  alt={copy.features.photoAlt}
+                  width="600"
+                  height="1304"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </div>
+              <div
                 id="panel-features-personality"
                 class="device-screen device-screen--switchable"
                 role="tabpanel"
                 aria-labelledby="tab-features-personality"
-                aria-hidden="true"
                 data-screen-panel="personality"
                 data-active="false"
-                src={`${shotBase}/personality.webp`}
-                alt={copy.features.personalityAlt}
-                width="600"
-                height="1304"
-                loading="lazy"
-                decoding="async"
-              />
-              <img
+              >
+                <img
+                  class="device-screen__media"
+                  src={`${shotBase}/personality.webp`}
+                  alt={copy.features.personalityAlt}
+                  width="600"
+                  height="1304"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </div>
+              <div
                 id="panel-features-characters"
                 class="device-screen device-screen--switchable"
                 role="tabpanel"
                 aria-labelledby="tab-features-characters"
-                aria-hidden="true"
                 data-screen-panel="characters"
                 data-active="false"
-                src={`${shotBase}/characters.webp`}
-                alt={copy.features.charactersAlt}
-                width="600"
-                height="1304"
-                loading="lazy"
-                decoding="async"
-              />
+              >
+                <img
+                  class="device-screen__media"
+                  src={`${shotBase}/characters.webp`}
+                  alt={copy.features.charactersAlt}
+                  width="600"
+                  height="1304"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </div>
             </div>
           </div>
 
@@ -252,7 +261,6 @@ const shotBase = `/screenshots/${copy.locale}`;
                 class="device-screen device-screen--switchable device-screen--motion"
                 role="tabpanel"
                 aria-labelledby="tab-cloud-motion"
-                aria-hidden="false"
                 data-screen-panel="motion"
                 data-active="true"
               >
@@ -301,36 +309,42 @@ const shotBase = `/screenshots/${copy.locale}`;
                   </svg>
                 </button>
               </div>
-              <img
+              <div
                 id="panel-cloud-voice"
                 class="device-screen device-screen--switchable"
                 role="tabpanel"
                 aria-labelledby="tab-cloud-voice"
-                aria-hidden="true"
                 data-screen-panel="voice"
                 data-active="false"
-                src={`${shotBase}/voice.webp`}
-                alt={copy.cloud.voiceAlt}
-                width="600"
-                height="1304"
-                loading="lazy"
-                decoding="async"
-              />
-              <img
+              >
+                <img
+                  class="device-screen__media"
+                  src={`${shotBase}/voice.webp`}
+                  alt={copy.cloud.voiceAlt}
+                  width="600"
+                  height="1304"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </div>
+              <div
                 id="panel-cloud-newlook"
                 class="device-screen device-screen--switchable"
                 role="tabpanel"
                 aria-labelledby="tab-cloud-newlook"
-                aria-hidden="true"
                 data-screen-panel="newlook"
                 data-active="false"
-                src={`${shotBase}/newlook.webp`}
-                alt={copy.cloud.newlookAlt}
-                width="600"
-                height="1304"
-                loading="lazy"
-                decoding="async"
-              />
+              >
+                <img
+                  class="device-screen__media"
+                  src={`${shotBase}/newlook.webp`}
+                  alt={copy.cloud.newlookAlt}
+                  width="600"
+                  height="1304"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </div>
             </div>
           </div>
 

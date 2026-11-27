@@ -82,7 +82,11 @@ const schema = jsonLdText(
                 : "dark";
           document.documentElement.dataset.theme = theme;
         } catch {
-          document.documentElement.dataset.theme = "dark";
+          document.documentElement.dataset.theme = window.matchMedia(
+            "(prefers-color-scheme: light)",
+          ).matches
+            ? "light"
+            : "dark";
         }
       })();
     </script>

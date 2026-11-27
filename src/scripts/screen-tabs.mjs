@@ -30,7 +30,9 @@ export function initializeScreenSwitchers() {
       if (shouldPlay) {
         updateToggleState(false);
         video.play().catch(() => {
-          updateToggleState(true);
+          if (video.paused) {
+            updateToggleState(true);
+          }
         });
       } else {
         video.pause();
@@ -44,7 +46,9 @@ export function initializeScreenSwitchers() {
           userPaused = false;
           updateToggleState(false);
           video.play().catch(() => {
-            updateToggleState(true);
+            if (video.paused) {
+              updateToggleState(true);
+            }
           });
         } else {
           userPaused = true;
@@ -68,10 +72,12 @@ export function initializeScreenSwitchers() {
     const controllers = new Map();
 
     for (const panel of panels) {
+      const isActive = panel.getAttribute("data-active") === "true";
+      panel.setAttribute("aria-hidden", String(!isActive));
       const controller = setupPanelVideo(panel);
       if (controller) {
         controllers.set(panel, controller);
-        controller.sync(panel.getAttribute("data-active") === "true");
+        controller.sync(isActive);
       }
     }
 
