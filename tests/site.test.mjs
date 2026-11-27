@@ -209,7 +209,7 @@ test("English and Japanese pages emit localized metadata and complete navigation
     canonical: `${siteOrigin}/ja/`,
     title: "こかげ | 3DのAIキャラクターと話せるアプリ",
     description:
-      "こかげは、iPhone、iPad、Androidで3DのAIキャラクターと会話できるアプリです。端末の中で無料で話せるほか、Kokage Cloud を使って、キャラクターの声や3Dアバター、自然な動きを作れます。",
+      "こかげは、iPhone、iPad、Androidで3DのAIキャラクターと会話できるアプリです。ローカルで無料で話せるほか、Kokage Cloud を使って、キャラクターの声や3Dアバター、自然な動きを作れます。",
   });
 
   assert.match(english, /Talk with a 3D AI character/);
@@ -263,7 +263,7 @@ test("English and Japanese pages emit localized metadata and complete navigation
   assert.match(english, /Optional pay-as-you-go Leaf/);
   assert.match(english, /href="https:\/\/kokage\.cloud\/" rel="external"/);
   assert.doesNotMatch(english, /does not include Kokage Cloud/);
-  assert.match(english, /Stays on your device/);
+  assert.match(english, /Local chats stay on your device/);
   assert.match(english, /No ads or tracking/);
   assert.doesNotMatch(
     english,
@@ -588,7 +588,7 @@ test("support pages are bilingual, indexable, and privacy-conscious", async () =
   assert.doesNotMatch(english, /remains unavailable/);
   assert.match(
     japanese,
-    /クラウド機能は、プライバシーポリシーに記載したデータだけを送信します/,
+    /クラウド機能はプライバシーポリシーに記載したデータだけを送信します/,
   );
   assert.match(japanese, /アプリ内の報告ボタンからお知らせいただけます/);
   assert.doesNotMatch(japanese, /有効にするまで利用できません|\bKokage\b(?!%20support| Cloud)/);

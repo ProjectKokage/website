@@ -93,7 +93,7 @@ export const en = {
   privacy: {
     title: "Private by default.",
     points: [
-      "Stays on your device.",
+      "Local chats stay on your device.",
       "Local speech recognition.",
       "No ads or tracking.",
     ],
