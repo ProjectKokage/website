@@ -161,6 +161,7 @@ function assertPage(
     "chat-night.webp",
     "photo.webp",
     "personality.webp",
+    "characters.webp",
     "voice.webp",
     "newlook.webp",
   ]) {
@@ -170,6 +171,8 @@ function assertPage(
       `${locale} ${shot}`,
     );
   }
+  assert.match(html, /src="\/media\/cloud-motion\.mp4"/);
+  assert.match(html, /poster="\/media\/cloud-motion-poster\.webp"/);
   assert.ok(html.indexOf('id="features"') < html.indexOf('id="cloud"'));
   assert.ok(html.indexOf('id="cloud"') < html.indexOf('id="privacy"'));
   assert.match(html, /<ul class="editorial-list" role="list">/);
@@ -689,6 +692,7 @@ test("Chinese pages are complete, script-consistent, and free of retired terms",
       "chat-night.webp",
       "photo.webp",
       "personality.webp",
+      "characters.webp",
       "voice.webp",
       "newlook.webp",
     ]) {
@@ -698,6 +702,8 @@ test("Chinese pages are complete, script-consistent, and free of retired terms",
         `${locale} ${shot}`,
       );
     }
+    assert.match(home, /src="\/media\/cloud-motion\.mp4"/);
+    assert.match(home, /poster="\/media\/cloud-motion-poster\.webp"/);
     assert.doesNotMatch(home, /kokochan-/);
     const expectedCloudUrl =
       locale === "zh-hant"

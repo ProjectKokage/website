@@ -37,8 +37,10 @@ export const ja = {
     switcherLabel: "アプリ画面の切り替え",
     photoTab: "写真で会話",
     personalityTab: "人物像",
+    charactersTab: "VRMアバター",
     photoAlt: "写真を見せながら会話するこかげのiPhone画面",
     personalityAlt: "キャラクターの人物像や口調を設定するこかげのiPhone画面",
+    charactersAlt: "手持ちの3D VRMアバターと会話するこかげのiPhone画面",
     items: [
       {
         title: "声・文字・写真で話す",
@@ -58,8 +60,10 @@ export const ja = {
     title: "Kokage Cloud",
     lede: "使う分だけの言の葉。有効期限なし。",
     switcherLabel: "Kokage Cloud の画面切り替え",
+    motionTab: "クラウドモーション",
     voiceTab: "クラウドの声",
     newlookTab: "新しい見た目を作る",
+    motionAlt: "会話に合わせて動くクラウドモーションのこかげiPhone動画",
     voiceAlt: "クラウドの声を作成するこかげのiPhone画面",
     newlookAlt: "新しい見た目を作る画面で3Dアバターを生成するこかげのiPhone画面",
     items: [

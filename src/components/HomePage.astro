@@ -124,6 +124,17 @@ const shotBase = `/screenshots/${copy.locale}`;
                 loading="lazy"
                 decoding="async"
               />
+              <img
+                class="device-screen device-screen--switchable"
+                data-screen-panel="characters"
+                data-active="false"
+                src={`${shotBase}/characters.webp`}
+                alt={copy.features.charactersAlt}
+                width="600"
+                height="1304"
+                loading="lazy"
+                decoding="async"
+              />
             </div>
           </div>
 
@@ -147,6 +158,14 @@ const shotBase = `/screenshots/${copy.locale}`;
               aria-pressed="false"
             >
               {copy.features.personalityTab}
+            </button>
+            <button
+              type="button"
+              class="screen-tab"
+              data-screen-tab="characters"
+              aria-pressed="false"
+            >
+              {copy.features.charactersTab}
             </button>
           </div>
         </div>
@@ -204,10 +223,26 @@ const shotBase = `/screenshots/${copy.locale}`;
         <div class="showcase-col" data-screen-switcher>
           <div class="device-frame">
             <div class="device-frame__screen">
+              <video
+                class="device-screen device-screen--switchable device-screen--video"
+                data-screen-panel="motion"
+                data-active="true"
+                autoplay
+                loop
+                muted
+                playsinline
+                preload="metadata"
+                poster="/media/cloud-motion-poster.webp"
+                width="600"
+                height="1304"
+                aria-label={copy.cloud.motionAlt}
+              >
+                <source src="/media/cloud-motion.mp4" type="video/mp4" />
+              </video>
               <img
                 class="device-screen device-screen--switchable"
                 data-screen-panel="voice"
-                data-active="true"
+                data-active="false"
                 src={`${shotBase}/voice.webp`}
                 alt={copy.cloud.voiceAlt}
                 width="600"
@@ -237,8 +272,16 @@ const shotBase = `/screenshots/${copy.locale}`;
             <button
               type="button"
               class="screen-tab"
-              data-screen-tab="voice"
+              data-screen-tab="motion"
               aria-pressed="true"
+            >
+              {copy.cloud.motionTab}
+            </button>
+            <button
+              type="button"
+              class="screen-tab"
+              data-screen-tab="voice"
+              aria-pressed="false"
             >
               {copy.cloud.voiceTab}
             </button>

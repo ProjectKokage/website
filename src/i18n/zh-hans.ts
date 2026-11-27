@@ -36,8 +36,10 @@ export const zhHans = {
     switcherLabel: "应用界面切换",
     photoTab: "照片对话",
     personalityTab: "人物设定",
+    charactersTab: "自定义 VRM",
     photoAlt: "Kokage 对话中分享照片的 iPhone 截图",
     personalityAlt: "Kokage 调整角色性格与说话风格的 iPhone 截图",
+    charactersAlt: "Kokage 使用自定义 3D VRM 虚拟形象聊天的 iPhone 截图",
     items: [
       {
         title: "语音、文字与照片",
@@ -57,8 +59,10 @@ export const zhHans = {
     title: "Kokage Cloud",
     lede: "按需使用言の葉，礼包永不过期。",
     switcherLabel: "Kokage Cloud 界面切换",
+    motionTab: "云端动作",
     voiceTab: "云端声音",
     newlookTab: "制作新形象",
+    motionAlt: "Kokage 展示实时云端动作的 iPhone 视频",
     voiceAlt: "Kokage 制作云端声音的 iPhone 截图",
     newlookAlt: "Kokage 通过 Kokage Cloud 制作新 3D 形象的 iPhone 截图",
     items: [

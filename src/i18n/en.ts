@@ -37,9 +37,12 @@ export const en = {
     switcherLabel: "App screens",
     photoTab: "Photo chat",
     personalityTab: "Personality",
+    charactersTab: "Custom VRM",
     photoAlt: "Kokage iPhone screenshot showing photo sharing in chat",
     personalityAlt:
       "Kokage iPhone screenshot showing character personality and style settings",
+    charactersAlt:
+      "Kokage iPhone screenshot showing a custom 3D VRM avatar chatting live",
     items: [
       {
         title: "Voice, text & photos",
@@ -59,8 +62,11 @@ export const en = {
     title: "Kokage Cloud",
     lede: "Optional pay-as-you-go Leaf. Packs never expire.",
     switcherLabel: "Kokage Cloud screens",
+    motionTab: "Cloud Motion",
     voiceTab: "Cloud voices",
     newlookTab: "Create a new look",
+    motionAlt:
+      "Kokage iPhone video showing live Cloud Motion character movement in chat",
     voiceAlt: "Kokage iPhone screenshot of creating a custom Cloud voice",
     newlookAlt:
       "Kokage iPhone screenshot of creating a new 3D VRM look with Kokage Cloud",

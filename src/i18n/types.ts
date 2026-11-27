@@ -98,8 +98,10 @@ export interface SiteCopy {
     switcherLabel: string;
     photoTab: string;
     personalityTab: string;
+    charactersTab: string;
     photoAlt: string;
     personalityAlt: string;
+    charactersAlt: string;
     items: Array<{
       title: string;
       body: string;
@@ -109,8 +111,10 @@ export interface SiteCopy {
     title: string;
     lede: string;
     switcherLabel: string;
+    motionTab: string;
     voiceTab: string;
     newlookTab: string;
+    motionAlt: string;
     voiceAlt: string;
     newlookAlt: string;
     items: Array<{
